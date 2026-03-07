@@ -1424,31 +1424,31 @@ body {
     <h2>Let's Bring Your<br>Vision to Life</h2>
     <p>Fill out the form below and our team will reach out within 24 hours to discuss your project.</p>
     
-    <div class="cta-form">
+    <form class="cta-form" action="https://formspree.io/f/mreybpyl" method="POST">
       <div class="cta-form-row">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" placeholder="Full Name" name="name" required required>
+        <input type="tel" placeholder="Phone Number" name="phone" required required>
       </div>
-      <input type="email" placeholder="Email Address" required>
-      <select>
+      <input type="email" placeholder="Email Address" name="email" required required>
+      <select name="lot_ownership">
         <option value="" disabled selected>Do you own a lot?</option>
         <option value="yes">Yes, I own a lot in Florida</option>
         <option value="looking">I'm still looking for a lot</option>
         <option value="unsure">Not sure yet</option>
       </select>
-      <select>
+      <select name="budget">
         <option value="" disabled selected>Estimated Budget</option>
         <option value="200-400">$200,000 — $400,000</option>
         <option value="400-700">$400,000 — $700,000</option>
         <option value="700-1m">$700,000 — $1,000,000</option>
         <option value="1m+">$1,000,000+</option>
       </select>
-      <textarea placeholder="Tell us about your dream home..."></textarea>
+      <textarea placeholder="Tell us about your dream home..." name="message"></textarea>
       <button type="button" class="btn-primary" onclick="handleSubmit()">
         Get Your Free Consultation
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
-    </div>
+    </form>
   </div>
 </section>
 
