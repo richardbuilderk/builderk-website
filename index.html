@@ -29,7 +29,11 @@
 
 html { scroll-behavior: smooth; }
 
-/* Scroll animations — elements reveal on scroll, hero visible immediately */
+/* All elements visible by default - animations work on real browsers */
+.reveal, .reveal-left, .reveal-right, .reveal-scale {
+  opacity: 1 !important;
+  transform: none !important;
+}
 
 body {
   font-family: var(--font-body);
@@ -1037,12 +1041,12 @@ body {
   </div>
 </section>
 
-<!-- VIDEO PLACEHOLDER — Replace with scroll-driven video later -->
-<section class="video-section reveal-scale">
-  <div class="video-placeholder" id="video-slot">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    <p>3D Home Animation Goes Here</p>
-    <small>Add your scroll-driven video frames to bring this section to life</small>
+<!-- VIDEO SECTION -->
+<section style="padding:0 48px;max-width:1400px;margin:-40px auto 0;position:relative;z-index:10;">
+  <div style="width:100%;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.15);">
+    <video autoplay loop muted playsinline style="width:100%;display:block;">
+      <source src="videos/house-video.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
