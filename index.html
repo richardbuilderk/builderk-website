@@ -1004,48 +1004,69 @@ body {
 /* ===== MOBILE FIXES ===== */
 @media (max-width: 900px) {
   /* Hero */
-  .hero { min-height: 100vh; background-position: center center !important; }
-  .hero h1 { font-size: 2.2rem !important; }
-  .hero-subtitle { font-size: 1rem !important; }
-  .hero-stats { gap: 20px !important; flex-wrap: wrap; }
-  .hero-stat-number { font-size: 1.4rem !important; }
-  .hero-badge { font-size: 0.65rem !important; padding: 6px 12px !important; }
+  .hero { min-height: 100vh; background-position: center bottom !important; background-size: cover !important; }
+  .hero h1 { font-size: 2rem !important; }
+  .hero-subtitle { font-size: 0.95rem !important; }
+  .hero-stats { gap: 24px !important; display: flex !important; flex-wrap: nowrap !important; }
+  .hero-stat-number { font-size: 1.3rem !important; }
+  .hero-stat-label { font-size: 0.65rem !important; }
+  .hero-stat::after { height: 30px !important; right: -12px !important; }
+  .hero-badge { font-size: 0.6rem !important; padding: 6px 12px !important; }
+  .hero-actions { gap: 12px !important; }
+  .btn-primary { padding: 14px 28px !important; font-size: 0.9rem !important; }
   
-  /* Video section */
-  .video-section-mobile { padding: 60px 20px 30px !important; }
+  /* Video section - reduce spacing */
+  .video-section-mobile { padding: 40px 20px 20px !important; }
   
-  /* Process - 4 cards: stack to 1 column */
-  .process-cards-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  /* Reduce transition gap */
+  .dark-to-light { height: 40px !important; }
   
-  /* Services - 5 cards: stack to 1 column */
-  .services-grid-top { grid-template-columns: 1fr !important; gap: 16px !important; }
-  .services-grid-bottom { grid-template-columns: 1fr !important; max-width: 100% !important; gap: 16px !important; }
+  /* Process section - reduce top padding */
+  .process-cards-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
   
-  /* Styles - 2x2 stays but smaller aspect ratio */
-  .styles-grid-mobile { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
-  .styles-grid-mobile > div { aspect-ratio: 3/4 !important; }
+  /* Services - stack to 1 column */
+  .services-grid-top { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .services-grid-bottom { grid-template-columns: 1fr !important; max-width: 100% !important; gap: 14px !important; }
   
-  /* Floor plans - stack to 1 column */
-  .plans-grid-mobile { grid-template-columns: 1fr !important; gap: 20px !important; }
+  /* Styles - 2x2 with cleaner text */
+  .styles-grid-mobile { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .styles-grid-mobile > div { aspect-ratio: 3/4 !important; border-radius: 14px !important; }
+  .styles-grid-mobile > div > div:last-child { padding: 16px !important; }
+  .styles-grid-mobile > div > div:last-child > div:first-child { font-size: 1.1rem !important; margin-bottom: 0 !important; }
+  .styles-grid-mobile > div > div:last-child > div:last-child { display: none !important; }
   
-  /* Testimonials - stack to 1 column */
-  .testimonials-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  /* Floor plans - stack */
+  .plans-grid-mobile { grid-template-columns: 1fr !important; gap: 16px !important; }
   
-  /* Financing - stack to 1 column */
-  .financing-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-  .financing-stats { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  /* Testimonials - stack */
+  .testimonials-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  
+  /* Financing - stack */
+  .financing-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .financing-stats { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
   
   /* CTA form */
   .cta-form-row { flex-direction: column !important; }
-  .cta-inner { padding: 48px 24px !important; border-radius: 20px !important; }
+  .cta-inner { padding: 40px 20px !important; border-radius: 18px !important; }
   
   /* Footer */
   .footer-top { flex-direction: column !important; }
   .footer-bottom { flex-direction: column !important; gap: 8px !important; }
   
-  /* General mobile padding */
+  /* General mobile */
   .section-pad, section { padding-left: 20px !important; padding-right: 20px !important; }
-  .section-heading { font-size: 1.8rem !important; }
+  .section-heading { font-size: 1.7rem !important; }
+  
+  /* Reduce all section spacing */
+  section { padding-top: 60px !important; padding-bottom: 60px !important; }
+  
+  /* Floating cards hidden on mobile */
+  .floating-card { display: none !important; }
+  
+  /* Nav */
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex !important; }
+  .navbar { padding: 14px 20px !important; }
 }
 </style>
 </head>
@@ -1105,7 +1126,7 @@ body {
 </section>
 
 <!-- TRANSITION -->
-<div style="height:80px;background:linear-gradient(var(--dark), var(--light-bg));"></div>
+<div class="dark-to-light" style="height:80px;background:linear-gradient(var(--dark), var(--light-bg));"></div>
 
 <!-- PROCESS -->
 <section style="padding: 120px 48px; background: var(--light-bg);" id="process">
