@@ -15,11 +15,11 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Building Cost Calculator â€” BuilderK Florida</title>
+<title>Home Building Cost Calculator &mdash; BuilderK Florida</title>
 <meta name="description" content="Estimate the cost to build your custom home in Florida. Interactive calculator with real pricing from $150-$220+/sqft. Get an instant estimate from BuilderK.">
 <meta name="keywords" content="home building cost calculator florida, how much to build a house florida, construction cost estimator, custom home pricing florida, cost per square foot florida">
 <link rel="canonical" href="https://builderk.com/calculator.html">
-<meta property="og:title" content="Home Building Cost Calculator â€” BuilderK Florida">
+<meta property="og:title" content="Home Building Cost Calculator &mdash; BuilderK Florida">
 <meta property="og:description" content="How much does it cost to build a custom home in Florida? Use our free calculator to get an instant estimate.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://builderk.com/calculator.html">
@@ -148,7 +148,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .tier-section-label:first-child{margin-top:0}
 .tier-features{list-style:none;display:flex;flex-direction:column;gap:8px}
 .tier-features li{font-size:0.84rem;color:#aaa;padding-left:20px;position:relative;line-height:1.4}
-.tier-features li::before{content:'âœ“';position:absolute;left:0;color:var(--orange);font-weight:700;font-size:0.8rem}
+.tier-features li::before{content:'&#x2713;';position:absolute;left:0;color:var(--orange);font-weight:700;font-size:0.8rem}
 .included-section{padding:60px 48px;max-width:1100px;margin:0 auto}
 .included-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 .included-item{padding:14px 18px;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:10px;font-size:0.85rem;color:#aaa}
@@ -215,14 +215,14 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <section class="calc-hero">
   <div class="calc-badge reveal">Free Instant Estimate</div>
   <h1 class="reveal stagger-1">How Much Does It Cost to<br><span>Build a Home in Florida?</span></h1>
-  <p class="reveal stagger-2">Use our calculator to get a real estimate based on your home size, build level, and features. No surprises â€” just transparent pricing.</p>
+  <p class="reveal stagger-2">Use our calculator to get a real estimate based on your home size, build level, and features. No surprises &mdash; just transparent pricing.</p>
 </section>
 
 <div class="calc-container">
   <div class="calc-controls">
 
     <div class="calc-group reveal">
-      <div class="calc-group-label"><div class="icon">ðŸ“</div> Home Size</div>
+      <div class="calc-group-label"><div class="icon">&#x1F4D0;</div> Home Size</div>
       <p class="calc-group-sub">Total living area in square feet</p>
       <div class="slider-value">
         <span class="num" id="sqft-display">2,000</span>
@@ -233,21 +233,21 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     </div>
 
     <div class="calc-group reveal stagger-1">
-      <div class="calc-group-label"><div class="icon">ðŸ </div> Build Level</div>
-      <p class="calc-group-sub">Defines your structural systems, roof, and exterior â€” interiors are fully customizable at every level</p>
+      <div class="calc-group-label"><div class="icon">&#x1F3E0;</div> Build Level</div>
+      <p class="calc-group-sub">Defines your structural systems, roof, and exterior &mdash; interiors are fully customizable at every level</p>
       <div class="finish-options">
         <div class="finish-card active" data-finish="standard" onclick="setFinish('standard')">
-          <div class="emoji">ðŸ”¨</div>
+          <div class="emoji">&#x1F528;</div>
           <div class="label">Standard</div>
-          <div class="price">$150â€“$180/sqft</div>
+          <div class="price">$150&ndash;$180/sqft</div>
         </div>
         <div class="finish-card" data-finish="midrange" onclick="setFinish('midrange')">
-          <div class="emoji">â­</div>
+          <div class="emoji">&#x2B50;</div>
           <div class="label">Mid-Range</div>
-          <div class="price">$180â€“$220/sqft</div>
+          <div class="price">$180&ndash;$220/sqft</div>
         </div>
         <div class="finish-card" data-finish="luxury" onclick="setFinish('luxury')">
-          <div class="emoji">ðŸ’Ž</div>
+          <div class="emoji">&#x1F48E;</div>
           <div class="label">Luxury</div>
           <div class="price">$220+/sqft</div>
         </div>
@@ -255,7 +255,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     </div>
 
     <div class="calc-group reveal stagger-2">
-      <div class="calc-group-label"><div class="icon">ðŸ›ï¸</div> Bedrooms & Bathrooms</div>
+      <div class="calc-group-label"><div class="icon">&#x1F6CF;</div> Bedrooms & Bathrooms</div>
       <p class="calc-group-sub">Helps estimate complexity and plumbing</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div>
@@ -276,30 +276,30 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     </div>
 
     <div class="calc-group reveal stagger-3">
-      <div class="calc-group-label"><div class="icon">ðŸš—</div> Garage</div>
+      <div class="calc-group-label"><div class="icon">&#x1F697;</div> Garage</div>
       <p class="calc-group-sub">Adds to total build cost</p>
       <div class="finish-options">
-        <div class="finish-card" data-garage="0" onclick="setGarage(0)"><div class="label">None</div><div class="price">â€”</div></div>
+        <div class="finish-card" data-garage="0" onclick="setGarage(0)"><div class="label">None</div><div class="price">&mdash;</div></div>
         <div class="finish-card active" data-garage="2" onclick="setGarage(2)"><div class="label">2-Car</div><div class="price">~440 sq ft</div></div>
         <div class="finish-card" data-garage="3" onclick="setGarage(3)"><div class="label">3-Car</div><div class="price">~640 sq ft</div></div>
       </div>
     </div>
 
     <div class="calc-group reveal">
-      <div class="calc-group-label"><div class="icon">âœ¨</div> Additional Features</div>
+      <div class="calc-group-label"><div class="icon">&#x2728;</div> Additional Features</div>
       <p class="calc-group-sub">Common add-ons (Florida 2026 pricing)</p>
       <div class="extras-grid">
         <div class="extra-item" data-extra="pool" onclick="toggleExtra(this)">
-          <div class="extra-check">âœ“</div>
-          <div class="extra-info"><div class="extra-name">ðŸŠ Pool</div><div class="extra-cost">+$55,000 â€“ $95,000</div></div>
+          <div class="extra-check">&#x2713;</div>
+          <div class="extra-info"><div class="extra-name">&#x1F3CA; Pool</div><div class="extra-cost">+$55,000 &ndash; $95,000</div></div>
         </div>
         <div class="extra-item" data-extra="pavers" onclick="toggleExtra(this)">
-          <div class="extra-check">âœ“</div>
-          <div class="extra-info"><div class="extra-name">ðŸ§± Paver Driveway / Patio</div><div class="extra-cost">+$8,000 â€“ $22,000</div></div>
+          <div class="extra-check">&#x2713;</div>
+          <div class="extra-info"><div class="extra-name">&#x1F9F1; Paver Driveway / Patio</div><div class="extra-cost">+$8,000 &ndash; $22,000</div></div>
         </div>
         <div class="extra-item" data-extra="metalRoof" onclick="toggleExtra(this)">
-          <div class="extra-check">âœ“</div>
-          <div class="extra-info"><div class="extra-name">ðŸ—ï¸ Metal Roof Upgrade</div><div class="extra-cost">+$14,000 â€“ $32,000</div></div>
+          <div class="extra-check">&#x2713;</div>
+          <div class="extra-info"><div class="extra-name">&#x1F3D7; Metal Roof Upgrade</div><div class="extra-cost">+$14,000 &ndash; $32,000</div></div>
         </div>
       </div>
     </div>
@@ -309,22 +309,22 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     <div class="result-card">
       <div class="result-label">Estimated Build Cost</div>
       <div class="result-price" id="result-total">$400,000</div>
-      <div class="result-range" id="result-range">$360,000 â€“ $440,000</div>
+      <div class="result-range" id="result-range">$360,000 &ndash; $440,000</div>
       <div class="result-breakdown">
         <h4>Cost Breakdown</h4>
         <div class="breakdown-row"><span class="label" id="bd-base-label">Home Construction (2,000 sqft)</span><span class="value" id="bd-base">$400,000</span></div>
         <div class="breakdown-row"><span class="label">Additional Features</span><span class="value" id="bd-extras">$0</span></div>
         <div class="breakdown-row total"><span class="label">Total Estimate</span><span class="value" id="bd-total">$418,000</span></div>
       </div>
-      <a href="index.html#contact" class="result-cta">Get Your Free Detailed Quote â†’</a>
+      <a href="index.html#contact" class="result-cta">Get Your Free Detailed Quote &rarr;</a>
       <p class="result-note">*Estimates are approximate and may vary based on lot conditions, permits, engineering, and final material selections. Contact us for a detailed proposal.</p>
       <div class="equity-box">
-        <h4>ðŸ’° Instant Equity Potential</h4>
-        <p>Homes built at this cost typically appraise 20â€“30% above build cost. Your estimated equity on day one:</p>
-        <div class="equity-amount" id="equity-amount">$83,600 â€“ $125,400</div>
+        <h4>&#x1F4B0; Instant Equity Potential</h4>
+        <p>Homes built at this cost typically appraise 20&ndash;30% above build cost. Your estimated equity on day one:</p>
+        <div class="equity-amount" id="equity-amount">$83,600 &ndash; $125,400</div>
       </div>
       <div class="mortgage-box">
-        <h4>ðŸ“‹ Estimated Monthly Payment</h4>
+        <h4>&#x1F4CB; Estimated Monthly Payment</h4>
         <div class="mortgage-lot-q">
           <span class="mortgage-down-label">Do you own a lot?</span>
           <div class="down-options">
@@ -349,7 +349,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         </div>
         <div class="mortgage-amount" id="mortgage-amount">$2,182/mo</div>
         <p class="mortgage-note">30-yr fixed at ~6.11% Â· Principal & interest only</p>
-        <p class="mortgage-construction-note">During construction (6â€“12 months), you only pay interest on funds disbursed â€” typically a lower monthly payment until your home is complete.</p>
+        <p class="mortgage-construction-note">During construction (6&ndash;12 months), you only pay interest on funds disbursed &mdash; typically a lower monthly payment until your home is complete.</p>
         <p class="mortgage-disclaimer">*Estimate for illustrative purposes only. Does not include property taxes, homeowners insurance, or HOA fees. Contact a lender for exact rates and qualification.</p>
       </div>
     </div>
@@ -358,10 +358,10 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 
 <div class="custom-banner reveal">
   <div class="custom-banner-inner">
-    <div class="custom-banner-icon">ðŸŽ¨</div>
+    <div class="custom-banner-icon">&#x1F3A8;</div>
     <div class="custom-banner-text">
       <h3>Every BuilderK Home Comes With Fully Customizable Interiors</h3>
-      <p>At every price level, you select your cabinets, countertops, flooring, fixtures, appliances, paint, and layout. Our design team guides you through every choice â€” your home, your style, your selections.</p>
+      <p>At every price level, you select your cabinets, countertops, flooring, fixtures, appliances, paint, and layout. Our design team guides you through every choice &mdash; your home, your style, your selections.</p>
     </div>
   </div>
 </div>
@@ -374,7 +374,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     <div class="price-tier reveal stagger-1">
       <div class="tier-header">
         <div class="tier-name">Standard</div>
-        <div class="tier-price">$150â€“$180</div>
+        <div class="tier-price">$150&ndash;$180</div>
         <div class="tier-unit">per sq ft</div>
       </div>
       <div class="tier-section-label">Structure & Roof</div>
@@ -404,7 +404,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     <div class="price-tier popular reveal stagger-2">
       <div class="tier-header">
         <div class="tier-name">Mid-Range</div>
-        <div class="tier-price">$180â€“$220</div>
+        <div class="tier-price">$180&ndash;$220</div>
         <div class="tier-unit">per sq ft</div>
       </div>
       <div class="tier-section-label">Structure & Roof</div>
@@ -415,7 +415,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
       </ul>
       <div class="tier-section-label">Windows & Exterior</div>
       <ul class="tier-features">
-        <li>Impact windows (30â€“50% insurance savings)</li>
+        <li>Impact windows (30&ndash;50% insurance savings)</li>
         <li>Black or bronze window frames</li>
         <li>Modern stucco with clean lines & accent details</li>
         <li>Stone veneer or wood accents available</li>
@@ -446,7 +446,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
       </ul>
       <div class="tier-section-label">Windows & Exterior</div>
       <ul class="tier-features">
-        <li>Full impact glass â€” floor-to-ceiling + low-E</li>
+        <li>Full impact glass &mdash; floor-to-ceiling + low-E</li>
         <li>Custom window sizes & configurations</li>
         <li>Stone veneer, wood accents & architectural details</li>
         <li>Paver driveway with decorative borders</li>
@@ -467,14 +467,14 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <section class="included-section">
   <h3 class="reveal" style="text-align:center;font-size:1.4rem;font-weight:700;margin-bottom:24px;color:#fff;">Included in <span style="color:var(--orange);">Every Build</span></h3>
   <div class="included-grid reveal stagger-1">
-    <div class="included-item">âœ“ &nbsp;Permitting & engineering</div>
-    <div class="included-item">âœ“ &nbsp;Full construction management</div>
-    <div class="included-item">âœ“ &nbsp;Site prep & foundation</div>
-    <div class="included-item">âœ“ &nbsp;All inspections</div>
-    <div class="included-item">âœ“ &nbsp;Final walkthrough</div>
-    <div class="included-item">âœ“ &nbsp;1-year builder warranty</div>
-    <div class="included-item">âœ“ &nbsp;Licensed GC (CGC #1537163)</div>
-    <div class="included-item">âœ“ &nbsp;Design team guidance</div>
+    <div class="included-item">&#x2713; &nbsp;Permitting & engineering</div>
+    <div class="included-item">&#x2713; &nbsp;Full construction management</div>
+    <div class="included-item">&#x2713; &nbsp;Site prep & foundation</div>
+    <div class="included-item">&#x2713; &nbsp;All inspections</div>
+    <div class="included-item">&#x2713; &nbsp;Final walkthrough</div>
+    <div class="included-item">&#x2713; &nbsp;1-year builder warranty</div>
+    <div class="included-item">&#x2713; &nbsp;Licensed GC (CGC #1537163)</div>
+    <div class="included-item">&#x2713; &nbsp;Design team guidance</div>
   </div>
   <p class="reveal stagger-2" style="text-align:center;font-size:0.8rem;color:#555;margin-top:20px;">Not included: Land/lot cost, well/septic (if not on city utilities), site clearing beyond basic, pool, fencing, window treatments.</p>
 </section>
@@ -490,7 +490,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
-        <p>Custom home builders in Florida. You bring the lot â€” we build your dream home from the ground up.</p>
+        <p>Custom home builders in Florida. You bring the lot &mdash; we build your dream home from the ground up.</p>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -544,13 +544,13 @@ function updateCalc(){
   }
   var totalLow=baseLow+garage+extrasLow;var totalHigh=baseHigh+garage+extrasHigh;var totalMid=baseMid+garage+extrasMid;
   document.getElementById('result-total').textContent=fmt(totalMid);
-  document.getElementById('result-range').textContent=fmt(totalLow)+' â€“ '+fmt(totalHigh);
+  document.getElementById('result-range').textContent=fmt(totalLow)+' &ndash; '+fmt(totalHigh);
   document.getElementById('bd-base-label').textContent='Home Construction ('+state.sqft.toLocaleString('en-US')+' sqft)';
   document.getElementById('bd-base').textContent=fmt(baseMid+garage);
   document.getElementById('bd-extras').textContent=fmt(extrasMid);
   document.getElementById('bd-total').textContent=fmt(totalMid);
   var equityLow=totalMid*0.20;var equityHigh=totalMid*0.30;
-  document.getElementById('equity-amount').textContent=fmt(equityLow)+' â€“ '+fmt(equityHigh);
+  document.getElementById('equity-amount').textContent=fmt(equityLow)+' &ndash; '+fmt(equityHigh);
   var downAmt=0;
   if(state.ownsLot){
     var lotInput=document.getElementById('lot-value-input').value.replace(/[^0-9]/g,'');
