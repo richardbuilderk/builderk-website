@@ -46,17 +46,24 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
 .nav-cta:hover{background:var(--orange-hover)!important}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1000;position:relative}
 .nav-hamburger span{width:26px;height:2px;background:#fff;border-radius:2px;transition:transform 0.3s,opacity 0.3s}
-.calc-hero{padding:140px 48px 60px;text-align:center;background:linear-gradient(180deg,var(--dark) 0%,#0F0F0F 100%);position:relative}
+
+/* HERO with house background */
+.calc-hero{padding:140px 48px 60px;text-align:center;position:relative;background:linear-gradient(180deg, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.85) 100%), url(images/hero-house.png) center/cover no-repeat}
 .calc-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(247,127,0,0.3),transparent)}
 .calc-badge{display:inline-block;padding:6px 16px;border:1px solid var(--orange);border-radius:50px;color:var(--orange);font-size:0.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
 .calc-hero h1{font-size:3.2rem;font-weight:800;line-height:1.1;margin-bottom:16px}
 .calc-hero h1 span{color:var(--orange)}
-.calc-hero p{font-size:1.15rem;color:#888;max-width:580px;margin:0 auto;line-height:1.6}
-.calc-container{max-width:1200px;margin:0 auto;padding:60px 48px 80px;display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:start}
-.calc-controls{display:flex;flex-direction:column;gap:36px}
+.calc-hero p{font-size:1.15rem;color:#aaa;max-width:580px;margin:0 auto;line-height:1.6}
+
+/* CALCULATOR with blueprint grid */
+.calc-container{max-width:1200px;margin:0 auto;padding:60px 48px 80px;display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:start;position:relative;background-image:linear-gradient(rgba(247,127,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(247,127,0,0.03) 1px, transparent 1px);background-size:40px 40px}
+/* Orange glow */
+.calc-container::before{content:'';position:absolute;top:-100px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(247,127,0,0.06) 0%,transparent 70%);pointer-events:none;z-index:0}
+
+.calc-controls{display:flex;flex-direction:column;gap:36px;position:relative;z-index:1}
 .calc-group{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:16px;padding:28px 32px}
 .calc-group-label{display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:6px}
-.calc-group-label .icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--orange-glow);border-radius:8px;color:var(--orange);font-size:0.85rem;font-weight:700}
+.calc-group-label .icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--orange-glow);border-radius:8px;color:var(--orange);font-size:1.1rem}
 .calc-group-sub{font-size:0.85rem;color:#666;margin-bottom:20px}
 .slider-value{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
 .slider-value .num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;color:var(--orange)}
@@ -69,7 +76,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .finish-card{padding:16px 12px;border:2px solid var(--dark-border);border-radius:12px;text-align:center;cursor:pointer;transition:all 0.25s;background:transparent}
 .finish-card:hover{border-color:#333}
 .finish-card.active{border-color:var(--orange);background:var(--orange-glow)}
-.finish-card .tier-icon{font-size:1.3rem;margin-bottom:6px;color:#888}
+.finish-card .tier-icon{font-size:1.5rem;margin-bottom:6px;color:#888}
 .finish-card.active .tier-icon{color:var(--orange)}
 .finish-card .label{font-family:'Outfit',sans-serif;font-weight:600;font-size:0.9rem;color:#fff;margin-bottom:2px}
 .finish-card .price{font-size:0.75rem;color:#666}
@@ -83,7 +90,9 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .extra-info .extra-name{font-size:0.92rem;font-weight:500;color:#ddd}
 .extra-info .extra-cost{font-size:0.78rem;color:#555}
 .extra-item.active .extra-info .extra-cost{color:var(--orange)}
-.calc-result{position:sticky;top:100px}
+
+/* RESULT PANEL */
+.calc-result{position:sticky;top:100px;z-index:1}
 .result-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:20px;padding:36px 32px;text-align:center}
 .result-label{font-size:0.85rem;color:#666;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:8px}
 .result-price{font-family:'Outfit',sans-serif;font-size:3.2rem;font-weight:800;color:var(--orange);line-height:1;margin-bottom:4px}
@@ -108,9 +117,9 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .mortgage-down-label{font-size:0.82rem;color:#888}
 .mortgage-lot-q{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .down-options{display:flex;gap:6px}
-.down-btn{padding:5px 14px;border:1px solid var(--dark-border);border-radius:6px;background:transparent;color:#888;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s}
-.down-btn:hover{border-color:#555;color:#ccc}
-.down-btn.active{border-color:var(--orange);background:var(--orange-glow);color:var(--orange)}
+.down-btn,.down-pct-btn{padding:5px 14px;border:1px solid var(--dark-border);border-radius:6px;background:transparent;color:#888;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.down-btn:hover,.down-pct-btn:hover{border-color:#555;color:#ccc}
+.down-btn.active,.down-pct-btn.active{border-color:var(--orange);background:var(--orange-glow);color:var(--orange)}
 .lot-value-section{margin-bottom:14px}
 .lot-value-section label{display:block;margin-bottom:6px}
 .lot-input-wrap{display:flex;align-items:center;background:var(--dark);border:1px solid var(--dark-border);border-radius:8px;overflow:hidden;transition:border-color 0.2s}
@@ -119,28 +128,37 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .lot-input{background:transparent;border:none;outline:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.95rem;padding:10px 12px;width:100%}
 .lot-input::placeholder{color:#444}
 .lot-hint{font-size:0.73rem;color:var(--green);margin-top:5px}
-.down-pct-btn{padding:5px 14px;border:1px solid var(--dark-border);border-radius:6px;background:transparent;color:#888;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.2s}
-.down-pct-btn:hover{border-color:#555;color:#ccc}
-.down-pct-btn.active{border-color:var(--orange);background:var(--orange-glow);color:var(--orange)}
 .mortgage-amount{font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:800;color:var(--orange);margin-bottom:4px}
 .mortgage-note{font-size:0.75rem;color:#666;line-height:1.4}
 .mortgage-construction-note{font-size:0.75rem;color:#888;line-height:1.4;margin-top:8px;padding:10px 12px;background:rgba(255,255,255,0.03);border-radius:6px}
 .mortgage-disclaimer{font-size:0.7rem;color:#555;line-height:1.4;margin-top:8px;padding-top:8px;border-top:1px solid var(--dark-border)}
+
+/* VISUAL BANNER */
+.visual-banner{max-width:1200px;margin:0 auto;padding:0 48px 60px}
+.visual-banner-inner{background:linear-gradient(135deg, rgba(10,10,10,0.75), rgba(10,10,10,0.85)), url(images/style-modern.png) center/cover no-repeat;border-radius:20px;padding:60px 48px;text-align:center;border:1px solid rgba(247,127,0,0.15)}
+.visual-banner-inner h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:12px}
+.visual-banner-inner h2 span{color:var(--orange)}
+.visual-banner-inner p{color:#888;font-size:1rem;max-width:500px;margin:0 auto;line-height:1.6}
+
+/* CUSTOM INTERIORS BANNER */
 .custom-banner{max-width:1200px;margin:0 auto;padding:0 48px 60px}
 .custom-banner-inner{background:linear-gradient(135deg,rgba(247,127,0,0.08),rgba(247,127,0,0.03));border:1px solid rgba(247,127,0,0.2);border-radius:16px;padding:32px 40px;display:flex;align-items:center;gap:24px}
 .custom-banner-icon{font-size:1.8rem;flex-shrink:0;width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--orange-glow);border-radius:12px;color:var(--orange);font-weight:700}
 .custom-banner-text h3{font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:6px}
 .custom-banner-text p{font-size:0.9rem;color:#999;line-height:1.6}
-.pricing-section{padding:80px 48px;background:#080808;border-top:1px solid var(--dark-border)}
-.pricing-section h2{font-size:2.2rem;font-weight:700;text-align:center;margin-bottom:12px}
+
+/* PRICING TABLE */
+.pricing-section{padding:80px 48px;position:relative;overflow:hidden;background:linear-gradient(180deg, #0A0A0A 0%, #0F0F0F 30%, #0F0F0F 70%, #0A0A0A 100%)}
+.pricing-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(247,127,0,0.04) 0%,transparent 70%);pointer-events:none;z-index:0}
+.pricing-section h2{font-size:2.2rem;font-weight:700;text-align:center;margin-bottom:12px;position:relative;z-index:1}
 .pricing-section h2 span{color:var(--orange)}
-.pricing-section>p{text-align:center;color:#666;font-size:1rem;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
-.price-tier{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:16px;padding:32px 28px;transition:all 0.3s}
-.price-tier:hover{border-color:#333;transform:translateY(-4px)}
-.price-tier.popular{border-color:var(--orange);position:relative}
+.pricing-section>p{text-align:center;color:#666;font-size:1rem;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.price-tier{background:linear-gradient(180deg, #222222 0%, #1A1A1A 100%);border:1px solid #333;border-radius:16px;padding:32px 28px;transition:all 0.3s}
+.price-tier:hover{border-color:#444;transform:translateY(-4px)}
+.price-tier.popular{background:linear-gradient(180deg, #2A1E10 0%, #1E1610 100%);border-color:var(--orange);position:relative}
 .price-tier.popular::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:0.65rem;font-weight:700;letter-spacing:1.5px;padding:4px 14px;border-radius:50px}
-.tier-header{text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--dark-border)}
+.tier-header{text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.08)}
 .tier-name{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:4px}
 .tier-price{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;color:var(--orange);margin-bottom:2px}
 .tier-unit{font-size:0.8rem;color:#555}
@@ -149,16 +167,23 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .tier-features{list-style:none;display:flex;flex-direction:column;gap:8px}
 .tier-features li{font-size:0.84rem;color:#aaa;padding-left:20px;position:relative;line-height:1.4}
 .tier-features li::before{content:'';position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;background:var(--orange)}
-.included-section{padding:60px 48px;max-width:1100px;margin:0 auto}
+
+/* INCLUDED SECTION */
+.included-section{padding:60px 48px;max-width:1100px;margin:0 auto;background:linear-gradient(180deg, transparent, rgba(247,127,0,0.02), transparent)}
 .included-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 .included-item{padding:14px 18px;background:var(--dark-card);border:1px solid var(--dark-border);border-radius:10px;font-size:0.85rem;color:#aaa;padding-left:30px;position:relative}
 .included-item::before{content:'';position:absolute;left:12px;top:18px;width:8px;height:8px;border-radius:50%;background:var(--orange)}
-.cta-section{padding:100px 48px;background:var(--dark);text-align:center;border-top:1px solid var(--dark-border)}
+
+/* CTA */
+.cta-section{padding:100px 48px;background:var(--dark);text-align:center;position:relative}
+.cta-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:2px;background:linear-gradient(90deg,transparent,#F77F00,transparent)}
 .cta-section h2{font-size:2.8rem;font-weight:800;color:#fff;margin-bottom:16px}
 .cta-section h2 span{color:var(--orange)}
 .cta-section p{font-size:1.15rem;color:#aaa;max-width:550px;margin:0 auto 32px;line-height:1.6}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;background:var(--orange);color:#fff;text-decoration:none;border-radius:12px;font-weight:600;font-size:1.05rem;transition:background 0.2s,transform 0.2s}
 .btn-primary:hover{background:var(--orange-hover);transform:translateY(-2px)}
+
+/* FOOTER */
 .footer{background:var(--dark);padding:60px 48px 30px;border-top:1px solid rgba(255,255,255,0.06)}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:flex;justify-content:space-between;gap:48px;margin-bottom:40px}
@@ -169,9 +194,13 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .footer-col a{color:#888;text-decoration:none;font-size:0.88rem;transition:color 0.2s}
 .footer-col a:hover{color:var(--orange)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);color:#555;font-size:0.82rem}
+
+/* ANIMATIONS */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .stagger-1{transition-delay:0.1s}.stagger-2{transition-delay:0.2s}.stagger-3{transition-delay:0.3s}
+
+/* MOBILE */
 @media(max-width:900px){
   .navbar{padding:14px 20px!important}.nav-links{display:none}.nav-hamburger{display:flex!important}
   .calc-hero{padding:120px 24px 48px}.calc-hero h1{font-size:2.2rem}.calc-hero p{font-size:1rem}
@@ -179,8 +208,9 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   .calc-result{position:static}.result-price{font-size:2.6rem}
   .calc-group{padding:24px 20px}
   .finish-options{grid-template-columns:repeat(3,1fr);gap:8px}
-  .finish-card{padding:10px 6px}.finish-card .tier-icon{font-size:1rem}.finish-card .label{font-size:0.72rem}.finish-card .price{font-size:0.6rem}
+  .finish-card{padding:10px 6px}.finish-card .tier-icon{font-size:1.1rem}.finish-card .label{font-size:0.72rem}.finish-card .price{font-size:0.6rem}
   .pricing-section{padding:60px 20px}.pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+  .visual-banner{padding:0 20px 40px}.visual-banner-inner{padding:40px 24px}.visual-banner-inner h2{font-size:1.5rem}
   .custom-banner{padding:0 20px 40px}.custom-banner-inner{flex-direction:column;text-align:center;padding:24px 20px}
   .included-section{padding:40px 20px}
   .cta-section{padding:60px 24px}.cta-section h2{font-size:2rem}
@@ -223,7 +253,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   <div class="calc-controls">
 
     <div class="calc-group reveal">
-      <div class="calc-group-label"><div class="icon">SQ</div> Home Size</div>
+      <div class="calc-group-label"><div class="icon" data-emoji="sqft">SQ</div> Home Size</div>
       <p class="calc-group-sub">Total living area in square feet</p>
       <div class="slider-value">
         <span class="num" id="sqft-display">2,000</span>
@@ -234,21 +264,21 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     </div>
 
     <div class="calc-group reveal stagger-1">
-      <div class="calc-group-label"><div class="icon">BL</div> Build Level</div>
+      <div class="calc-group-label"><div class="icon" data-emoji="build">BL</div> Build Level</div>
       <p class="calc-group-sub">Defines your structural systems, roof, and exterior - interiors are fully customizable at every level</p>
       <div class="finish-options">
         <div class="finish-card active" data-finish="standard" onclick="setFinish('standard')">
-          <div class="tier-icon">I</div>
+          <div class="tier-icon" data-emoji="standard">I</div>
           <div class="label">Standard</div>
           <div class="price">$150-$180/sqft</div>
         </div>
         <div class="finish-card" data-finish="midrange" onclick="setFinish('midrange')">
-          <div class="tier-icon">II</div>
+          <div class="tier-icon" data-emoji="midrange">II</div>
           <div class="label">Mid-Range</div>
           <div class="price">$180-$220/sqft</div>
         </div>
         <div class="finish-card" data-finish="luxury" onclick="setFinish('luxury')">
-          <div class="tier-icon">III</div>
+          <div class="tier-icon" data-emoji="luxury">III</div>
           <div class="label">Luxury</div>
           <div class="price">$220+/sqft</div>
         </div>
@@ -256,7 +286,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     </div>
 
     <div class="calc-group reveal stagger-2">
-      <div class="calc-group-label"><div class="icon">BD</div> Bedrooms &amp; Bathrooms</div>
+      <div class="calc-group-label"><div class="icon" data-emoji="beds">BD</div> Bedrooms &amp; Bathrooms</div>
       <p class="calc-group-sub">Helps estimate complexity and plumbing</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div>
@@ -277,7 +307,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     </div>
 
     <div class="calc-group reveal stagger-3">
-      <div class="calc-group-label"><div class="icon">GA</div> Garage</div>
+      <div class="calc-group-label"><div class="icon" data-emoji="garage">GA</div> Garage</div>
       <p class="calc-group-sub">Adds to total build cost</p>
       <div class="finish-options">
         <div class="finish-card" data-garage="0" onclick="setGarage(0)"><div class="label">None</div><div class="price">-</div></div>
@@ -287,20 +317,20 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     </div>
 
     <div class="calc-group reveal">
-      <div class="calc-group-label"><div class="icon">+</div> Additional Features</div>
+      <div class="calc-group-label"><div class="icon" data-emoji="extras">+</div> Additional Features</div>
       <p class="calc-group-sub">Common add-ons (Florida 2026 pricing)</p>
       <div class="extras-grid">
         <div class="extra-item" data-extra="pool" onclick="toggleExtra(this)">
           <div class="extra-check">+</div>
-          <div class="extra-info"><div class="extra-name">Pool</div><div class="extra-cost">+$55,000 - $95,000</div></div>
+          <div class="extra-info"><div class="extra-name" data-emoji="pool">Pool</div><div class="extra-cost">+$55,000 - $95,000</div></div>
         </div>
         <div class="extra-item" data-extra="pavers" onclick="toggleExtra(this)">
           <div class="extra-check">+</div>
-          <div class="extra-info"><div class="extra-name">Paver Driveway / Patio</div><div class="extra-cost">+$8,000 - $22,000</div></div>
+          <div class="extra-info"><div class="extra-name" data-emoji="pavers">Paver Driveway / Patio</div><div class="extra-cost">+$8,000 - $22,000</div></div>
         </div>
         <div class="extra-item" data-extra="metalRoof" onclick="toggleExtra(this)">
           <div class="extra-check">+</div>
-          <div class="extra-info"><div class="extra-name">Metal Roof Upgrade</div><div class="extra-cost">+$14,000 - $32,000</div></div>
+          <div class="extra-info"><div class="extra-name" data-emoji="roof">Metal Roof Upgrade</div><div class="extra-cost">+$14,000 - $32,000</div></div>
         </div>
       </div>
     </div>
@@ -310,7 +340,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     <div class="result-card">
       <div class="result-label">Estimated Build Cost</div>
       <div class="result-price" id="result-total">$359,800</div>
-      <div class="result-range" id="result-range">$318,000 - $378,000</div>
+      <div class="result-range" id="result-range">$359,800 - $419,800</div>
       <div class="result-breakdown">
         <h4>Cost Breakdown</h4>
         <div class="breakdown-row"><span class="blabel" id="bd-base-label">Home Construction (2,000 sqft)</span><span class="bvalue" id="bd-base">$359,800</span></div>
@@ -320,12 +350,12 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
       <a href="index.html#contact" class="result-cta">Get Your Free Detailed Quote</a>
       <p class="result-note">*Estimates are approximate and may vary based on lot conditions, permits, engineering, and final material selections. Contact us for a detailed proposal.</p>
       <div class="equity-box">
-        <h4>Instant Equity Potential</h4>
+        <h4 data-emoji="equity">Instant Equity Potential</h4>
         <p>Homes built at this cost typically appraise 20-30% above build cost. Your estimated equity on day one:</p>
         <div class="equity-amount" id="equity-amount">$71,960 - $107,940</div>
       </div>
       <div class="mortgage-box">
-        <h4>Estimated Monthly Payment</h4>
+        <h4 data-emoji="mortgage">Estimated Monthly Payment</h4>
         <div class="mortgage-lot-q">
           <span class="mortgage-down-label">Do you own a lot?</span>
           <div class="down-options">
@@ -357,9 +387,18 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   </div>
 </div>
 
+<!-- Visual Banner -->
+<div class="visual-banner reveal">
+  <div class="visual-banner-inner">
+    <h2>Your Dream Home. <span>Your Budget.</span></h2>
+    <p>Every detail customized to your vision. Use the calculator above to see what's possible, then let's make it real.</p>
+  </div>
+</div>
+
+<!-- Custom Interiors Banner -->
 <div class="custom-banner reveal">
   <div class="custom-banner-inner">
-    <div class="custom-banner-icon">D</div>
+    <div class="custom-banner-icon" data-emoji="design">D</div>
     <div class="custom-banner-text">
       <h3>Every BuilderK Home Comes With Fully Customizable Interiors</h3>
       <p>At every price level, you select your cabinets, countertops, flooring, fixtures, appliances, paint, and layout. Our design team guides you through every choice - your home, your style, your selections.</p>
@@ -367,11 +406,11 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   </div>
 </div>
 
+<!-- Pricing Tiers -->
 <section class="pricing-section">
   <h2 class="reveal">What's Included at <span>Each Build Level</span></h2>
   <p class="reveal stagger-1">The build level defines your structural systems, roof, exterior, and ceiling heights. Interior finishes are fully customizable at every level.</p>
   <div class="pricing-grid">
-
     <div class="price-tier reveal stagger-1">
       <div class="tier-header">
         <div class="tier-name">Standard</div>
@@ -401,7 +440,6 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         <li>Custom layout &amp; floor plan</li>
       </ul>
     </div>
-
     <div class="price-tier popular reveal stagger-2">
       <div class="tier-header">
         <div class="tier-name">Mid-Range</div>
@@ -432,7 +470,6 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         <li>Custom layout &amp; floor plan</li>
       </ul>
     </div>
-
     <div class="price-tier reveal stagger-3">
       <div class="tier-header">
         <div class="tier-name">Luxury</div>
@@ -465,6 +502,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   </div>
 </section>
 
+<!-- Included -->
 <section class="included-section">
   <h3 class="reveal" style="text-align:center;font-size:1.4rem;font-weight:700;margin-bottom:24px;color:#fff;">Included in <span style="color:var(--orange);">Every Build</span></h3>
   <div class="included-grid reveal stagger-1">
@@ -480,12 +518,14 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   <p class="reveal stagger-2" style="text-align:center;font-size:0.8rem;color:#555;margin-top:20px;">Not included: Land/lot cost, well/septic (if not on city utilities), site clearing beyond basic, pool, fencing, window treatments.</p>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <h2 class="reveal">Ready to Build? <span>Let's Talk Numbers.</span></h2>
   <p class="reveal stagger-1">Get a detailed, personalized quote based on your lot, your plans, and your vision. No obligation.</p>
   <a href="index.html#contact" class="btn-primary reveal stagger-2">Get a Free Estimate</a>
 </section>
 
+<!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -514,18 +554,33 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 </footer>
 
 <script>
+// ===== EMOJI INJECTION (safe for base64 encoding) =====
+(function(){
+  var emojiMap = {
+    sqft: '\u{1F4D0}', build: '\u{1F3E0}', beds: '\u{1F6CF}\uFE0F', garage: '\u{1F697}', extras: '\u2728',
+    standard: '\u{1F528}', midrange: '\u2B50', luxury: '\u{1F48E}',
+    pool: '\u{1F3CA} ', pavers: '\u{1F9F1} ', roof: '\u{1F3D7}\uFE0F ',
+    design: '\u{1F3A8}', equity: '\u{1F4B0} ', mortgage: '\u{1F4CB} '
+  };
+  document.querySelectorAll('[data-emoji]').forEach(function(el){
+    var key = el.getAttribute('data-emoji');
+    if(emojiMap[key]){
+      if(el.classList.contains('icon') || el.classList.contains('tier-icon') || el.classList.contains('custom-banner-icon')){
+        el.textContent = emojiMap[key];
+      } else if(el.classList.contains('extra-name')){
+        el.textContent = emojiMap[key] + el.textContent;
+      } else {
+        el.textContent = emojiMap[key] + el.textContent;
+      }
+    }
+  });
+})();
+
+// ===== CALCULATOR =====
 var state={sqft:2000,finish:'standard',beds:3,baths:2,garage:2,extras:{},ownsLot:true,lotValue:0,downPct:10};
-var finishRanges={
-  standard:{low:150,high:180,mid:150},
-  midrange:{low:180,high:220,mid:180},
-  luxury:{low:220,high:280,mid:220}
-};
+var finishRanges={standard:{low:150,high:180,mid:150},midrange:{low:180,high:220,mid:180},luxury:{low:220,high:280,mid:220}};
 var garageCosts={0:0,2:41800,3:60800};
-var extraCosts={
-  pool:{low:55000,high:95000},
-  pavers:{low:8000,high:22000},
-  metalRoof:{low:14000,high:32000}
-};
+var extraCosts={pool:{low:55000,high:95000},pavers:{low:8000,high:22000},metalRoof:{low:14000,high:32000}};
 function fmt(n){return '$'+Math.round(n).toLocaleString('en-US');}
 function updateCalc(){
   state.sqft=parseInt(document.getElementById('sqft-slider').value);
@@ -540,9 +595,7 @@ function updateCalc(){
   baseLow+=unconditioned;baseHigh+=unconditioned;baseMid+=unconditioned;
   var garage=garageCosts[state.garage]||0;
   var extrasLow=0,extrasHigh=0,extrasMid=0;
-  for(var key in state.extras){
-    if(state.extras[key]){extrasLow+=extraCosts[key].low;extrasHigh+=extraCosts[key].high;extrasMid+=(extraCosts[key].low+extraCosts[key].high)/2;}
-  }
+  for(var key in state.extras){if(state.extras[key]){extrasLow+=extraCosts[key].low;extrasHigh+=extraCosts[key].high;extrasMid+=(extraCosts[key].low+extraCosts[key].high)/2;}}
   var totalLow=baseLow+garage+extrasLow;var totalHigh=baseHigh+garage+extrasHigh;var totalMid=baseMid+garage+extrasMid;
   document.getElementById('result-total').textContent=fmt(totalMid);
   document.getElementById('result-range').textContent=fmt(totalLow)+' - '+fmt(totalHigh);
@@ -553,13 +606,8 @@ function updateCalc(){
   var equityLow=totalMid*0.20;var equityHigh=totalMid*0.30;
   document.getElementById('equity-amount').textContent=fmt(equityLow)+' - '+fmt(equityHigh);
   var downAmt=0;
-  if(state.ownsLot){
-    var lotInput=document.getElementById('lot-value-input').value.replace(/[^0-9]/g,'');
-    state.lotValue=parseInt(lotInput)||0;
-    downAmt=state.lotValue;
-  }else{
-    downAmt=totalMid*(state.downPct/100);
-  }
+  if(state.ownsLot){var lotInput=document.getElementById('lot-value-input').value.replace(/[^0-9]/g,'');state.lotValue=parseInt(lotInput)||0;downAmt=state.lotValue;}
+  else{downAmt=totalMid*(state.downPct/100);}
   var loanAmt=Math.max(totalMid-downAmt,0);
   var r=0.0611/12;var n=360;
   var monthly=loanAmt>0?loanAmt*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1):0;
@@ -580,8 +628,12 @@ function setLotOwner(owns){
   document.getElementById('no-lot-section').style.display=owns?'none':'block';
   updateCalc();
 }
+
+// ===== SCROLL REVEAL =====
 window.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.calc-hero .reveal').forEach(function(el){el.classList.add('visible');});updateCalc();});
 if(typeof IntersectionObserver!=='undefined'){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible');});},{threshold:0.05});document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});}
+
+// ===== NAV =====
 var navbar=document.getElementById('navbar');if(navbar){window.addEventListener('scroll',function(){navbar.classList.toggle('scrolled',window.pageYOffset>60);});}
 var hamburger=document.getElementById('hamburger');var navLinks=document.querySelector('.nav-links');
 if(hamburger&&navLinks){hamburger.addEventListener('click',function(){navLinks.classList.toggle('open');hamburger.classList.toggle('active');});navLinks.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){navLinks.classList.remove('open');hamburger.classList.remove('active');});});}
