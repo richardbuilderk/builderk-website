@@ -58,4 +58,10 @@
  <lastmod>2026-03-16</lastmod>
  <priority>0.3</priority>
  </url>
+  <url>
+    <loc>https://builderk.com/interiors.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
