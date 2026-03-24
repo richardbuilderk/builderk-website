@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S03X1HTEDN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S03X1HTEDN');
+      gtag('config', 'AW-11388675250');
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -612,5 +620,19 @@ if (hamburger && navLinks) {
     });
 }
 </script>
+<!-- Google Ads Conversion Tracking on Form Submit -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form[action*="formspree"]');
+    if (form) {
+      form.addEventListener('submit', function() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-11388675250/9Kh3CO3wu_oYELLJxbYq'
+        });
+      });
+    }
+  });
+</script>
+<!-- End Google Ads Conversion Tracking -->
 </body>
 </html>
