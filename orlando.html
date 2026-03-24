@@ -148,6 +148,9 @@
         .hero-stat .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-top: 4px; }
         .hero-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--white); padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s; }
         .hero-cta:hover { background: var(--orange-light); transform: translateY(-2px); }
+        .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-image { border-radius: 20px; overflow: hidden; }
+        .hero-image img { width: 100%; height: auto; display: block; border-radius: 20px; }
 
         /* ===== SECTIONS ===== */
         .section { padding: 100px 48px; }
@@ -250,6 +253,8 @@
         }
         @media (max-width: 768px) {
             .hero { padding: 120px 24px 60px; }
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-image { display: none; }
             .hero h1 { font-size: 2rem; }
             .hero-stats { gap: 24px; flex-wrap: wrap; }
             .section { padding: 60px 24px; }
@@ -301,14 +306,21 @@
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-badge">Custom Home Builder — Orlando, FL</div>
-    <h1>Build Your Custom Home in <em>Orlando</em></h1>
-    <p>Orlando is one of the fastest-growing metros in the country — and the perfect place to build your dream home. BuilderK handles everything from financing and floor plans to permits and construction. One team, one contract, no hassle.</p>
-    <a href="index.html#contact" class="hero-cta">Start Your Orlando Project →</a>
-    <div class="hero-stats">
-        <div class="hero-stat"><div class="number">150+</div><div class="label">Homes Built</div></div>
-        <div class="hero-stat"><div class="number">15+</div><div class="label">Years Experience</div></div>
-        <div class="hero-stat"><div class="number">100%</div><div class="label">Licensed & Insured</div></div>
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge">Custom Home Builder — Orlando, FL</div>
+            <h1>Build Your Custom Home in <em>Orlando</em></h1>
+            <p>Orlando is one of the fastest-growing metros in the country — and the perfect place to build your dream home. BuilderK handles everything from financing and floor plans to permits and construction. One team, one contract, no hassle.</p>
+            <a href="index.html#contact" class="hero-cta">Start Your Orlando Project →</a>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="number">150+</div><div class="label">Homes Built</div></div>
+                <div class="hero-stat"><div class="number">15+</div><div class="label">Years Experience</div></div>
+                <div class="hero-stat"><div class="number">100%</div><div class="label">Licensed & Insured</div></div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/hero-house.png" alt="Custom home built by BuilderK in Orlando, Florida" loading="eager">
+        </div>
     </div>
 </section>
 
