@@ -23,20 +23,16 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 64px 72px 56px;
+  padding: 56px 72px 52px;
 }
 
-/* Orange accent line at top */
 .accent-line {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 6px;
   background: linear-gradient(90deg, #E8792B 0%, #E8792B 60%, transparent 100%);
 }
 
-/* Orange pill badge */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -49,38 +45,55 @@ body {
   font-size: 18px;
   letter-spacing: 2.5px;
   color: #E8792B;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
   width: fit-content;
 }
 
 .badge::before {
   content: '';
-  width: 8px;
-  height: 8px;
+  width: 8px; height: 8px;
   border-radius: 50%;
   background: #E8792B;
   margin-right: 12px;
   flex-shrink: 0;
 }
 
+.image-frame {
+  width: 100%;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid rgba(232, 121, 43, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.5),
+    0 12px 48px rgba(0,0,0,0.5),
+    0 0 32px rgba(232, 121, 43, 0.07);
+  margin-bottom: 36px;
+  flex-shrink: 0;
+}
+
+.image-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .headline {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
-  font-size: 58px;
+  font-size: 46px;
   line-height: 1.12;
   color: #FFFFFF;
-  margin-bottom: 36px;
-  max-width: 880px;
+  margin-bottom: 20px;
   letter-spacing: -0.5px;
 }
 
 .body-text {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 1.65;
+  font-size: 21px;
+  line-height: 1.6;
   color: #CCCCCC;
-  max-width: 800px;
   flex-grow: 1;
 }
 
@@ -89,14 +102,14 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
-  padding-top: 40px;
+  padding-top: 32px;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .logo {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
-  font-size: 28px;
+  font-size: 26px;
   letter-spacing: -0.5px;
 }
 
@@ -106,43 +119,25 @@ body {
 .website {
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 19px;
   color: rgba(255,255,255,0.4);
   letter-spacing: 0.5px;
-}
-
-/* Background photo layer */
-.bg-image {
-  position: absolute;
-  inset: 0;
-  background: url('https://www.builderk.com/images/hero-house.png') center center / cover no-repeat;
-  opacity: 0.15;
-  z-index: 0;
-}
-
-/* Decorative elements */
-.corner-accent {
-  position: absolute;
-  top: 56px;
-  right: 60px;
-  width: 48px;
-  height: 48px;
-  border-top: 3px solid rgba(232, 121, 43, 0.3);
-  border-right: 3px solid rgba(232, 121, 43, 0.3);
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="bg-image"></div>
   <div class="accent-line"></div>
-  <div class="corner-accent"></div>
 
   <div class="badge">CONSTRUCTION TIP</div>
 
+  <div class="image-frame">
+    <img src="https://www.builderk.com/images/hero-house.png" alt="BuilderK Home">
+  </div>
+
   <h1 class="headline">Why Hurricane-Rated Windows Are Non-Negotiable in Florida</h1>
 
-  <p class="body-text">Impact-resistant windows don't just protect against storms — they reduce insurance premiums, block UV damage, and increase your home's resale value by up to 15%. Here's what every Florida homeowner needs to know.</p>
+  <p class="body-text">Impact-resistant windows don't just protect against storms — they reduce insurance premiums, block UV damage, and increase your home's resale value by up to 15%.</p>
 
   <div class="bottom-bar">
     <div class="logo"><span class="builder">BUILDER</span><span class="k">K</span></div>

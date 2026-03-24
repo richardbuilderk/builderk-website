@@ -19,41 +19,17 @@ body {
 .container {
   width: 1080px;
   height: 1080px;
-  position: relative;
-  overflow: hidden;
+  background: #0A0A0A;
+  display: flex;
+  flex-direction: column;
+  padding: 52px 64px 48px;
 }
 
-/* Real facade photo background */
-.bg-image {
-  position: absolute;
-  inset: 0;
-  background: url('https://www.builderk.com/images/facades/C4%20%E2%80%94%20Coastal%202-Story%20Beach%20Luxury%20(All%20Stucco).png') center center / cover no-repeat;
-  z-index: 0;
-}
-
-/* Bottom gradient overlay */
-.gradient-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 520px;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.4) 65%, transparent 100%);
-  z-index: 2;
-}
-
-/* Top-right badge */
 .badge {
-  position: absolute;
-  top: 48px;
-  right: 48px;
-  z-index: 5;
   display: inline-flex;
   align-items: center;
-  background: rgba(232, 121, 43, 0.2);
-  border: 1.5px solid rgba(232, 121, 43, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(232, 121, 43, 0.15);
+  border: 1.5px solid rgba(232, 121, 43, 0.4);
   border-radius: 100px;
   padding: 10px 22px;
   font-family: 'Outfit', sans-serif;
@@ -61,52 +37,66 @@ body {
   font-size: 16px;
   letter-spacing: 2px;
   color: #E8792B;
+  margin-bottom: 24px;
+  width: fit-content;
 }
 
 .badge::before {
   content: '';
-  width: 7px;
-  height: 7px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: #E8792B;
   margin-right: 10px;
   flex-shrink: 0;
 }
 
-.content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
-  padding: 0 72px 56px;
+/* Large framed image — the visual centerpiece (~60% of canvas) */
+.image-frame {
+  width: 100%;
+  height: 560px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid rgba(232, 121, 43, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 20px 64px rgba(0,0,0,0.6),
+    0 0 48px rgba(232, 121, 43, 0.1);
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+.image-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .headline {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
-  font-size: 56px;
+  font-size: 52px;
   line-height: 1.1;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   letter-spacing: -0.5px;
 }
 
 .subtext {
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
-  font-size: 22px;
-  color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  color: rgba(255,255,255,0.55);
   letter-spacing: 1px;
-  margin-bottom: 48px;
+  flex-grow: 1;
 }
 
 .bottom-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-top: auto;
 }
 
 .logo {
@@ -129,20 +119,21 @@ body {
 </head>
 <body>
 <div class="container">
-  <div class="bg-image"></div>
-  <div class="gradient-overlay"></div>
 
   <div class="badge">INTERIOR DESIGN</div>
 
-  <div class="content">
-    <h1 class="headline">Coastal 2-Story Beach Luxury</h1>
-    <p class="subtext">Custom Finishes • Your Vision • Our Craftsmanship</p>
-
-    <div class="bottom-bar">
-      <div class="logo"><span class="builder">BUILDER</span><span class="k">K</span></div>
-      <span class="website">builderk.com</span>
-    </div>
+  <div class="image-frame">
+    <img src="https://www.builderk.com/images/facades/C4%20%E2%80%94%20Coastal%202-Story%20Beach%20Luxury%20(All%20Stucco).png" alt="Coastal 2-Story Beach Luxury">
   </div>
+
+  <h1 class="headline">Coastal 2-Story Beach Luxury</h1>
+  <p class="subtext">Custom Finishes • Your Vision • Our Craftsmanship</p>
+
+  <div class="bottom-bar">
+    <div class="logo"><span class="builder">BUILDER</span><span class="k">K</span></div>
+    <span class="website">builderk.com</span>
+  </div>
+
 </div>
 </body>
 </html>

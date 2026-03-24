@@ -20,46 +20,29 @@ body {
   width: 1080px;
   height: 1920px;
   background: #0A0A0A;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
 }
 
-/* Subtle background gradients */
-.bg-glow-top {
+/* Decorative corner accents */
+.corner-tl, .corner-tr, .corner-bl, .corner-br {
   position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 500px;
-  background: radial-gradient(ellipse, rgba(232, 121, 43, 0.04) 0%, transparent 70%);
-  pointer-events: none;
+  width: 36px; height: 36px;
 }
+.corner-tl { top: 60px; left: 60px; border-top: 2px solid rgba(232,121,43,0.15); border-left: 2px solid rgba(232,121,43,0.15); }
+.corner-tr { top: 60px; right: 60px; border-top: 2px solid rgba(232,121,43,0.15); border-right: 2px solid rgba(232,121,43,0.15); }
+.corner-bl { bottom: 60px; left: 60px; border-bottom: 2px solid rgba(232,121,43,0.15); border-left: 2px solid rgba(232,121,43,0.15); }
+.corner-br { bottom: 60px; right: 60px; border-bottom: 2px solid rgba(232,121,43,0.15); border-right: 2px solid rgba(232,121,43,0.15); }
 
-.bg-glow-bottom {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 500px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(232, 121, 43, 0.03) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* Top third - Logo */
+/* Top section — Logo */
 .top-section {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 200px;
-  padding-bottom: 60px;
-  position: relative;
-  z-index: 1;
+  padding-bottom: 72px;
 }
 
 .logo {
@@ -67,21 +50,20 @@ body {
   font-weight: 900;
   font-size: 56px;
   letter-spacing: -1px;
+  text-align: center;
 }
 
 .logo .builder { color: #FFFFFF; }
 .logo .k { color: #E8792B; }
 
-/* Logo underline accent */
 .logo-accent {
-  width: 40px;
-  height: 4px;
+  width: 40px; height: 4px;
   background: #E8792B;
   border-radius: 2px;
-  margin: 24px auto 0;
+  margin: 20px auto 0;
 }
 
-/* Middle section */
+/* Middle section — Image + text */
 .middle-section {
   flex: 1;
   display: flex;
@@ -89,26 +71,29 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0 80px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
+  width: 100%;
+  gap: 0;
+}
+
+/* Prominent framed facade image */
+.image-frame {
+  width: 100%;
+  height: 760px;
+  border-radius: 16px;
   overflow: hidden;
+  border: 1.5px solid rgba(232, 121, 43, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 20px 72px rgba(0,0,0,0.6),
+    0 0 48px rgba(232, 121, 43, 0.1);
+  margin-bottom: 52px;
+  flex-shrink: 0;
 }
 
-/* Background image for middle section */
-.middle-bg {
-  position: absolute;
-  inset: 0;
-  background: url('https://www.builderk.com/images/facades/CO1%20%E2%80%94%20Contemporary%201-Story%20(Clean%20Lines).png') center center / cover no-repeat;
-  opacity: 0.18;
-  z-index: -1;
-}
-
-.middle-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.5) 100%);
+.image-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .headline {
@@ -117,16 +102,16 @@ body {
   font-size: 64px;
   line-height: 1.12;
   color: #FFFFFF;
-  margin-bottom: 44px;
+  text-align: center;
+  margin-bottom: 36px;
   letter-spacing: -1px;
 }
 
 .orange-rule {
-  width: 80px;
-  height: 4px;
+  width: 80px; height: 4px;
   background: #E8792B;
   border-radius: 2px;
-  margin-bottom: 44px;
+  margin-bottom: 36px;
 }
 
 .body-text {
@@ -136,18 +121,17 @@ body {
   line-height: 1.6;
   color: #CCCCCC;
   max-width: 700px;
+  text-align: center;
   letter-spacing: 0.3px;
 }
 
-/* Bottom third - CTA */
+/* Bottom section — CTA */
 .bottom-section {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 160px;
-  position: relative;
-  z-index: 1;
 }
 
 .cta-button {
@@ -173,53 +157,10 @@ body {
   color: rgba(255,255,255,0.35);
   letter-spacing: 0.5px;
 }
-
-/* Decorative corner accents */
-.corner-tl {
-  position: absolute;
-  top: 60px;
-  left: 60px;
-  width: 36px;
-  height: 36px;
-  border-top: 2px solid rgba(232, 121, 43, 0.15);
-  border-left: 2px solid rgba(232, 121, 43, 0.15);
-}
-
-.corner-tr {
-  position: absolute;
-  top: 60px;
-  right: 60px;
-  width: 36px;
-  height: 36px;
-  border-top: 2px solid rgba(232, 121, 43, 0.15);
-  border-right: 2px solid rgba(232, 121, 43, 0.15);
-}
-
-.corner-bl {
-  position: absolute;
-  bottom: 60px;
-  left: 60px;
-  width: 36px;
-  height: 36px;
-  border-bottom: 2px solid rgba(232, 121, 43, 0.15);
-  border-left: 2px solid rgba(232, 121, 43, 0.15);
-}
-
-.corner-br {
-  position: absolute;
-  bottom: 60px;
-  right: 60px;
-  width: 36px;
-  height: 36px;
-  border-bottom: 2px solid rgba(232, 121, 43, 0.15);
-  border-right: 2px solid rgba(232, 121, 43, 0.15);
-}
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="bg-glow-top"></div>
-  <div class="bg-glow-bottom"></div>
   <div class="corner-tl"></div>
   <div class="corner-tr"></div>
   <div class="corner-bl"></div>
@@ -233,7 +174,9 @@ body {
   </div>
 
   <div class="middle-section">
-    <div class="middle-bg"></div>
+    <div class="image-frame">
+      <img src="https://www.builderk.com/images/facades/CO1%20%E2%80%94%20Contemporary%201-Story%20(Clean%20Lines).png" alt="Contemporary 1-Story Home">
+    </div>
     <h1 class="headline">Build Your<br>Dream Home<br>in Florida</h1>
     <div class="orange-rule"></div>
     <p class="body-text">Design • Financing • Permits • Construction — All Under One Roof</p>
