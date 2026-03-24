@@ -27,6 +27,15 @@ body {
   overflow: hidden;
 }
 
+/* Background photo layer */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  background: url('https://www.builderk.com/images/style-coastal.png') center center / cover no-repeat;
+  opacity: 0.10;
+  z-index: 0;
+}
+
 /* Subtle background glow */
 .bg-glow {
   position: absolute;
@@ -155,6 +164,7 @@ body {
 </head>
 <body>
 <div class="container">
+  <div class="bg-image"></div>
   <div class="bg-glow"></div>
 
   <div class="badge">REFERRAL PROGRAM</div>

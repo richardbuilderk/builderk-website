@@ -92,6 +92,23 @@ body {
   text-align: center;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+}
+
+/* Background image for middle section */
+.middle-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://www.builderk.com/images/facades/CO1%20%E2%80%94%20Contemporary%201-Story%20(Clean%20Lines).png') center center / cover no-repeat;
+  opacity: 0.18;
+  z-index: -1;
+}
+
+.middle-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.5) 100%);
 }
 
 .headline {
@@ -216,6 +233,7 @@ body {
   </div>
 
   <div class="middle-section">
+    <div class="middle-bg"></div>
     <h1 class="headline">Build Your<br>Dream Home<br>in Florida</h1>
     <div class="orange-rule"></div>
     <p class="body-text">Design • Financing • Permits • Construction — All Under One Roof</p>

@@ -111,6 +111,15 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* Background photo layer */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  background: url('https://www.builderk.com/images/hero-house.png') center center / cover no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+}
+
 /* Decorative elements */
 .corner-accent {
   position: absolute;
@@ -125,6 +134,7 @@ body {
 </head>
 <body>
 <div class="container">
+  <div class="bg-image"></div>
   <div class="accent-line"></div>
   <div class="corner-accent"></div>
 

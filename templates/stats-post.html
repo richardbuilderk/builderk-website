@@ -28,6 +28,15 @@ body {
   overflow: hidden;
 }
 
+/* Background photo layer */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  background: url('https://www.builderk.com/images/hero-house.png') center center / cover no-repeat;
+  opacity: 0.08;
+  z-index: 0;
+}
+
 /* Huge watermark number in background */
 .watermark {
   position: absolute;
@@ -149,6 +158,7 @@ body {
 </head>
 <body>
 <div class="container">
+  <div class="bg-image"></div>
   <div class="watermark">150+</div>
   <div class="glow"></div>
   <div class="corner-tl"></div>

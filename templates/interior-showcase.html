@@ -23,83 +23,12 @@ body {
   overflow: hidden;
 }
 
-/* Simulated luxury kitchen background */
-.bg-layer {
+/* Real facade photo background */
+.bg-image {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(196, 155, 100, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 30%, rgba(180, 140, 80, 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 60%, rgba(160, 120, 60, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 80%, rgba(140, 100, 50, 0.08) 0%, transparent 40%),
-    linear-gradient(180deg, #1A1510 0%, #15120E 30%, #110E0A 60%, #0D0A08 100%);
-}
-
-/* Fake architectural lines suggesting cabinets/countertops */
-.arch-lines {
-  position: absolute;
-  inset: 0;
-  opacity: 0.06;
-}
-
-.arch-lines::before {
-  content: '';
-  position: absolute;
-  top: 280px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 10%, rgba(196,155,100,1) 30%, rgba(196,155,100,1) 70%, transparent 90%);
-}
-
-.arch-lines::after {
-  content: '';
-  position: absolute;
-  top: 500px;
-  left: 100px;
-  right: 100px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(196,155,100,0.6), transparent);
-}
-
-/* Warm light spots simulating kitchen lighting */
-.light-spot-1 {
-  position: absolute;
-  top: 80px;
-  left: 200px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(220, 180, 120, 0.12) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.light-spot-2 {
-  position: absolute;
-  top: 100px;
-  right: 250px;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(220, 180, 120, 0.08) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.light-spot-3 {
-  position: absolute;
-  top: 60px;
-  left: 480px;
-  width: 200px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(255, 220, 160, 0.06) 0%, transparent 70%);
-}
-
-/* Counter surface reflection */
-.counter-glow {
-  position: absolute;
-  bottom: 350px;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(0deg, transparent, rgba(180, 150, 100, 0.04), transparent);
+  background: url('https://www.builderk.com/images/facades/C4%20%E2%80%94%20Coastal%202-Story%20Beach%20Luxury%20(All%20Stucco).png') center center / cover no-repeat;
+  z-index: 0;
 }
 
 /* Bottom gradient overlay */
@@ -200,18 +129,13 @@ body {
 </head>
 <body>
 <div class="container">
-  <div class="bg-layer"></div>
-  <div class="arch-lines"></div>
-  <div class="light-spot-1"></div>
-  <div class="light-spot-2"></div>
-  <div class="light-spot-3"></div>
-  <div class="counter-glow"></div>
+  <div class="bg-image"></div>
   <div class="gradient-overlay"></div>
 
   <div class="badge">INTERIOR DESIGN</div>
 
   <div class="content">
-    <h1 class="headline">Modern Coastal Kitchen</h1>
+    <h1 class="headline">Coastal 2-Story Beach Luxury</h1>
     <p class="subtext">Custom Finishes • Your Vision • Our Craftsmanship</p>
 
     <div class="bottom-bar">
