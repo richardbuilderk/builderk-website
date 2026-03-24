@@ -211,6 +211,11 @@
     .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
     @keyframes menuFadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+    @media (max-width: 1280px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex !important; }
+      .navbar { padding: 14px 20px !important; }
+    }
     @media (max-width: 1024px) { .team-grid { grid-template-columns: repeat(3, 1fr); } .gc-list { grid-template-columns: repeat(2,1fr); } .gc-stats { grid-template-columns: repeat(2,1fr); } .footer-top { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
