@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>BuilderK - Construction Tip</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=DM+Sans:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+  width: 1080px;
+  height: 1080px;
+  background: #0A0A0A;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 64px 72px 56px;
+}
+
+/* Orange accent line at top */
+.accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #E8792B 0%, #E8792B 60%, transparent 100%);
+}
+
+/* Orange pill badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(232, 121, 43, 0.15);
+  border: 1.5px solid rgba(232, 121, 43, 0.4);
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  color: #E8792B;
+  margin-bottom: 48px;
+  width: fit-content;
+}
+
+.badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #E8792B;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.headline {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 58px;
+  line-height: 1.12;
+  color: #FFFFFF;
+  margin-bottom: 36px;
+  max-width: 880px;
+  letter-spacing: -0.5px;
+}
+
+.body-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.65;
+  color: #CCCCCC;
+  max-width: 800px;
+  flex-grow: 1;
+}
+
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.logo .builder { color: #FFFFFF; }
+.logo .k { color: #E8792B; }
+
+.website {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.5px;
+}
+
+/* Decorative elements */
+.corner-accent {
+  position: absolute;
+  top: 56px;
+  right: 60px;
+  width: 48px;
+  height: 48px;
+  border-top: 3px solid rgba(232, 121, 43, 0.3);
+  border-right: 3px solid rgba(232, 121, 43, 0.3);
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="accent-line"></div>
+  <div class="corner-accent"></div>
+
+  <div class="badge">CONSTRUCTION TIP</div>
+
+  <h1 class="headline">Why Hurricane-Rated Windows Are Non-Negotiable in Florida</h1>
+
+  <p class="body-text">Impact-resistant windows don't just protect against storms — they reduce insurance premiums, block UV damage, and increase your home's resale value by up to 15%. Here's what every Florida homeowner needs to know.</p>
+
+  <div class="bottom-bar">
+    <div class="logo"><span class="builder">BUILDER</span><span class="k">K</span></div>
+    <span class="website">builderk.com</span>
+  </div>
+</div>
+</body>
+</html>

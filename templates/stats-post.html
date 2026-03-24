@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>BuilderK - Stats Post</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=DM+Sans:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+  width: 1080px;
+  height: 1080px;
+  background: #0A0A0A;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Huge watermark number in background */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 550px;
+  color: rgba(255,255,255,0.02);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  letter-spacing: -15px;
+}
+
+/* Subtle radial glow behind the number */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(232, 121, 43, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.big-number {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 220px;
+  color: #E8792B;
+  line-height: 1;
+  letter-spacing: -8px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 80px rgba(232, 121, 43, 0.15);
+}
+
+.subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background: rgba(232, 121, 43, 0.4);
+  border-radius: 2px;
+  margin-bottom: 36px;
+}
+
+.cities {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #888888;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.bottom-section {
+  position: absolute;
+  bottom: 52px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.logo .builder { color: #FFFFFF; }
+.logo .k { color: #E8792B; }
+
+/* Decorative corner elements */
+.corner-tl, .corner-br {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+.corner-tl {
+  top: 48px;
+  left: 48px;
+  border-top: 2px solid rgba(232, 121, 43, 0.2);
+  border-left: 2px solid rgba(232, 121, 43, 0.2);
+}
+
+.corner-br {
+  bottom: 48px;
+  right: 48px;
+  border-bottom: 2px solid rgba(232, 121, 43, 0.2);
+  border-right: 2px solid rgba(232, 121, 43, 0.2);
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="watermark">150+</div>
+  <div class="glow"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="content">
+    <div class="big-number">150+</div>
+    <h2 class="subtitle">Units Built Across Florida</h2>
+    <div class="divider"></div>
+    <p class="cities">Orlando • Tampa • Miami • Cape Coral • Fort Myers • Jacksonville • Ocala</p>
+  </div>
+
+  <div class="bottom-section">
+    <div class="logo"><span class="builder">BUILDER</span><span class="k">K</span></div>
+  </div>
+</div>
+</body>
+</html>

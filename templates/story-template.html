@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>BuilderK - Story Template</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=DM+Sans:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+  width: 1080px;
+  height: 1920px;
+  background: #0A0A0A;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Subtle background gradients */
+.bg-glow-top {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(232, 121, 43, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bg-glow-bottom {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(232, 121, 43, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Top third - Logo */
+.top-section {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  letter-spacing: -1px;
+}
+
+.logo .builder { color: #FFFFFF; }
+.logo .k { color: #E8792B; }
+
+/* Logo underline accent */
+.logo-accent {
+  width: 40px;
+  height: 4px;
+  background: #E8792B;
+  border-radius: 2px;
+  margin: 24px auto 0;
+}
+
+/* Middle section */
+.middle-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.headline {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 1.12;
+  color: #FFFFFF;
+  margin-bottom: 44px;
+  letter-spacing: -1px;
+}
+
+.orange-rule {
+  width: 80px;
+  height: 4px;
+  background: #E8792B;
+  border-radius: 2px;
+  margin-bottom: 44px;
+}
+
+.body-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.6;
+  color: #CCCCCC;
+  max-width: 700px;
+  letter-spacing: 0.3px;
+}
+
+/* Bottom third - CTA */
+.bottom-section {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 160px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #E8792B;
+  color: #FFFFFF;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 2px;
+  padding: 22px 56px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(232, 121, 43, 0.25);
+}
+
+.website {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.5px;
+}
+
+/* Decorative corner accents */
+.corner-tl {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 36px;
+  height: 36px;
+  border-top: 2px solid rgba(232, 121, 43, 0.15);
+  border-left: 2px solid rgba(232, 121, 43, 0.15);
+}
+
+.corner-tr {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  width: 36px;
+  height: 36px;
+  border-top: 2px solid rgba(232, 121, 43, 0.15);
+  border-right: 2px solid rgba(232, 121, 43, 0.15);
+}
+
+.corner-bl {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  width: 36px;
+  height: 36px;
+  border-bottom: 2px solid rgba(232, 121, 43, 0.15);
+  border-left: 2px solid rgba(232, 121, 43, 0.15);
+}
+
+.corner-br {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  width: 36px;
+  height: 36px;
+  border-bottom: 2px solid rgba(232, 121, 43, 0.15);
+  border-right: 2px solid rgba(232, 121, 43, 0.15);
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="bg-glow-top"></div>
+  <div class="bg-glow-bottom"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <div class="top-section">
+    <div>
+      <div class="logo"><span class="builder">BUILDER</span><span class="k">K</span></div>
+      <div class="logo-accent"></div>
+    </div>
+  </div>
+
+  <div class="middle-section">
+    <h1 class="headline">Build Your<br>Dream Home<br>in Florida</h1>
+    <div class="orange-rule"></div>
+    <p class="body-text">Design • Financing • Permits • Construction — All Under One Roof</p>
+  </div>
+
+  <div class="bottom-section">
+    <div class="cta-button">START YOUR PROJECT</div>
+    <span class="website">builderk.com</span>
+  </div>
+</div>
+</body>
+</html>
