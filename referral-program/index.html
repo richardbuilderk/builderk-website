@@ -65,7 +65,10 @@ body{font-family:var(--font-body);color:var(--text-dark);background:var(--light-
 .hero{position:relative;min-height:88vh;background:var(--dark);display:flex;align-items:center;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(247,127,0,.09) 0%,transparent 70%),radial-gradient(ellipse 50% 80% at 15% 80%,rgba(247,127,0,.04) 0%,transparent 60%);pointer-events:none}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
-.hero-inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:160px 48px 100px;width:100%}
+.hero-inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:160px 48px 100px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-content{display:flex;flex-direction:column}
+.hero-image{display:flex;align-items:center;justify-content:center}
+.hero-image img{width:100%;max-width:580px;border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,.4)}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(247,127,0,.1);border:1px solid rgba(247,127,0,.25);padding:8px 18px;border-radius:50px;font-family:var(--font-display);font-weight:600;font-size:.8rem;color:var(--orange);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:pulse-dot 2s infinite}
 @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
@@ -213,7 +216,7 @@ body{font-family:var(--font-body);color:var(--text-dark);background:var(--light-
 @media(max-width:1280px){.nav-links{display:none}.nav-hamburger{display:flex!important}.navbar{padding:14px 20px!important}}
 @media(max-width:1024px){.pay-grid{grid-template-columns:1fr}.pay-left{max-width:100%}.stack-inner{grid-template-columns:1fr;gap:48px}.offers-grid{grid-template-columns:repeat(2,1fr)}.process-cards{grid-template-columns:repeat(2,1fr)}.rules-grid{grid-template-columns:1fr}}
 @media(max-width:768px){.navbar{padding:16px 24px}.hero-inner{padding:120px 24px 60px}.hero h1{font-size:2.4rem}.hero-stats{gap:28px}.hero-stat-number{font-size:1.5rem}.pay-section,.stack-section,.offers-section,.process-section,.rules-section,.form-section,.faq-section,.footer-cta-section{padding:60px 24px 80px}.form-inner{padding:48px 28px;border-radius:20px}.form-row{flex-direction:column}.pay-example-breakdown{flex-direction:column}.offer-areas{flex-direction:column;align-items:flex-start;gap:24px;padding:32px 28px}.offers-grid{grid-template-columns:1fr}.process-cards{grid-template-columns:1fr}.footer{padding:48px 24px 24px}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;gap:8px}.footer-cta-contacts{flex-direction:column;gap:20px}.hero-actions{flex-direction:column;align-items:flex-start}}
-@media(max-width:900px){.hero h1{font-size:2rem!important}.hero-subtitle{font-size:.95rem!important}.form-row{flex-direction:column!important}.form-inner{padding:40px 20px!important;border-radius:18px!important}.footer-top{flex-direction:column!important}.footer-bottom{flex-direction:column!important;gap:8px!important}.section-heading{font-size:1.7rem!important}}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr!important}.hero-image{order:-1;margin-bottom:24px}.hero-image img{max-width:400px}.hero h1{font-size:2rem!important}.hero-subtitle{font-size:.95rem!important}.form-row{flex-direction:column!important}.form-inner{padding:40px 20px!important;border-radius:18px!important}.footer-top{flex-direction:column!important}.footer-bottom{flex-direction:column!important;gap:8px!important}.section-heading{font-size:1.7rem!important}}
 .nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,.98);z-index:999;justify-content:center;align-items:center;gap:24px;padding:80px 24px;animation:menuFadeIn .3s ease}
 .nav-links.open li{list-style:none}
 .nav-links.open li a{font-size:1.4rem;padding:12px 0;color:#fff;text-decoration:none}
@@ -253,18 +256,23 @@ body{font-family:var(--font-body);color:var(--text-dark);background:var(--light-
 <section class="hero">
   <div class="hero-grid-lines"></div>
   <div class="hero-inner">
-    <div class="hero-badge reveal stagger-1">Partner Referral Program</div>
-    <h1 class="reveal stagger-2">Refer a Client.<br>Earn <span class="highlight">3% Commission</span><br>on Every Build.</h1>
-    <p class="hero-subtitle reveal stagger-3">No minimum project size. Open to realtors, mortgage brokers, and anyone who sends a client our way. Two clean payments tied to milestones you can track.</p>
-    <div class="hero-actions reveal stagger-4">
-      <a href="#referral-form" class="btn-primary">Submit a Referral <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="#how-you-get-paid" class="btn-secondary">See How It Works <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <div class="hero-content">
+      <div class="hero-badge reveal stagger-1">Partner Referral Program</div>
+      <h1 class="reveal stagger-2">Refer a Client.<br>Earn <span class="highlight">3% Commission</span><br>on Every Build.</h1>
+      <p class="hero-subtitle reveal stagger-3">No minimum project size. Open to realtors, mortgage brokers, and anyone who sends a client our way. Two clean payments tied to milestones you can track.</p>
+      <div class="hero-actions reveal stagger-4">
+        <a href="#referral-form" class="btn-primary">Submit a Referral <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#how-you-get-paid" class="btn-secondary">See How It Works <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+      </div>
+      <div class="hero-stats reveal stagger-5">
+        <div><div class="hero-stat-number">3%</div><div class="hero-stat-label">Referral Commission</div></div>
+        <div><div class="hero-stat-number">150+</div><div class="hero-stat-label">Units Built</div></div>
+        <div><div class="hero-stat-number">$0</div><div class="hero-stat-label">Minimum Project Size</div></div>
+        <div><div class="hero-stat-number">24h</div><div class="hero-stat-label">Client Follow-Up</div></div>
+      </div>
     </div>
-    <div class="hero-stats reveal stagger-5">
-      <div><div class="hero-stat-number">3%</div><div class="hero-stat-label">Referral Commission</div></div>
-      <div><div class="hero-stat-number">150+</div><div class="hero-stat-label">Units Built</div></div>
-      <div><div class="hero-stat-number">$0</div><div class="hero-stat-label">Minimum Project Size</div></div>
-      <div><div class="hero-stat-number">24h</div><div class="hero-stat-label">Client Follow-Up</div></div>
+    <div class="hero-image reveal-right stagger-3">
+      <img src="referral-hero.png" alt="Real estate agent shaking hands with happy homeowners in front of a custom-built Florida home" loading="eager">
     </div>
   </div>
 </section>
