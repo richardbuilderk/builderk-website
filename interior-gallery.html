@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- Google Analytics + Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S03X1HTEDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S03X1HTEDN');
+  gtag('config', 'AW-11388675250');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interior Design Gallery — BuilderK Custom Home Builder Florida</title>
+<meta name="description" content="Explore BuilderK's luxury interior designs: kitchens, living rooms, bedrooms, bathrooms, and more. See the quality finishes inside every custom home we build in Florida.">
+<meta name="keywords" content="luxury interior design florida, custom home interiors, modern kitchen design, master bathroom luxury, custom home builder interior selections">
+<link rel="canonical" href="https://builderk.com/interiors.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Interior Design Gallery — BuilderK Custom Homes">
+<meta property="og:description" content="Step inside our custom homes. Luxury kitchens, spa-like bathrooms, open living spaces — see what BuilderK builds.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://builderk.com/interiors.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --orange: #F77F00;
+  --orange-hover: #FF9A2E;
+  --dark: #0A0A0A;
+  --light: #FAFAF8;
+  --gray-100: #F5F5F3;
+  --gray-200: #E8E8E5;
+  --gray-600: #6B6B6B;
+  --gray-800: #2A2A2A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark);
+  background: var(--light);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
+/* ===== NAV ===== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s;
+}
+.navbar.scrolled { padding: 14px 48px; background: rgba(10,10,10,0.97); }
+.nav-logo { text-decoration: none; display: flex; align-items: baseline; }
+.nav-logo .builder { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; color: #fff; letter-spacing: 1px; }
+.nav-logo .k { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--orange); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { color: #ccc; text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange) !important; color: #fff !important; padding: 10px 22px; border-radius: 8px; font-weight: 600 !important; }
+.nav-cta:hover { background: var(--orange-hover) !important; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1000; position: relative; }
+.nav-hamburger span { width: 26px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+
+/* ===== HERO ===== */
+.page-hero {
+  padding: 160px 48px 80px;
+  background: var(--dark);
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.page-hero h1 span { color: var(--orange); }
+.page-hero p {
+  font-size: 1.2rem;
+  color: #aaa;
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+/* Filter tabs */
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter-tab {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: #ccc;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-tab:hover { border-color: var(--orange); color: var(--orange); }
+.filter-tab.active { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+/* ===== GALLERY ===== */
+.gallery-section {
+  padding: 80px 48px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 16/11;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px 20px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+.gallery-item-overlay h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.gallery-item-overlay .gallery-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--orange);
+  background: rgba(247, 127, 0, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* Featured (span 2 cols) */
+.gallery-item.featured {
+  grid-column: span 2;
+}
+.gallery-item.featured img {
+  aspect-ratio: 21/11;
+}
+
+/* Hide items when filtered */
+.gallery-item.hidden {
+  display: none;
+}
+
+/* ===== INTRO STRIP ===== */
+.intro-strip {
+  padding: 60px 48px;
+  background: var(--gray-100);
+  text-align: center;
+}
+.intro-strip h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.intro-strip p {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.2); }
+.lightbox-caption {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.8;
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.25); }
+.lightbox-nav.prev { left: 24px; }
+.lightbox-nav.next { right: 24px; }
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  padding: 100px 48px;
+  background: var(--dark);
+  text-align: center;
+}
+.cta-section h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.cta-section h2 span { color: var(--orange); }
+.cta-section p {
+  font-size: 1.15rem;
+  color: #aaa;
+  max-width: 550px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--orange-hover); transform: translateY(-2px); }
+
+/* ===== FOOTER ===== */
+.footer { background: var(--dark); padding: 60px 48px 30px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; gap: 48px; margin-bottom: 40px; }
+.footer-brand { max-width: 280px; }
+.footer-brand p { color: #888; font-size: 0.9rem; margin-top: 12px; line-height: 1.5; }
+.footer-col { display: flex; flex-direction: column; gap: 10px; }
+.footer-col h4 { color: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+.footer-col a { color: #888; text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--orange); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); color: #555; font-size: 0.82rem; }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* ===== NAV BREAKPOINT ===== */
+@media (max-width: 1280px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex !important; }
+  .navbar { padding: 14px 20px !important; }
+}
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .navbar { padding: 14px 20px !important; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex !important; }
+  .page-hero { padding: 120px 24px 60px; }
+  .page-hero h1 { font-size: 2.2rem; }
+  .page-hero p { font-size: 1rem; }
+  .gallery-section { padding: 48px 16px; }
+  .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+  .gallery-item.featured { grid-column: span 1; }
+  .gallery-item.featured img { aspect-ratio: 16/11; }
+  .gallery-item-overlay { opacity: 1; }
+  .intro-strip { padding: 48px 24px; }
+  .intro-strip h2 { font-size: 1.6rem; }
+  .cta-section { padding: 60px 24px; }
+  .cta-section h2 { font-size: 2rem; }
+  .footer { padding: 40px 20px 24px; }
+  .footer-top { flex-direction: column; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .filter-tabs { gap: 8px; }
+  .filter-tab { padding: 8px 18px; font-size: 0.85rem; }
+  .lightbox { padding: 16px; }
+  .lightbox-nav.prev { left: 8px; }
+  .lightbox-nav.next { right: 8px; }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.featured { grid-column: span 2; }
+}
+
+/* === MOBILE MENU === */
+.nav-links.open {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 10, 10, 0.98);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 80px 24px;
+}
+.nav-links.open li { list-style: none; }
+.nav-links.open li a { font-size: 1.4rem; padding: 12px 0; color: #fff; }
+.nav-links.open li a:hover { color: #F77F00; }
+.nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="index.html#process">How It Works</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="facades.html">Facades & Styles</a></li>
+    <li><a href="financing.html">Financing</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="calculator.html">Calculator</a></li>
+    <li><a href="interiors.html" style="color:var(--orange);">Interiors</a></li>
+    <li><a href="/referral-program/">Referral Program</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <h1 class="reveal stagger-1">Step Inside Your <span>Dream Home</span></h1>
+  <p class="reveal stagger-2">Every BuilderK home is designed with luxury finishes, thoughtful layouts, and the details that make a house feel like home. Explore our interior selections.</p>
+  <div class="filter-tabs reveal stagger-3">
+    <button class="filter-tab active" data-filter="all">All Rooms</button>
+    <button class="filter-tab" data-filter="living">Living Spaces</button>
+    <button class="filter-tab" data-filter="kitchen">Kitchen & Dining</button>
+    <button class="filter-tab" data-filter="bedroom">Bedrooms</button>
+    <button class="filter-tab" data-filter="bathroom">Bathrooms</button>
+    <button class="filter-tab" data-filter="details">Details</button>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-strip reveal">
+  <h2>Luxury Is in the Details</h2>
+  <p>From marble countertops to custom closets, every space is crafted with premium materials and designer-level finishes. These are selections from our Florida custom homes.</p>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-grid">
+
+    <!-- 1. Great Room — FEATURED -->
+    <div class="gallery-item featured reveal stagger-1" data-category="living" data-title="Open Concept Great Room">
+      <img src="images/interiors/great-room-open-concept.png" alt="Open concept great room with kitchen, wood beams, and pool view in a luxury Florida custom home" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Open Concept Great Room</h3>
+        <span class="gallery-tag">Living Space</span>
+      </div>
+    </div>
+
+    <!-- 2. Foyer -->
+    <div class="gallery-item reveal stagger-2" data-category="details" data-title="Double-Height Foyer">
+      <img src="images/interiors/foyer-double-height.png" alt="Double-height foyer with chandelier and fluted accent wall in luxury Florida home" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Double-Height Foyer</h3>
+        <span class="gallery-tag">Entry</span>
+      </div>
+    </div>
+
+    <!-- 3. Kitchen Render -->
+    <div class="gallery-item reveal stagger-3" data-category="kitchen" data-title="Marble Island Kitchen">
+      <img src="images/interiors/kitchen-marble-island.png" alt="Luxury kitchen with white cabinets, marble waterfall island, and pendant lights" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Marble Island Kitchen</h3>
+        <span class="gallery-tag">Kitchen</span>
+      </div>
+    </div>
+
+    <!-- 4. Master Bedroom -->
+    <div class="gallery-item reveal stagger-1" data-category="bedroom" data-title="Master Suite — Pool View">
+      <img src="images/interiors/master-bedroom-pool-view.png" alt="Master bedroom suite with sliding doors opening to pool and palm trees" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Master Suite &mdash; Pool View</h3>
+        <span class="gallery-tag">Bedroom</span>
+      </div>
+    </div>
+
+    <!-- 5. Master Bath — FEATURED -->
+    <div class="gallery-item featured reveal stagger-2" data-category="bathroom" data-title="Spa-Inspired Master Bath">
+      <img src="images/interiors/master-bath-freestanding-tub.png" alt="Spa-inspired master bathroom with freestanding tub and glass shower" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Spa-Inspired Master Bath</h3>
+        <span class="gallery-tag">Bathroom</span>
+      </div>
+    </div>
+
+    <!-- 6. Walk-in Closet -->
+    <div class="gallery-item reveal stagger-3" data-category="details" data-title="Custom Walk-in Closet">
+      <img src="images/interiors/walk-in-closet-luxury.png" alt="Luxury walk-in closet with built-in shelving and wood island" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Custom Walk-in Closet</h3>
+        <span class="gallery-tag">Details</span>
+      </div>
+    </div>
+
+    <!-- 7. Real Living Room -->
+    <div class="gallery-item reveal stagger-1" data-category="living" data-title="Living Room — Fireplace">
+      <img src="images/interiors/real-living-room-fireplace.jpg" alt="Living room with stone fireplace, chandelier, and arched built-in cabinet" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Living Room &mdash; Fireplace</h3>
+        <span class="gallery-tag">Living Space</span>
+      </div>
+    </div>
+
+    <!-- 8. Living Room Render -->
+    <div class="gallery-item reveal stagger-2" data-category="living" data-title="Living Room — Lanai Access">
+      <img src="images/interiors/living-room-sectional.png" alt="Contemporary living room with large sectional sofa and lanai slider" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Living Room &mdash; Lanai Access</h3>
+        <span class="gallery-tag">Living Space</span>
+      </div>
+    </div>
+
+    <!-- 9. Guest Bedroom -->
+    <div class="gallery-item reveal stagger-3" data-category="bedroom" data-title="Guest Bedroom — Window Seat">
+      <img src="images/interiors/guest-bedroom-window-seat.png" alt="Guest bedroom with built-in window seat and garden views" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Guest Bedroom &mdash; Window Seat</h3>
+        <span class="gallery-tag">Bedroom</span>
+      </div>
+    </div>
+
+    <!-- 10. Real Kitchen — FEATURED -->
+    <div class="gallery-item featured reveal stagger-1" data-category="kitchen" data-title="Gourmet Kitchen — Dark Cabinets">
+      <img src="images/interiors/real-kitchen-dark-cabinets.jpg" alt="Gourmet kitchen with dark cabinets, marble backsplash, and large island" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Gourmet Kitchen &mdash; Dark Cabinets</h3>
+        <span class="gallery-tag">Kitchen</span>
+      </div>
+    </div>
+
+    <!-- 11. Double Vanity -->
+    <div class="gallery-item reveal stagger-2" data-category="bathroom" data-title="Modern Double Vanity">
+      <img src="images/interiors/double-vanity-modern.png" alt="Modern double vanity bathroom with floating cabinet and LED backlit mirrors" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Modern Double Vanity</h3>
+        <span class="gallery-tag">Bathroom</span>
+      </div>
+    </div>
+
+    <!-- 12. Real Dining -->
+    <div class="gallery-item reveal stagger-3" data-category="kitchen" data-title="Dining — Open to Kitchen">
+      <img src="images/interiors/real-dining-open-concept.jpg" alt="Open concept dining area with modern chandelier flowing into kitchen" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Dining &mdash; Open to Kitchen</h3>
+        <span class="gallery-tag">Dining</span>
+      </div>
+    </div>
+
+    <!-- 13. Real Master Bedroom Tray -->
+    <div class="gallery-item reveal stagger-1" data-category="bedroom" data-title="Master Suite — Tray Ceiling">
+      <img src="images/interiors/real-master-bedroom-tray-ceiling.jpg" alt="Master bedroom with tray ceiling, canopy bed frame, and wood accents" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Master Suite &mdash; Tray Ceiling</h3>
+        <span class="gallery-tag">Bedroom</span>
+      </div>
+    </div>
+
+    <!-- 14. Real Master Bedroom Neutral -->
+    <div class="gallery-item reveal stagger-2" data-category="bedroom" data-title="Master Suite — Neutral Palette">
+      <img src="images/interiors/real-master-bedroom-neutral.jpg" alt="Master bedroom with neutral palette, ceiling fan, and large windows" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Master Suite &mdash; Neutral Palette</h3>
+        <span class="gallery-tag">Bedroom</span>
+      </div>
+    </div>
+
+    <!-- 15. Real Game Room -->
+    <div class="gallery-item reveal stagger-3" data-category="details" data-title="Game Room & Bonus Space">
+      <img src="images/interiors/real-game-room-pool-table.jpg" alt="Game room with pool table, sliding doors, and lounge seating" loading="lazy">
+      <div class="gallery-item-overlay">
+        <h3>Game Room & Bonus Space</h3>
+        <span class="gallery-tag">Bonus</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="reveal">Love What You See? <span>Let's Build It.</span></h2>
+  <p class="reveal stagger-1">Every interior is fully customizable. Choose your finishes, layouts, and luxury upgrades — we handle the rest.</p>
+  <a href="index.html#contact" class="btn-primary reveal stagger-2">Get a Free Estimate <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span>
+        </a>
+        <p>Custom home builders in Florida. You bring the lot — we build your dream home from the ground up.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html#process">How It Works</a>
+        <a href="facades.html">Facades & Styles</a>
+        <a href="index.html#floor-plans">Floor Plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="index.html">Custom Homes</a>
+        <a href="financing.html">Financing</a>
+        <a href="index.html#services">Construction Management</a>
+        <a href="resources.html">Resources</a>
+        <a href="calculator.html">Pricing Calculator</a>
+        <a href="interiors.html">Interior Selections</a>
+        <a href="construction.html">Construction Gallery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:2392304868">(239) 230-4868</a>
+        <a href="mailto:info@builderk.com">info@builderk.com</a>
+        <a href="#">Orlando, FL</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Builders Knowledge Development Inc. All rights reserved.</span>
+      <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <button class="lightbox-nav prev" id="lightbox-prev">&#8249;</button>
+  <button class="lightbox-nav next" id="lightbox-next">&#8250;</button>
+  <img src="" alt="" id="lightbox-img">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+// ===== SCROLL REVEAL =====
+window.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.page-hero .reveal').forEach(function(el) {
+    el.classList.add('visible');
+  });
+});
+
+var observer = null;
+if (typeof IntersectionObserver !== 'undefined') {
+  observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+}
+
+// ===== NAVBAR SCROLL =====
+var navbar = document.getElementById('navbar');
+if (navbar) {
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+}
+
+// ===== FILTER TABS =====
+var filterTabs = document.querySelectorAll('.filter-tab');
+var galleryItems = document.querySelectorAll('.gallery-item');
+
+filterTabs.forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    filterTabs.forEach(function(t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+    var filter = tab.getAttribute('data-filter');
+
+    galleryItems.forEach(function(item) {
+      if (filter === 'all' || item.getAttribute('data-category') === filter) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// ===== LIGHTBOX =====
+var lightbox = document.getElementById('lightbox');
+var lightboxImg = document.getElementById('lightbox-img');
+var lightboxCaption = document.getElementById('lightbox-caption');
+var lightboxClose = document.getElementById('lightbox-close');
+var lightboxPrev = document.getElementById('lightbox-prev');
+var lightboxNext = document.getElementById('lightbox-next');
+var currentIndex = 0;
+
+function getVisibleItems() {
+  return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+}
+
+galleryItems.forEach(function(item) {
+  item.addEventListener('click', function() {
+    var visible = getVisibleItems();
+    currentIndex = visible.indexOf(item);
+    var img = item.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = item.getAttribute('data-title') || '';
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+lightboxClose.addEventListener('click', function(e) { e.stopPropagation(); closeLightbox(); });
+lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+
+lightboxPrev.addEventListener('click', function(e) {
+  e.stopPropagation();
+  var visible = getVisibleItems();
+  currentIndex = (currentIndex - 1 + visible.length) % visible.length;
+  var img = visible[currentIndex].querySelector('img');
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightboxCaption.textContent = visible[currentIndex].getAttribute('data-title') || '';
+});
+
+lightboxNext.addEventListener('click', function(e) {
+  e.stopPropagation();
+  var visible = getVisibleItems();
+  currentIndex = (currentIndex + 1) % visible.length;
+  var img = visible[currentIndex].querySelector('img');
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightboxCaption.textContent = visible[currentIndex].getAttribute('data-title') || '';
+});
+
+document.addEventListener('keydown', function(e) {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxPrev.click();
+  if (e.key === 'ArrowRight') lightboxNext.click();
+});
+
+// ===== MOBILE MENU =====
+var hamburger = document.getElementById('hamburger');
+var navLinks = document.querySelector('.nav-links');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+    });
+  });
+}
+</script>
+</body>
+</html>
