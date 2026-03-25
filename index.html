@@ -1824,6 +1824,26 @@ if (hamburger && navLinks) {
   </script>
   <!-- End Google Ads Conversion Tracking -->
 
+  <!-- Auto-send leads to GHL CRM -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.querySelector('form[action*="formspree"]');
+      if (form) {
+        form.addEventListener('submit', function() {
+          var formData = new FormData(form);
+          var data = {};
+          formData.forEach(function(value, key) { data[key] = value; });
+          fetch('/api/webhook', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          }).catch(function() {});
+        });
+      }
+    });
+  </script>
+  <!-- End GHL CRM Integration -->
+
   <!-- TikTok Event Tracking -->
   <script>
     ttq.track('ViewContent', { contents: [{ content_id: 'builderk-homepage', content_type: 'product', content_name: 'BuilderK Custom Home Builders Florida' }], value: 0, currency: 'USD' });
