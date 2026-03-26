@@ -220,7 +220,15 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   .cta-section{padding:60px 24px}.cta-section h2{font-size:2rem}
   .footer{padding:40px 20px 24px}.footer-top{flex-direction:column;gap:32px}.footer-bottom{flex-direction:column;gap:8px;text-align:center}
   .slider-value .num{font-size:1.6rem}
+  body{padding-bottom:70px}
+  .calc-sticky-cta{display:flex!important}
 }
+.calc-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);padding:12px 16px;gap:10px;border-top:1px solid rgba(247,127,0,0.3)}
+.calc-sticky-cta a{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.95rem;padding:14px;border-radius:10px;text-decoration:none;transition:all 0.2s}
+.calc-sticky-cta .sticky-primary{background:var(--orange);color:#fff}
+.calc-sticky-cta .sticky-primary:hover{background:var(--orange-hover)}
+.calc-sticky-cta .sticky-secondary{background:transparent;border:2px solid var(--orange);color:var(--orange)}
+.calc-sticky-cta .sticky-secondary:hover{background:rgba(247,127,0,0.1)}
 .nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.98);z-index:999;justify-content:center;align-items:center;gap:24px;padding:80px 24px}
 .nav-links.open li{list-style:none}
 .nav-links.open li a{font-size:1.4rem;padding:12px 0;color:#fff}
@@ -662,5 +670,10 @@ if(hamburger&&navLinks){hamburger.addEventListener('click',function(){navLinks.c
   });
 </script>
 <!-- End Google Ads Conversion Tracking -->
+<!-- Sticky Mobile CTA -->
+<div class="calc-sticky-cta">
+  <a href="/#contact" class="sticky-primary">Talk to a Builder</a>
+  <a href="tel:7868787691" class="sticky-secondary">Call Now</a>
+</div>
 </body>
 </html>
