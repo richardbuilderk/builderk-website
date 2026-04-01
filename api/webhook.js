@@ -38,13 +38,20 @@ export default async function handler(req, res) {
 
     const ghlData = await ghlResponse.json();
 
+    let contactId;
     if (!ghlResponse.ok) {
-      console.error('GHL contact error:', ghlData);
-      return res.status(500).json({ error: 'Failed to create contact in GHL', details: ghlData });
+      // Handle duplicate contact — GHL returns the existing contactId in meta
+      if (ghlData.meta?.contactId) {
+        contactId = ghlData.meta.contactId;
+        console.log('Contact already exists in GHL:', contactId, ghlData.meta.contactName);
+      } else {
+        console.error('GHL contact error:', ghlData);
+        return res.status(500).json({ error: 'Failed to create contact in GHL', details: ghlData });
+      }
+    } else {
+      contactId = ghlData.contact?.id;
+      console.log('Contact created in GHL:', contactId, contact.firstName, contact.lastName);
     }
-
-    const contactId = ghlData.contact?.id;
-    console.log('Contact created in GHL:', contactId, contact.firstName, contact.lastName);
 
     // 2. Look up the pipeline and "Lead Generation" stage
     const pipelineStage = await findLeadGenStage(GHL_LOCATION, GHL_HEADERS);
