@@ -12,47 +12,173 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const GHL_TOKEN = process.env.GHL_PIT_TOKEN;
+  const GHL_LOCATION = process.env.GHL_LOCATION_ID;
+  const GHL_HEADERS = {
+    'Authorization': `Bearer ${GHL_TOKEN}`,
+    'Version': '2021-07-28',
+    'Content-Type': 'application/json',
+  };
+
   try {
     const data = req.body;
+    const isReferral = !!data.referrer_name;
 
-    // Map Formspree fields to GHL contact
-    const contact = {
-      firstName: extractFirstName(data.name || ''),
-      lastName: extractLastName(data.name || ''),
-      email: data.email || '',
-      phone: formatPhone(data.phone || ''),
-      locationId: process.env.GHL_LOCATION_ID,
-      state: 'Florida',
-      postalCode: data.zip_code || '',
-      source: 'Website Form',
-      tags: buildTags(data),
-    };
+    // Build contact payload based on form type
+    const contact = isReferral
+      ? buildReferralContact(data, GHL_LOCATION)
+      : buildWebsiteContact(data, GHL_LOCATION);
 
-    // Send to GHL
+    // 1. Create or update the contact in GHL
     const ghlResponse = await fetch('https://services.leadconnectorhq.com/contacts/', {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.GHL_PIT_TOKEN}`,
-        'Version': '2021-07-28',
-        'Content-Type': 'application/json',
-      },
+      headers: GHL_HEADERS,
       body: JSON.stringify(contact),
     });
 
     const ghlData = await ghlResponse.json();
 
     if (!ghlResponse.ok) {
-      console.error('GHL error:', ghlData);
+      console.error('GHL contact error:', ghlData);
       return res.status(500).json({ error: 'Failed to create contact in GHL', details: ghlData });
     }
 
-    console.log('Lead added to GHL:', ghlData.contact?.id, contact.firstName, contact.lastName);
-    return res.status(200).json({ success: true, contactId: ghlData.contact?.id });
+    const contactId = ghlData.contact?.id;
+    console.log('Contact created in GHL:', contactId, contact.firstName, contact.lastName);
+
+    // 2. Look up the pipeline and "Lead Generation" stage
+    const pipelineStage = await findLeadGenStage(GHL_LOCATION, GHL_HEADERS);
+
+    if (!pipelineStage) {
+      console.error('Could not find Lead Generation pipeline stage');
+      return res.status(200).json({ success: true, contactId, opportunity: false, reason: 'Pipeline stage not found' });
+    }
+
+    // 3. Create the opportunity
+    const oppName = isReferral
+      ? `${data.client_name || 'Unknown'} — Referral from ${data.referrer_name}`
+      : `${data.name || 'Unknown'} — Website Lead`;
+
+    const opportunityPayload = {
+      pipelineId: pipelineStage.pipelineId,
+      pipelineStageId: pipelineStage.stageId,
+      locationId: GHL_LOCATION,
+      contactId,
+      name: oppName,
+      status: 'open',
+      source: isReferral ? 'Referral Program' : 'Website Form',
+      monetaryValue: estimateValue(data),
+    };
+
+    const oppResponse = await fetch('https://services.leadconnectorhq.com/opportunities/', {
+      method: 'POST',
+      headers: GHL_HEADERS,
+      body: JSON.stringify(opportunityPayload),
+    });
+
+    const oppData = await oppResponse.json();
+
+    if (!oppResponse.ok) {
+      console.error('GHL opportunity error:', oppData);
+      return res.status(200).json({ success: true, contactId, opportunity: false, reason: oppData });
+    }
+
+    console.log('Opportunity created in GHL:', oppData.opportunity?.id, oppName);
+    return res.status(200).json({ success: true, contactId, opportunityId: oppData.opportunity?.id });
 
   } catch (error) {
     console.error('Webhook error:', error);
     return res.status(500).json({ error: 'Internal server error' });
   }
+}
+
+// --- Contact builders ---
+
+function buildWebsiteContact(data, locationId) {
+  return {
+    firstName: extractFirstName(data.name || ''),
+    lastName: extractLastName(data.name || ''),
+    email: data.email || '',
+    phone: formatPhone(data.phone || ''),
+    locationId,
+    state: 'Florida',
+    postalCode: data.zip_code || '',
+    source: 'Website Form',
+    tags: buildTags(data),
+  };
+}
+
+function buildReferralContact(data, locationId) {
+  return {
+    firstName: extractFirstName(data.client_name || ''),
+    lastName: extractLastName(data.client_name || ''),
+    email: data.client_email || '',
+    phone: formatPhone(data.client_phone || ''),
+    locationId,
+    source: 'Referral Program',
+    tags: [
+      'referral-lead',
+      `referrer-${(data.referrer_name || '').toLowerCase().replace(/\s+/g, '-')}`,
+      data.referrer_company ? `brokerage-${data.referrer_company.toLowerCase().replace(/\s+/g, '-')}` : null,
+    ].filter(Boolean),
+    customFields: [
+      { key: 'referrer_name', value: data.referrer_name || '' },
+      { key: 'referrer_email', value: data.referrer_email || '' },
+      { key: 'referrer_phone', value: data.referrer_phone || '' },
+      { key: 'referrer_company', value: data.referrer_company || '' },
+      { key: 'project_notes', value: data.project_notes || '' },
+    ],
+  };
+}
+
+// --- Pipeline lookup ---
+
+async function findLeadGenStage(locationId, headers) {
+  try {
+    const resp = await fetch(
+      `https://services.leadconnectorhq.com/opportunities/pipelines?locationId=${locationId}`,
+      { headers }
+    );
+    const data = await resp.json();
+
+    if (!resp.ok || !data.pipelines) {
+      console.error('Pipeline fetch error:', data);
+      return null;
+    }
+
+    // Look for the main pipeline (first one or one containing "Main" or "Builderk")
+    const pipeline = data.pipelines.find(p =>
+      /main|builderk/i.test(p.name)
+    ) || data.pipelines[0];
+
+    if (!pipeline) return null;
+
+    // Find the "Lead Generation" stage
+    const stage = pipeline.stages.find(s =>
+      /lead\s*gen/i.test(s.name)
+    ) || pipeline.stages[0]; // fallback to first stage
+
+    return {
+      pipelineId: pipeline.id,
+      stageId: stage.id,
+    };
+  } catch (err) {
+    console.error('Pipeline lookup error:', err);
+    return null;
+  }
+}
+
+// --- Helpers ---
+
+function estimateValue(data) {
+  if (!data.budget) return 0;
+  const map = {
+    '$200K - $400K': 300000,
+    '$400K - $700K': 550000,
+    '$700K - $1M': 850000,
+    '$1M+': 1250000,
+  };
+  return map[data.budget] || 0;
 }
 
 function extractFirstName(name) {
