@@ -19,13 +19,13 @@
 <title>Facades & Styles — BuilderK Custom Home Builder Florida</title>
 <meta name="description" content="Explore BuilderK's home facade styles: Modern, Coastal, Contemporary, and Traditional. Choose your dream home design and build on your lot in Florida.">
 <meta name="keywords" content="home facade styles florida, modern home designs, coastal homes florida, contemporary house plans, traditional florida homes, custom home builder">
-<link rel="canonical" href="https://builderk.com/facades.html">
+<link rel="canonical" href="https://www.builderk.com/facades">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Facades & Styles — BuilderK Custom Homes">
 <meta property="og:description" content="Choose your home style. Modern, Coastal, Contemporary, or Traditional — we build all types on your lot in Florida.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://builderk.com/facades.html">
+<meta property="og:url" content="https://www.builderk.com/facades">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -504,7 +504,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
       </div>
     </div>
     <div class="facade-card reveal stagger-2">
-      <img src="images/facades/%20T1%20%E2%80%94%20Traditional%201-Story%20(Classic%20Florida).png" alt="Traditional single-story Florida home with cream stucco and tile roof" loading="lazy">
+      <img src="images/facades/T1%20%E2%80%94%20Traditional%201-Story%20(Classic%20Florida).png" alt="Traditional single-story Florida home with cream stucco and tile roof" loading="lazy">
       <div class="facade-card-info">
         <h3>Classic Florida</h3>
         <p>Warm cream stucco, hip roof with barrel tile, arched entryway, paver driveway. Timeless Florida elegance.</p>
@@ -566,14 +566,14 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="tel:2392304868">(239) 230-4868</a>
+        <a href="tel:2393203806">(239) 320-3806</a>
         <a href="mailto:info@builderk.com">info@builderk.com</a>
-        <a href="#">Orlando, FL</a>
+        <a href="https://maps.google.com/?q=4700+Millenia+Blvd+Ste+500+Orlando+FL+32839" target="_blank" rel="noopener">Orlando, FL</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Builders Knowledge Development Inc. All rights reserved.</span>
-      <a href="privacy.html">Privacy Policy</a> ? <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms & Conditions</a>
     </div>
   </div>
 </footer>
@@ -638,6 +638,19 @@ if (hamburger && navLinks) {
     });
   });
 }
+</script>
+
+<script>
+// Click-to-call GA4 event tracking
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_click', { 'page_path': location.pathname });
+      }
+    });
+  });
+});
 </script>
 </body>
 </html>

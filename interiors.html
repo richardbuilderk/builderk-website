@@ -18,10 +18,10 @@
 <title>Interior Selections — BuilderK Custom Homes Florida</title>
 <meta name="description" content="Choose every finish in your custom Florida home. Kitchen cabinets, countertops, flooring, bathroom fixtures, lighting, and paint. BuilderK guides you through every selection.">
 <meta name="keywords" content="interior selections custom home florida, kitchen cabinets new construction, countertops custom home, flooring options florida home, bathroom fixtures new build, interior design custom home builder">
-<link rel="canonical" href="https://builderk.com/interiors.html">
+<link rel="canonical" href="https://www.builderk.com/interiors">
 <meta property="og:title" content="Interior Selections — BuilderK Custom Homes Florida">
 <meta property="og:description" content="Every finish in your custom home is your choice. Cabinets, countertops, flooring, fixtures, lighting, and paint — we guide you through it all.">
-<meta property="og:url" content="https://builderk.com/interiors.html">
+<meta property="og:url" content="https://www.builderk.com/interiors">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://builderk.com/images/style-modern.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -388,7 +388,7 @@
     <div class="footer-brand"><div class="logo">BUILDER<span>K</span></div><p>Custom home builders in Florida. You bring the lot — we build your dream home from the ground up.</p></div>
     <div class="footer-col"><h4>Company</h4><a href="index.html">Home</a><a href="about.html">About Us</a><a href="index.html#process">How It Works</a><a href="facades.html">Facades & Styles</a><a href="index.html#floor-plans">Floor Plans</a></div>
     <div class="footer-col"><h4>Services</h4><a href="index.html">Custom Homes</a><a href="financing.html">Financing</a><a href="index.html#services">Construction Management</a><a href="resources.html">Resources</a><a href="calculator.html">Pricing Calculator</a></div>
-    <div class="footer-col"><h4>Contact</h4><a href="tel:2392304868">(239) 230-4868</a><a href="mailto:info@builderk.com">info@builderk.com</a><a href="https://maps.google.com/?q=4700+Millenia+Blvd+Ste+500+Orlando+FL+32839">Orlando, FL</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:2393203806">(239) 320-3806</a><a href="mailto:info@builderk.com">info@builderk.com</a><a href="https://maps.google.com/?q=4700+Millenia+Blvd+Ste+500+Orlando+FL+32839">Orlando, FL</a></div>
   </div>
   <div class="footer-bottom"><span>&copy; 2026 Builders Knowledge Development Inc. All rights reserved.</span><div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a></div></div>
 </footer>
@@ -399,6 +399,19 @@ if(typeof IntersectionObserver!=='undefined'){var obs=new IntersectionObserver(f
 var navbar=document.getElementById('navbar');if(navbar)window.addEventListener('scroll',function(){navbar.classList.toggle('scrolled',window.pageYOffset>60)});
 var hamburger=document.getElementById('hamburger');var navLinks=document.querySelector('.nav-links');if(hamburger&&navLinks){hamburger.addEventListener('click',function(){navLinks.classList.toggle('open');hamburger.classList.toggle('active')});navLinks.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){navLinks.classList.remove('open');hamburger.classList.remove('active')})})}
 function scrollToCat(id){document.querySelectorAll('.tab-btn').forEach(function(t){t.classList.remove('active')});if(event&&event.target)event.target.classList.add('active');if(id==='all'){var f=document.getElementById('kitchen');if(f)window.scrollTo({top:f.offsetTop-100,behavior:'smooth'})}else{var el=document.getElementById(id);if(el)window.scrollTo({top:el.offsetTop-100,behavior:'smooth'})}}
+</script>
+
+<script>
+// Click-to-call GA4 event tracking
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_click', { 'page_path': location.pathname });
+      }
+    });
+  });
+});
 </script>
 </body>
 </html>

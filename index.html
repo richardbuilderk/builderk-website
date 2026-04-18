@@ -1285,7 +1285,7 @@ body {
       <p style="font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,0.5);max-width:550px;margin:0 auto;">From hurricane-rated structure to premium finishes — watch how a BuilderK home comes together.</p>
     </div>
     <div style="width:100%;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.3);">
-      <video autoplay loop muted playsinline style="width:100%;display:block;">
+      <video autoplay loop muted playsinline preload="metadata" poster="images/hero-house.png" style="width:100%;display:block;">
         <source src="videos/house-video.mp4" type="video/mp4">
       </video>
     </div>
@@ -1706,7 +1706,7 @@ body {
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Builders Knowledge Development Inc. All rights reserved.</span>
-      <a href="/privacy">Privacy Policy</a> ? <a href="/terms">Terms & Conditions</a>
+      <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms & Conditions</a>
     </div>
   </div>
 </footer>
@@ -1901,5 +1901,18 @@ if (hamburger && navLinks) {
   <a href="#contact" class="mcta-start">Start Your Project</a>
 </div>
 
+
+<script>
+// Click-to-call GA4 event tracking
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_click', { 'page_path': location.pathname });
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>

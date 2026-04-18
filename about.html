@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics + Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S03X1HTEDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S03X1HTEDN');
+  gtag('config', 'AW-11388675250');
+</script>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -12,11 +21,11 @@
   <meta name="keywords" content="builderk team, florida general contractor, custom home builder orlando, licensed builder florida, CGC 1537163, home construction company florida">
     <meta name="author" content="BuilderK - Builders Knowledge Development Inc.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.builderk.com/about.html">
+    <link rel="canonical" href="https://www.builderk.com/about">
     <meta property="og:type" content="website">
     <meta property="og:title" content="About Us | BuilderK — Licensed Florida Home Builder">
     <meta property="og:description" content="Meet the team behind BuilderK. 15+ years experience, 150+ units built, CGC Licensed. Building custom homes in Florida with transparency and quality.">
-    <meta property="og:url" content="https://www.builderk.com/about.html">
+    <meta property="og:url" content="https://www.builderk.com/about">
     <meta property="og:image" content="https://www.builderk.com/images/hero-house.png">
     <meta property="og:site_name" content="BuilderK">
     <meta property="og:locale" content="en_US">
@@ -288,7 +297,7 @@
             <div class="license-row"><span class="license-key">Type</span><span class="license-value">Certified General Contractor</span></div>
             <div class="license-row"><span class="license-key">State</span><span class="license-value">Florida</span></div>
             <div class="license-row"><span class="license-key">Status</span><span class="license-value"><span class="license-badge">Active</span></span></div>
-            <div class="license-row"><span class="license-key">Phone</span><span class="license-value">(239) 230-4868</span></div>
+            <div class="license-row"><span class="license-key">Phone</span><span class="license-value">(239) 320-3806</span></div>
           </div>
         </div>
       </div>
@@ -439,19 +448,19 @@
         </div>
         <div>
           <div class="footer-col-title">Services</div>
-          <ul class="footer-links"><li><a href="#">Custom Home Building</a></li><li><a href="#">Design-Build</a></li><li><a href="#">Construction Financing</a></li><li><a href="#">Lot Consultation</a></li><li><a href="#">Renovations</a></li></ul>
+          <ul class="footer-links"><li><a href="index.html#floor-plans">Floor Plans</a></li><li><a href="construction.html">Construction Management</a></li><li><a href="financing.html">Financing</a></li><li><a href="calculator.html">Pricing Calculator</a></li><li><a href="interiors.html">Interior Selections</a></li></ul>
         </div>
         <div>
           <div class="footer-col-title">Contact</div>
           <div class="footer-contact-info">
-            <div class="footer-contact-row"><span>📞</span><span>(239) 230-4868</span></div>
+            <div class="footer-contact-row"><span>📞</span><span>(239) 320-3806</span></div>
             <div class="footer-contact-row"><span>✉️</span><span>info@builderk.com</span></div>
             <div class="footer-contact-row"><span>📍</span><span>4700 Millenia Blvd, Ste 500, Orlando, FL 32839</span></div>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy">© 2025 <span>BuilderK</span> – Builders Knowledge Development Inc. All rights reserved. <a href="privacy.html">Privacy Policy</a> ? <a href="terms.html">Terms & Conditions</a> | <a href="interiors.html">Interior Selections</a> | <a href="calculator.html">Calculator</a>
+        <div class="footer-copy">© 2026 <span>BuilderK</span> – Builders Knowledge Development Inc. All rights reserved. <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms & Conditions</a> | <a href="interiors.html">Interior Selections</a> | <a href="calculator.html">Calculator</a>
     </div>
         <div class="footer-copy">CGC License #1537163 · State of Florida</div>
       </div>
@@ -493,5 +502,18 @@
       }
     })();
   </script>
+
+<script>
+// Click-to-call GA4 event tracking
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'phone_click', { 'page_path': location.pathname });
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
