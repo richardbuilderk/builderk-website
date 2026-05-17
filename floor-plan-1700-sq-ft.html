@@ -111,7 +111,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 .lightbox img { max-width: 95%; max-height: 95vh; }
 .lightbox .close { position: absolute; top: 24px; right: 32px; color: #fff; font-size: 2rem; cursor: pointer; background:none; border:none; }
 
-@media (max-width: 1280px) { .nav-links { display:none; } .nav-hamburger { display:flex !important; } .navbar { padding:14px 20px !important; } }
+@media (max-width: 900px) { .nav-links { display:none; } .nav-hamburger { display:flex !important; } .navbar { padding:14px 20px !important; } }
 @media (max-width: 900px) {
   .crumbs { padding: 90px 20px 8px; }
   .plan-hero { grid-template-columns: 1fr; padding: 16px 20px 40px; gap: 24px; }
@@ -139,21 +139,13 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 <nav class="navbar" id="navbar">
   <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
   <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About Us</a></li>
     <li><a href="/#process">How It Works</a></li>
-    <li><a href="/#services">Services</a></li>
     <li><a href="/floor-plans" style="color:var(--orange);">Floor Plans</a></li>
-    <li><a href="/facades">Facades & Styles</a></li>
     <li><a href="/financing">Financing</a></li>
-    <li><a href="/resources">Resources</a></li>
     <li><a href="/calculator">Calculator</a></li>
-    <li><a href="/interiors">Interiors</a></li>
-    <li><a href="/construction">Construction</a></li>
-    <li><a href="/referral-program/">Referral Program</a></li>
-    <li><a href="/#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="/#contact" class="nav-cta">Talk to a Builder</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="crumbs"><a href="/">Home</a><span>›</span><a href="/floor-plans">Floor Plans</a><span>›</span>1,700 Sq Ft Plan</div>
@@ -264,7 +256,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 <section class="cta-section">
   <h2>Want to <span>Build This Plan</span> on Your Lot?</h2>
   <p>Send us your lot details and we'll come back with a complete estimate, a financing plan, and a build timeline within 48 hours.</p>
-  <a href="/#contact" class="btn-primary">Start Your Project <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  <a href="/#contact" class="btn-primary">Talk to a Builder<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 </section>
 
 <footer class="footer">
@@ -287,7 +279,22 @@ if (navbar) window.addEventListener('scroll', function() { if (window.pageYOffse
 var hamburger = document.getElementById('hamburger');
 var navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', function() { navLinks.classList.toggle('open'); hamburger.classList.toggle('active'); });
+  hamburger.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
+  });
   navLinks.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { navLinks.classList.remove('open'); hamburger.classList.remove('active'); }); });
 }
 // Lightbox

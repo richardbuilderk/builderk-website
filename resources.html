@@ -91,7 +91,7 @@
         .footer-col a:hover { color: var(--orange); }
         .footer-bottom { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); color: var(--gray); font-size: 0.8rem; }
 
-        @media (max-width: 1280px) {
+        @media (max-width: 900px) {
             .nav-links { display: none; }
             .nav-hamburger { display: flex !important; }
             .navbar { padding: 14px 20px !important; }
@@ -113,22 +113,14 @@
 <body>
 
 <nav>
-    <a href="index.html" class="logo">BUILDER<span>K</span></a>
+    <a href="/" class="logo">BUILDER<span>K</span></a>
     <ul class="nav-links">
- <li><a href="index.html">Home</a></li>
- <li><a href="about.html">About Us</a></li>
- <li><a href="index.html#process">How It Works</a></li>
- <li><a href="index.html#services">Services</a></li>
- <li><a href="facades.html">Facades &amp; Styles</a></li>
- <li><a href="financing.html">Financing</a></li>
- <li><a href="resources.html" style="color:var(--orange);">Resources</a></li>
-<li><a href="calculator.html">Calculator</a></li>
-<li><a href="interiors.html">Interiors</a></li>
-<li><a href="construction.html">Construction</a></li>
-<li><a href="/referral-program/">Referral Program</a></li>
- <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+ <li><a href="/#process">How It Works</a></li>
+ <li><a href="/financing">Financing</a></li>
+<li><a href="/calculator">Calculator</a></li>
+ <li><a href="/#contact" class="nav-cta">Talk to a Builder</a></li>
 </ul>
-    <button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+    <button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
 </nav>
@@ -149,14 +141,14 @@
             </div>
             <div class="resource-content">
                 <div class="resource-tag">Building Guide</div>
-                <h3><a href="blog-build-custom-home-florida-2026.html">How to Build a Custom Home in Florida: Complete 2026 Guide</a></h3>
+                <h3><a href="/blog-build-custom-home-florida-2026">How to Build a Custom Home in Florida: Complete 2026 Guide</a></h3>
                 <p>Everything you need to know — costs, timelines, permits, financing, construction methods, and common mistakes to avoid. The most complete guide for Florida homebuilders.</p>
                 <div class="resource-meta">
                     <span>📅 March 2026</span>
                     <span>⏱ 12 min read</span>
                 </div>
                 <br>
-                <a href="blog-build-custom-home-florida-2026.html" class="read-link">Read the Guide →</a>
+                <a href="/blog-build-custom-home-florida-2026" class="read-link">Read the Guide →</a>
             </div>
         </article>
 
@@ -167,14 +159,14 @@
             </div>
             <div class="resource-content">
                 <div class="resource-tag">Smart Building</div>
-                <h3><a href="blog-build-on-your-lot-vs-buy.html">Build on Your Lot vs. Buy: Why Building Gives You Instant Equity</a></h3>
+                <h3><a href="/blog-build-on-your-lot-vs-buy">Build on Your Lot vs. Buy: Why Building Gives You Instant Equity</a></h3>
                 <p>Why building on your own lot in Florida is like being your own developer. Real numbers showing how you can walk into $80K–$120K in equity on day one.</p>
                 <div class="resource-meta">
                     <span>📅 March 2026</span>
                     <span>⏱ 10 min read</span>
                 </div>
                 <br>
-                <a href="blog-build-on-your-lot-vs-buy.html" class="read-link">Read the Article →</a>
+                <a href="/blog-build-on-your-lot-vs-buy" class="read-link">Read the Article →</a>
             </div>
         </article>
 
@@ -185,14 +177,14 @@
             </div>
             <div class="resource-content">
                 <div class="resource-tag">Financing</div>
-                <h3><a href="financing.html">Construction Loan Florida: Complete Financing Guide</a></h3>
+                <h3><a href="/financing">Construction Loan Florida: Complete Financing Guide</a></h3>
                 <p>How construction loans work, one-time close vs. two-time close, requirements, the draw process, and how your land can be your down payment.</p>
                 <div class="resource-meta">
                     <span>📅 March 2026</span>
                     <span>⏱ 8 min read</span>
                 </div>
                 <br>
-                <a href="financing.html" class="read-link">Read the Guide →</a>
+                <a href="/financing" class="read-link">Read the Guide →</a>
             </div>
         </article>
 
@@ -202,31 +194,31 @@
 <section class="cta-section">
     <h2>Have Questions About <em>Building?</em></h2>
     <p>Our team is here to help. Whether you're just exploring or ready to start, we'll give you honest answers — no pressure.</p>
-    <a href="index.html#contact" class="cta-btn">Talk to Our Team →</a>
+    <a href="/#contact" class="cta-btn">Talk to Our Team →</a>
 </section>
 
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
-            <a href="index.html" class="logo">BUILDER<span>K</span></a>
+            <a href="/" class="logo">BUILDER<span>K</span></a>
             <p>Florida's technology-driven custom home builder. You bring the lot, we handle everything else.</p>
             <p style="margin-top: 8px; font-size: 0.85rem;">CGC License #1537163</p>
         </div>
         <div class="footer-col">
             <h4>Company</h4>
-            <a href="about.html">About Us</a>
-            <a href="index.html#process">How It Works</a>
-            <a href="index.html#services">Services</a>
-            <a href="financing.html">Financing</a>
-        <a href="calculator.html">Pricing Calculator</a>
-        <a href="interiors.html">Interior Selections</a>
+            <a href="/about">About Us</a>
+            <a href="/#process">How It Works</a>
+            <a href="/#services">Services</a>
+            <a href="/financing">Financing</a>
+        <a href="/calculator">Pricing Calculator</a>
+        <a href="/interiors">Interior Selections</a>
         </div>
         <div class="footer-col">
             <h4>Build</h4>
-            <a href="index.html#floor-plans">Floor Plans</a>
-            <a href="index.html#styles">Styles</a>
-            <a href="resources.html">Resources</a>
-            <a href="index.html#contact">Get a Quote</a>
+            <a href="/#floor-plans">Floor Plans</a>
+            <a href="/#styles">Styles</a>
+            <a href="/resources">Resources</a>
+            <a href="/#contact">Talk to a Builder</a>
         </div>
         <div class="footer-col">
             <h4>Contact</h4>
@@ -236,7 +228,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        © 2026 Builders Knowledge Development Inc. All rights reserved. <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms & Conditions</a>
+        © 2026 Builders Knowledge Development Inc. All rights reserved. <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms & Conditions</a>
     </div>
 </footer>
 

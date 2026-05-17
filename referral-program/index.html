@@ -214,7 +214,7 @@ body{font-family:var(--font-body);color:var(--text-dark);background:var(--light-
 .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;font-size:.82rem}
 .footer-bottom a{color:rgba(255,255,255,.4);text-decoration:none}
 .footer-bottom a:hover{color:var(--orange)}
-@media(max-width:1280px){.nav-links{display:none}.nav-hamburger{display:flex!important}.navbar{padding:14px 20px!important}}
+@media (max-width: 900px){.nav-links{display:none}.nav-hamburger{display:flex!important}.navbar{padding:14px 20px!important}}
 @media(max-width:1024px){.pay-grid{grid-template-columns:1fr}.pay-left{max-width:100%}.stack-inner{grid-template-columns:1fr;gap:48px}.offers-grid{grid-template-columns:repeat(2,1fr)}.process-cards{grid-template-columns:repeat(2,1fr)}.rules-grid{grid-template-columns:1fr}}
 @media(max-width:768px){.navbar{padding:16px 24px}.hero-inner{padding:120px 24px 60px}.hero h1{font-size:2.4rem}.hero-stats{gap:28px}.hero-stat-number{font-size:1.5rem}.pay-section,.stack-section,.offers-section,.process-section,.rules-section,.form-section,.faq-section,.footer-cta-section{padding:60px 24px 80px}.form-inner{padding:48px 28px;border-radius:20px}.form-row{flex-direction:column}.pay-example-breakdown{flex-direction:column}.offer-areas{flex-direction:column;align-items:flex-start;gap:24px;padding:32px 28px}.offers-grid{grid-template-columns:1fr}.process-cards{grid-template-columns:1fr}.footer{padding:48px 24px 24px}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;gap:8px}.footer-cta-contacts{flex-direction:column;gap:20px}.hero-actions{flex-direction:column;align-items:flex-start}}
 @media(max-width:900px){.hero-inner{grid-template-columns:1fr!important}.hero-image{order:-1;margin-bottom:24px}.hero-image img{max-width:400px}.hero h1{font-size:2rem!important}.hero-subtitle{font-size:.95rem!important}.form-row{flex-direction:column!important}.form-inner{padding:40px 20px!important;border-radius:18px!important}.footer-top{flex-direction:column!important}.footer-bottom{flex-direction:column!important;gap:8px!important}.section-heading{font-size:1.7rem!important}}
@@ -234,22 +234,16 @@ body{font-family:var(--font-body);color:var(--text-dark);background:var(--light-
 <body>
 
 <nav class="navbar" id="navbar">
-  <a href="/index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/about.html">About Us</a></li>
     <li><a href="/index.html#process">How It Works</a></li>
-    <li><a href="/index.html#services">Services</a></li>
-    <li><a href="/facades.html">Facades &amp; Styles</a></li>
-    <li><a href="/financing.html">Financing</a></li>
-    <li><a href="/resources.html">Resources</a></li>
-    <li><a href="/calculator.html">Calculator</a></li>
-    <li><a href="/interiors.html">Interiors</a></li>
-    <li><a href="/referral-program/" class="active">Referral Program</a></li>
-    <li><a href="/index.html#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="/financing">Financing</a></li>
+    <li><a href="/calculator">Calculator</a></li>
+    <li><a href="/index.html#contact" class="nav-cta">Talk to a Builder</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -478,36 +472,36 @@ body{font-family:var(--font-body);color:var(--text-dark);background:var(--light-
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/index.html" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
+        <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
         <p>Custom home builders in Florida. You bring the lot — we build your dream home from the ground up.</p>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="/about.html">About Us</a>
+        <a href="/about">About Us</a>
         <a href="/index.html#process">How It Works</a>
         <a href="/index.html#gallery">Gallery</a>
-        <a href="/facades.html">Floor Plans</a>
+        <a href="/facades">Floor Plans</a>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="/index.html">Custom Homes</a>
-        <a href="/financing.html">Financing</a>
-        <a href="/facades.html">Architectural Plans</a>
+        <a href="/">Custom Homes</a>
+        <a href="/financing">Financing</a>
+        <a href="/facades">Architectural Plans</a>
         <a href="/index.html#services">Construction Management</a>
-        <a href="/calculator.html">Pricing Calculator</a>
-        <a href="/interiors.html">Interior Selections</a>
+        <a href="/calculator">Pricing Calculator</a>
+        <a href="/interiors">Interior Selections</a>
         <a href="/referral-program/">Referral Program</a>
       </div>
       <div class="footer-col">
         <h4>Areas We Serve</h4>
-        <a href="/orlando.html">Orlando, FL</a>
-        <a href="/tampa.html">Tampa, FL</a>
-        <a href="/melbourne.html">Space Coast, FL</a>
-        <a href="/miami.html">Miami, FL</a>
-        <a href="/cape-coral.html">Cape Coral, FL</a>
-        <a href="/fort-myers.html">Fort Myers, FL</a>
-        <a href="/jacksonville.html">Jacksonville, FL</a>
-        <a href="/ocala.html">Ocala, FL</a>
+        <a href="/orlando">Orlando, FL</a>
+        <a href="/tampa">Tampa, FL</a>
+        <a href="/melbourne">Space Coast, FL</a>
+        <a href="/miami">Miami, FL</a>
+        <a href="/cape-coral">Cape Coral, FL</a>
+        <a href="/fort-myers">Fort Myers, FL</a>
+        <a href="/jacksonville">Jacksonville, FL</a>
+        <a href="/ocala">Ocala, FL</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -518,7 +512,7 @@ body{font-family:var(--font-body);color:var(--text-dark);background:var(--light-
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Builders Knowledge Development Inc. All rights reserved.</span>
-      <span><a href="/privacy.html">Privacy Policy</a> &bull; <a href="/terms.html">Terms &amp; Conditions</a></span>
+      <span><a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms &amp; Conditions</a></span>
     </div>
   </div>
 </footer>

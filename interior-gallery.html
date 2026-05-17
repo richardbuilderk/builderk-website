@@ -346,7 +346,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 .stagger-5 { transition-delay: 0.5s; }
 
 /* ===== NAV BREAKPOINT ===== */
-@media (max-width: 1280px) {
+@media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex !important; }
   .navbar { padding: 14px 20px !important; }
@@ -408,23 +408,16 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 
 <!-- NAV -->
 <nav class="navbar" id="navbar">
-  <a href="index.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="index.html#process">How It Works</a></li>
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="facades.html">Facades & Styles</a></li>
-    <li><a href="financing.html">Financing</a></li>
-    <li><a href="resources.html">Resources</a></li>
-    <li><a href="calculator.html">Calculator</a></li>
-    <li><a href="interiors.html" style="color:var(--orange);">Interiors</a></li>
-    <li><a href="/referral-program/">Referral Program</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="/#process">How It Works</a></li>
+    <li><a href="/financing">Financing</a></li>
+    <li><a href="/calculator">Calculator</a></li>
+    <li><a href="/#contact" class="nav-cta">Talk to a Builder</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -595,7 +588,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 <section class="cta-section">
   <h2 class="reveal">Love What You See? <span>Let's Build It.</span></h2>
   <p class="reveal stagger-1">Every interior is fully customizable. Choose your finishes, layouts, and luxury upgrades — we handle the rest.</p>
-  <a href="index.html#contact" class="btn-primary reveal stagger-2">Get a Free Estimate <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  <a href="/#contact" class="btn-primary reveal stagger-2">Estimate My Build<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 </section>
 
 <!-- FOOTER -->
@@ -603,28 +596,28 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
           <span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span>
         </a>
         <p>Custom home builders in Florida. You bring the lot — we build your dream home from the ground up.</p>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="index.html#process">How It Works</a>
-        <a href="facades.html">Facades & Styles</a>
-        <a href="index.html#floor-plans">Floor Plans</a>
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/#process">How It Works</a>
+        <a href="/facades">Facades & Styles</a>
+        <a href="/#floor-plans">Floor Plans</a>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="index.html">Custom Homes</a>
-        <a href="financing.html">Financing</a>
-        <a href="index.html#services">Construction Management</a>
-        <a href="resources.html">Resources</a>
-        <a href="calculator.html">Pricing Calculator</a>
-        <a href="interiors.html">Interior Selections</a>
-        <a href="construction.html">Construction Gallery</a>
+        <a href="/">Custom Homes</a>
+        <a href="/financing">Financing</a>
+        <a href="/#services">Construction Management</a>
+        <a href="/resources">Resources</a>
+        <a href="/calculator">Pricing Calculator</a>
+        <a href="/interiors">Interior Selections</a>
+        <a href="/construction">Construction Gallery</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -635,7 +628,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Builders Knowledge Development Inc. All rights reserved.</span>
-      <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms & Conditions</a>
+      <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms & Conditions</a>
     </div>
   </div>
 </footer>
@@ -767,8 +760,20 @@ var hamburger = document.getElementById('hamburger');
 var navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
   hamburger.addEventListener('click', function() {
-    navLinks.classList.toggle('open');
+    var isOpen = navLinks.classList.toggle('open');
     hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
   });
   navLinks.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', function() {

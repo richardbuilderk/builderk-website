@@ -155,11 +155,29 @@
         .why-card h3 { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 8px; color: var(--dark); }
         .why-card p { font-size: 0.9rem; color: #666; line-height: 1.6; }
 
+        /* ===== MOBILE MENU OPEN STATE ===== */
+        .nav-links.show {
+            display: flex !important;
+            flex-direction: column;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 999;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 18px;
+            padding: 88px 24px 32px;
+            overflow-y: auto;
+        }
+        .nav-links.show a { font-size: 1.3rem; color: #fff; padding: 10px 0; }
+        .nav-links.show a:hover, .nav-links.show a.active { color: var(--orange); }
+        .nav-links.show .nav-cta { margin-top: 12px; background: var(--orange); color: #fff !important; padding: 14px 28px; border-radius: 8px; }
+
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1280px) {
+        @media (max-width: 900px) {
             .nav-links { display: none; }
-            .nav-hamburger { display: flex !important; }
-            .navbar { padding: 14px 20px !important; }
+            .mobile-menu { display: block; }
+            nav { padding: 14px 20px; }
         }
         @media (max-width: 1024px) {
             .req-grid { grid-template-columns: repeat(2, 1fr); }
@@ -216,25 +234,40 @@
 <body>
 
 <!-- NAV -->
-<nav>
-    <a href="index.html" class="logo">BUILDER<span>K</span></a>
-    <div class="nav-links">
- <a href="index.html">Home</a>
- <a href="about.html">About Us</a>
- <a href="index.html#process">How It Works</a>
- <a href="index.html#services">Services</a>
- <a href="facades.html">Facades &amp; Styles</a>
- <a href="financing.html" class="active">Financing</a>
- <a href="resources.html">Resources</a>
-  <a href="calculator.html">Calculator</a>
-  <a href="interiors.html">Interiors</a>
-  <a href="/referral-program/">Referral Program</a>
- <a href="index.html#contact" class="nav-cta">Get a Quote</a>
-</div>
-    <button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+<nav id="navbar">
+    <a href="/" class="logo">BUILDER<span>K</span></a>
+    <div class="nav-links" id="nav-links">
+        <a href="/floor-plans">Floor Plans</a>
+        <a href="/calculator">Calculator</a>
+        <a href="/financing" class="active">Financing</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#contact" class="nav-cta">Talk to a Builder</a>
+    </div>
+    <button class="mobile-menu" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
 </nav>
+
+<script>
+    var fHam = document.getElementById('hamburger');
+    var fLinks = document.getElementById('nav-links');
+    if (fHam && fLinks) {
+        fHam.addEventListener('click', function() {
+            var isOpen = fLinks.classList.toggle('show');
+            fHam.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            fHam.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && fLinks.classList.contains('show')) {
+                fLinks.classList.remove('show');
+                fHam.setAttribute('aria-expanded', 'false');
+                fHam.setAttribute('aria-label', 'Open menu');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+</script>
 
 <!-- HERO -->
 <section class="hero">
@@ -242,7 +275,7 @@
         <div class="hero-badge">Construction Loan Guide — Florida</div>
         <h1>Don't Let the Loan<br>Stop Your <em>Dream</em></h1>
         <p>Building a home in Florida doesn't have to be complicated. We connect you with the right lender, guide you through the process, and manage everything from plans to keys.</p>
-        <a href="index.html#contact" class="hero-cta">Check My Eligibility →</a>
+        <a href="/#contact" class="hero-cta">Talk to a Builder →</a>
         <div class="hero-stats">
             <div class="hero-stat">
                 <div class="number">680+</div>
@@ -494,32 +527,32 @@
 <section class="cta-section">
     <h2>Ready to <em>Get Started?</em></h2>
     <p>Let's talk about your project, your budget, and your financing options. No commitment, no pressure — just a conversation.</p>
-    <a href="index.html#contact" class="cta-btn">Check My Eligibility →</a>
+    <a href="/#contact" class="cta-btn">Talk to a Builder →</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
-            <a href="index.html" class="logo">BUILDER<span>K</span></a>
+            <a href="/" class="logo">BUILDER<span>K</span></a>
             <p>Florida's technology-driven custom home builder. You bring the lot, we handle everything else.</p>
             <p style="margin-top: 8px; font-size: 0.85rem;">CGC License #1537163</p>
         </div>
         <div class="footer-col">
             <h4>Company</h4>
-            <a href="about.html">About Us</a>
-            <a href="index.html#process">How It Works</a>
-            <a href="index.html#services">Services</a>
-            <a href="financing.html">Financing</a>
-        <a href="calculator.html">Pricing Calculator</a>
-        <a href="interiors.html">Interior Selections</a>
-        <a href="construction.html">Construction Gallery</a>
+            <a href="/about">About Us</a>
+            <a href="/#process">How It Works</a>
+            <a href="/#services">Services</a>
+            <a href="/financing">Financing</a>
+        <a href="/calculator">Pricing Calculator</a>
+        <a href="/interiors">Interior Selections</a>
+        <a href="/construction">Construction Gallery</a>
         </div>
         <div class="footer-col">
             <h4>Build</h4>
-            <a href="index.html#floor-plans">Floor Plans</a>
-            <a href="index.html#styles">Styles</a>
-            <a href="index.html#contact">Get a Quote</a>
+            <a href="/#floor-plans">Floor Plans</a>
+            <a href="/#styles">Styles</a>
+            <a href="/#contact">Talk to a Builder</a>
         </div>
         <div class="footer-col">
             <h4>Contact</h4>
@@ -529,7 +562,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        © 2026 Builders Knowledge Development Inc. All rights reserved. <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms & Conditions</a>
+        © 2026 Builders Knowledge Development Inc. All rights reserved. <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms & Conditions</a>
     </div>
 </footer>
 

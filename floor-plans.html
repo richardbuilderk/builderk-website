@@ -128,7 +128,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 .stagger-6 { transition-delay: 0.6s; }
 
 /* ===== NAV BREAKPOINT ===== */
-@media (max-width: 1280px) {
+@media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex !important; }
   .navbar { padding: 14px 20px !important; }
@@ -167,21 +167,13 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
     <span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About Us</a></li>
     <li><a href="/#process">How It Works</a></li>
-    <li><a href="/#services">Services</a></li>
     <li><a href="/floor-plans" style="color:var(--orange);">Floor Plans</a></li>
-    <li><a href="/facades">Facades & Styles</a></li>
     <li><a href="/financing">Financing</a></li>
-    <li><a href="/resources">Resources</a></li>
     <li><a href="/calculator">Calculator</a></li>
-    <li><a href="/interiors">Interiors</a></li>
-    <li><a href="/construction">Construction</a></li>
-    <li><a href="/referral-program/">Referral Program</a></li>
-    <li><a href="/#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="/#contact" class="nav-cta">Talk to a Builder</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -281,7 +273,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 <section class="cta-section">
   <h2 class="reveal">Ready to <span>Build Your Home?</span></h2>
   <p class="reveal stagger-1">You bring the lot. We handle financing, design, permitting, and construction — all under one roof. One team, one contract, no hassle.</p>
-  <a href="/#contact" class="btn-primary reveal stagger-2">Get a Free Estimate <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  <a href="/#contact" class="btn-primary reveal stagger-2">Estimate My Build<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 </section>
 
 <!-- FOOTER -->
@@ -368,7 +360,22 @@ document.querySelectorAll('.filter-tab').forEach(function(tab) {
 var hamburger = document.getElementById('hamburger');
 var navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', function() { navLinks.classList.toggle('open'); hamburger.classList.toggle('active'); });
+  hamburger.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
+  });
   navLinks.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { navLinks.classList.remove('open'); hamburger.classList.remove('active'); }); });
 }
 // Click-to-call GA4 event tracking

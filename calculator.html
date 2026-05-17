@@ -201,7 +201,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .stagger-1{transition-delay:0.1s}.stagger-2{transition-delay:0.2s}.stagger-3{transition-delay:0.3s}
 
 /* NAV BREAKPOINT */
-@media(max-width:1280px){
+@media (max-width: 900px){
   .nav-links{display:none}.nav-hamburger{display:flex!important}.navbar{padding:14px 20px!important}
 }
 /* MOBILE */
@@ -241,22 +241,14 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <body>
 
 <nav class="navbar" id="navbar">
-  <a href="index.html" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
+  <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="index.html#process">How It Works</a></li>
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="facades.html">Facades &amp; Styles</a></li>
-    <li><a href="financing.html">Financing</a></li>
-    <li><a href="resources.html">Resources</a></li>
-<li><a href="calculator.html">Calculator</a></li>
-<li><a href="interiors.html">Interiors</a></li>
-<li><a href="construction.html">Construction</a></li>
-<li><a href="/referral-program/">Referral Program</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+    <li><a href="/#process">How It Works</a></li>
+    <li><a href="/financing">Financing</a></li>
+<li><a href="/calculator">Calculator</a></li>
+    <li><a href="/#contact" class="nav-cta">Talk to a Builder</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="calc-hero">
@@ -363,7 +355,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         <div class="breakdown-row"><span class="blabel">Additional Features</span><span class="bvalue" id="bd-extras">$0</span></div>
         <div class="breakdown-row total"><span class="blabel">Total Estimate</span><span class="bvalue" id="bd-total">$359,800</span></div>
       </div>
-      <a href="index.html#contact" class="result-cta">Get Your Free Detailed Quote</a>
+      <a href="/#contact" class="result-cta">Get Your Free Detailed Quote</a>
       <p class="result-note">*Estimates are approximate and may vary based on lot conditions, permits, engineering, and final material selections. Contact us for a detailed proposal.</p>
       <div class="equity-box">
         <h4 data-emoji="equity">Instant Equity Potential</h4>
@@ -538,7 +530,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <section class="cta-section">
   <h2 class="reveal">Ready to Build? <span>Let's Talk Numbers.</span></h2>
   <p class="reveal stagger-1">Get a detailed, personalized quote based on your lot, your plans, and your vision. No obligation.</p>
-  <a href="index.html#contact" class="btn-primary reveal stagger-2">Get a Free Estimate</a>
+  <a href="/#contact" class="btn-primary reveal stagger-2">Estimate My Build</a>
 </section>
 
 <!-- Footer -->
@@ -546,18 +538,18 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
+        <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
         <p>Custom home builders in Florida. You bring the lot - we build your dream home from the ground up.</p>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="index.html">Home</a><a href="about.html">About Us</a><a href="index.html#process">How It Works</a><a href="facades.html">Facades &amp; Styles</a><a href="calculator.html">Pricing Calculator</a>
-        <a href="interiors.html">Interior Selections</a>
+        <a href="/">Home</a><a href="/about">About Us</a><a href="/#process">How It Works</a><a href="/facades">Facades &amp; Styles</a><a href="/calculator">Pricing Calculator</a>
+        <a href="/interiors">Interior Selections</a>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="index.html">Custom Homes</a><a href="financing.html">Financing</a><a href="index.html#services">Construction Management</a><a href="resources.html">Resources</a>
-        <a href="calculator.html">Pricing Calculator</a>
+        <a href="/">Custom Homes</a><a href="/financing">Financing</a><a href="/#services">Construction Management</a><a href="/resources">Resources</a>
+        <a href="/calculator">Pricing Calculator</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -654,7 +646,22 @@ if(typeof IntersectionObserver!=='undefined'){var observer=new IntersectionObser
 // ===== NAV =====
 var navbar=document.getElementById('navbar');if(navbar){window.addEventListener('scroll',function(){navbar.classList.toggle('scrolled',window.pageYOffset>60);});}
 var hamburger=document.getElementById('hamburger');var navLinks=document.querySelector('.nav-links');
-if(hamburger&&navLinks){hamburger.addEventListener('click',function(){navLinks.classList.toggle('open');hamburger.classList.toggle('active');});navLinks.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){navLinks.classList.remove('open');hamburger.classList.remove('active');});});}
+if(hamburger&&navLinks){hamburger.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
+  });navLinks.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){navLinks.classList.remove('open');hamburger.classList.remove('active');});});}
 </script>
 <!-- Google Ads Conversion Tracking on Form Submit -->
 <script>
