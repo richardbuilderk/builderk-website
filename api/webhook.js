@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
-  // CORS headers for Formspree
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // CORS: lock to the production origin (same-origin form posts are unaffected)
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.builderk.com');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
         console.log('Contact already exists in GHL:', contactId, ghlData.meta.contactName);
       } else {
         console.error('GHL contact error:', ghlData);
-        return res.status(500).json({ error: 'Failed to create contact in GHL', details: ghlData });
+        return res.status(500).json({ error: 'Failed to create contact. Please try again.' });
       }
     } else {
       contactId = ghlData.contact?.id;
