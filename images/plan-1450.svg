@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 620" role="img" aria-labelledby="title desc">
+  <title id="title">1,450 sq ft single story floor plan</title>
+  <desc id="desc">3 bedroom, 2 bath single story concept floor plan with 2-Car garage.</desc>
+  <rect width="1500" height="620" fill="#faf8f3"/>
+  <rect x="24" y="24" width="1452" height="572" rx="24" fill="#fff" stroke="#e8e0d0" stroke-width="4"/>
+  <text x="50" y="58" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#111">BUILDER<tspan fill="#f77f00">K</tspan> 1,450 SQ FT PLAN</text>
+  <text x="1450" y="58" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#6b6b6b">3 BED / 2 BATH / 2-CAR</text>
+  
+    <text x="50" y="86" font-family="Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="3" fill="#f77f00">FIRST FLOOR</text>
+    
+    <rect x="50" y="104" width="300" height="210" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="200" y="217" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Great Room</text>
+    <rect x="350" y="104" width="230" height="170" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="465" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Kitchen</text>
+    <rect x="580" y="104" width="160" height="170" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="660" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Dining</text>
+    <rect x="50" y="314" width="270" height="210" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="185" y="427" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Primary Suite</text>
+    <rect x="320" y="314" width="135" height="105" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="387.5" y="374.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Primary Bath</text>
+    <rect x="455" y="314" width="125" height="105" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="517.5" y="374.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">WIC</text>
+    <rect x="580" y="274" width="160" height="125" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="660" y="344.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Bed 2</text>
+    <rect x="580" y="399" width="160" height="125" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="660" y="469.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Bed 3</text>
+    <rect x="455" y="419" width="125" height="105" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="517.5" y="479.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">Bath 2</text>
+    <rect x="740" y="104" width="280" height="250" rx="8" fill="#efe7d8" stroke="#111" stroke-width="4"/>
+    <text x="880" y="237" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111">2-Car Garage</text>
+    <rect x="740" y="354" width="280" height="170" rx="8" fill="#fffaf0" stroke="#111" stroke-width="4"/>
+    <text x="880" y="447" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#111">Laundry / Entry</text>
+  <text x="50" y="578" font-family="Arial, sans-serif" font-size="18" fill="#6b6b6b">Concept floor plan for website review. Final construction drawings require site-specific architectural/engineering review.</text>
+</svg>

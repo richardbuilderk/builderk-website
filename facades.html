@@ -325,6 +325,84 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .nav-hamburger.active span:nth-child(2) { opacity: 0; }
 .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* === FULL-SCREEN MOBILE MENU FIX === */
+@media (max-width: 1280px) {
+  body:has(.nav-links.open),
+  body:has(.nav-links.show) {
+    overflow: hidden;
+  }
+
+  .navbar:has(.nav-links.open),
+  .navbar:has(.nav-links.show),
+  nav:has(.nav-links.open),
+  nav:has(.nav-links.show) {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    padding: 18px 20px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    overflow: hidden !important;
+    z-index: 10000 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .navbar:has(.nav-links.open) .nav-logo,
+  .navbar:has(.nav-links.show) .nav-logo,
+  nav:has(.nav-links.open) .nav-logo,
+  nav:has(.nav-links.show) .nav-logo,
+  nav:has(.nav-links.open) .logo,
+  nav:has(.nav-links.show) .logo {
+    position: fixed !important;
+    top: 22px !important;
+    left: 20px !important;
+    z-index: 10002 !important;
+  }
+
+  .navbar:has(.nav-links.open) .nav-hamburger,
+  .navbar:has(.nav-links.show) .nav-hamburger,
+  nav:has(.nav-links.open) .nav-hamburger,
+  nav:has(.nav-links.show) .nav-hamburger,
+  nav:has(.nav-links.open) .mobile-menu,
+  nav:has(.nav-links.show) .mobile-menu {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 10003 !important;
+  }
+
+  .navbar:has(.nav-links.open) .nav-links.open,
+  .navbar:has(.nav-links.show) .nav-links.show,
+  nav:has(.nav-links.open) .nav-links.open,
+  nav:has(.nav-links.show) .nav-links.show {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 96px 24px 48px !important;
+    overflow-y: auto !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    z-index: 10001 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 22px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -336,6 +414,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
   </a>
   <ul class="nav-links">
     <li><a href="/#process">How It Works</a></li>
+    <li><a href="/floor-plans">Floor Plans</a></li>
     <li><a href="/financing">Financing</a></li>
 <li><a href="/calculator">Calculator</a></li>
     <li><a href="/#contact" class="nav-cta">Talk to a Builder</a></li>
@@ -545,7 +624,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
         <a href="/about">About Us</a>
         <a href="/#process">How It Works</a>
         <a href="/facades">Facades & Styles</a>
-        <a href="/#floor-plans">Floor Plans</a>
+        <a href="/floor-plans">Floor Plans</a>
       </div>
       <div class="footer-col">
         <h4>Services</h4>

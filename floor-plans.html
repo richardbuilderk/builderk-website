@@ -17,13 +17,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Floor Plans — BuilderK Custom Home Builder Florida</title>
-<meta name="description" content="Browse BuilderK's collection of custom home floor plans for Florida. 1-story and 2-story designs from 1,700 to 2,377 sq ft. Customize any plan to fit your lot.">
+<meta name="description" content="Browse BuilderK's collection of custom home floor plans for Florida. 1-story and 2-story designs from 1,450 to 3,300 sq ft. Customize any plan to fit your lot.">
 <meta name="keywords" content="florida home floor plans, custom home plans, 1 story home plans florida, 2 story home plans, custom home builder florida, build on your lot">
 <link rel="canonical" href="https://www.builderk.com/floor-plans">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Floor Plans — BuilderK Custom Homes">
-<meta property="og:description" content="Browse our collection of pre-designed floor plans or customize one to fit your lot. Built on your lot in Florida.">
+<meta property="og:description" content="Browse our collection of pre-designed floor plans from 1,450 to 3,300 sq ft or customize one to fit your lot.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.builderk.com/floor-plans">
 
@@ -135,8 +135,8 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 }
 @media (max-width: 900px) {
   .navbar { padding: 14px 20px !important; }
-  .page-hero { padding: 120px 24px 60px; }
-  .page-hero h1 { font-size: 2.2rem; }
+  .page-hero { padding: 120px 20px 60px; overflow: hidden; }
+  .page-hero h1 { font-size: 2rem; line-height: 1.08; max-width: 330px; margin-left: auto; margin-right: auto; }
   .page-hero p { font-size: 1rem; }
   .plans-section { padding: 48px 20px; }
   .plans-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -145,7 +145,7 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
   .footer { padding: 40px 20px 24px; }
   .footer-top { flex-direction: column; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .filter-tabs { gap: 8px; }
+  .filter-tabs { display: flex; gap: 8px; width: 100%; max-width: 340px; margin-left: auto; margin-right: auto; }
   .filter-tab { padding: 8px 16px; font-size: 0.85rem; }
 }
 
@@ -157,6 +157,84 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .nav-hamburger.active span:nth-child(2) { opacity: 0; }
 .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* === FULL-SCREEN MOBILE MENU FIX === */
+@media (max-width: 1280px) {
+  body:has(.nav-links.open),
+  body:has(.nav-links.show) {
+    overflow: hidden;
+  }
+
+  .navbar:has(.nav-links.open),
+  .navbar:has(.nav-links.show),
+  nav:has(.nav-links.open),
+  nav:has(.nav-links.show) {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    padding: 18px 20px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    overflow: hidden !important;
+    z-index: 10000 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .navbar:has(.nav-links.open) .nav-logo,
+  .navbar:has(.nav-links.show) .nav-logo,
+  nav:has(.nav-links.open) .nav-logo,
+  nav:has(.nav-links.show) .nav-logo,
+  nav:has(.nav-links.open) .logo,
+  nav:has(.nav-links.show) .logo {
+    position: fixed !important;
+    top: 22px !important;
+    left: 20px !important;
+    z-index: 10002 !important;
+  }
+
+  .navbar:has(.nav-links.open) .nav-hamburger,
+  .navbar:has(.nav-links.show) .nav-hamburger,
+  nav:has(.nav-links.open) .nav-hamburger,
+  nav:has(.nav-links.show) .nav-hamburger,
+  nav:has(.nav-links.open) .mobile-menu,
+  nav:has(.nav-links.show) .mobile-menu {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 10003 !important;
+  }
+
+  .navbar:has(.nav-links.open) .nav-links.open,
+  .navbar:has(.nav-links.show) .nav-links.show,
+  nav:has(.nav-links.open) .nav-links.open,
+  nav:has(.nav-links.show) .nav-links.show {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 96px 24px 48px !important;
+    overflow-y: auto !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    z-index: 10001 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 22px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -240,6 +318,98 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
           </div>
         </div>
       </a>
+
+      <!-- GENERATED PLAN CARDS START -->
+      <!-- 1450 SQ FT -->
+      <a href="/floor-plan-1450-sq-ft" class="plan-card reveal stagger-1" data-story="1-story" data-size="small">
+        <div class="plan-card-img"><img src="/images/plan-1450.svg" alt="1,450 sq ft single story 3 bed 2 bath floor plan - BuilderK" loading="lazy"></div>
+        <div class="plan-card-body">
+          <div class="plan-card-title">1,450 Sq Ft Plan</div>
+          <div class="plan-card-specs">
+            <span>3 Bed</span><span>2 Bath</span><span>1,450 sq ft</span><span>2-Car</span>
+          </div>
+          <div class="plan-card-footer">
+            <span class="plan-card-cta">View Plan &rarr;</span>
+            <span class="plan-card-story">Single Story</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 1850 SQ FT -->
+      <a href="/floor-plan-1850-sq-ft" class="plan-card reveal stagger-2" data-story="1-story" data-size="medium">
+        <div class="plan-card-img"><img src="/images/plan-1850.svg" alt="1,850 sq ft single story 3 bed 2 bath floor plan - BuilderK" loading="lazy"></div>
+        <div class="plan-card-body">
+          <div class="plan-card-title">1,850 Sq Ft Plan</div>
+          <div class="plan-card-specs">
+            <span>3 Bed</span><span>2 Bath</span><span>1,850 sq ft</span><span>2-Car</span>
+          </div>
+          <div class="plan-card-footer">
+            <span class="plan-card-cta">View Plan &rarr;</span>
+            <span class="plan-card-story">Single Story</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2200 SQ FT -->
+      <a href="/floor-plan-2200-sq-ft" class="plan-card reveal stagger-3" data-story="1-story" data-size="large">
+        <div class="plan-card-img"><img src="/images/plan-2200.svg" alt="2,200 sq ft single story 4 bed 3 bath floor plan - BuilderK" loading="lazy"></div>
+        <div class="plan-card-body">
+          <div class="plan-card-title">2,200 Sq Ft Plan</div>
+          <div class="plan-card-specs">
+            <span>4 Bed</span><span>3 Bath</span><span>2,200 sq ft</span><span>2-Car</span>
+          </div>
+          <div class="plan-card-footer">
+            <span class="plan-card-cta">View Plan &rarr;</span>
+            <span class="plan-card-story">Single Story</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2650 SQ FT -->
+      <a href="/floor-plan-2650-sq-ft" class="plan-card reveal stagger-4" data-story="2-story" data-size="large">
+        <div class="plan-card-img"><img src="/images/plan-2650.svg" alt="2,650 sq ft two story 4 bed 3 bath floor plan - BuilderK" loading="lazy"></div>
+        <div class="plan-card-body">
+          <div class="plan-card-title">2,650 Sq Ft Plan</div>
+          <div class="plan-card-specs">
+            <span>4 Bed</span><span>3 Bath</span><span>2,650 sq ft</span><span>2-Car</span>
+          </div>
+          <div class="plan-card-footer">
+            <span class="plan-card-cta">View Plan &rarr;</span>
+            <span class="plan-card-story">Two Story</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3050 SQ FT -->
+      <a href="/floor-plan-3050-sq-ft" class="plan-card reveal stagger-5" data-story="2-story" data-size="large">
+        <div class="plan-card-img"><img src="/images/plan-3050.svg" alt="3,050 sq ft two story 4 bed 3.5 bath floor plan - BuilderK" loading="lazy"></div>
+        <div class="plan-card-body">
+          <div class="plan-card-title">3,050 Sq Ft Plan</div>
+          <div class="plan-card-specs">
+            <span>4 Bed</span><span>3.5 Bath</span><span>3,050 sq ft</span><span>3-Car</span>
+          </div>
+          <div class="plan-card-footer">
+            <span class="plan-card-cta">View Plan &rarr;</span>
+            <span class="plan-card-story">Two Story</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3300 SQ FT -->
+      <a href="/floor-plan-3300-sq-ft" class="plan-card reveal stagger-6" data-story="2-story" data-size="large">
+        <div class="plan-card-img"><img src="/images/plan-3300.svg" alt="3,300 sq ft two story 5 bed 4 bath floor plan - BuilderK" loading="lazy"></div>
+        <div class="plan-card-body">
+          <div class="plan-card-title">3,300 Sq Ft Plan</div>
+          <div class="plan-card-specs">
+            <span>5 Bed</span><span>4 Bath</span><span>3,300 sq ft</span><span>3-Car</span>
+          </div>
+          <div class="plan-card-footer">
+            <span class="plan-card-cta">View Plan &rarr;</span>
+            <span class="plan-card-story">Two Story</span>
+          </div>
+        </div>
+      </a>
+      <!-- GENERATED PLAN CARDS END -->
 
       <!-- CUSTOM CTA CARD 1 -->
       <a href="/#contact" class="plan-card plan-card-custom reveal stagger-4">
