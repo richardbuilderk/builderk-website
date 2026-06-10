@@ -16,7 +16,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home Building Cost Calculator - BuilderK Florida</title>
-<meta name="description" content="Estimate the cost to build your custom home in Florida. Interactive calculator with real pricing from $150-$220+/sqft. Get an instant estimate from BuilderK.">
+<meta name="description" content="Estimate the cost to build your custom home in Florida. Interactive calculator with real pricing from $160-$220+/sqft. Get an instant estimate from BuilderK.">
 <meta name="keywords" content="home building cost calculator florida, how much to build a house florida, construction cost estimator, custom home pricing florida, cost per square foot florida">
 <link rel="canonical" href="https://www.builderk.com/calculator">
 <meta property="og:title" content="Home Building Cost Calculator - BuilderK Florida">
@@ -339,7 +339,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <section class="calc-hero">
   <div class="calc-badge reveal">Free Instant Estimate</div>
   <h1 class="reveal stagger-1">How Much Does It Cost to<br><span>Build a Home in Florida?</span></h1>
-  <p class="reveal stagger-2">Use our calculator to get a real estimate based on your home size, build level, and features. No surprises - just transparent pricing.</p>
+  <p class="reveal stagger-2">Get a real estimate based on your home size, build level, and features. Pricing is based on Central Florida (Orlando metro). Coastal and flood zone builds typically cost more.</p>
 </section>
 
 <div class="calc-container">
@@ -363,7 +363,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         <div class="finish-card active" data-finish="standard" onclick="setFinish('standard')">
           <div class="tier-icon" data-emoji="standard">I</div>
           <div class="label">Standard</div>
-          <div class="price">$150-$180/sqft</div>
+          <div class="price">$160-$180/sqft</div>
         </div>
         <div class="finish-card" data-finish="midrange" onclick="setFinish('midrange')">
           <div class="tier-icon" data-emoji="midrange">II</div>
@@ -441,7 +441,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         <div class="breakdown-row total"><span class="blabel">Total Estimate</span><span class="bvalue" id="bd-total">$359,800</span></div>
       </div>
       <a href="/#contact" class="result-cta">Talk to a Builder</a>
-      <p class="result-note">*Estimates are approximate and may vary based on lot conditions, permits, engineering, and final material selections. Contact us for a detailed proposal.</p>
+      <p class="result-note">*Estimates reflect Central Florida (Orlando metro) pricing and are approximate. Government permit and impact fees are billed at cost, and site work beyond standard slab-on-grade construction is quoted separately. Coastal, flood zone, and South or Southwest Florida builds typically cost more. Contact us for a detailed proposal.</p>
       <div class="equity-box">
         <h4 data-emoji="equity">Instant Equity Potential</h4>
         <p>Homes built at this cost typically appraise 20-30% above build cost. Your estimated equity on day one:</p>
@@ -502,12 +502,12 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <!-- Pricing Tiers -->
 <section class="pricing-section">
   <h2 class="reveal">What's Included at <span>Each Build Level</span></h2>
-  <p class="reveal stagger-1">The build level defines your structural systems, roof, exterior, and ceiling heights. Interior finishes are fully customizable at every level.</p>
+  <p class="reveal stagger-1">The build level defines your structural systems, roof, exterior, and ceiling heights. Interior finishes are fully customizable at every level. Pricing shown is based on Central Florida construction; permit and impact fees and site work beyond standard slab-on-grade are additional, and coastal or flood zone builds run higher.</p>
   <div class="pricing-grid">
     <div class="price-tier popular reveal stagger-1">
       <div class="tier-header">
         <div class="tier-name">Standard</div>
-        <div class="tier-price">$150-$180</div>
+        <div class="tier-price">$160-$180</div>
         <div class="tier-unit">per sq ft</div>
       </div>
       <div class="tier-section-label">Structure &amp; Roof</div>
@@ -599,16 +599,17 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <section class="included-section">
   <h3 class="reveal" style="text-align:center;font-size:1.4rem;font-weight:700;margin-bottom:24px;color:#fff;">Included in <span style="color:var(--orange);">Every Build</span></h3>
   <div class="included-grid reveal stagger-1">
-    <div class="included-item">Permitting &amp; engineering</div>
+    <div class="included-item">Permit processing &amp; engineering coordination</div>
     <div class="included-item">Full construction management</div>
-    <div class="included-item">Site prep &amp; foundation</div>
+    <div class="included-item">Standard slab-on-grade foundation</div>
     <div class="included-item">All inspections</div>
     <div class="included-item">Final walkthrough</div>
     <div class="included-item">1-year builder warranty</div>
     <div class="included-item">Licensed GC (CGC #1537163)</div>
     <div class="included-item">Design team guidance</div>
   </div>
-  <p class="reveal stagger-2" style="text-align:center;font-size:0.8rem;color:#555;margin-top:20px;">Not included: Land/lot cost, well/septic (if not on city utilities), site clearing beyond basic, pool, fencing, window treatments.</p>
+  <p class="reveal stagger-2" style="text-align:center;font-size:0.8rem;color:#555;margin-top:20px;">Not included: Land/lot cost, government permit and impact fees (billed at cost), well/septic (if not on city utilities), land clearing, fill, or tree removal, stem wall or elevated foundations, pool, fencing, window treatments.</p>
+  <p class="reveal stagger-2" style="text-align:center;font-size:0.8rem;color:#777;max-width:680px;margin:14px auto 0;">Every BuilderK home includes a 1-year builder warranty covering workmanship and materials, in addition to the structural protections Florida law provides. Ask us about extended structural coverage options. Full terms are provided in your construction agreement.</p>
 </section>
 
 <!-- CTA -->
@@ -673,7 +674,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 
 // ===== CALCULATOR =====
 var state={sqft:2000,finish:'standard',beds:3,baths:2,garage:2,extras:{},ownsLot:true,lotValue:0,downPct:10};
-var finishRanges={standard:{low:150,high:180,mid:150},midrange:{low:180,high:220,mid:180},luxury:{low:220,high:280,mid:220}};
+var finishRanges={standard:{low:160,high:180,mid:160},midrange:{low:180,high:220,mid:180},luxury:{low:220,high:280,mid:220}};
 var garageCosts={0:0,2:41800,3:60800};
 var extraCosts={pool:{low:55000,high:95000},pavers:{low:8000,high:22000},metalRoof:{low:14000,high:32000}};
 function fmt(n){return '$'+Math.round(n).toLocaleString('en-US');}
