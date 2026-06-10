@@ -17,7 +17,15 @@
 
 **Revision (Kevin, same day):** About-page Mark framing reverted (label back to "Projects Delivered", prior-roles sentence removed) and render/inspiration/video labels reverted (facades, interiors, index video line). Pricing, financing, stat bar, team removal, and security work stay. Fabricated testimonials were NOT restored (FTC fake-review rule); replacement plan is real client quotes (Sudhagar, Adriana, Pinsa Fire, Ted Gatlin), section returns when 2-3 real quotes are in hand.
 
-Next: Wave 1 (nav/footer canonicalization, un-orphan gallery, hidden lead fields + webhook tags, form feedback fixes).
+**Wave 1 EXECUTED 2026-06-10 (browser-verified, zero console errors):**
+- Nav: Construction link added to all 32 pages; footers completed everywhere (About, Construction Gallery, Interior Gallery, Floor Plans, Financing, Calculator, Referral Program absolute path, Resources, Privacy) (CA-9, CA-8).
+- interior-gallery un-orphaned: hero button on interiors.html, footer links sitewide, sitemap entry (CA-2, P3-4).
+- Lead context: 6 hidden fields on the homepage form (source_page, city_interest, plan_interest, utm_*) populated from referrer/URL; verified e2e (visitor from /tampa tags source=/tampa city=tampa; utm params captured). Webhook buildTags emits src-/city-/plan-/utm-/camp- tags; timeline map now matches live form values (ASAP, 1-3, 3-6, 6-12 months); Under-1,500 sqft size mapped (CA-4 partial, CA-10, P1-6).
+- Form UX: consolidated single submit handler (AJAX to Formspree with inline "Thank You" success, native fallback on failure); duplicate TikTok ViewContent/CompleteRegistration blocks removed (P1-5, P1-7); duplicate Escape handler removed (P3-3); budget now required; CGC + 1-business-day response promise at the form (CA-17).
+- Referral form: success state only on confirmed 2xx, native fallback otherwise (P1-8).
+- CTAs: "Estimate My Build" repointed to /calculator on facades/floor-plans/interior-gallery (CA-16 partial); blogs got internal links + retained end CTA (CA-12 partial); privacy/terms exit CTAs (CA-26); about.html footer phone/email now clickable (CA-12); CGC in index footer (CA-24).
+
+Next: Wave 2 (standalone /contact + repoint CTAs, calculator estimate capture, plan-page unique copy + context CTAs, /service-areas, /process, city localization).
 
 ---
 

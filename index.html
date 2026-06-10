@@ -1335,6 +1335,7 @@ body {
   <ul class="nav-links">
  <li><a href="#process">How It Works</a></li>
  <li><a href="/floor-plans">Floor Plans</a></li>
+ <li><a href="/construction">Construction</a></li>
  <li><a href="/financing">Financing</a></li>
 <li><a href="/calculator">Calculator</a></li>
  <li><a href="#contact" class="nav-cta">Talk to a Builder</a></li>
@@ -1729,8 +1730,8 @@ body {
           </select>
         </div>
         <div class="cta-form-field">
-          <label for="form-budget">Estimated budget</label>
-          <select id="form-budget" name="budget">
+          <label for="form-budget">Estimated budget <span style="color:var(--orange);">*</span></label>
+          <select id="form-budget" name="budget" required>
             <option value="" disabled selected>Select range</option>
             <option value="$200K - $400K">$200K — $400K</option>
             <option value="$400K - $700K">$400K — $700K</option>
@@ -1754,9 +1755,15 @@ body {
         <label for="form-message">Anything else? (Optional)</label>
         <textarea id="form-message" placeholder="Tell us about your dream home..." name="message"></textarea>
       </div>
+      <input type="hidden" name="source_page" id="hf-source" value="">
+      <input type="hidden" name="city_interest" id="hf-city" value="">
+      <input type="hidden" name="plan_interest" id="hf-plan" value="">
+      <input type="hidden" name="utm_source" id="hf-utm-source" value="">
+      <input type="hidden" name="utm_medium" id="hf-utm-medium" value="">
+      <input type="hidden" name="utm_campaign" id="hf-utm-campaign" value="">
       <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Talk to a Builder<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
-      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:14px;line-height:1.5;">Your info goes to the BuilderK team. We won't sell or share it. Form submissions are processed by Formspree on our behalf.</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:14px;line-height:1.5;">Licensed Florida GC, CGC #1537163. We respond within 1 business day. Your info goes to the BuilderK team; we won't sell or share it. Form submissions are processed by Formspree on our behalf.</p>
     </form>
   </div>
 </section>
@@ -1770,14 +1777,17 @@ body {
           <span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span>
         </a>
         <p>Custom home builders in Florida. You bring the lot — we build your dream home from the ground up.</p>
+        <p style="margin-top:8px;font-size:0.8rem;color:#666;">Licensed Florida GC, CGC #1537163</p>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="/about">About Us</a>
         <a href="#process">How It Works</a>
         <a href="/construction">Construction Gallery</a>
+        <a href="/interior-gallery">Interior Gallery</a>
         <a href="/floor-plans">Floor Plans</a>
-        <a href="referral-program/">Referral Program</a>
+        <a href="/resources">Resources</a>
+        <a href="/referral-program/">Referral Program</a>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -1935,79 +1945,62 @@ if (hamburger && navLinks) {
       hamburger.classList.remove('active');
     });
   });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('active');
-    }
-  });
 }
 </script>
 
-  <!-- TikTok Event Tracking -->
+  <!-- Lead context, conversion tracking, and AJAX submit (consolidated) -->
   <script>
-    ttq.track('ViewContent', {
-      contents: [{ content_id: 'builderk-homepage', content_type: 'product', content_name: 'BuilderK Custom Home Builders Florida' }],
-      value: 0, currency: 'USD'
-    });
     document.addEventListener('DOMContentLoaded', function() {
-      var form = document.querySelector('form[action*="formspree"]');
-      if (form) {
-        form.addEventListener('submit', function() {
-          ttq.track('CompleteRegistration', {
-            contents: [{ content_id: 'lead-form', content_type: 'product', content_name: 'BuilderK Lead Form' }],
-            value: 0, currency: 'USD'
-          });
+      // Tag the lead with where this visitor came from
+      try {
+        var params = new URLSearchParams(window.location.search);
+        ['source', 'medium', 'campaign'].forEach(function(k) {
+          var v = params.get('utm_' + k);
+          if (v) { var el = document.getElementById('hf-utm-' + k); if (el) el.value = v.slice(0, 80); }
         });
-      }
-    });
-  </script>
-  <!-- End TikTok Event Tracking -->
+        if (document.referrer) {
+          var ref = new URL(document.referrer);
+          if (ref.origin === window.location.origin && ref.pathname !== '/') {
+            var path = ref.pathname.replace(/\.html$/, '');
+            var srcEl = document.getElementById('hf-source');
+            if (srcEl) srcEl.value = path.slice(0, 80);
+            var slug = path.replace(/^\//, '');
+            var cities = ['orlando', 'tampa', 'miami', 'cape-coral', 'fort-myers', 'jacksonville', 'melbourne', 'ocala'];
+            if (cities.indexOf(slug) !== -1) document.getElementById('hf-city').value = slug;
+            var plan = slug.match(/^floor-plan-(\d+)-sq-ft$/);
+            if (plan) document.getElementById('hf-plan').value = plan[1] + '-sq-ft';
+          }
+        }
+      } catch (err) {}
 
-  <!-- Google Ads Conversion Tracking on Form Submit -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var form = document.querySelector('form[action*="formspree"]');
-      if (form) {
-        form.addEventListener('submit', function() {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-11388675250/9Kh3CO3wu_oYELLJxbYq'
-          });
-        });
+      if (typeof ttq !== 'undefined') {
+        ttq.track('ViewContent', { contents: [{ content_id: 'builderk-homepage', content_type: 'product', content_name: 'BuilderK Custom Home Builders Florida' }], value: 0, currency: 'USD' });
       }
-    });
-  </script>
-  <!-- End Google Ads Conversion Tracking -->
 
-  <!-- Auto-send leads to GHL CRM -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
       var form = document.querySelector('form[action*="formspree"]');
-      if (form) {
-        form.addEventListener('submit', function() {
-          var formData = new FormData(form);
-          var data = {};
-          formData.forEach(function(value, key) { data[key] = value; });
-          fetch('/api/webhook', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          }).catch(function() {});
-        });
-      }
-    });
-  </script>
-  <!-- End GHL CRM Integration -->
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
 
-  <!-- TikTok Event Tracking -->
-  <script>
-    ttq.track('ViewContent', { contents: [{ content_id: 'builderk-homepage', content_type: 'product', content_name: 'BuilderK Custom Home Builders Florida' }], value: 0, currency: 'USD' });
-    document.addEventListener('DOMContentLoaded', function() {
-      var form = document.querySelector('form[action*="formspree"]');
-      if (form) { form.addEventListener('submit', function() { ttq.track('CompleteRegistration', { contents: [{ content_id: 'lead-form', content_type: 'product', content_name: 'BuilderK Lead Form' }], value: 0, currency: 'USD' }); }); }
+        try { gtag('event', 'conversion', { 'send_to': 'AW-11388675250/9Kh3CO3wu_oYELLJxbYq' }); } catch (err) {}
+        try { if (typeof ttq !== 'undefined') ttq.track('CompleteRegistration', { contents: [{ content_id: 'lead-form', content_type: 'product', content_name: 'BuilderK Lead Form' }], value: 0, currency: 'USD' }); } catch (err) {}
+
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(value, key) { data[key] = value; });
+        try { fetch('/api/webhook', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(function() {}); } catch (err) {}
+
+        fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+          .then(function(resp) {
+            if (resp.ok) { form.reset(); handleSubmit(); }
+            else { form.submit(); }
+          })
+          .catch(function() { form.submit(); });
+      });
     });
   </script>
-  <!-- End TikTok Event Tracking -->
 
 <!-- STICKY MOBILE CTA BAR -->
 <div class="mobile-cta-bar">

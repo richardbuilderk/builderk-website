@@ -221,6 +221,7 @@ function buildTags(data) {
   // Home size tag
   if (data.home_size) {
     const sizeMap = {
+      'Under 1,500 sq ft': 'under-1500sqft',
       '1,500 - 2,000 sq ft': '1500-2000sqft',
       '2,000 - 3,000 sq ft': '2000-3000sqft',
       '3,000+ sq ft': '3000-plus-sqft',
@@ -234,9 +235,13 @@ function buildTags(data) {
     else tags.push('still-looking-lot');
   }
 
-  // Timeline tag
+  // Timeline tag (keys match the live form's option values; legacy values kept)
   if (data.timeline) {
     const timelineMap = {
+      'ASAP': 'ready-to-start',
+      '1-3 months': 'within-3-months',
+      '3-6 months': 'within-6-months',
+      '6-12 months': 'within-1-year',
       'Just exploring': 'just-exploring',
       'Ready to start': 'ready-to-start',
       'Within 6 months': 'within-6-months',
@@ -244,6 +249,14 @@ function buildTags(data) {
     };
     tags.push(timelineMap[data.timeline] || data.timeline.toLowerCase().replace(/[^a-z0-9]/g, '-'));
   }
+
+  // Origin context tags (hidden fields populated by the website form)
+  const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+  if (data.source_page) tags.push('src-' + slugify(data.source_page));
+  if (data.city_interest) tags.push('city-' + slugify(data.city_interest));
+  if (data.plan_interest) tags.push('plan-' + slugify(data.plan_interest));
+  if (data.utm_source) tags.push('utm-' + slugify(data.utm_source));
+  if (data.utm_campaign) tags.push('camp-' + slugify(data.utm_campaign));
 
   return tags;
 }
