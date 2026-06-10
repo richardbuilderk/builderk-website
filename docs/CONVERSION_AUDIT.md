@@ -15,6 +15,8 @@
 - Honest labels: facades hero notes images are architectural renders; interiors hero notes inspiration gallery; AI-video section copy no longer implies real footage ("watch how a BuilderK home comes together" removed); about "Licensed, Bonded & Insured" corrected to "Licensed & Insured"; "production builder pricing" claim removed; on-time guarantee softened to process description (CA-5, CA-18).
 - Departed staff (Michelle Hernandez, Alejandra Sosa) removed from About team grid (CV-10). Mark's GC section now explicitly framed as prior-roles career portfolio.
 
+**Revision (Kevin, same day):** About-page Mark framing reverted (label back to "Projects Delivered", prior-roles sentence removed) and render/inspiration/video labels reverted (facades, interiors, index video line). Pricing, financing, stat bar, team removal, and security work stay. Fabricated testimonials were NOT restored (FTC fake-review rule); replacement plan is real client quotes (Sudhagar, Adriana, Pinsa Fire, Ted Gatlin), section returns when 2-3 real quotes are in hand.
+
 Next: Wave 1 (nav/footer canonicalization, un-orphan gallery, hidden lead fields + webhook tags, form feedback fixes).
 
 ---
