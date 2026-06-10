@@ -25,7 +25,15 @@
 - Referral form: success state only on confirmed 2xx, native fallback otherwise (P1-8).
 - CTAs: "Estimate My Build" repointed to /calculator on facades/floor-plans/interior-gallery (CA-16 partial); blogs got internal links + retained end CTA (CA-12 partial); privacy/terms exit CTAs (CA-26); about.html footer phone/email now clickable (CA-12); CGC in index footer (CA-24).
 
-Next: Wave 2 (standalone /contact + repoint CTAs, calculator estimate capture, plan-page unique copy + context CTAs, /service-areas, /process, city localization).
+**Wave 2 EXECUTED 2026-06-10 (browser-verified, zero console errors):**
+- NEW /contact page (MP-1): full qualification form mirroring the homepage (same field values, hidden source/city/plan/utm fields, AJAX submit with inline success, GHL webhook), "what happens next" panel, direct phone/email, fallback links. All 30 secondary pages' CTAs repointed from /#contact to /contact (referral page nav included); calculator nav/sticky/CTAs repointed.
+- NEW /process page (MP-3): 8 steps with honest timeframes (all durations sourced from existing site claims), warranty paragraph, one-team note, CTA.
+- NEW /service-areas hub (MP-2): 8 city cards + "don't see your area" CTA. All three pages in sitemap.
+- Calculator estimate capture (CA-6): "Want a builder to review this estimate?" email capture on the result card posts full configuration (sqft, tier, beds/baths, garage, extras, estimate, monthly payment, lot status) to the webhook; fires Ads conversion; validation + failure fallback tested.
+- Webhook: calculator-estimate handling (contact source "Cost Calculator", opportunity named with estimate amount, monetaryValue from the real estimate figure, tier/sqft tags, email-handle fallback name).
+- Floor-plan pages: 6 boilerplate pages rewritten with spec-only unique copy (1450/1850/2200/2650/3050/3300); no layout details invented.
+
+Remaining Wave 2 item deferred: city-page localization (CA-14) needs verified local facts (permit timelines per county) — flagged for Kevin input or careful sourcing. Then Wave 3 (a11y batch) and Wave 4 (images/CSS/CSP) from the technical backlog.
 
 ---
 

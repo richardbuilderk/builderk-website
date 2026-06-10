@@ -332,7 +332,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
     <li><a href="/construction">Construction</a></li>
     <li><a href="/financing">Financing</a></li>
 <li><a href="/calculator">Calculator</a></li>
-    <li><a href="/#contact" class="nav-cta">Talk to a Builder</a></li>
+    <li><a href="/contact" class="nav-cta">Talk to a Builder</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button"><span></span><span></span><span></span></button>
 </nav>
@@ -441,7 +441,15 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
         <div class="breakdown-row"><span class="blabel">Additional Features</span><span class="bvalue" id="bd-extras">$0</span></div>
         <div class="breakdown-row total"><span class="blabel">Total Estimate</span><span class="bvalue" id="bd-total">$359,800</span></div>
       </div>
-      <a href="/#contact" class="result-cta">Talk to a Builder</a>
+      <a href="/contact" class="result-cta">Talk to a Builder</a>
+      <div id="estimate-capture" style="margin-top:4px;margin-bottom:12px;padding:16px;background:rgba(255,255,255,0.03);border:1px solid var(--dark-border);border-radius:12px;text-align:left;">
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:0.85rem;color:#fff;margin-bottom:8px;">Want a builder to review this estimate?</div>
+        <div style="display:flex;gap:8px;">
+          <input type="email" id="est-email" placeholder="you@email.com" aria-label="Your email address" style="flex:1;min-width:0;background:var(--dark);border:1px solid var(--dark-border);border-radius:8px;padding:10px 12px;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;">
+          <button type="button" id="est-send" onclick="sendEstimate()" style="background:var(--orange);color:#fff;border:none;border-radius:8px;padding:10px 16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;">Send</button>
+        </div>
+        <p id="est-msg" style="font-size:0.72rem;color:#666;margin-top:8px;line-height:1.4;">We'll review your configuration and follow up within 1 business day.</p>
+      </div>
       <p class="result-note">*Estimates reflect Central Florida (Orlando metro) pricing and are approximate. Government permit and impact fees are billed at cost, and site work beyond standard slab-on-grade construction is quoted separately. Coastal, flood zone, and South or Southwest Florida builds typically cost more. Contact us for a detailed proposal.</p>
       <div class="equity-box">
         <h4 data-emoji="equity">Instant Equity Potential</h4>
@@ -617,7 +625,7 @@ input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 <section class="cta-section">
   <h2 class="reveal">Ready to Build? <span>Let's Talk Numbers.</span></h2>
   <p class="reveal stagger-1">Get a detailed, personalized quote based on your lot, your plans, and your vision. No obligation.</p>
-  <a href="/#contact" class="btn-primary reveal stagger-2">Estimate My Build</a>
+  <a href="/contact" class="btn-primary reveal stagger-2">Talk to a Builder</a>
 </section>
 
 <!-- Footer -->
@@ -716,6 +724,28 @@ function setFinish(level){state.finish=level;document.querySelectorAll('.finish-
 function setGarage(size){state.garage=size;document.querySelectorAll('.finish-card[data-garage]').forEach(function(c){c.classList.toggle('active',parseInt(c.dataset.garage)===size);});updateCalc();}
 function toggleExtra(el){var key=el.dataset.extra;state.extras[key]=!state.extras[key];el.classList.toggle('active',state.extras[key]);updateCalc();}
 function setDown(pct){state.downPct=pct;document.querySelectorAll('.down-pct-btn').forEach(function(b){b.classList.toggle('active',parseInt(b.textContent)===pct);});updateCalc();}
+function sendEstimate(){
+  var emailEl=document.getElementById('est-email');var btn=document.getElementById('est-send');var msg=document.getElementById('est-msg');
+  var email=(emailEl.value||'').trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent='Please enter a valid email address.';msg.style.color='#f87171';return;}
+  btn.disabled=true;btn.style.opacity='0.7';
+  var extras=Object.keys(state.extras).filter(function(k){return state.extras[k];});
+  var payload={form_type:'calculator-estimate',email:email,name:'',
+    estimate_total:document.getElementById('result-total').textContent,
+    estimate_range:document.getElementById('result-range').textContent,
+    monthly_payment:document.getElementById('mortgage-amount').textContent,
+    calc_sqft:state.sqft,calc_tier:state.finish,calc_beds:state.beds,calc_baths:state.baths,
+    calc_garage:state.garage+'-car',calc_extras:extras.join(', ')||'none',
+    lot_ownership:state.ownsLot?'Yes, I own a lot':'No, still looking',
+    source_page:'/calculator'};
+  try{gtag('event','conversion',{'send_to':'AW-11388675250/9Kh3CO3wu_oYELLJxbYq'});}catch(e){}
+  fetch('/api/webhook',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){
+      if(r.ok){msg.textContent='Sent! A builder will review your estimate and follow up within 1 business day.';msg.style.color='#22C55E';btn.textContent='Sent';emailEl.disabled=true;}
+      else{throw new Error('send failed');}
+    })
+    .catch(function(){btn.disabled=false;btn.style.opacity='1';msg.innerHTML='Could not send right now. Call <a href="tel:2392304868" style="color:var(--orange);">(239) 230-4868</a> or use the <a href="/contact" style="color:var(--orange);">contact form</a>.';msg.style.color='#f87171';});
+}
 function setLotOwner(owns){
   state.ownsLot=owns;
   document.querySelectorAll('.mortgage-lot-q .down-btn').forEach(function(b){b.classList.remove('active');});
@@ -766,7 +796,7 @@ if(hamburger&&navLinks){hamburger.addEventListener('click', function() {
 <!-- End Google Ads Conversion Tracking -->
 <!-- Sticky Mobile CTA -->
 <div class="calc-sticky-cta">
-  <a href="/#contact" class="sticky-primary">Talk to a Builder</a>
+  <a href="/contact" class="sticky-primary">Talk to a Builder</a>
   <a href="tel:2392304868" class="sticky-secondary">Call Now</a>
 </div>
 

@@ -23,6 +23,7 @@ export default async function handler(req, res) {
   try {
     const data = req.body;
     const isReferral = !!data.referrer_name;
+    const isCalc = data.form_type === 'calculator-estimate';
 
     // Build contact payload based on form type
     const contact = isReferral
@@ -62,9 +63,11 @@ export default async function handler(req, res) {
     }
 
     // 3. Create the opportunity
-    const oppName = isReferral
-      ? `${data.client_name || 'Unknown'} — Referral from ${data.referrer_name}`
-      : `${data.name || 'Unknown'} — Website Lead`;
+    const oppName = isCalc
+      ? `${data.email || 'Unknown'} — Calculator Estimate ${data.estimate_total || ''}`.trim()
+      : isReferral
+        ? `${data.client_name || 'Unknown'} — Referral from ${data.referrer_name}`
+        : `${data.name || 'Unknown'} — Website Lead`;
 
     const opportunityPayload = {
       pipelineId: pipelineStage.pipelineId,
@@ -102,15 +105,17 @@ export default async function handler(req, res) {
 // --- Contact builders ---
 
 function buildWebsiteContact(data, locationId) {
+  // Calculator estimates arrive with email only; use the email handle as a stand-in name
+  const fallbackName = data.email ? data.email.split('@')[0] : '';
   return {
-    firstName: extractFirstName(data.name || ''),
+    firstName: extractFirstName(data.name || fallbackName),
     lastName: extractLastName(data.name || ''),
     email: data.email || '',
     phone: formatPhone(data.phone || ''),
     locationId,
     state: 'Florida',
     postalCode: data.zip_code || '',
-    source: 'Website Form',
+    source: data.form_type === 'calculator-estimate' ? 'Cost Calculator' : 'Website Form',
     tags: buildTags(data),
   };
 }
@@ -178,6 +183,11 @@ async function findLeadGenStage(locationId, headers) {
 // --- Helpers ---
 
 function estimateValue(data) {
+  // Calculator estimates carry an exact figure like "$379,800"
+  if (data.estimate_total) {
+    const n = parseInt(String(data.estimate_total).replace(/[^0-9]/g, ''), 10);
+    if (n) return n;
+  }
   if (!data.budget) return 0;
   const map = {
     '$200K - $400K': 300000,
@@ -248,6 +258,13 @@ function buildTags(data) {
       'Within 1 year': 'within-1-year',
     };
     tags.push(timelineMap[data.timeline] || data.timeline.toLowerCase().replace(/[^a-z0-9]/g, '-'));
+  }
+
+  // Calculator estimate tags
+  if (data.form_type === 'calculator-estimate') {
+    tags.push('calculator-estimate');
+    if (data.calc_tier) tags.push('tier-' + String(data.calc_tier).toLowerCase());
+    if (data.calc_sqft) tags.push('sqft-' + data.calc_sqft);
   }
 
   // Origin context tags (hidden fields populated by the website form)
