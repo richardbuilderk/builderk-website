@@ -53,6 +53,18 @@
   .foot a{color:var(--orange);text-decoration:none;font-weight:700}
   .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:var(--black);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;border-radius:30px;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s}
   .toast.show{opacity:1}
+  .filterBox{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0 -8px}
+  .fLabel{font-size:11px;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .fchip{border:1.5px solid #d9d5cc;background:#fff;color:#54585f;font-size:12px;font-weight:700;padding:6px 13px;border-radius:20px;cursor:pointer;user-select:none}
+  .fchip.on{background:var(--black);border-color:var(--black);color:#fff}
+  .fchip.on.mine{background:var(--orange);border-color:var(--orange);color:#0A0A0A}
+  .vchip{border:1.5px solid #d9d5cc;background:#fff;color:#54585f;font-size:12.5px;font-weight:700;padding:7px 15px;border-radius:10px;cursor:pointer;user-select:none}
+  .vchip.on{background:var(--orange);border-color:var(--orange);color:#0A0A0A}
+  .personHead{display:flex;align-items:center;gap:10px;margin:20px 0 7px}
+  .pAvatar{width:34px;height:34px;border-radius:50%;background:var(--black);color:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;flex:none}
+  .personHead h2{font-family:'Outfit',sans-serif;font-size:17px;font-weight:900}
+  .personHead .pCount{margin-left:auto;font-size:11px;font-weight:700;color:var(--steel)}
+  .wkTag{font-size:10px;font-weight:800;color:#8a6d00;background:#fdf3d0;padding:2px 8px;border-radius:12px;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -64,6 +76,17 @@
 </div></header>
 
 <div class="wrap">
+  <div class="filterBox" style="margin-bottom:2px">
+    <span class="fLabel">Vista:</span>
+    <div>
+      <button class="vchip" id="vSemana" onclick="setView('semana')">📅 Por semana</button>
+      <button class="vchip" id="vPersona" onclick="setView('persona')">👤 Por persona</button>
+    </div>
+  </div>
+  <div class="filterBox">
+    <span class="fLabel">Ver tareas de:</span>
+    <div id="fChips"></div>
+  </div>
   <div class="progressBox">
     <div class="progressTop"><div class="pTitle">Avance del plan</div><div class="pPct" id="pct">—%</div></div>
     <div class="bar"><i id="barFill"></i></div>
@@ -80,53 +103,103 @@ const API = "https://app.builderk.com/api/campaign-checklist";
 const PEOPLE = ["Sofía","Rocío","Franco","Valentina","Flor","Kevin","Richard"];
 const WEEKS = {1:"Jue 11 → Mié 17 jun · La plomería",2:"Jue 18 → Mié 24 jun · Se enciende el contenido",3:"Jue 25 jun → Mié 1 jul · Nurtures + ads",4:"Jue 2 → Vie 10 jul · Cierre del mes 1"};
 let me = localStorage.getItem("bk_me") || "";
+let filter = localStorage.getItem("bk_filter") || "Todas";
+let view = localStorage.getItem("bk_view") || "semana";
 let items = [];
 
 const $ = (id) => document.getElementById(id);
 const toast = (m) => { const t=$("toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800); };
 
+// What each person's filter matches inside the "owner" field.
+// "TODOS" items (kickoff, scorecard mes 1) belong to everyone.
+const OWNER_KEYS = {
+  "Sofía": ["Sofía"], "Rocío": ["Rocío"], "Franco": ["Franco"],
+  "Valentina": ["Vale", "Valentina"], "Flor": ["Flor", "Vale"],
+  "Kevin": ["Kevin"], "Richard": ["Richard"],
+};
+function ownerMatches(person, owner){
+  if (person === "Todas") return true;
+  if (owner === "TODOS") return true;
+  return (OWNER_KEYS[person] || [person]).some(k => owner.includes(k));
+}
+function visibleItems(){ return items.filter(i => ownerMatches(filter, i.owner)); }
+
 function renderChips(){
   $("chips").innerHTML = PEOPLE.map(p=>`<button class="chip ${p===me?'on':''}" onclick="pick('${p}')">${p}</button>`).join(" ");
+  $("fChips").innerHTML = ["Todas",...PEOPLE].map(p=>`<button class="fchip ${p===filter?'on':''} ${p===me?'mine':''}" onclick="setFilter('${p}')">${p==="Todas"?"Todas":p}</button>`).join(" ");
 }
-window.pick = (p)=>{ me=p; localStorage.setItem("bk_me",p); renderChips(); };
+window.pick = (p)=>{ me=p; localStorage.setItem("bk_me",p); setFilter(p); };
+window.setFilter = (p)=>{ filter=p; localStorage.setItem("bk_filter",p); renderChips(); render(); };
+window.setView = (v)=>{ view=v; localStorage.setItem("bk_view",v); syncViewChips(); render(); };
+function syncViewChips(){
+  $("vSemana").classList.toggle("on", view==="semana");
+  $("vPersona").classList.toggle("on", view==="persona");
+}
 
 function fmtDate(s){
   const d = new Date(s);
   return d.toLocaleDateString("es-AR",{weekday:"short",day:"numeric",month:"short",timeZone:"America/New_York"});
 }
 
+function itemRow(i, now, showWeek){
+  const over = !i.done && new Date(i.dueDate) < now;
+  return `<div class="item ${i.done?'done':''}" id="it-${i.id}">
+    <div class="cb" onclick="toggle('${i.id}')">${i.done?"✓":""}</div>
+    <div class="it-main">
+      <div class="it-title">${i.title}</div>
+      ${i.description?`<div class="it-desc">${i.description}</div>`:""}
+      <div class="it-meta">
+        <span class="due ${over?'over':''}">${over?"⚠ ":""}${fmtDate(i.dueDate)}</span>
+        ${showWeek?`<span class="wkTag">Semana ${i.week}</span>`:`<span class="own">${i.owner}</span>`}
+        ${i.done&&i.doneBy?`<span class="doneby">✓ ${i.doneBy} · ${fmtDate(i.doneAt)}</span>`:""}
+      </div>
+    </div></div>`;
+}
+
+const PERSON_ORDER = ["Franco","Rocío","Sofía","Kevin+Sofía","Vale+Flor","Kevin","TODOS"];
+const PERSON_LABEL = {"Vale+Flor":"Valentina + Flor","Kevin+Sofía":"Kevin + Sofía (compartida)","TODOS":"TODOS — Equipo completo"};
+const PERSON_INITIALS = {"Vale+Flor":"VF","Kevin+Sofía":"KS","TODOS":"EQ"};
+
 function render(){
   const now = new Date();
-  const byWeek = {1:[],2:[],3:[],4:[]};
-  items.forEach(i=>{ (byWeek[i.week]=byWeek[i.week]||[]).push(i); });
+  const vis = visibleItems();
   let html = "";
-  for(const w of Object.keys(byWeek)){
-    const arr = byWeek[w]; if(!arr.length) continue;
-    const done = arr.filter(i=>i.done).length;
-    html += `<div class="week"><div class="wkHead"><h2>Semana ${w}</h2><div class="range">${WEEKS[w]||""}</div><div class="wkpct">${done}/${arr.length}</div></div>`;
-    for(const i of arr){
-      const over = !i.done && new Date(i.dueDate) < now;
-      html += `<div class="item ${i.done?'done':''}" id="it-${i.id}">
-        <div class="cb" onclick="toggle('${i.id}')">${i.done?"✓":""}</div>
-        <div class="it-main">
-          <div class="it-title">${i.title}</div>
-          ${i.description?`<div class="it-desc">${i.description}</div>`:""}
-          <div class="it-meta">
-            <span class="due ${over?'over':''}">${over?"⚠ ":""}${fmtDate(i.dueDate)}</span>
-            <span class="own">${i.owner}</span>
-            ${i.done&&i.doneBy?`<span class="doneby">✓ ${i.doneBy} · ${fmtDate(i.doneAt)}</span>`:""}
-          </div>
-        </div></div>`;
+  if (view === "persona") {
+    const byOwner = {};
+    vis.forEach(i=>{ (byOwner[i.owner]=byOwner[i.owner]||[]).push(i); });
+    const owners = [...PERSON_ORDER.filter(o=>byOwner[o]), ...Object.keys(byOwner).filter(o=>!PERSON_ORDER.includes(o))];
+    for(const o of owners){
+      const arr = byOwner[o]; if(!arr||!arr.length) continue;
+      const done = arr.filter(i=>i.done).length;
+      const label = PERSON_LABEL[o] || o;
+      const ini = PERSON_INITIALS[o] || o.slice(0,2).toUpperCase();
+      html += `<div class="week"><div class="personHead"><div class="pAvatar">${ini}</div><h2>${label}</h2><div class="pCount">${done}/${arr.length} hechas</div></div>`;
+      for(const i of arr) html += itemRow(i, now, true);
+      html += `</div>`;
     }
-    html += `</div>`;
+  } else {
+    const byWeek = {1:[],2:[],3:[],4:[]};
+    vis.forEach(i=>{ (byWeek[i.week]=byWeek[i.week]||[]).push(i); });
+    for(const w of Object.keys(byWeek)){
+      const arr = byWeek[w]; if(!arr.length) continue;
+      const done = arr.filter(i=>i.done).length;
+      html += `<div class="week"><div class="wkHead"><h2>Semana ${w}</h2><div class="range">${WEEKS[w]||""}</div><div class="wkpct">${done}/${arr.length}</div></div>`;
+      for(const i of arr) html += itemRow(i, now, false);
+      html += `</div>`;
+    }
   }
-  $("list").innerHTML = html || '<div class="loading">Sin items.</div>';
+  $("list").innerHTML = html || `<div class="loading">Sin tareas para ${filter}.</div>`;
   const total = items.length, totalDone = items.filter(i=>i.done).length;
   const pct = total?Math.round(totalDone/total*100):0;
   $("pct").textContent = pct+"%";
   $("barFill").style.width = pct+"%";
   const overdue = items.filter(i=>!i.done && new Date(i.dueDate)<now).length;
-  $("pSub").textContent = `${totalDone} de ${total} tareas completadas · ${overdue} vencida${overdue===1?"":"s"} pendiente${overdue===1?"":"s"}`;
+  let sub = `${totalDone} de ${total} tareas completadas · ${overdue} vencida${overdue===1?"":"s"} pendiente${overdue===1?"":"s"}`;
+  if (filter !== "Todas") {
+    const vDone = vis.filter(i=>i.done).length;
+    sub += ` — mostrando ${filter}: ${vDone}/${vis.length} (incluye las de TODOS)`;
+  }
+  $("pSub").textContent = sub;
 }
 
 window.toggle = async (id)=>{
@@ -162,7 +235,13 @@ async function load(){
     $("err").textContent = "No se pudo cargar el checklist ("+e.message+"). Recargá la página.";
   }
 }
-renderChips(); load();
+// Deep links: ?p=Franco filtra por persona · ?v=persona abre la vista por persona
+const urlQ = new URLSearchParams(location.search);
+const urlP = urlQ.get("p");
+if (urlP && ["Todas",...PEOPLE].includes(urlP)) { filter = urlP; localStorage.setItem("bk_filter", urlP); }
+const urlV = urlQ.get("v");
+if (urlV && ["semana","persona"].includes(urlV)) { view = urlV; localStorage.setItem("bk_view", urlV); }
+renderChips(); syncViewChips(); load();
 setInterval(load, 60000); // refresh cada 60s para ver lo que marcan los demás
 </script>
 </body>
