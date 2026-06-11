@@ -1322,6 +1322,25 @@ body {
     gap: 22px !important;
   }
 }
+/* ===== PROCESS CARDS (refreshed) ===== */
+.process-card { display:flex; flex-direction:column; border-radius:24px; padding:36px 30px 30px; position:relative; overflow:hidden; background:linear-gradient(160deg, #0A0A0A 0%, #1a1a1a 100%); transition:transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+.process-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(0,0,0,0.15); }
+.process-card.accent { background:linear-gradient(160deg, var(--orange) 0%, #e06c00 100%); }
+.process-card.accent:hover { box-shadow:0 24px 60px rgba(247,127,0,0.25); }
+.process-card .ghost { position:absolute; top:16px; right:20px; font-family:var(--font-display); font-weight:900; font-size:4.4rem; line-height:1; color:rgba(247,127,0,0.09); pointer-events:none; }
+.process-card.accent .ghost { color:rgba(255,255,255,0.18); }
+.process-card .icon-chip { width:56px; height:56px; background:rgba(247,127,0,0.12); border-radius:16px; display:flex; align-items:center; justify-content:center; color:var(--orange); margin-bottom:22px; }
+.process-card.accent .icon-chip { background:rgba(255,255,255,0.2); color:#fff; }
+.process-card .step-label { font-family:var(--font-display); font-weight:700; font-size:0.7rem; color:var(--orange); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; }
+.process-card.accent .step-label { color:rgba(255,255,255,0.85); }
+.process-card h3 { font-family:var(--font-display); font-weight:800; font-size:1.25rem; color:#fff; margin-bottom:12px; }
+.process-card p { font-size:0.9rem; line-height:1.7; color:rgba(255,255,255,0.55); margin-bottom:20px; }
+.process-card.accent p { color:rgba(255,255,255,0.82); }
+.process-card .timing { margin-top:auto; font-family:var(--font-display); font-weight:600; font-size:0.72rem; color:var(--orange); letter-spacing:0.04em; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); }
+.process-card.accent .timing { color:#fff; border-top-color:rgba(255,255,255,0.25); }
+.process-cta { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-display); font-weight:700; font-size:0.95rem; color:var(--orange); text-decoration:none; border:2px solid var(--orange); padding:13px 26px; border-radius:50px; transition:background 0.2s, color 0.2s; }
+.process-cta:hover { background:var(--orange); color:#fff; }
+@media (prefers-reduced-motion: reduce) { .process-card, .process-card:hover { transition:none; transform:none; } }
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -1397,41 +1416,44 @@ body {
     </div>
     <div class="process-cards-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;">
       <!-- Step 1 -->
-      <div class="reveal stagger-1" style="background:linear-gradient(160deg, #0A0A0A 0%, #1a1a1a 100%); border-radius:24px; padding:40px 32px; position:relative; overflow:hidden; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 24px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="position:absolute;top:-20px;right:-20px;font-family:var(--font-display);font-weight:900;font-size:8rem;color:rgba(247,127,0,0.06);line-height:1;">01</div>
-        <div style="width:64px;height:64px;background:rgba(247,127,0,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.8rem;">💬</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:0.7rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Step 01</div>
-        <h3 style="font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:12px;">Share Your Vision</h3>
-        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.5);margin-bottom:20px;">Have a lot in Florida? Tell us about your land, your dream home, and your budget. Don't have plans yet? No problem — we guide you from day one.</p>
-        <div style="font-family:var(--font-display);font-weight:600;font-size:0.72rem;color:var(--orange);letter-spacing:0.04em;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">⏱ FREE CONSULTATION · 1–2 DAYS</div>
+      <div class="process-card reveal stagger-1">
+        <div class="ghost">01</div>
+        <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="step-label">Step 01</div>
+        <h3>Share Your Vision</h3>
+        <p>Have a lot in Florida? Tell us about your land, your dream home, and your budget. Don't have plans yet? No problem — we guide you from day one.</p>
+        <div class="timing">FREE CONSULTATION · 1–2 DAYS</div>
       </div>
       <!-- Step 2 -->
-      <div class="reveal stagger-2" style="background:linear-gradient(160deg, #0A0A0A 0%, #1a1a1a 100%); border-radius:24px; padding:40px 32px; position:relative; overflow:hidden; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 24px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="position:absolute;top:-20px;right:-20px;font-family:var(--font-display);font-weight:900;font-size:8rem;color:rgba(247,127,0,0.06);line-height:1;">02</div>
-        <div style="width:64px;height:64px;background:rgba(247,127,0,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.8rem;">📐</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:0.7rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Step 02</div>
-        <h3 style="font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:12px;">Design & Finance</h3>
-        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.5);margin-bottom:20px;">Choose from our pre-designed floor plans or customize your own. We connect you with a lender for a one-time close construction loan — all under one roof.</p>
-        <div style="font-family:var(--font-display);font-weight:600;font-size:0.72rem;color:var(--orange);letter-spacing:0.04em;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">⏱ PLANS & LOAN · 3–6 WEEKS</div>
+      <div class="process-card reveal stagger-2">
+        <div class="ghost">02</div>
+        <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 15.3 2.7a1 1 0 0 0-1.4 0L2.7 13.9a1 1 0 0 0 0 1.4l6 6a1 1 0 0 0 1.4 0L21.3 10.1a1 1 0 0 0 0-1.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/><path d="m4.5 13.5 2 2"/></svg></div>
+        <div class="step-label">Step 02</div>
+        <h3>Design & Finance</h3>
+        <p>Choose from our pre-designed floor plans or customize your own. We connect you with a lender for a one-time close construction loan — all under one roof.</p>
+        <div class="timing">PLANS & LOAN · 3–6 WEEKS</div>
       </div>
       <!-- Step 3 -->
-      <div class="reveal stagger-3" style="background:linear-gradient(160deg, #0A0A0A 0%, #1a1a1a 100%); border-radius:24px; padding:40px 32px; position:relative; overflow:hidden; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 24px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="position:absolute;top:-20px;right:-20px;font-family:var(--font-display);font-weight:900;font-size:8rem;color:rgba(247,127,0,0.06);line-height:1;">03</div>
-        <div style="width:64px;height:64px;background:rgba(247,127,0,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.8rem;">🏗️</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:0.7rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Step 03</div>
-        <h3 style="font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:12px;">We Build It</h3>
-        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.5);margin-bottom:20px;">From pulling permits to pouring the foundation to final inspections — our licensed team manages every phase of construction across Florida with real-time updates.</p>
-        <div style="font-family:var(--font-display);font-weight:600;font-size:0.72rem;color:var(--orange);letter-spacing:0.04em;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);">⏱ PERMITS 4–6 WKS · BUILD 6–10 MO</div>
+      <div class="process-card reveal stagger-3">
+        <div class="ghost">03</div>
+        <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1Z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg></div>
+        <div class="step-label">Step 03</div>
+        <h3>We Build It</h3>
+        <p>From pulling permits to pouring the foundation to final inspections — our licensed team manages every phase of construction across Florida with real-time updates.</p>
+        <div class="timing">PERMITS 4–6 WKS · BUILD 6–10 MO</div>
       </div>
       <!-- Step 4 -->
-      <div class="reveal stagger-4" style="background:linear-gradient(160deg, var(--orange) 0%, #e06c00 100%); border-radius:24px; padding:40px 32px; position:relative; overflow:hidden; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 24px 60px rgba(247,127,0,0.25)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="position:absolute;top:-20px;right:-20px;font-family:var(--font-display);font-weight:900;font-size:8rem;color:rgba(255,255,255,0.1);line-height:1;">04</div>
-        <div style="width:64px;height:64px;background:rgba(255,255,255,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.8rem;">🔑</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:0.7rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Step 04</div>
-        <h3 style="font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:12px;">Move In</h3>
-        <p style="font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.75);margin-bottom:20px;">Walk through the front door of your brand-new custom-built home. On time, on budget, built exactly how you envisioned it. Your loan converts to a mortgage automatically.</p>
-        <div style="font-family:var(--font-display);font-weight:600;font-size:0.72rem;color:#fff;letter-spacing:0.04em;padding-top:16px;border-top:1px solid rgba(255,255,255,0.2);">⏱ FINAL WALKTHROUGH · KEYS IN HAND</div>
+      <div class="process-card accent reveal stagger-4">
+        <div class="ghost">04</div>
+        <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></div>
+        <div class="step-label">Step 04</div>
+        <h3>Move In</h3>
+        <p>Walk through the front door of your brand-new custom-built home, built exactly how you envisioned it. Your loan converts to a mortgage automatically.</p>
+        <div class="timing">FINAL WALKTHROUGH · KEYS IN HAND</div>
       </div>
+    </div>
+    <div style="text-align:center; margin-top:36px;">
+      <a href="/process" class="process-cta reveal">See the Full 8-Step Process <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 </section>
