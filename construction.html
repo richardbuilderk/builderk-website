@@ -185,6 +185,10 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
   border-radius: 4px;
 }
 
+.gallery-item video { width:100%; aspect-ratio:16/11; object-fit:cover; display:block; background:#000; }
+.gallery-item.featured video { aspect-ratio:21/11; }
+.gallery-item .gv-badge { position:absolute; top:10px; left:10px; background:rgba(247,127,0,0.94); color:#fff; font-size:0.6rem; font-weight:700; letter-spacing:1px; padding:3px 8px; border-radius:4px; z-index:2; }
+
 /* Featured (span 2 cols) */
 .gallery-item.featured {
   grid-column: span 2;
@@ -522,57 +526,45 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
   <p>Every custom home we build goes through a meticulous construction process. These are real photos from our Florida job sites &mdash; foundation pours, steel framing, block walls, and everything in between.</p>
 </section>
 
-<!-- JOBSITE VIDEO REEL -->
-<style>
-.reel-section{max-width:1200px;margin:0 auto;padding:24px 48px 8px;}
-.reel-section h2{font-family:'Outfit',sans-serif;font-size:1.9rem;font-weight:800;margin-bottom:6px;}
-.reel-section .reel-sub{color:#777;font-size:0.98rem;margin-bottom:22px;}
-.reel-main{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.reel-more{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;}
-.reel-section video{width:100%;border-radius:14px;display:block;background:#000;}
-.reel-main video{aspect-ratio:4/3;object-fit:cover;}
-.reel-more video{aspect-ratio:16/10;object-fit:cover;}
-@media(max-width:900px){.reel-section{padding:20px 20px 4px;}.reel-main{grid-template-columns:1fr;}.reel-more{grid-template-columns:repeat(2,1fr);}}
-</style>
-<section class="reel-section reveal">
-  <h2>Jobsite Reel</h2>
-  <p class="reel-sub">Real clips from active BuilderK builds across Florida. These play silently; tap any video for sound.</p>
-  <div class="reel-main">
-    <video autoplay muted loop playsinline preload="metadata" poster="/videos/construction/constr-3506.jpg"><source src="/videos/construction/constr-3506.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata" poster="/videos/construction/constr-3658.jpg"><source src="/videos/construction/constr-3658.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata" poster="/videos/construction/constr-3628.jpg"><source src="/videos/construction/constr-3628.mp4" type="video/mp4"></video>
-  </div>
-  <div class="reel-more">
-    <video controls preload="none" poster="/videos/construction/constr-3497.jpg"><source src="/videos/construction/constr-3497.mp4" type="video/mp4"></video>
-    <video controls preload="none" poster="/videos/construction/constr-3508.jpg"><source src="/videos/construction/constr-3508.mp4" type="video/mp4"></video>
-    <video controls preload="none" poster="/videos/construction/constr-3657.jpg"><source src="/videos/construction/constr-3657.mp4" type="video/mp4"></video>
-    <video controls preload="none" poster="/videos/construction/constr-3660.jpg"><source src="/videos/construction/constr-3660.mp4" type="video/mp4"></video>
-    <video controls preload="none" poster="/videos/construction/constr-3627.jpg"><source src="/videos/construction/constr-3627.mp4" type="video/mp4"></video>
-    <video controls preload="none" poster="/videos/construction/constr-3607.jpg"><source src="/videos/construction/constr-3607.mp4" type="video/mp4"></video>
-    <video controls preload="none" poster="/videos/construction/constr-e54.jpg"><source src="/videos/construction/constr-e54.mp4" type="video/mp4"></video>
-  </div>
-</section>
-
 <!-- GALLERY -->
 <section class="gallery-section">
   <div class="gallery-grid">
-
-    <!-- ===== NEW JOBSITE MEDIA (2026-06-10) ===== -->
+    <!-- ===== NEW JOBSITE MEDIA + VIDEO (interleaved 2026-06-10) ===== -->
     <div class="gallery-item reveal" data-category="foundation" data-title="Foundation & Site Work">
       <img src="images/projects/jobsite/3489.jpg" alt="BuilderK custom home foundation and site work in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Foundation & Site Work</h3><span class="gallery-tag">Foundation</span></div>
+    </div>
+    <div class="gallery-item gv reveal" data-category="foundation" data-title="On the Job Site">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3497.jpg"><source src="/videos/construction/constr-3497.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>On the Job Site</h3><span class="gallery-tag">Tap for sound</span></div>
     </div>
     <div class="gallery-item reveal" data-category="foundation" data-title="Foundation & Site Work">
       <img src="images/projects/jobsite/s01.jpg" alt="BuilderK custom home foundation and site work in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Foundation & Site Work</h3><span class="gallery-tag">Foundation</span></div>
     </div>
+    <div class="gallery-item gv reveal" data-category="foundation" data-title="On the Job Site">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3506.jpg"><source src="/videos/construction/constr-3506.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>On the Job Site</h3><span class="gallery-tag">Tap for sound</span></div>
+    </div>
     <div class="gallery-item reveal" data-category="foundation" data-title="Foundation & Site Work">
       <img src="images/projects/jobsite/s06.jpg" alt="BuilderK custom home foundation and site work in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Foundation & Site Work</h3><span class="gallery-tag">Foundation</span></div>
     </div>
+    <div class="gallery-item gv reveal" data-category="foundation" data-title="On the Job Site">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3508.jpg"><source src="/videos/construction/constr-3508.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>On the Job Site</h3><span class="gallery-tag">Tap for sound</span></div>
+    </div>
     <div class="gallery-item reveal" data-category="foundation" data-title="Foundation & Site Work">
       <img src="images/projects/jobsite/s12.jpg" alt="BuilderK custom home foundation and site work in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Foundation & Site Work</h3><span class="gallery-tag">Foundation</span></div>
+    </div>
+    <div class="gallery-item gv reveal" data-category="foundation" data-title="On the Job Site">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3657.jpg"><source src="/videos/construction/constr-3657.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>On the Job Site</h3><span class="gallery-tag">Tap for sound</span></div>
     </div>
     <div class="gallery-item reveal" data-category="framing" data-title="Framing & Structure">
       <img src="images/projects/jobsite/s02.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
@@ -582,6 +574,11 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
       <img src="images/projects/jobsite/s03.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Framing & Structure</h3><span class="gallery-tag">Framing</span></div>
     </div>
+    <div class="gallery-item gv reveal" data-category="framing" data-title="Framing in Progress">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3627.jpg"><source src="/videos/construction/constr-3627.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>Framing in Progress</h3><span class="gallery-tag">Tap for sound</span></div>
+    </div>
     <div class="gallery-item reveal" data-category="framing" data-title="Framing & Structure">
       <img src="images/projects/jobsite/s04.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Framing & Structure</h3><span class="gallery-tag">Framing</span></div>
@@ -589,6 +586,11 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
     <div class="gallery-item reveal" data-category="framing" data-title="Framing & Structure">
       <img src="images/projects/jobsite/s05.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Framing & Structure</h3><span class="gallery-tag">Framing</span></div>
+    </div>
+    <div class="gallery-item gv reveal" data-category="framing" data-title="Framing in Progress">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3628.jpg"><source src="/videos/construction/constr-3628.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>Framing in Progress</h3><span class="gallery-tag">Tap for sound</span></div>
     </div>
     <div class="gallery-item reveal" data-category="framing" data-title="Framing & Structure">
       <img src="images/projects/jobsite/s08.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
@@ -598,6 +600,11 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
       <img src="images/projects/jobsite/s10.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Framing & Structure</h3><span class="gallery-tag">Framing</span></div>
     </div>
+    <div class="gallery-item gv reveal" data-category="framing" data-title="Framing in Progress">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3658.jpg"><source src="/videos/construction/constr-3658.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>Framing in Progress</h3><span class="gallery-tag">Tap for sound</span></div>
+    </div>
     <div class="gallery-item reveal" data-category="framing" data-title="Framing & Structure">
       <img src="images/projects/jobsite/s13.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Framing & Structure</h3><span class="gallery-tag">Framing</span></div>
@@ -605,6 +612,11 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
     <div class="gallery-item reveal" data-category="framing" data-title="Framing & Structure">
       <img src="images/projects/jobsite/s16.jpg" alt="BuilderK custom home framing and structure in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Framing & Structure</h3><span class="gallery-tag">Framing</span></div>
+    </div>
+    <div class="gallery-item gv reveal" data-category="framing" data-title="Framing in Progress">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3660.jpg"><source src="/videos/construction/constr-3660.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>Framing in Progress</h3><span class="gallery-tag">Tap for sound</span></div>
     </div>
     <div class="gallery-item reveal" data-category="exterior" data-title="Exterior Construction">
       <img src="images/projects/jobsite/8538.jpg" alt="BuilderK custom home exterior under construction in Florida" loading="lazy">
@@ -682,6 +694,11 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
       <img src="images/projects/jobsite/3597.jpg" alt="Finished interior of a BuilderK custom home in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Finished BuilderK Home</h3><span class="gallery-tag">Interior</span></div>
     </div>
+    <div class="gallery-item gv reveal" data-category="interior" data-title="Inside a BuilderK Build">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-3607.jpg"><source src="/videos/construction/constr-3607.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>Inside a BuilderK Build</h3><span class="gallery-tag">Tap for sound</span></div>
+    </div>
     <div class="gallery-item reveal" data-category="interior" data-title="Finished BuilderK Home">
       <img src="images/projects/jobsite/3599.jpg" alt="Finished interior of a BuilderK custom home in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Finished BuilderK Home</h3><span class="gallery-tag">Interior</span></div>
@@ -729,6 +746,11 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
     <div class="gallery-item reveal" data-category="interior" data-title="Finished BuilderK Home">
       <img src="images/projects/jobsite/3619.jpg" alt="Finished interior of a BuilderK custom home in Florida" loading="lazy">
       <div class="gallery-item-overlay"><h3>Finished BuilderK Home</h3><span class="gallery-tag">Interior</span></div>
+    </div>
+    <div class="gallery-item gv reveal" data-category="interior" data-title="Inside a BuilderK Build">
+      <span class="gv-badge">&#9654; VIDEO</span>
+      <video class="gv-video" muted loop playsinline preload="none" poster="/videos/construction/constr-e54.jpg"><source src="/videos/construction/constr-e54.mp4" type="video/mp4"></video>
+      <div class="gallery-item-overlay"><h3>Inside a BuilderK Build</h3><span class="gallery-tag">Tap for sound</span></div>
     </div>
     <div class="gallery-item reveal" data-category="interior" data-title="Finished BuilderK Home">
       <img src="images/projects/jobsite/s11.jpg" alt="Finished interior of a BuilderK custom home in Florida" loading="lazy">
@@ -782,7 +804,6 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
       <img src="images/projects/jobsite/s18.jpg" alt="Finished bathroom and selections in a BuilderK custom home" loading="lazy">
       <div class="gallery-item-overlay"><h3>Finishes & Selections</h3><span class="gallery-tag">Finishes</span></div>
     </div>
-
 
     <!-- ===== FOUNDATION ===== -->
 
@@ -1288,14 +1309,15 @@ var lightboxNext = document.getElementById('lightbox-next');
 var currentIndex = 0;
 
 function getVisibleItems() {
-  return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+  return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)')).filter(function(it){ return it.querySelector('img'); });
 }
 
 galleryItems.forEach(function(item) {
   item.addEventListener('click', function() {
+    var img = item.querySelector('img');
+    if (!img) return;
     var visible = getVisibleItems();
     currentIndex = visible.indexOf(item);
-    var img = item.querySelector('img');
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
     lightboxCaption.textContent = item.getAttribute('data-title') || '';
@@ -1379,6 +1401,21 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
+</script>
+<script>
+(function(){
+  var vids = Array.prototype.slice.call(document.querySelectorAll(".gallery-item video"));
+  if (!vids.length) return;
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.play().catch(function(){}); } else { e.target.pause(); } });
+    }, { rootMargin: "200px 0px", threshold: 0.2 });
+    vids.forEach(function(v){ io.observe(v); });
+  } else { vids.forEach(function(v){ v.play().catch(function(){}); }); }
+  vids.forEach(function(v){ v.addEventListener("click", function(ev){ ev.stopPropagation();
+    if (v.muted) { vids.forEach(function(o){ if(o!==v) o.muted=true; }); v.muted=false; } else { v.muted=true; }
+  }); });
+})();
 </script>
 </body>
 </html>
