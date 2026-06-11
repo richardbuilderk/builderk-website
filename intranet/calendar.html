@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>BuilderK — Checklist de Campaña · 30 Días</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{--orange:#F77F00;--black:#0A0A0A;--warm:#FAFAF8;--line:#e8e6e1;--steel:#6b6f76;--green:#15803d;--red:#b91c1c}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:#f1efeb;color:#1b1d21;padding-bottom:90px}
+  header{background:var(--black);color:#fff;padding:26px 18px 20px;position:relative}
+  header:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--orange)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 16px}
+  .eyebrow{color:var(--orange);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700}
+  header h1{font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;margin-top:6px;letter-spacing:.2px}
+  header p{color:#b9bcc2;font-size:13px;margin-top:6px}
+  header a{color:var(--orange);text-decoration:none;font-weight:700}
+  .topbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+  .who{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .who span{font-size:11px;color:#b9bcc2;text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .chip{border:1px solid #3a3d42;background:#1a1c20;color:#d8dadf;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;cursor:pointer;user-select:none}
+  .chip.on{background:var(--orange);border-color:var(--orange);color:#0A0A0A}
+  .progressBox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:18px 0 6px;box-shadow:0 2px 8px rgba(10,10,10,.05)}
+  .progressTop{display:flex;justify-content:space-between;align-items:baseline}
+  .pTitle{font-family:'Outfit',sans-serif;font-weight:900;font-size:16px}
+  .pPct{font-family:'Outfit',sans-serif;font-weight:900;font-size:22px;color:var(--orange)}
+  .bar{height:10px;background:#efece6;border-radius:8px;margin-top:8px;overflow:hidden}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),#ffa733);border-radius:8px;width:0%;transition:width .4s ease}
+  .pSub{font-size:11.5px;color:var(--steel);margin-top:6px}
+  .week{margin-top:18px}
+  .wkHead{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+  .wkHead h2{font-family:'Outfit',sans-serif;font-size:17px;font-weight:900}
+  .wkHead .range{font-size:11.5px;color:var(--steel)}
+  .wkHead .wkpct{margin-left:auto;font-size:11px;font-weight:700;color:var(--steel)}
+  .item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:7px;display:flex;gap:11px;align-items:flex-start;box-shadow:0 1px 4px rgba(10,10,10,.04)}
+  .item.done{background:#f6faf6;border-color:#d6e9d8}
+  .cb{flex:none;width:26px;height:26px;border:2.5px solid #c9c5bc;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;margin-top:1px;transition:all .15s}
+  .item.done .cb{background:var(--green);border-color:var(--green)}
+  .it-main{flex:1;min-width:0}
+  .it-title{font-weight:700;font-size:13.5px;line-height:1.35}
+  .item.done .it-title{color:#3f6347;text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:#9fc2a5}
+  .it-desc{font-size:11.5px;color:var(--steel);margin-top:2px;line-height:1.4}
+  .it-meta{display:flex;gap:7px;align-items:center;margin-top:6px;flex-wrap:wrap}
+  .due{font-size:10.5px;font-weight:700;color:#54585f;background:#f3f1ec;padding:2px 8px;border-radius:12px;white-space:nowrap}
+  .due.over{background:#fde8e8;color:var(--red)}
+  .own{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:var(--orange);background:#fdeedd;padding:2px 8px;border-radius:12px;white-space:nowrap}
+  .doneby{font-size:10.5px;color:var(--green);font-weight:700}
+  .err{background:#fde8e8;color:#b91c1c;border:1px solid #f5c2c2;border-radius:10px;padding:10px 14px;margin:14px 0;font-size:13px;display:none}
+  .loading{text-align:center;color:var(--steel);padding:40px 0;font-size:14px}
+  .foot{margin-top:26px;font-size:11px;color:#9a9da3;text-align:center;line-height:1.7}
+  .foot a{color:var(--orange);text-decoration:none;font-weight:700}
+  .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:var(--black);color:#fff;font-size:13px;font-weight:700;padding:11px 18px;border-radius:30px;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">BuilderK · Campaña de Marketing · Interno</div>
+  <h1>Checklist de Campaña — 30 Días</h1>
+  <p>Marcá cada tarea cuando esté terminada. Los viernes sale un <b>reporte automático</b> con lo hecho, lo vencido y lo que viene. Seguimiento: <b>Sofía / Rocío</b>. Plan: <a href="/intranet/camp">/intranet/camp</a> · Versión imprimible: <a href="/intranet/camp-calendar">/intranet/camp-calendar</a></p>
+  <div class="topbar"><div class="who"><span>Yo soy:</span><div id="chips"></div></div></div>
+</div></header>
+
+<div class="wrap">
+  <div class="progressBox">
+    <div class="progressTop"><div class="pTitle">Avance del plan</div><div class="pPct" id="pct">—%</div></div>
+    <div class="bar"><i id="barFill"></i></div>
+    <div class="pSub" id="pSub">Cargando…</div>
+  </div>
+  <div class="err" id="err"></div>
+  <div id="list"><div class="loading">Cargando checklist…</div></div>
+  <div class="foot">BuilderK — Builders Knowledge Development Inc. · Interno &amp; Confidencial<br>Reporte semanal automático: viernes 3:30 PM (ET) por email a todo el equipo.</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const API = "https://app.builderk.com/api/campaign-checklist";
+const PEOPLE = ["Sofía","Rocío","Franco","Valentina","Flor","Kevin","Richard"];
+const WEEKS = {1:"Jue 11 → Mié 17 jun · La plomería",2:"Jue 18 → Mié 24 jun · Se enciende el contenido",3:"Jue 25 jun → Mié 1 jul · Nurtures + ads",4:"Jue 2 → Vie 10 jul · Cierre del mes 1"};
+let me = localStorage.getItem("bk_me") || "";
+let items = [];
+
+const $ = (id) => document.getElementById(id);
+const toast = (m) => { const t=$("toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800); };
+
+function renderChips(){
+  $("chips").innerHTML = PEOPLE.map(p=>`<button class="chip ${p===me?'on':''}" onclick="pick('${p}')">${p}</button>`).join(" ");
+}
+window.pick = (p)=>{ me=p; localStorage.setItem("bk_me",p); renderChips(); };
+
+function fmtDate(s){
+  const d = new Date(s);
+  return d.toLocaleDateString("es-AR",{weekday:"short",day:"numeric",month:"short",timeZone:"America/New_York"});
+}
+
+function render(){
+  const now = new Date();
+  const byWeek = {1:[],2:[],3:[],4:[]};
+  items.forEach(i=>{ (byWeek[i.week]=byWeek[i.week]||[]).push(i); });
+  let html = "";
+  for(const w of Object.keys(byWeek)){
+    const arr = byWeek[w]; if(!arr.length) continue;
+    const done = arr.filter(i=>i.done).length;
+    html += `<div class="week"><div class="wkHead"><h2>Semana ${w}</h2><div class="range">${WEEKS[w]||""}</div><div class="wkpct">${done}/${arr.length}</div></div>`;
+    for(const i of arr){
+      const over = !i.done && new Date(i.dueDate) < now;
+      html += `<div class="item ${i.done?'done':''}" id="it-${i.id}">
+        <div class="cb" onclick="toggle('${i.id}')">${i.done?"✓":""}</div>
+        <div class="it-main">
+          <div class="it-title">${i.title}</div>
+          ${i.description?`<div class="it-desc">${i.description}</div>`:""}
+          <div class="it-meta">
+            <span class="due ${over?'over':''}">${over?"⚠ ":""}${fmtDate(i.dueDate)}</span>
+            <span class="own">${i.owner}</span>
+            ${i.done&&i.doneBy?`<span class="doneby">✓ ${i.doneBy} · ${fmtDate(i.doneAt)}</span>`:""}
+          </div>
+        </div></div>`;
+    }
+    html += `</div>`;
+  }
+  $("list").innerHTML = html || '<div class="loading">Sin items.</div>';
+  const total = items.length, totalDone = items.filter(i=>i.done).length;
+  const pct = total?Math.round(totalDone/total*100):0;
+  $("pct").textContent = pct+"%";
+  $("barFill").style.width = pct+"%";
+  const overdue = items.filter(i=>!i.done && new Date(i.dueDate)<now).length;
+  $("pSub").textContent = `${totalDone} de ${total} tareas completadas · ${overdue} vencida${overdue===1?"":"s"} pendiente${overdue===1?"":"s"}`;
+}
+
+window.toggle = async (id)=>{
+  const i = items.find(x=>x.id===id); if(!i) return;
+  if(!i.done && !me){ toast("Primero elegí tu nombre arriba 👆"); return; }
+  const newDone = !i.done;
+  const prev = {...i};
+  Object.assign(i, newDone?{done:true,doneBy:me,doneAt:new Date().toISOString()}:{done:false,doneBy:null,doneAt:null});
+  render();
+  try{
+    const r = await fetch(API,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({id,done:newDone,doneBy:me})});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const {item} = await r.json();
+    Object.assign(i,item); render();
+    toast(newDone?`✓ Marcada por ${me}`:"Desmarcada");
+  }catch(e){
+    Object.assign(i,prev); render();
+    $("err").style.display="block"; $("err").textContent="No se pudo guardar — probá de nuevo. ("+e.message+")";
+    setTimeout(()=>$("err").style.display="none",4000);
+  }
+};
+
+async function load(){
+  try{
+    const r = await fetch(API);
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const d = await r.json();
+    items = d.items||[];
+    render();
+  }catch(e){
+    $("list").innerHTML = "";
+    $("err").style.display="block";
+    $("err").textContent = "No se pudo cargar el checklist ("+e.message+"). Recargá la página.";
+  }
+}
+renderChips(); load();
+setInterval(load, 60000); // refresh cada 60s para ver lo que marcan los demás
+</script>
+</body>
+</html>
