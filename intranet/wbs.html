@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>NAHB Work Breakdown Structure — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.6;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;align-items:center;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+  .secnav .tools{margin-left:auto;display:flex;gap:6px}
+  .btn{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:#fff;background:var(--ink);border:none;padding:7px 13px;border-radius:8px;cursor:pointer}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn:hover{background:var(--orange);color:#0A0A0A}
+
+  section{padding:38px 0 4px}
+  .sec-head{margin-bottom:14px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+  .sec-head p{color:var(--steel);font-size:13.5px;margin-top:6px}
+
+  details.wbs{background:#fff;border:1px solid var(--line);border-radius:11px;margin-bottom:9px;overflow:hidden;box-shadow:0 1px 5px rgba(16,18,22,.03)}
+  details.wbs summary{cursor:pointer;list-style:none;padding:13px 16px;display:flex;align-items:center;gap:11px;font-family:'Outfit',sans-serif;font-weight:700;color:var(--ink);font-size:14.5px}
+  details.wbs summary::-webkit-details-marker{display:none}
+  details.wbs summary .wn{font-size:11.5px;font-weight:800;color:#0A0A0A;background:var(--orange);min-width:30px;height:23px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;padding:0 7px;flex:none}
+  details.wbs summary .ttl{flex:1}
+  details.wbs summary .chev{color:var(--steel);font-size:13px;transition:transform .15s;flex:none}
+  details.wbs[open] summary .chev{transform:rotate(90deg)}
+  details.wbs summary:hover{background:var(--soft)}
+  details.wbs[open] summary{border-bottom:1px solid var(--line)}
+  .wbs-body{padding:12px 16px 14px}
+  .wbs-body ul{list-style:none;columns:2;column-gap:26px}
+  @media(max-width:640px){.wbs-body ul{columns:1}}
+  .wbs-body li{position:relative;padding-left:15px;margin:5px 0;font-size:13px;break-inside:avoid}
+  .wbs-body li:before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:1px;background:var(--orange)}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:8px 0 16px;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+  .callout b{color:var(--ink)}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .panel p{margin-bottom:10px}
+  .panel strong{color:var(--ink)}
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:10px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:38px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+  @media print{.secnav,.topbar,.hero .meta{display:none}.hero{padding:18px 0}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://www.builderbooks.com">NAHB BuilderBooks →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">Standards &amp; codes</div>
+  <h1>NAHB Work Breakdown Structure</h1>
+  <p>The work breakdown structure we estimate, schedule and cost-code to — one for new home construction, one for remodeling — organized on the NAHB framework. Click any division to open it; expand all and print to save a copy.</p>
+  <div class="meta">
+    <span><b>New Home</b> · 18 divisions</span>
+    <span><b>Remodeling</b> · 12 divisions</span>
+    <span><b>NAHB</b>-aligned</span>
+    <span>Click to open · printable</span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#newhome">New Home</a>
+  <a href="#remodel">Remodeling</a>
+  <a href="#about">Cost codes &amp; source</a>
+  <span class="tools">
+    <button class="btn ghost" onclick="toggleAll(true)">Expand all</button>
+    <button class="btn ghost" onclick="toggleAll(false)">Collapse</button>
+    <button class="btn" onclick="window.print()">Print / save</button>
+  </span>
+</div></div></nav>
+
+<div class="wrap">
+
+  <div class="callout c-gold" style="margin-top:24px">
+    <div class="ct-h">ℹ️ How to use this</div>
+    This is BuilderK's working WBS, structured on the <b>NAHB</b> cost-code framework and the real build sequence. Use it for estimating, purchasing and cost-coding so every job speaks the same language. For the full official <b>NAHB Standard Cost Codes &amp; Chart of Accounts</b>, see the source links at the bottom. Click <b>Expand all → Print / save</b> for a PDF copy.
+  </div>
+
+  <!-- NEW HOME -->
+  <section id="newhome">
+    <div class="sec-head"><div class="kick">For new construction</div><h2>New Home WBS</h2><p>18 divisions, in build sequence — from soft costs to closeout.</p></div>
+
+    <details class="wbs"><summary><span class="wn">01</span><span class="ttl">Pre-construction &amp; soft costs</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Architectural &amp; structural design</li><li>Engineering &amp; energy (R-405)</li><li>Permits &amp; impact fees</li><li>Survey &amp; staking</li><li>Plan review</li><li>Builder's risk insurance</li><li>Construction-loan interest</li><li>Soil / geotech report</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">02</span><span class="ttl">Site work</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Clearing &amp; grubbing</li><li>Demolition</li><li>Excavation &amp; fill</li><li>Rough &amp; fine grading</li><li>Erosion control / silt fence</li><li>Temporary power &amp; water</li><li>Soil treatment (termite)</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">03</span><span class="ttl">Foundation</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Footings</li><li>Stem wall / CMU</li><li>Slab &amp; vapor barrier</li><li>Piling / deep foundation</li><li>Waterproofing</li><li>Anchor bolts &amp; connectors</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">04</span><span class="ttl">Rough structure (framing)</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Lumber package</li><li>Roof &amp; floor trusses</li><li>Framing labor</li><li>Structural steel / beams</li><li>Wall &amp; roof sheathing</li><li>Hurricane strapping</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">05</span><span class="ttl">Roofing</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Dry-in / underlayment</li><li>Roof covering (tile / shingle / metal)</li><li>Flashing &amp; boots</li><li>Ridge &amp; vents</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">06</span><span class="ttl">Exterior enclosure</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Impact windows</li><li>Exterior doors</li><li>Garage doors</li><li>Stucco / siding</li><li>Soffit &amp; fascia</li><li>Exterior trim</li><li>House wrap / WRB</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">07</span><span class="ttl">Plumbing</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Rough-in</li><li>Finish &amp; fixtures</li><li>Water heater</li><li>Gas piping</li><li>Sewer / septic connection</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">08</span><span class="ttl">Electrical</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Rough-in</li><li>Panel &amp; service</li><li>Finish &amp; fixtures</li><li>Low-voltage / data</li><li>Smoke &amp; CO devices</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">09</span><span class="ttl">HVAC</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Equipment (condenser / air handler)</li><li>Ductwork</li><li>Registers &amp; controls</li><li>Ventilation</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">10</span><span class="ttl">Insulation</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Wall insulation</li><li>Attic / roof insulation</li><li>Air sealing</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">11</span><span class="ttl">Drywall</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Hang</li><li>Finish</li><li>Texture</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">12</span><span class="ttl">Interior trim &amp; doors</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Interior doors</li><li>Base &amp; casing</li><li>Crown / millwork</li><li>Stairs &amp; rails</li><li>Shelving</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">13</span><span class="ttl">Paint</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Interior</li><li>Exterior</li><li>Caulk &amp; prep</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">14</span><span class="ttl">Cabinets &amp; countertops</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Kitchen cabinets</li><li>Bath vanities</li><li>Countertops (fab &amp; install)</li><li>Cabinet hardware</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">15</span><span class="ttl">Flooring &amp; tile</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Tile</li><li>Wood / LVP</li><li>Carpet</li><li>Shower &amp; wet areas</li><li>Thresholds &amp; trim</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">16</span><span class="ttl">Specialties &amp; appliances</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Appliances</li><li>Mirrors &amp; glass</li><li>Shower enclosures</li><li>Bath accessories</li><li>Fireplace</li><li>Closet systems</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">17</span><span class="ttl">Exterior flatwork &amp; site</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Driveway &amp; walks</li><li>Patio / lanai</li><li>Pool &amp; screen (if applicable)</li><li>Landscape, sod &amp; irrigation</li><li>Fencing</li><li>Mailbox</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">18</span><span class="ttl">Completion &amp; indirects</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Final clean</li><li>Punch &amp; touch-up</li><li>Closeout &amp; CO</li><li>Warranty start</li><li>Supervision / general conditions</li><li>Dumpster &amp; temp toilet</li>
+    </ul></div></details>
+  </section>
+
+  <!-- REMODELING -->
+  <section id="remodel">
+    <div class="sec-head"><div class="kick">For remodels &amp; additions</div><h2>Remodeling WBS</h2><p>12 divisions — built around existing conditions, protection and matching.</p></div>
+
+    <details class="wbs"><summary><span class="wn">01</span><span class="ttl">Pre-construction</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Design &amp; plans</li><li>Permits</li><li>Existing-conditions survey</li><li>Structural engineering</li><li>Asbestos / lead assessment (pre-1978)</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">02</span><span class="ttl">Protection &amp; demolition</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Floor &amp; surface protection</li><li>Dust containment</li><li>Selective demolition</li><li>Debris removal &amp; dumpster</li><li>Abatement (if needed)</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">03</span><span class="ttl">Structural modifications</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Temporary shoring</li><li>Framing changes</li><li>Beams &amp; headers</li><li>Underpinning / foundation repair</li><li>New openings</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">04</span><span class="ttl">Exterior modifications</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Window / door changes</li><li>Roof tie-in</li><li>Siding / stucco patch &amp; match</li><li>Addition enclosure</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">05</span><span class="ttl">Mechanicals (modify / upgrade)</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Plumbing modifications</li><li>Electrical upgrade / rewire</li><li>HVAC modifications / new equipment</li><li>Panel upgrade</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">06</span><span class="ttl">Insulation &amp; drywall</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>New &amp; patch insulation</li><li>Drywall hang / patch</li><li>Match texture</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">07</span><span class="ttl">Interior finishes</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Trim &amp; doors</li><li>Paint</li><li>Match existing profiles</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">08</span><span class="ttl">Cabinets &amp; countertops</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>New cabinets</li><li>Countertops</li><li>Hardware</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">09</span><span class="ttl">Flooring &amp; tile</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>New flooring</li><li>Transitions to existing</li><li>Tile &amp; wet areas</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">10</span><span class="ttl">Fixtures, appliances &amp; specialties</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Plumbing &amp; lighting fixtures</li><li>Appliances</li><li>Shower enclosures</li><li>Accessories</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">11</span><span class="ttl">Site / exterior</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Flatwork</li><li>Landscape restoration</li><li>Exterior repair</li>
+    </ul></div></details>
+
+    <details class="wbs"><summary><span class="wn">12</span><span class="ttl">Completion</span><span class="chev">▸</span></summary><div class="wbs-body"><ul>
+      <li>Final clean</li><li>Punch</li><li>Client walkthrough</li><li>Closeout &amp; warranty</li><li>Change-order reconciliation</li><li>Hidden-condition contingency</li>
+    </ul></div></details>
+  </section>
+
+  <!-- ABOUT / COST CODES -->
+  <section id="about">
+    <div class="sec-head"><div class="kick">The shared language</div><h2>Cost codes &amp; chart of accounts</h2></div>
+    <div class="panel">
+      <p><strong>Cost codes</strong> turn this WBS into numbers. Each division and line item maps to a cost code so estimates, purchase orders, invoices and the budget all roll up the same way — that's what lets us compare jobs and improve the next estimate.</p>
+      <p>BuilderK's codes follow the <strong>NAHB Standard Cost Codes &amp; Chart of Accounts</strong>, the industry standard. The list above is the working structure; the official, fully-numbered NAHB code set is the reference we map to in <a href="https://app.builderk.com">app.builderk.com</a> (Finance → cost codes / WBS).</p>
+      <div class="callout c-blue"><div class="ct-h">🔗 Tied to the rest of the system</div>The same WBS feeds the <a href="/intranet/precon">Pre-Construction Checklist</a> (finance setup), the budget in the app, and the schedule of values for lender draws.</div>
+      <div class="linkrow">
+        <a href="https://www.builderbooks.com">NAHB BuilderBooks — cost codes <span class="ar">→</span></a>
+        <a href="https://www.nahb.org">NAHB.org <span class="ar">→</span></a>
+        <a href="/intranet/precon">Pre-Construction Checklist <span class="ar">→</span></a>
+        <a href="/intranet/codes">Standards &amp; codes <span class="ar">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Working WBS structured on the NAHB framework — map to the official NAHB Standard Cost Codes for accounting. License CGC #1537163.
+  </div>
+</div>
+
+<script>
+  function toggleAll(open){ document.querySelectorAll('details.wbs').forEach(function(d){ d.open = open; }); }
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.wbs').forEach(function(d){ d.dataset.was = d.open ? '1' : '0'; d.open = true; }); });
+  window.addEventListener('afterprint', function(){ document.querySelectorAll('details.wbs').forEach(function(d){ d.open = d.dataset.was === '1'; }); });
+</script>
+
+</body>
+</html>

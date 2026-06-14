@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Pre-Construction Checklist — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;--red:#b91c1c;--red-bg:#fdecec;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.6;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:34px 0 4px}
+  .sec-head{margin-bottom:12px}
+  .sec-head h2{font-size:clamp(18px,2.4vw,24px);font-weight:800;color:var(--ink);letter-spacing:-.3px;display:flex;align-items:center;gap:11px}
+  .sec-head h2 .n{font-size:13px;font-weight:800;color:#fff;background:var(--orange);width:28px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .sec-head h2 .ct{margin-left:auto;font-size:11px;font-weight:700;color:var(--steel);background:var(--soft2);padding:4px 10px;border-radius:12px;letter-spacing:.3px}
+  .sec-head p{color:var(--steel);font-size:13px;margin-top:5px;font-style:italic}
+
+  .ctable{width:100%;border-collapse:collapse;font-size:14px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .ctable thead th{background:#0A0A0A;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;text-align:left;padding:9px 14px;font-size:12px;letter-spacing:.3px}
+  .ctable td{padding:9px 14px;border-top:1px solid var(--line);vertical-align:top}
+  .ctable tbody tr:nth-child(even){background:var(--soft)}
+  .ctable td.num{width:46px;color:var(--orange-d);font-weight:800;font-family:'Outfit',sans-serif}
+  .ctable th.num{width:46px}
+
+  .callout{border-radius:12px;padding:16px 18px;margin:20px 0 4px;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+  .callout b{color:var(--ink)}
+
+  .summ{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}
+  .summ a{background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 14px;display:flex;flex-direction:column;gap:2px}
+  .summ a:hover{border-color:var(--orange);text-decoration:none}
+  .summ .big{font-family:'Outfit',sans-serif;font-size:22px;font-weight:900;color:var(--orange)}
+  .summ .lab{font-size:12px;font-weight:600;color:var(--ink);line-height:1.3}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://app.builderk.com">Load as a task template · app.builderk.com →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">How we build · The standard</div>
+  <h1>Pre-Construction Checklist</h1>
+  <p>The 83 tasks that must be handled before Day-1 of any residential project. Contracts signed, deliverables sealed, permits filed, subs contracted, long-lead POs issued, site set up, finance &amp; schedule loaded — then we move to construction.</p>
+  <div class="meta">
+    <span><b>83</b> standard tasks</span>
+    <span><b>9</b> domains</span>
+    <span><b>≥80%</b> readiness before Day-1</span>
+    <span>Method <b>Last Planner / NHAB</b></span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#administrative">1 · Administrative</a>
+  <a href="#design">2 · Design</a>
+  <a href="#permits">3 · Permits</a>
+  <a href="#subs">4 · Subs</a>
+  <a href="#longlead">5 · Long-lead</a>
+  <a href="#compliance">6 · Compliance</a>
+  <a href="#site">7 · Site setup</a>
+  <a href="#finance">8 · Finance</a>
+  <a href="#schedule">9 · Schedule</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <div class="callout c-gold">
+    <div class="ct-h">🎯 Readiness rule</div>
+    A project moves from pre-construction to <b>IN&nbsp;PROGRESS</b> only when <b>≥&nbsp;80%</b> of these tasks are DONE. The <b>Compliance</b> tasks (section 6) apply to <b>every awarded subcontractor</b> and must be 100% complete before that sub's first payment. Adapt the list to the scope — custom vs spec, coastal vs inland, demo vs vacant lot.
+  </div>
+
+  <div class="summ">
+    <a href="#administrative"><span class="big">12</span><span class="lab">Administrative</span></a>
+    <a href="#design"><span class="big">10</span><span class="lab">Design &amp; Engineering</span></a>
+    <a href="#permits"><span class="big">8</span><span class="lab">Permits — AHJ</span></a>
+    <a href="#subs"><span class="big">22</span><span class="lab">Procurement — Subs</span></a>
+    <a href="#longlead"><span class="big">10</span><span class="lab">Long-lead materials</span></a>
+    <a href="#compliance"><span class="big">4</span><span class="lab">Compliance / sub</span></a>
+    <a href="#site"><span class="big">8</span><span class="lab">Site setup</span></a>
+    <a href="#finance"><span class="big">5</span><span class="lab">Finance</span></a>
+    <a href="#schedule"><span class="big">4</span><span class="lab">Schedule</span></a>
+  </div>
+
+  <!-- 1 ADMINISTRATIVE -->
+  <section id="administrative">
+    <div class="sec-head"><h2><span class="n">1</span> Administrative — client, legal, financial <span class="ct">12 tasks</span></h2><p>Contractual &amp; administrative project setup.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Task</th></tr></thead><tbody>
+      <tr><td class="num">1</td><td>Signed prime contract with client</td></tr>
+      <tr><td class="num">2</td><td>Initial deposit received</td></tr>
+      <tr><td class="num">3</td><td>Construction loan approved &amp; closed</td></tr>
+      <tr><td class="num">4</td><td>Client LLC / entity confirmed</td></tr>
+      <tr><td class="num">5</td><td>Lien-waiver workflow set up</td></tr>
+      <tr><td class="num">6</td><td>Lender draw schedule defined</td></tr>
+      <tr><td class="num">7</td><td>Builder's Risk insurance active</td></tr>
+      <tr><td class="num">8</td><td>Property survey received (topo + boundary)</td></tr>
+      <tr><td class="num">9</td><td>Geotech / soil report (if applicable)</td></tr>
+      <tr><td class="num">10</td><td>Elevation Certificate (if flood zone)</td></tr>
+      <tr><td class="num">11</td><td>HOA / ARB approval (if applicable)</td></tr>
+      <tr><td class="num">12</td><td>Project set up in BuilderK (folder structure, access)</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 2 DESIGN -->
+  <section id="design">
+    <div class="sec-head"><h2><span class="n">2</span> Design &amp; engineering — deliverables <span class="ct">10 tasks</span></h2><p>Sealed technical documents needed to file permits and build.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Task</th></tr></thead><tbody>
+      <tr><td class="num">13</td><td>Architectural sealed (complete set)</td></tr>
+      <tr><td class="num">14</td><td>Structural sealed + calculations</td></tr>
+      <tr><td class="num">15</td><td>MEP layouts (Mech / Electrical / Plumbing)</td></tr>
+      <tr><td class="num">16</td><td>Site plan with topo integrated</td></tr>
+      <tr><td class="num">17</td><td>Foundation plan with piling design (if applicable)</td></tr>
+      <tr><td class="num">18</td><td>Wall sections + details</td></tr>
+      <tr><td class="num">19</td><td>Energy calcs (Florida Form R-405)</td></tr>
+      <tr><td class="num">20</td><td>Truss layout sealed</td></tr>
+      <tr><td class="num">21</td><td>NOAs for critical products (windows, roof, doors)</td></tr>
+      <tr><td class="num">22</td><td>Finish specifications (selections complete)</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 3 PERMITS -->
+  <section id="permits">
+    <div class="sec-head"><h2><span class="n">3</span> Permits — AHJ <span class="ct">8 tasks</span></h2><p>Permits to file and obtain before work starts.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Task</th></tr></thead><tbody>
+      <tr><td class="num">23</td><td>Building permit application filed</td></tr>
+      <tr><td class="num">24</td><td>Electrical permit</td></tr>
+      <tr><td class="num">25</td><td>Plumbing permit</td></tr>
+      <tr><td class="num">26</td><td>Mechanical / HVAC permit</td></tr>
+      <tr><td class="num">27</td><td>Roofing permit</td></tr>
+      <tr><td class="num">28</td><td>Demolition permit (if applicable)</td></tr>
+      <tr><td class="num">29</td><td>CCCL / Coastal (if applicable)</td></tr>
+      <tr><td class="num">30</td><td>Septic / Well permits (if applicable)</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 4 SUBS -->
+  <section id="subs">
+    <div class="sec-head"><h2><span class="n">4</span> Procurement — subcontractors <span class="ct">22 trades</span></h2><p>Minimum 3 bids per trade → award → signed contract.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Trade</th></tr></thead><tbody>
+      <tr><td class="num">31</td><td>Surveyor — staking + as-built</td></tr>
+      <tr><td class="num">32</td><td>Demolition</td></tr>
+      <tr><td class="num">33</td><td>Site work / excavation / fill</td></tr>
+      <tr><td class="num">34</td><td>Piling / foundation specialist</td></tr>
+      <tr><td class="num">35</td><td>Concrete (foundation + flatwork)</td></tr>
+      <tr><td class="num">36</td><td>CMU / Masonry</td></tr>
+      <tr><td class="num">37</td><td>Framer (wood + truss install)</td></tr>
+      <tr><td class="num">38</td><td>Roofer</td></tr>
+      <tr><td class="num">39</td><td>Window/door installer (impact glass)</td></tr>
+      <tr><td class="num">40</td><td>Stucco / exterior</td></tr>
+      <tr><td class="num">41</td><td>Plumber (rough + finish)</td></tr>
+      <tr><td class="num">42</td><td>Electrician (rough + finish)</td></tr>
+      <tr><td class="num">43</td><td>HVAC contractor</td></tr>
+      <tr><td class="num">44</td><td>Insulation</td></tr>
+      <tr><td class="num">45</td><td>Drywall</td></tr>
+      <tr><td class="num">46</td><td>Painter (interior + exterior)</td></tr>
+      <tr><td class="num">47</td><td>Tile / flooring</td></tr>
+      <tr><td class="num">48</td><td>Cabinet installer</td></tr>
+      <tr><td class="num">49</td><td>Countertop fabricator</td></tr>
+      <tr><td class="num">50</td><td>Landscape / sod / irrigation</td></tr>
+      <tr><td class="num">51</td><td>Driveway concrete</td></tr>
+      <tr><td class="num">52</td><td>Final cleaning</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 5 LONG-LEAD -->
+  <section id="longlead">
+    <div class="sec-head"><h2><span class="n">5</span> Procurement — long-lead materials <span class="ct">10 items</span></h2><p>Confirm lead time + committed delivery date with the vendor (POs issued).</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Material</th></tr></thead><tbody>
+      <tr><td class="num">53</td><td>Impact windows &amp; doors</td></tr>
+      <tr><td class="num">54</td><td>Trusses</td></tr>
+      <tr><td class="num">55</td><td>Steel / structural connectors</td></tr>
+      <tr><td class="num">56</td><td>Appliances (complete set)</td></tr>
+      <tr><td class="num">57</td><td>Cabinets</td></tr>
+      <tr><td class="num">58</td><td>Countertops (material + cuts)</td></tr>
+      <tr><td class="num">59</td><td>Tile / flooring (whole project)</td></tr>
+      <tr><td class="num">60</td><td>Plumbing fixtures (set)</td></tr>
+      <tr><td class="num">61</td><td>Lighting fixtures (set)</td></tr>
+      <tr><td class="num">62</td><td>Front door / garage door</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 6 COMPLIANCE -->
+  <section id="compliance">
+    <div class="sec-head"><h2><span class="n">6</span> Compliance — per subcontractor <span class="ct">4 × sub</span></h2><p>Blocks payment until complete. Apply to each awarded sub.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Task</th></tr></thead><tbody>
+      <tr><td class="num">63</td><td>W-9 signed</td></tr>
+      <tr><td class="num">64</td><td>COI — General Liability (BuilderK as certificate holder)</td></tr>
+      <tr><td class="num">65</td><td>COI — Workers Comp (or exemption)</td></tr>
+      <tr><td class="num">66</td><td>Subcontractor Agreement signed (master + scope-specific)</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 7 SITE SETUP -->
+  <section id="site">
+    <div class="sec-head"><h2><span class="n">7</span> Site setup — logistics <span class="ct">8 tasks</span></h2><p>Temporary services &amp; physical setup of the site.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Task</th></tr></thead><tbody>
+      <tr><td class="num">67</td><td>Temporary power service (FPL) ordered</td></tr>
+      <tr><td class="num">68</td><td>Temporary water meter</td></tr>
+      <tr><td class="num">69</td><td>Portable toilet arranged</td></tr>
+      <tr><td class="num">70</td><td>Dumpster service arranged</td></tr>
+      <tr><td class="num">71</td><td>Temporary fencing / safety</td></tr>
+      <tr><td class="num">72</td><td>Job sign (BuilderK + CGC #1537163)</td></tr>
+      <tr><td class="num">73</td><td>Erosion control / silt fence (NPDES)</td></tr>
+      <tr><td class="num">74</td><td>Notice of Commencement (NOC) filed &amp; posted</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 8 FINANCE -->
+  <section id="finance">
+    <div class="sec-head"><h2><span class="n">8</span> Finance — cost setup <span class="ct">5 tasks</span></h2><p>Project financial &amp; cost-control structure.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Task</th></tr></thead><tbody>
+      <tr><td class="num">75</td><td>Budget loaded in BuilderK</td></tr>
+      <tr><td class="num">76</td><td>Cost codes / WBS aligned to the schedule of values</td></tr>
+      <tr><td class="num">77</td><td>Lender draw schedule mapped to milestones</td></tr>
+      <tr><td class="num">78</td><td>Retainage % agreed per sub</td></tr>
+      <tr><td class="num">79</td><td>Client payment schedule defined</td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- 9 SCHEDULE -->
+  <section id="schedule">
+    <div class="sec-head"><h2><span class="n">9</span> Schedule — Last Planner / NHAB <span class="ct">4 tasks</span></h2><p>Collaborative planning with key subs before Day-1.</p></div>
+    <table class="ctable"><thead><tr><th class="num">#</th><th>Task</th></tr></thead><tbody>
+      <tr><td class="num">80</td><td>Master schedule (CPM) loaded in BuilderK</td></tr>
+      <tr><td class="num">81</td><td>Reverse pull plan from Day-1 validated with key subs</td></tr>
+      <tr><td class="num">82</td><td>Initial 6-week lookahead published</td></tr>
+      <tr><td class="num">83</td><td>Weekly Work Plan template + meeting cadence defined</td></tr>
+    </tbody></table>
+  </section>
+
+  <div class="callout c-blue">
+    <div class="ct-h">⚙️ How we run it in BuilderK</div>
+    Load this as a <b>Task Template</b> with <b>phase = "Pre-Construction"</b> and due dates relative to Day-1 (<b>T-90 / T-60 / T-30 / T-14</b>). Task types: ADMINISTRATIVE · PROCUREMENT · APPROVAL · FINANCE · INSPECTION. Readiness % is tracked against these tasks so a project can't slip into construction under-prepared.
+  </div>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Pre-Construction Standard Checklist · v1.0 · Adapt to project scope · License CGC #1537163
+  </div>
+</div>
+
+</body>
+</html>

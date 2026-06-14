@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Jobsite Safety &amp; OSHA — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;--red:#b91c1c;--red-bg:#fdecec;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .ctable{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .ctable thead th{background:#0A0A0A;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;text-align:left;padding:9px 12px;font-size:12px;letter-spacing:.3px}
+  .ctable td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+  .ctable tbody tr:nth-child(even){background:var(--soft)}
+  .ctable td b{color:var(--ink)}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-red{background:var(--red-bg);border-color:#f5c2c2}
+  .c-red .ct-h{color:var(--red)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+
+  .four{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:6px 0 4px}
+  @media(max-width:720px){.four{grid-template-columns:1fr 1fr}}
+  .fcard{background:var(--red-bg);border:1px solid #f5c2c2;border-radius:11px;padding:13px}
+  .fcard .fn{font-family:'Outfit',sans-serif;font-weight:800;color:var(--red);font-size:14px}
+  .fcard p{font-size:11.5px;color:var(--body);margin-top:3px;line-height:1.4}
+
+  .chk{background:#0A0A0A;color:#fff;border-radius:16px;padding:24px 26px}
+  .chk h3{color:#fff;font-size:19px;font-weight:800;margin-bottom:4px}
+  .chk .sub{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:14px}
+  .chk ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+  @media(max-width:720px){.chk ul{grid-template-columns:1fr}}
+  .chk li{position:relative;padding-left:26px;font-size:13.5px;color:#e7e9ee;line-height:1.5}
+  .chk li:before{content:'✓';position:absolute;left:0;top:0;color:var(--orange);font-weight:900}
+  .chk li b{color:#fff;font-weight:600}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926">osha.gov · 1926 →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">Safety &amp; OSHA</div>
+  <h1>Jobsite safety &amp; OSHA compliance</h1>
+  <p>Everyone goes home safe. Our site safety program is built on OSHA's construction standards — the rules, the talks, the gear and the reporting that keep every BuilderK jobsite safe and compliant.</p>
+  <div class="meta">
+    <span>Standard <b>OSHA 29 CFR 1926</b></span>
+    <span><b>Focus Four</b> hazards</span>
+    <span>Report <b>8 hr / 24 hr</b></span>
+    <span><b>OSHA poster</b> on every site</span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#osha-1926">OSHA 1926</a>
+  <a href="#program">Our program</a>
+  <a href="#talks">Toolbox talks</a>
+  <a href="#ppe">PPE</a>
+  <a href="#incident">Incident reporting</a>
+  <a href="#postings">Postings</a>
+  <a href="#subs">Subs</a>
+  <a href="#checklist">Site checklist</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <div class="callout c-gold" style="margin-top:26px">
+    <div class="ct-h">⚠️ This is our working guide — OSHA governs</div>
+    OSHA <b>29 CFR 1926</b> and your site safety officer are the authority. Use this page to run the program day-to-day, and verify current requirements at <a href="https://www.osha.gov">osha.gov</a>.
+  </div>
+
+  <!-- OSHA 1926 -->
+  <section id="osha-1926">
+    <div class="sec-head"><div class="kick">The standard</div><h2>OSHA 29 CFR 1926 — Construction</h2></div>
+    <div class="panel prose">
+      <p>OSHA's construction standards (<strong>29 CFR 1926</strong>) set the federal floor for jobsite safety. As the general contractor, BuilderK carries duties on a <strong>multi-employer worksite</strong> — our controls protect our own people and everyone working the site.</p>
+
+      <div class="callout c-red">
+        <div class="ct-h">⛑️ The Focus Four — what kills on construction sites</div>
+        Most construction fatalities come from four hazards. Every site control we run targets these first.
+      </div>
+      <div class="four">
+        <div class="fcard"><div class="fn">Falls</div><p>From height — roofs, edges, openings, ladders, scaffolds.</p></div>
+        <div class="fcard"><div class="fn">Struck-by</div><p>Vehicles, equipment, falling/flying objects.</p></div>
+        <div class="fcard"><div class="fn">Caught-in / between</div><p>Trenches, machinery, collapsing material.</p></div>
+        <div class="fcard"><div class="fn">Electrocution</div><p>Power lines, energized circuits, tools.</p></div>
+      </div>
+
+      <h4>Key subparts we live in</h4>
+      <ul>
+        <li><b>Subpart M — Fall protection</b> (required at <b>6 ft</b> in construction)</li>
+        <li><b>Subpart L — Scaffolds</b> · <b>Subpart X — Stairways &amp; ladders</b></li>
+        <li><b>Subpart P — Excavations</b> (protective systems, competent person)</li>
+        <li><b>Subpart K — Electrical</b> (GFCI, lockout/tagout, overhead lines)</li>
+        <li><b>Subpart E — Personal protective equipment</b></li>
+        <li><b>Subpart CC — Cranes &amp; derricks</b> · silica &amp; HazCom (health)</li>
+        <li><b>Subpart C</b> — general safety &amp; the <b>competent person</b> requirement</li>
+      </ul>
+
+      <h4>Training</h4>
+      <p>Crews should hold <strong>OSHA 10-hour</strong> (workers) or <strong>30-hour</strong> (supervisors) outreach cards. Task-specific competent-person training is required for excavations, scaffolds and fall protection.</p>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section id="program">
+    <div class="sec-head"><div class="kick">How we run it</div><h2>Our site safety program</h2></div>
+    <div class="panel prose">
+      <ul>
+        <li>A designated <b>competent person / site supervisor</b> on every active site, with authority to stop work.</li>
+        <li><b>Site-specific orientation</b> before anyone — staff or sub — starts work.</li>
+        <li><b>Daily walk</b> for hazards; correct or barricade immediately.</li>
+        <li>Housekeeping, access control and signage kept current.</li>
+        <li><b>First-aid kit, eyewash, fire extinguisher</b> on site and stocked.</li>
+        <li>Emergency plan posted — nearest hospital, muster point, site address for 911.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TOOLBOX TALKS -->
+  <section id="talks">
+    <div class="sec-head"><div class="kick">Weekly habit</div><h2>Toolbox talks</h2></div>
+    <div class="panel prose narrow">
+      <p>A short (10–15 min) safety talk before work, tied to the week's scope and hazards.</p>
+      <ul>
+        <li><b>Weekly</b>, led by the site supervisor.</li>
+        <li>Topic matches the work — e.g. trench week → excavation &amp; cave-in.</li>
+        <li><b>Documented with a sign-in</b> sheet kept in the site file.</li>
+        <li>Pull from the toolbox-talk library (coming to this page).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PPE -->
+  <section id="ppe">
+    <div class="sec-head"><div class="kick">The gear</div><h2>PPE standards</h2></div>
+    <div class="panel prose">
+      <table class="ctable">
+        <thead><tr><th>Equipment</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td><b>Hard hat</b></td><td>Always, in any active construction area</td></tr>
+          <tr><td><b>Safety glasses</b></td><td>Always; goggles/face shield for cutting, grinding, chemicals</td></tr>
+          <tr><td><b>High-visibility vest</b></td><td>Always; required near equipment &amp; traffic</td></tr>
+          <tr><td><b>Foot protection</b></td><td>Always — protective-toe work boots</td></tr>
+          <tr><td><b>Hearing protection</b></td><td>Loud tasks (saws, jackhammers, &gt; 85 dBA)</td></tr>
+          <tr><td><b>Gloves</b></td><td>By task — cut, chemical, handling</td></tr>
+          <tr><td><b>Fall protection harness</b></td><td>Work at/above <b>6 ft</b> without guardrails (Subpart M)</td></tr>
+          <tr><td><b>Respirator</b></td><td>Silica, dust &amp; fumes per the exposure plan</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- INCIDENT -->
+  <section id="incident">
+    <div class="sec-head"><div class="kick">When something happens</div><h2>Incident &amp; near-miss reporting</h2></div>
+    <div class="panel prose">
+      <p><strong>Report every injury, incident and near-miss to the site supervisor immediately.</strong> Near-misses matter — they tell us where the next injury is coming from, so we fix the hazard before it lands.</p>
+      <div class="callout c-red">
+        <div class="ct-h">🚨 OSHA reporting clock — don't miss it</div>
+        <ul style="margin:4px 0 0">
+          <li><b>Fatality → report within 8 hours.</b></li>
+          <li><b>In-patient hospitalization, amputation, or loss of an eye → within 24 hours.</b></li>
+        </ul>
+        Report at <b>1-800-321-OSHA (6742)</b> or osha.gov. The site supervisor calls leadership first.
+      </div>
+      <h4>Recordkeeping</h4>
+      <ul>
+        <li>Classify: <b>first-aid</b> (log internally) vs <b>recordable</b> vs <b>lost-time</b>.</li>
+        <li>Covered employers keep the <b>OSHA 300 log</b> and post the <b>300A summary Feb 1–Apr 30</b>.</li>
+        <li>Every incident gets a short <b>root-cause</b> and a corrective action.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- POSTINGS -->
+  <section id="postings">
+    <div class="sec-head"><div class="kick">On the wall</div><h2>Required postings</h2></div>
+    <div class="panel prose narrow">
+      <ul>
+        <li><b>OSHA "Job Safety &amp; Health: It's the Law" poster</b> (OSHA 3165) — required on every site.</li>
+        <li><b>Emergency numbers</b> + nearest hospital/urgent care + the site's 911 address.</li>
+        <li><b>Safety Data Sheets (SDS)</b> accessible for every chemical on site.</li>
+        <li><b>OSHA 300A</b> injury summary during posting season (covered employers).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SUBS -->
+  <section id="subs">
+    <div class="sec-head"><div class="kick">Shared responsibility</div><h2>Subcontractors &amp; the multi-employer site</h2></div>
+    <div class="panel prose">
+      <p>Every subcontractor is responsible for their own crew's safety and carries their own <strong>General Liability + Workers' Comp (COI)</strong>. But on a multi-employer site the GC has duties too.</p>
+      <ul>
+        <li>All sub crews complete the <b>site orientation</b> before starting.</li>
+        <li><b>Controlling employer</b> (BuilderK) — general oversight to detect &amp; correct hazards.</li>
+        <li><b>Creating / exposing / correcting</b> employers each carry their share.</li>
+        <li>COI &amp; W-9 compliance lives under <a href="/intranet#people">People &amp; partners → Subcontractors</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="checklist">
+    <div class="chk">
+      <h3>Per-jobsite safety setup</h3>
+      <div class="sub">Stand this up before crews mobilize — and keep it current.</div>
+      <ul>
+        <li><b>Competent person</b> assigned</li>
+        <li><b>Site orientation</b> ready</li>
+        <li><b>OSHA poster</b> + emergency numbers posted</li>
+        <li><b>First-aid kit + eyewash</b> stocked</li>
+        <li><b>Fire extinguisher</b> on site</li>
+        <li><b>SDS</b> binder accessible</li>
+        <li><b>Fall-protection plan</b> if any work &gt; 6 ft</li>
+        <li><b>Excavation / cave-in plan</b> if digging</li>
+        <li><b>Silica / dust plan</b> for cutting &amp; grinding</li>
+        <li><b>PPE</b> stocked on site</li>
+        <li><b>Toolbox-talk</b> schedule set</li>
+        <li><b>911 site address</b> confirmed &amp; posted</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="sec-head"><div class="kick">Go to source</div><h2>Official references</h2></div>
+    <div class="linkrow">
+      <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926">OSHA 1926 standards <span class="ar">→</span></a>
+      <a href="https://www.osha.gov/sites/default/files/publications/poster.pdf">OSHA "It's the Law" poster <span class="ar">→</span></a>
+      <a href="https://www.osha.gov/report">Report a fatality / severe injury <span class="ar">→</span></a>
+      <a href="https://www.osha.gov/training/outreach">OSHA 10 / 30-hour training <span class="ar">→</span></a>
+      <a href="https://www.osha.gov/construction/focus-four">Focus Four hazards <span class="ar">→</span></a>
+      <a href="https://www.osha.gov/silica">Respirable crystalline silica <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Working guide — OSHA 29 CFR 1926 and your site safety officer govern. Verify current requirements at osha.gov. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>

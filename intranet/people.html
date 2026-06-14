@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>People &amp; Partners — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://app.builderk.com">Team &amp; subs · app.builderk.com →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">People &amp; partners</div>
+  <h1>The people who build with us</h1>
+  <p>Our team, our subcontractors, and how everyone learns the job — the human side of the operation.</p>
+  <div class="meta">
+    <span>Roster <b>in the app</b></span>
+    <span>Every sub: <b>MSA + COI + W-9</b></span>
+    <span><b>Training</b> library</span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#team">Team &amp; HR</a>
+  <a href="#subs">Subcontractors</a>
+  <a href="#training">Training center</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="sec-head"><div class="kick">Our team</div><h2>Team &amp; HR</h2></div>
+    <div class="panel prose">
+      <p>Roles and the project-team structure are on the <a href="/intranet/start#org">Start here → Org &amp; roles</a> page; the live roster, contacts and assignments are kept in <a href="https://app.builderk.com">app.builderk.com</a>.</p>
+      <h4>The HR lifecycle</h4>
+      <ul>
+        <li><b>Hiring &amp; offers</b> — role posted, candidate selected, offer signed.</li>
+        <li><b>Onboarding</b> — accounts, handbook acknowledgement, safety orientation, first-week path (see <a href="/intranet/start#firstweek">Start here</a>).</li>
+        <li><b>Time &amp; PTO</b> — per the Employee Handbook.</li>
+        <li><b>Reviews &amp; growth</b> — performance against the KPIs in <a href="/intranet/operations#kpis">Operations</a>.</li>
+        <li><b>Offboarding</b> — access removed, equipment returned, knowledge handed off.</li>
+      </ul>
+      <div class="callout c-blue"><div class="ct-h">👥 The PMA team</div>The PMA (project-management assistant) team coordinates documents, approvals and follow-up across projects — the connective tissue between the field and the office. Wendy Morales coordinates the team.</div>
+
+      <div class="callout c-gold"><div class="ct-h">Team directory</div>The full team roster and contacts are maintained in <a href="https://app.builderk.com">app.builderk.com</a> (login required).</div>
+    </div>
+  </section>
+
+  <!-- SUBS -->
+  <section id="subs">
+    <div class="sec-head"><div class="kick">Our trades</div><h2>Subcontractors</h2></div>
+    <div class="panel prose">
+      <p>Subs are how we build. Every subcontractor is onboarded and compliant <strong>before their first payment</strong> — no exceptions.</p>
+      <h4>Onboarding a sub (before first payment)</h4>
+      <ul>
+        <li><b>W-9</b> on file</li>
+        <li><b>COI — General Liability</b> (BuilderK as certificate holder)</li>
+        <li><b>COI — Workers' Comp</b> (or a valid exemption)</li>
+        <li><b>Master Subcontract Agreement (MSA)</b> signed — plus scope-specific terms</li>
+        <li><b>Site safety orientation</b> for the crew (see <a href="/intranet/safety#subs">Safety &amp; OSHA</a>)</li>
+      </ul>
+      <div class="callout c-gold"><div class="ct-h">📄 One MSA, many projects</div>The Master Subcontract Agreement is signed once and governs all of a sub's work; individual work orders issue under it per project. Compliance is the gate in the <a href="/intranet/precon#compliance">Pre-Construction Checklist</a> (section 6).</div>
+      <h4>The bench</h4>
+      <ul>
+        <li><b>Trade directory by metro</b> — our vetted subs by trade and market.</li>
+        <li><b>Performance</b> — quality, reliability and safety tracked per sub.</li>
+      </ul>
+      <p style="font-size:13px;color:var(--steel)">The sub directory, MSAs and compliance docs are managed in <a href="https://app.builderk.com">app.builderk.com</a>.</p>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section id="training">
+    <div class="sec-head"><div class="kick">How we learn</div><h2>Training center</h2></div>
+    <div class="panel prose">
+      <p>The library where training lives — built up over time so every role can get up to speed and stay sharp.</p>
+      <ul>
+        <li><b>Onboarding videos</b> — the basics for every new hire</li>
+        <li><b>How-to library</b> — the app, the checklist, the processes, by role</li>
+        <li><b>Recorded key meetings</b> — important sessions kept for reference</li>
+        <li><b>Safety training</b> — OSHA 10 / 30-hour, toolbox-talk topics (see <a href="/intranet/safety">Safety &amp; OSHA</a>)</li>
+        <li><b>Manufacturer / product training</b> &amp; certifications</li>
+      </ul>
+      <div class="callout c-gold"><div class="ct-h">📎 Grows here</div>This is the home for recordings and materials — we add to it as sessions are recorded and guides are written.</div>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="sec-head"><div class="kick">Related</div><h2>Links</h2></div>
+    <div class="linkrow">
+      <a href="/intranet/start#org">Org &amp; roles <span class="ar">→</span></a>
+      <a href="/intranet/precon#compliance">Sub compliance (checklist) <span class="ar">→</span></a>
+      <a href="/intranet/safety">Safety &amp; OSHA <span class="ar">→</span></a>
+      <a href="https://app.builderk.com">Team &amp; subs in the app <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Roster, sub directory &amp; HR records are maintained in app.builderk.com / HR. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>

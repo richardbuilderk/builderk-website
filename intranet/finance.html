@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Finance &amp; Admin — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .ctable{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ctable thead th{background:#0A0A0A;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;text-align:left;padding:9px 12px;font-size:12px;letter-spacing:.3px}
+  .ctable td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+  .ctable tbody tr:nth-child(even){background:var(--soft)}
+  .ctable td b{color:var(--ink)}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://app.builderk.com">Budgets &amp; draws · app.builderk.com →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">Finance &amp; admin</div>
+  <h1>The back office</h1>
+  <p>The financial control and compliance backbone behind every project — budgets, lender draws, lien waivers and the company's licensing.</p>
+  <div class="meta">
+    <span>Cost codes / <b>WBS</b></span>
+    <span>Draws → <b>milestones</b></span>
+    <span><b>Lien waivers</b> protect title</span>
+    <span>CGC <b>#1537163</b></span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#budgets">Budgets &amp; cost control</a>
+  <a href="#draws">Draws &amp; lender</a>
+  <a href="#insurance">Compliance &amp; insurance</a>
+  <a href="#entities">Entities &amp; licensing</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <!-- BUDGETS -->
+  <section id="budgets">
+    <div class="sec-head"><div class="kick">Control the cost</div><h2>Budgets &amp; cost control</h2></div>
+    <div class="panel prose">
+      <p>Every project runs on a budget built from the estimate and coded to the <a href="/intranet/wbs">WBS / cost codes</a> — so estimates, POs, invoices and change orders all roll up the same way and we can compare jobs.</p>
+      <ul>
+        <li><b>Budget</b> loaded in <a href="https://app.builderk.com">app.builderk.com</a>, coded to the WBS.</li>
+        <li><b>Schedule of values</b> aligned to the cost codes (and to the draw schedule).</li>
+        <li><b>Budget vs. actual</b> tracked continuously as POs and invoices post.</li>
+        <li><b>Job cost variance</b> is a tracked KPI — target ≤ 5%, cost review at &gt; 7% (see <a href="/intranet/operations#kpis">Operations → KPIs</a>).</li>
+        <li><b>Change orders</b> re-baseline the budget so variance stays honest.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DRAWS -->
+  <section id="draws">
+    <div class="sec-head"><div class="kick">Fund the work</div><h2>Draws &amp; lender</h2></div>
+    <div class="panel prose">
+      <p>On a financed project, money is released by the lender in <strong>draws</strong> tied to completed work. The draw schedule is mapped to milestones at setup (see <a href="/intranet/precon#finance">Pre-Construction → Finance</a>).</p>
+      <h4>The draw request</h4>
+      <table class="ctable">
+        <thead><tr><th>Step</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · Measure</b></td><td>% complete / milestone reached, per the schedule of values</td></tr>
+          <tr><td><b>2 · Inspect</b></td><td>Lender / inspector verifies the work in place</td></tr>
+          <tr><td><b>3 · Waivers</b></td><td>Collect lien waivers for the work being paid</td></tr>
+          <tr><td><b>4 · Submit</b></td><td>Draw request package to the lender</td></tr>
+          <tr><td><b>5 · Fund</b></td><td>Lender funds; subs &amp; suppliers paid</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-blue"><div class="ct-h">💵 Retainage</div>A retainage % is held from each sub payment and released at closeout once punch is cleared and final waivers are in.</div>
+    </div>
+  </section>
+
+  <!-- INSURANCE -->
+  <section id="insurance">
+    <div class="sec-head"><div class="kick">Protect the project</div><h2>Compliance &amp; insurance</h2></div>
+    <div class="panel prose">
+      <h4>Lien waivers</h4>
+      <ul>
+        <li><b>Conditional</b> waivers as progress payments are made; <b>unconditional</b> on final payment.</li>
+        <li>Collected from <b>every</b> sub and supplier — this is what protects the client's clear title (see <a href="/intranet/closeout#financials">Closeout → financials</a>).</li>
+      </ul>
+      <h4>Insurance</h4>
+      <ul>
+        <li><b>Builder's Risk</b> — per project, active before work starts.</li>
+        <li><b>BuilderK</b> — General Liability + Workers' Comp.</li>
+        <li><b>Subcontractor COIs</b> — GL + WC, BuilderK named as certificate holder (gate in the <a href="/intranet/precon#compliance">checklist</a>).</li>
+      </ul>
+      <h4>Filings</h4>
+      <ul>
+        <li><b>Notice of Commencement (NOC)</b> filed &amp; posted before work (see <a href="/intranet/precon#site">Site setup</a>).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ENTITIES -->
+  <section id="entities">
+    <div class="sec-head"><div class="kick">The company</div><h2>Entities &amp; licensing</h2></div>
+    <div class="panel prose">
+      <table class="ctable">
+        <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><b>Builder</b></td><td>Builders Knowledge Development Inc. (dba BuilderK) — Florida Corp</td></tr>
+          <tr><td><b>License</b></td><td>CGC #1537163 (Certified General Contractor)</td></tr>
+          <tr><td><b>Address</b></td><td>4700 Millenia Blvd, Suite 500, Orlando, FL 32839</td></tr>
+          <tr><td><b>Develops with</b></td><td><a href="/intranet/buildshare">BuildShare.ai</a> — BuildShare Development Capital Inc.</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px;color:var(--steel)">The full record — license, insurance certificates, entity filings — is on <a href="/intranet/start#licenses">Start here → Licenses &amp; entities</a> and kept current in the company records.</p>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="sec-head"><div class="kick">Related</div><h2>Links</h2></div>
+    <div class="linkrow">
+      <a href="/intranet/wbs">NAHB WBS &amp; cost codes <span class="ar">→</span></a>
+      <a href="/intranet/precon#finance">Pre-Construction → Finance <span class="ar">→</span></a>
+      <a href="/intranet/closeout#financials">Closeout financials <span class="ar">→</span></a>
+      <a href="https://app.builderk.com">Budgets &amp; draws in the app <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Budgets, draws, waivers &amp; financials are managed in app.builderk.com. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>

@@ -4,98 +4,322 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
-<title>BuilderK Intranet — Plans</title>
+<title>BuilderK Intranet — Company Operating System</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-  :root{--char:#16181d;--char2:#1f232b;--amber:#f59e0b;--amber-d:#b45309;--steel:#5b6573;--line:#e6e9ee}
-  body{font-family:'Inter',system-ui,Arial,sans-serif;background:#eef0f4;color:#1d2127;padding-bottom:70px}
-  header{background:linear-gradient(120deg,#101216 0%,#1c2027 62%,#2b2417 100%);color:#fff;padding:42px 18px 34px;position:relative}
-  header:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--amber),#7c5c12)}
-  .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-  .eyebrow{font-family:'Barlow Condensed',sans-serif;color:var(--amber);font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600}
-  header h1{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;line-height:1;margin-top:10px}
-  header p{color:#c0c7d1;font-size:14px;margin-top:10px;max-width:640px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:26px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(16,18,22,.05);display:flex;flex-direction:column;min-height:170px;position:relative;transition:transform .12s ease,box-shadow .12s ease}
-  a.card{text-decoration:none;color:inherit}
-  a.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(16,18,22,.13)}
-  .ic{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#fdf0d4;margin-bottom:12px}
-  .card h2{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;color:var(--char);letter-spacing:.3px}
-  .card p{font-size:12.5px;color:var(--steel);margin-top:6px;line-height:1.55;flex:1}
-  .badge{position:absolute;top:16px;right:16px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:20px}
-  .live{background:#e7f6ec;color:#15803d}
-  .soon{background:#eef0f4;color:#8b95a3}
-  .open{margin-top:12px;font-size:12px;font-weight:800;color:var(--amber-d)}
-  .dim{opacity:.62}
-  .foot{margin-top:30px;font-size:11px;color:#9aa3af;text-align:center}
-  .foot a{color:var(--amber-d);text-decoration:none;font-weight:700}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.6;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,.f-head{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar .eyebrow{font-family:'Outfit',sans-serif;color:var(--orange);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:54px 0 46px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:clamp(32px,5.4vw,54px);font-weight:900;line-height:1.03;letter-spacing:-1px}
+  .hero h1 .g{color:var(--orange)}
+  .hero p{color:rgba(255,255,255,.82);max-width:780px;margin-top:16px;font-size:clamp(15px,1.7vw,17px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff}
+
+  section{padding:46px 0 6px}
+  .sec-head{margin-bottom:22px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:7px;display:flex;align-items:center;gap:12px}
+  .sec-head h2 .n{font-size:14px;font-weight:800;color:#fff;background:var(--ink);width:30px;height:30px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .sec-head p{color:var(--steel);font-size:14px;margin-top:8px;max-width:780px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:15px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(16,18,22,.04);display:flex;flex-direction:column;min-height:158px;position:relative;transition:transform .12s ease,box-shadow .12s ease}
+  a.card{color:inherit}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(16,18,22,.12);border-color:#dde2ea}
+  .card.todo{background:#fcfcfd;border-style:dashed}
+  .ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;background:var(--gold-bg);margin-bottom:13px}
+  .card h3{font-family:'Outfit',sans-serif;font-size:16.5px;font-weight:700;color:var(--ink);line-height:1.25}
+  .card p{font-size:12.5px;color:var(--steel);margin-top:6px;line-height:1.5;flex:1}
+  .pill{position:absolute;top:15px;right:15px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:4px 9px;border-radius:20px}
+  .p-live{background:var(--green-bg);color:var(--green)}
+  .p-ref{background:var(--blue-bg);color:var(--blue)}
+  .p-soon{background:var(--soft2);color:#8b95a3}
+  .open{margin-top:12px;font-size:12px;font-weight:800;color:var(--orange-d)}
+
+  .anchor{background:linear-gradient(120deg,#13161c,#1f242e);color:#fff;border:1px solid #2a2f39;border-radius:16px;padding:22px 24px;margin-bottom:18px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .anchor.bs{background:linear-gradient(120deg,#1a1206,#2a1c08 60%,#13161c);border-color:#3a2a12}
+  .anchor .badge{font-size:34px;flex:none}
+  .anchor .a-body{flex:1;min-width:240px}
+  .anchor h3{font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:#fff}
+  .anchor p{color:rgba(255,255,255,.80);font-size:13px;margin-top:5px}
+  .anchor .a-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+  .anchor .a-meta div{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px}
+  .anchor .a-meta b{display:block;font-family:'Outfit',sans-serif;font-size:18px;color:var(--orange);font-weight:800;letter-spacing:0}
+  .anchor .a-link{font-size:12.5px;font-weight:800;color:var(--orange);white-space:nowrap}
+
+  .flow{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:18px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;position:relative;overflow:hidden}
+  .step:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange)}
+  .step .sn{font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;color:var(--orange);letter-spacing:1px}
+  .step h4{font-family:'Outfit',sans-serif;font-size:14.5px;font-weight:700;color:var(--ink);margin-top:3px;line-height:1.25}
+  .step p{font-size:11.5px;color:var(--steel);margin-top:5px;line-height:1.45}
+  .step .ct{display:inline-block;margin-top:9px;font-size:10px;font-weight:700;color:var(--steel);background:var(--soft2);padding:3px 8px;border-radius:10px}
+
+  .grouplabel{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange-d);margin:24px 0 12px;display:flex;align-items:center;gap:10px}
+  .grouplabel:after{content:'';flex:1;height:1px;background:var(--line)}
+
+  .foot{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
 </style>
 </head>
 <body>
-<header><div class="wrap">
+
+<div class="topbar"><div class="wrap"><div class="row">
   <div class="eyebrow">BuilderK · Internal · Confidential</div>
-  <h1>BuilderK Intranet — Plans</h1>
-  <p>The company's working plans, one door. Each plan opens as a full document. Internal use only — do not share links outside the team.</p>
+  <a href="https://app.builderk.com">Operations app · app.builderk.com →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">Company Operating System</div>
+  <h1>Everything we need to <span class="g">build &amp; deliver</span>,<br>in one reference.</h1>
+  <p>The single source of truth for how BuilderK runs as a custom home builder — for our own work and for the projects we build with BuildShare.ai. Every standard, code, process, plan and tool, organized the way we actually arrange a project.</p>
+  <div class="meta">
+    <span>Builders Knowledge Development Inc.</span>
+    <span>License <b>CGC #1537163</b></span>
+    <span>Method <b>Last Planner / NHAB</b></span>
+    <span>Partner <b>BuildShare.ai</b></span>
+    <span>Orlando, FL</span>
+  </div>
 </div></header>
 
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#start">Start here</a>
+  <a href="#buildshare">BuildShare.ai</a>
+  <a href="#build">How we build</a>
+  <a href="#standards">Standards &amp; codes</a>
+  <a href="#safety">Safety &amp; OSHA</a>
+  <a href="#ops">Operations</a>
+  <a href="#people">People &amp; partners</a>
+  <a href="#growth">Growth &amp; marketing</a>
+  <a href="#admin">Finance &amp; admin</a>
+</div></div></nav>
+
 <div class="wrap">
-  <div class="grid">
 
-    <a class="card" href="/intranet/camp">
-      <span class="badge live">Live</span>
-      <div class="ic">📣</div>
-      <h2>Marketing Plan</h2>
-      <p>Campaign Execution Plan — beat the #1, metro by metro. The GHL build (Franco), content &amp; design studio (Rocío · Valentina · Flor), phone desk (Sofía), 30-day calendar, KPIs &amp; budget.</p>
-      <div class="open">Open the plan →</div>
-    </a>
+  <!-- 1. START HERE -->
+  <section id="start">
+    <div class="sec-head">
+      <div class="kick">Onboarding</div>
+      <h2><span class="n">1</span> Start here</h2>
+      <p>The front door for everyone who works with us — who we are, how we operate, and the rules we all abide by.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/intranet/start#company"><span class="pill p-live">Live</span><div class="ic">🏛️</div><h3>Company &amp; mission</h3><p>Who BuilderK is, our values, and how we partner with BuildShare.ai to deliver projects.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/start#org"><span class="pill p-live">Live</span><div class="ic">👥</div><h3>Org chart &amp; roles</h3><p>Who does what — leadership, project teams and the PMA coordination team.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/start#handbook"><span class="pill p-live">Live</span><div class="ic">📘</div><h3>Employee Handbook &amp; SOPs</h3><p>Policies, code of conduct and the standard operating procedures every team member follows.</p><div class="open">Open →</div></a>
+      <a class="card" href="https://app.builderk.com"><span class="pill p-live">Live</span><div class="ic">🔑</div><h3>Accounts &amp; tools</h3><p>The day-to-day operations app, email, drive and the logins each role needs.</p><div class="open">Open the app →</div></a>
+      <a class="card" href="/intranet/start#licenses"><span class="pill p-live">Live</span><div class="ic">📄</div><h3>Licenses &amp; entities</h3><p>CGC #1537163, Builders Knowledge Development Inc., and our insurance program.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
 
-    <a class="card" href="/intranet/calendar">
-      <span class="badge live">Live</span>
-      <div class="ic">✅</div>
-      <h2>Campaign Checklist — 30 Days</h2>
-      <p>The live team checklist: every task with date and owner — check items off as they're done. Weekly progress report goes out automatically every Friday. Sofía / Rocío keep the follow-up. (Printable calendar inside.)</p>
-      <div class="open">Open the checklist →</div>
-    </a>
+  <!-- 2. BUILDSHARE.AI -->
+  <section id="buildshare">
+    <div class="sec-head">
+      <div class="kick">Our development partner</div>
+      <h2><span class="n">2</span> BuildShare.ai — how we collaborate</h2>
+      <p>BuilderK doesn't work alone. BuildShare.ai is the development platform behind the projects — it brings the land, the capital and the pipeline. BuilderK is the builder that executes and delivers.</p>
+    </div>
+    <div class="anchor bs">
+      <div class="badge">🤝</div>
+      <div class="a-body">
+        <h3>One pipeline, two companies</h3>
+        <p>BuildShare.ai sources the deal, the land and the capital and runs the development platform. BuilderK takes it from there as the general contractor — pre-construction, build, and handover — to the same checklist, codes and quality bar on every project.</p>
+        <div class="a-meta">
+          <div><b>BuildShare.ai</b>land · capital · pipeline</div>
+          <div><b>BuilderK</b>build · deliver · warranty</div>
+          <div><b>Shared</b>checklist · codes · quality</div>
+        </div>
+      </div>
+      <a class="a-link" href="https://buildshare.ai">buildshare.ai →</a>
+    </div>
+    <div class="grid">
+      <a class="card" href="/intranet/buildshare#what"><span class="pill p-live">Live</span><div class="ic">🌐</div><h3>What BuildShare.ai is</h3><p>The real-estate development platform — land acquisition, capital formation and the project pipeline across US metros.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/buildshare#how"><span class="pill p-live">Live</span><div class="ic">🔄</div><h3>How we collaborate</h3><p>The end-to-end workflow — from a BuildShare deal to a delivered BuilderK home.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/buildshare#roles"><span class="pill p-live">Live</span><div class="ic">📋</div><h3>Roles &amp; handoff</h3><p>Who owns what across the lifecycle — land &amp; entitlement vs. construction &amp; closeout.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/buildshare#standards"><span class="pill p-live">Live</span><div class="ic">🎯</div><h3>Shared standards</h3><p>One Pre-Construction Checklist, one set of codes and one quality bar across every BuildShare project we build.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
 
-    <div class="card dim">
-      <span class="badge soon">Coming soon</span>
-      <div class="ic">🏗️</div>
-      <h2>Operations Plan</h2>
-      <p>Project delivery, scheduling and field operations — how we build, from permit to closing walkthrough.</p>
+  <!-- 3. HOW WE BUILD -->
+  <section id="build">
+    <div class="sec-head">
+      <div class="kick">The project lifecycle</div>
+      <h2><span class="n">3</span> How we build</h2>
+      <p>From signed contract to handed-over keys. Every project is arranged the same disciplined way — get to Day-1 ready, then build to the schedule.</p>
     </div>
 
-    <div class="card dim">
-      <span class="badge soon">Coming soon</span>
-      <div class="ic">💼</div>
-      <h2>Sales Playbook</h2>
-      <p>Discovery calls, proposals, follow-up cadence and the pipeline stages — how a lead becomes a contract.</p>
+    <div class="anchor">
+      <div class="badge">⭐</div>
+      <div class="a-body">
+        <h3>Pre-Construction Checklist</h3>
+        <p>The standard — 83 tasks that must be handled before Day-1 of any residential project. Contracts signed, deliverables sealed, permits filed, subs contracted, long-lead POs issued, site set up, finance &amp; schedule loaded.</p>
+        <div class="a-meta">
+          <div><b>83</b>standard tasks</div>
+          <div><b>9</b>domains</div>
+          <div><b>≥80%</b>readiness before Day-1</div>
+          <div><b>Last Planner</b>methodology</div>
+        </div>
+      </div>
+      <a class="a-link" href="/intranet/precon">Open the checklist →</a>
     </div>
 
-    <div class="card dim">
-      <span class="badge soon">Coming soon</span>
-      <div class="ic">✅</div>
-      <h2>Quality &amp; Safety</h2>
-      <p>Self-QC, inspections, punch lists and the lightweight safety program across all active jobsites.</p>
+    <div class="flow">
+      <div class="step"><div class="sn">01</div><h4>Administrative</h4><p>Client, legal &amp; financial — contract, deposit, construction loan, builder's risk, survey, geotech, HOA/ARB.</p><span class="ct">12 tasks</span></div>
+      <div class="step"><div class="sn">02</div><h4>Design &amp; Engineering</h4><p>Sealed deliverables — architectural, structural + calcs, MEP, energy (FL R-405), NOAs, finish specs.</p><span class="ct">10 tasks</span></div>
+      <div class="step"><div class="sn">03</div><h4>Permits — AHJ</h4><p>Building, electrical, plumbing, mechanical, roofing, demo, coastal, septic/well — filed &amp; obtained.</p><span class="ct">8 tasks</span></div>
+      <div class="step"><div class="sn">04</div><h4>Procurement — Subs</h4><p>3 bids → award → signed contract, across all trades from surveyor to final cleaning.</p><span class="ct">22 trades</span></div>
+      <div class="step"><div class="sn">05</div><h4>Procurement — Long-lead</h4><p>POs issued with confirmed lead times — windows, trusses, steel, appliances, cabinets, fixtures.</p><span class="ct">10 items</span></div>
+      <div class="step"><div class="sn">06</div><h4>Compliance — per Sub</h4><p>W-9, COI (GL + Workers Comp), signed Master Subcontract Agreement — before first payment.</p><span class="ct">4 × sub</span></div>
+      <div class="step"><div class="sn">07</div><h4>Site Setup</h4><p>Temp power &amp; water, sanitation, dumpster, fencing, signage, erosion control, Notice of Commencement.</p><span class="ct">8 tasks</span></div>
+      <div class="step"><div class="sn">08</div><h4>Finance</h4><p>Budget loaded, cost codes / WBS aligned to the schedule of values, draws mapped, retainage set.</p><span class="ct">5 tasks</span></div>
+      <div class="step"><div class="sn">09</div><h4>Schedule — Last Planner</h4><p>Master CPM schedule, reverse pull plan, 6-week lookahead, weekly work plan &amp; meeting cadence.</p><span class="ct">4 tasks</span></div>
     </div>
 
-    <div class="card dim">
-      <span class="badge soon">Coming soon</span>
-      <div class="ic">👥</div>
-      <h2>Team &amp; HR</h2>
-      <p>Roles, coordination (PMA team), onboarding and the people systems behind the company.</p>
+    <div class="grouplabel">Execution &amp; closeout</div>
+    <div class="grid">
+      <a class="card" href="https://www.builderk.com/foundation"><span class="pill p-live">Live</span><div class="ic">🧱</div><h3>Foundation &amp; Superstructure</h3><p>Engineering playbook — match foundation &amp; wall/roof systems to soil, site and product type. 9 foundation types, 6 superstructure systems, decision matrix.</p><div class="open">Open the playbook →</div></a>
+      <a class="card" href="https://www.builderk.com/core"><span class="pill p-ref">Reference</span><div class="ic">🏢</div><h3>CORE — concrete building system</h3><p>Cast-in-place concrete + glass at ~$85/sqft — aluminum-form monolithic pours, AAC, vendor list and reference projects.</p><div class="open">Open CORE →</div></a>
+      <a class="card" href="/intranet/quality"><span class="pill p-live">Live</span><div class="ic">✅</div><h3>Quality &amp; inspections</h3><p>NAHB Construction Performance Guidelines, self-QC checklists, inspection gates and punch lists.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/closeout"><span class="pill p-live">Live</span><div class="ic">🔑</div><h3>Closeout &amp; warranty</h3><p>Final clean, closing walkthrough, client handover and the warranty period &amp; claims process.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
+
+  <!-- 4. STANDARDS & CODES -->
+  <section id="standards">
+    <div class="sec-head">
+      <div class="kick">Reference library</div>
+      <h2><span class="n">4</span> Standards &amp; codes</h2>
+      <p>The benchmarks and codes we build to — NAHB work breakdown structures and cost codes, the US &amp; Florida building codes, and the hurricane, wind and waterfront rules that govern every Florida job.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/intranet/wbs#newhome"><span class="pill p-live">Live</span><div class="ic">🏠</div><h3>NAHB WBS — New Home</h3><p>The NAHB work breakdown structure for new construction — clickable &amp; downloadable.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/wbs#remodel"><span class="pill p-live">Live</span><div class="ic">🛠️</div><h3>NAHB WBS — Remodeling</h3><p>The NAHB work breakdown structure for remodeling — clickable &amp; downloadable.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/wbs#about"><span class="pill p-live">Live</span><div class="ic">🔢</div><h3>NAHB cost codes</h3><p>Standard cost codes &amp; chart of accounts — the shared language for estimating, POs and accounting.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/codes#us-codes"><span class="pill p-live">Live</span><div class="ic">📕</div><h3>US building codes</h3><p>The model codes — IRC, IBC and IECC — and how they apply to our work.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/codes#fbc"><span class="pill p-live">Live</span><div class="ic">🌴</div><h3>Florida Building Code</h3><p>FBC 8th Edition (2023) — Building, Residential, Existing Building and Energy. The governing code for every FL project.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/codes#wind"><span class="pill p-live">Live</span><div class="ic">🌀</div><h3>Hurricane &amp; wind</h3><p>High-Velocity Hurricane Zone (HVHZ), ASCE 7 wind loads, wind-borne debris, Florida Product Approval / Miami-Dade NOAs and impact protection.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/codes#flood"><span class="pill p-live">Live</span><div class="ic">🌊</div><h3>Coastal &amp; waterfront</h3><p>FEMA flood zones, Elevation Certificates, the Coastal Construction Control Line (CCCL), V-zone pilings &amp; breakaway walls and special coastal construction.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/codes#energy"><span class="pill p-live">Live</span><div class="ic">⚡</div><h3>Energy — FL R-405</h3><p>Florida energy calculations and the performance method we use on every home.</p><div class="open">Open →</div></a>
+      <a class="card" href="https://www.builderk.com/foundation"><span class="pill p-live">Live</span><div class="ic">🧱</div><h3>Foundation &amp; Superstructure</h3><p>Systems engineering playbook with geotech policy and active-project examples.</p><div class="open">Open →</div></a>
+      <a class="card" href="https://www.builderk.com/core"><span class="pill p-ref">Reference</span><div class="ic">🏢</div><h3>CORE building system</h3><p>Cast-in-place concrete + glass — specs, economics and comparison.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
+
+  <!-- 5. SAFETY & OSHA -->
+  <section id="safety">
+    <div class="sec-head">
+      <div class="kick">Everyone goes home safe</div>
+      <h2><span class="n">5</span> Safety &amp; OSHA</h2>
+      <p>Our jobsite safety program, built on OSHA's construction standards — the rules, the talks and the reporting that keep every site safe and compliant.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/intranet/safety#osha-1926"><span class="pill p-live">Live</span><div class="ic">🦺</div><h3>OSHA 1926 — Construction</h3><p>The federal construction safety standards — fall protection, scaffolding, excavation, electrical, ladders.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/safety#program"><span class="pill p-live">Live</span><div class="ic">📋</div><h3>Site safety program</h3><p>Our policy, responsibilities and the jobsite rules every crew follows.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/safety#talks"><span class="pill p-live">Live</span><div class="ic">🗣️</div><h3>Toolbox talks</h3><p>The weekly safety topics crews run before work starts.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/safety#ppe"><span class="pill p-live">Live</span><div class="ic">🧤</div><h3>PPE standards</h3><p>The protective equipment required by task and trade.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/safety#incident"><span class="pill p-live">Live</span><div class="ic">🚨</div><h3>Incident &amp; near-miss</h3><p>How to report an incident or near-miss, and what happens next.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/safety#postings"><span class="pill p-live">Live</span><div class="ic">📌</div><h3>Required postings</h3><p>The OSHA poster and notices that must be on every active jobsite.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
+
+  <!-- 6. OPERATIONS -->
+  <section id="ops">
+    <div class="sec-head">
+      <div class="kick">Running the work</div>
+      <h2><span class="n">6</span> Operations</h2>
+      <p>How we drive the schedule and keep everyone aligned — the planning system, the meeting rhythm, and how we measure performance.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/intranet/operations#schedule"><span class="pill p-live">Live</span><div class="ic">📅</div><h3>Schedule &amp; Last Planner</h3><p>Master CPM schedule, reverse pull plan, 6-week lookahead and the weekly work plan.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/operations#meetings"><span class="pill p-live">Live</span><div class="ic">🗣️</div><h3>Meetings &amp; rhythm</h3><p>The meeting program — daily huddle, weekly Last Planner, agendas, recording tools and reports that turn into tasks.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/operations#kpis"><span class="pill p-live">Live</span><div class="ic">📊</div><h3>Performance &amp; KPIs</h3><p>Percent Plan Complete, on-time reliability, cycle time, punch rate — per person and per project.</p><div class="open">Open →</div></a>
+      <a class="card" href="https://app.builderk.com"><span class="pill p-live">Live</span><div class="ic">🏗️</div><h3>Projects directory</h3><p>Every active job — files, schedule/Gantt, daily logs and photos in the operations app.</p><div class="open">Open the app →</div></a>
+    </div>
+  </section>
+
+  <!-- 7. PEOPLE & PARTNERS -->
+  <section id="people">
+    <div class="sec-head">
+      <div class="kick">The team</div>
+      <h2><span class="n">7</span> People &amp; partners</h2>
+      <p>The people who build with us — our team, our subcontractors, and how everyone gets trained.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/intranet/people#team"><span class="pill p-live">Live</span><div class="ic">👷</div><h3>Team &amp; HR</h3><p>Roster, roles, onboarding and the PMA coordination team.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/people#subs"><span class="pill p-live">Live</span><div class="ic">🤝</div><h3>Subcontractors</h3><p>Master Subcontract Agreement, COI/W-9 compliance, and the trade directory by metro.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/people#training"><span class="pill p-live">Live</span><div class="ic">🎓</div><h3>Training center</h3><p>Recordings, how-to videos, training materials and the archive of important recorded meetings.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
+
+  <!-- 8. GROWTH & MARKETING -->
+  <section id="growth">
+    <div class="sec-head">
+      <div class="kick">Demand &amp; brand</div>
+      <h2><span class="n">8</span> Growth &amp; marketing</h2>
+      <p>How we fill the pipeline and win the work — everything marketing lives here, plus sales and the design library.</p>
     </div>
 
-    <div class="card dim">
-      <span class="badge soon">Coming soon</span>
-      <div class="ic">📐</div>
-      <h2>Design Library</h2>
-      <p>The BuilderK model line — new home designs, interiors and the gallery produced by the design studio.</p>
+    <div class="grouplabel">Marketing</div>
+    <div class="grid">
+      <a class="card" href="https://www.builderk.com/intranet/camp"><span class="pill p-live">Live</span><div class="ic">📣</div><h3>Marketing — Campaign Plan</h3><p>The campaign execution plan — beat the #1, metro by metro. The build, content &amp; design studio, phone desk, KPIs &amp; budget.</p><div class="open">Open the plan →</div></a>
+      <a class="card" href="https://www.builderk.com/intranet/calendar"><span class="pill p-live">Live</span><div class="ic">✅</div><h3>Campaign Checklist — 30 days</h3><p>The live team checklist — every task with date &amp; owner, checked off as done. Automatic Friday progress report.</p><div class="open">Open the checklist →</div></a>
+      <a class="card" href="https://www.builderk.com/intranet/camp-calendar"><span class="pill p-live">Live</span><div class="ic">🗓️</div><h3>Campaign Calendar</h3><p>The printable 30-day campaign calendar.</p><div class="open">Open the calendar →</div></a>
+      <a class="card" href="/intranet/growth#brand"><span class="pill p-live">Live</span><div class="ic">🎨</div><h3>Brand &amp; content studio</h3><p>Brand kit, templates and the content library produced by the studio.</p><div class="open">Open →</div></a>
     </div>
 
+    <div class="grouplabel">Sales &amp; design</div>
+    <div class="grid">
+      <a class="card" href="/intranet/growth#sales"><span class="pill p-live">Live</span><div class="ic">💼</div><h3>Sales playbook</h3><p>Discovery calls, proposals, follow-up cadence and the pipeline stages — how a lead becomes a contract.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/growth#design"><span class="pill p-live">Live</span><div class="ic">📐</div><h3>Design library</h3><p>The BuilderK model line — new home designs, interiors and the selections catalog.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
+
+  <!-- 9. FINANCE & ADMIN -->
+  <section id="admin">
+    <div class="sec-head">
+      <div class="kick">The back office</div>
+      <h2><span class="n">9</span> Finance &amp; admin</h2>
+      <p>The financial control and compliance backbone behind every project.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/intranet/finance#budgets"><span class="pill p-live">Live</span><div class="ic">💰</div><h3>Budgets &amp; cost control</h3><p>Cost codes, WBS and the schedule of values — budget vs. actual on every job.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/finance#draws"><span class="pill p-live">Live</span><div class="ic">🏦</div><h3>Draws &amp; lender</h3><p>The construction-loan draw schedule mapped to milestones, and the draw request process.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/finance#insurance"><span class="pill p-live">Live</span><div class="ic">🛡️</div><h3>Compliance &amp; insurance</h3><p>Lien-waiver workflow, Builder's Risk, and subcontractor COIs.</p><div class="open">Open →</div></a>
+      <a class="card" href="/intranet/finance#entities"><span class="pill p-live">Live</span><div class="ic">🏷️</div><h3>Entities &amp; licensing</h3><p>Builders Knowledge Development Inc., CGC #1537163 and the company filings.</p><div class="open">Open →</div></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential — do not share links outside the team.<br>
+    The day-to-day operations app lives at <a href="https://app.builderk.com">app.builderk.com</a> · License CGC #1537163 · 4700 Millenia Blvd, Orlando, FL 32839
   </div>
-
-  <div class="foot">BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · The day-to-day operations app lives at <a href="https://app.builderk.com">app.builderk.com</a></div>
 </div>
+
 </body>
 </html>

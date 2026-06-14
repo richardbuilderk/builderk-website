@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Start Here — Onboarding — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;--red:#b91c1c;--red-bg:#fdecec;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .ctable{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ctable thead th{background:#0A0A0A;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;text-align:left;padding:9px 12px;font-size:12px;letter-spacing:.3px}
+  .ctable td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+  .ctable tbody tr:nth-child(even){background:var(--soft)}
+  .ctable td b{color:var(--ink)}
+
+  .vals{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:4px}
+  .val{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;border-left:4px solid var(--orange)}
+  .val h4{font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;color:var(--ink)}
+  .val p{font-size:12.5px;color:var(--steel);margin-top:4px;line-height:1.45}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+
+  .chk{background:#0A0A0A;color:#fff;border-radius:16px;padding:24px 26px}
+  .chk h3{color:#fff;font-size:19px;font-weight:800;margin-bottom:4px}
+  .chk .sub{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:14px}
+  .chk ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+  @media(max-width:720px){.chk ul{grid-template-columns:1fr}}
+  .chk li{position:relative;padding-left:26px;font-size:13.5px;color:#e7e9ee;line-height:1.5}
+  .chk li:before{content:'✓';position:absolute;left:0;top:0;color:var(--orange);font-weight:900}
+  .chk li b{color:#fff;font-weight:600}
+
+  .tag{display:inline-block;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--orange-d);background:var(--gold-bg);border:1px solid #f3dca6;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://app.builderk.com">Operations app · app.builderk.com →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">Onboarding · Start here</div>
+  <h1>Welcome to BuilderK</h1>
+  <p>The front door for everyone who works with us. Who we are, how we operate, the rules we all abide by, and what to set up in your first week.</p>
+  <div class="meta">
+    <span>Builders Knowledge Development Inc.</span>
+    <span>dba <b>BuilderK</b></span>
+    <span>License <b>CGC #1537163</b></span>
+    <span>Orlando, FL</span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#company">Company &amp; mission</a>
+  <a href="#org">Org &amp; roles</a>
+  <a href="#handbook">Handbook &amp; SOPs</a>
+  <a href="#accounts">Accounts &amp; tools</a>
+  <a href="#licenses">Licenses &amp; entities</a>
+  <a href="#firstweek">Your first week</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <!-- COMPANY -->
+  <section id="company">
+    <div class="sec-head"><div class="kick">Who we are</div><h2>Company &amp; mission</h2></div>
+    <div class="panel prose">
+      <p><strong>BuilderK</strong> (Builders Knowledge Development Inc.) is a licensed Florida custom home builder — <strong>CGC #1537163</strong>, based in Orlando. We build custom homes for our own clients and execute the projects developed with our partner <a href="/intranet/buildshare">BuildShare.ai</a>, to one disciplined standard of safety, quality and on-time delivery.</p>
+      <h4>How we work — our operating principles</h4>
+    </div>
+    <div class="vals">
+      <div class="val"><h4>Everyone goes home safe</h4><p>Safety is the first decision on every site, not an afterthought.</p></div>
+      <div class="val"><h4>Build to the standard</h4><p>Code is the floor; we build to the NAHB performance guidelines.</p></div>
+      <div class="val"><h4>Ready before we start</h4><p>Day-1 readiness through the Pre-Construction Checklist and Last Planner.</p></div>
+      <div class="val"><h4>A clean handover</h4><p>Zero-defect delivery — the client's walkthrough finds nothing.</p></div>
+      <div class="val"><h4>One team</h4><p>BuilderK and BuildShare.ai, our subs and our partners — one pipeline, one bar.</p></div>
+    </div>
+  </section>
+
+  <!-- ORG -->
+  <section id="org">
+    <div class="sec-head"><div class="kick">Who does what</div><h2>Org &amp; roles</h2></div>
+    <div class="panel prose">
+      <h4>Leadership</h4>
+      <ul>
+        <li><b>Stockholders &amp; Directors</b> — Kevin Gallopp · Mark Jackson · Richard Gallopp</li>
+        <li><b>General Manager</b> — Kevin Gallopp</li>
+        <li><b>Senior Project Manager</b> — Liz Cortez</li>
+        <li><b>PMA Coordinator Team</b> — Wendy Morales (wendy@builderk.com) · Rodrigo Díaz Rivas · Mayra Ramirez</li>
+        <li><b>Site Supervisors</b> — Paul Díaz · Andrés <span style="color:var(--muted)">[last name?]</span></li>
+      </ul>
+      <h4>Roles on a project</h4>
+      <table class="ctable">
+        <thead><tr><th>Role</th><th>Owns</th></tr></thead>
+        <tbody>
+          <tr><td><b>Project Manager</b></td><td>Budget, schedule, procurement, the project end to end</td></tr>
+          <tr><td><b>Assistant PM / PMA</b></td><td>Coordination, documents, approvals, follow-up</td></tr>
+          <tr><td><b>Superintendent</b></td><td>The field — daily execution, subs, quality &amp; safety on site</td></tr>
+          <tr><td><b>Estimating / Purchasing</b></td><td>Takeoffs, bids, POs, cost codes</td></tr>
+          <tr><td><b>Office / Admin &amp; Finance</b></td><td>Contracts, draws, invoices, lien waivers, compliance</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-blue"><div class="ct-h">👥 The live roster</div>The current team, contacts and per-project assignments are maintained in <a href="https://app.builderk.com">app.builderk.com</a>. Company line: (239) 230-4858.</div>
+    </div>
+  </section>
+
+  <!-- HANDBOOK -->
+  <section id="handbook">
+    <div class="sec-head"><div class="kick">The rules we abide by</div><h2>Employee Handbook &amp; SOPs <span class="tag">Framework — docs attach here</span></h2></div>
+    <div class="panel prose">
+      <p>The handbook is the set of rules and expectations every team member agrees to. New hires <strong>read and acknowledge it</strong> during onboarding. The full policy document attaches here once finalized; the sections it covers:</p>
+      <h4>Employee Handbook</h4>
+      <ul>
+        <li><b>Code of conduct</b> &amp; professionalism</li>
+        <li><b>Attendance, hours &amp; timekeeping</b></li>
+        <li><b>Safety</b> — the jobsite program (see <a href="/intranet/safety">Safety &amp; OSHA</a>)</li>
+        <li><b>Communications &amp; IT</b> — email, devices, data, confidentiality</li>
+        <li><b>Equal opportunity &amp; anti-harassment</b></li>
+        <li><b>Drug-free workplace</b></li>
+        <li><b>PTO, leave &amp; benefits</b></li>
+        <li><b>Vehicle / equipment use</b> &amp; expenses</li>
+      </ul>
+      <h4>Standard Operating Procedures (SOPs)</h4>
+      <p>The "how we do it here" index — the repeatable procedures behind the work:</p>
+      <ul>
+        <li>Set up a new project in BuilderK</li>
+        <li>Run the Pre-Construction Checklist (see <a href="/intranet/precon">the checklist</a>)</li>
+        <li>Issue a PO / award a subcontract</li>
+        <li>Onboard a subcontractor (W-9, COI, MSA)</li>
+        <li>Schedule &amp; record an inspection</li>
+        <li>Submit a lender draw</li>
+        <li>Run the weekly work plan &amp; meeting</li>
+        <li>Close out a project &amp; start the warranty</li>
+      </ul>
+      <div class="callout c-gold"><div class="ct-h">📎 To finalize</div>Attach the signed Employee Handbook PDF and link each SOP as it's written. New hires acknowledge the handbook in their offer/HR record.</div>
+    </div>
+  </section>
+
+  <!-- ACCOUNTS -->
+  <section id="accounts">
+    <div class="sec-head"><div class="kick">Day one</div><h2>Accounts &amp; tools</h2></div>
+    <div class="panel prose">
+      <p>What to get set up before you start working:</p>
+      <ul>
+        <li><b>BuilderK operations app</b> — <a href="https://app.builderk.com">app.builderk.com</a>: projects, tasks, schedule, daily logs, POs, invoices. Your home base.</li>
+        <li><b>Email</b> — your @builderk.com account</li>
+        <li><b>Drive / files</b> — shared company drive access</li>
+        <li><b>Phone</b> — company line (239) 230-4858; your role's contact setup</li>
+        <li><b>This intranet</b> — bookmark it; it's the reference for everything</li>
+      </ul>
+      <div class="callout c-blue"><div class="ct-h">🔑 Access by role</div>Your manager requests the right access level for your role (PM, Superintendent, Admin, etc.) when you start.</div>
+    </div>
+  </section>
+
+  <!-- LICENSES -->
+  <section id="licenses">
+    <div class="sec-head"><div class="kick">For the record</div><h2>Licenses &amp; entities</h2></div>
+    <div class="panel prose">
+      <table class="ctable">
+        <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><b>Legal entity</b></td><td>Builders Knowledge Development Inc. (dba BuilderK) — Florida Corp</td></tr>
+          <tr><td><b>Contractor license</b></td><td>CGC #1537163 (Certified General Contractor, Florida)</td></tr>
+          <tr><td><b>Address</b></td><td>4700 Millenia Blvd, Suite 500, Orlando, FL 32839</td></tr>
+          <tr><td><b>Phone</b></td><td>(239) 230-4858</td></tr>
+          <tr><td><b>Insurance</b></td><td>General Liability · Workers' Comp · Builder's Risk (per project)</td></tr>
+          <tr><td><b>Related</b></td><td>Develops with <a href="/intranet/buildshare">BuildShare.ai</a> (BuildShare Development Capital Inc.)</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12.5px;color:var(--steel)">License, insurance certificates and entity filings are kept current in the company records.</p>
+    </div>
+  </section>
+
+  <!-- FIRST WEEK -->
+  <section id="firstweek">
+    <div class="chk">
+      <h3>Your first week</h3>
+      <div class="sub">The onboarding path for every new team member.</div>
+      <ul>
+        <li><b>Accounts</b> set up (app, email, drive, phone)</li>
+        <li><b>Read &amp; acknowledge</b> the Employee Handbook</li>
+        <li><b>Safety orientation</b> (Safety &amp; OSHA)</li>
+        <li><b>Meet your team</b> &amp; your manager</li>
+        <li><b>Tour this intranet</b> end to end</li>
+        <li><b>Learn the app</b> — tasks, schedule, daily logs</li>
+        <li><b>Walk the Pre-Construction Checklist</b></li>
+        <li><b>Shadow an active project</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="sec-head"><div class="kick">Go next</div><h2>Where to go from here</h2></div>
+    <div class="linkrow">
+      <a href="/intranet/precon">Pre-Construction Checklist <span class="ar">→</span></a>
+      <a href="/intranet/safety">Safety &amp; OSHA <span class="ar">→</span></a>
+      <a href="/intranet/codes">Standards &amp; codes <span class="ar">→</span></a>
+      <a href="/intranet/buildshare">BuildShare.ai <span class="ar">→</span></a>
+      <a href="https://app.builderk.com">Operations app <span class="ar">→</span></a>
+      <a href="/intranet">Full intranet <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Handbook &amp; SOP documents are maintained by the company; acknowledge on hire. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>

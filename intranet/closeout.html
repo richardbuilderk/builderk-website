@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Closeout &amp; Warranty — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;--red:#b91c1c;--red-bg:#fdecec;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+
+  .chk{background:#0A0A0A;color:#fff;border-radius:16px;padding:24px 26px}
+  .chk h3{color:#fff;font-size:19px;font-weight:800;margin-bottom:4px}
+  .chk .sub{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:14px}
+  .chk ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+  @media(max-width:720px){.chk ul{grid-template-columns:1fr}}
+  .chk li{position:relative;padding-left:26px;font-size:13.5px;color:#e7e9ee;line-height:1.5}
+  .chk li:before{content:'✓';position:absolute;left:0;top:0;color:var(--orange);font-weight:900}
+  .chk li b{color:#fff;font-weight:600}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="/intranet/quality">Quality &amp; inspections →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">How we build · Closeout</div>
+  <h1>Closeout &amp; warranty</h1>
+  <p>The last 5% the client remembers most — a clean Certificate of Occupancy, a zero-defect handover, a complete owner package, and a warranty process that actually responds.</p>
+  <div class="meta">
+    <span><b>CO</b> → handover</span>
+    <span><b>Owner package</b> delivered</span>
+    <span>Warranty <b>per contract</b></span>
+    <span>FL repose <b>10 yr</b> · limit <b>4 yr</b></span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#completion">Completion &amp; CO</a>
+  <a href="#handover">Handover</a>
+  <a href="#package">Owner package</a>
+  <a href="#financials">Closeout financials</a>
+  <a href="#warranty">Warranty</a>
+  <a href="#checklist">Checklist</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <!-- COMPLETION -->
+  <section id="completion">
+    <div class="sec-head"><div class="kick">The finish line</div><h2>Substantial completion &amp; CO</h2></div>
+    <div class="panel prose">
+      <p>Once every final inspection passes, the building final is issued and the jurisdiction grants the <strong>Certificate of Occupancy (CO)</strong> — the legal green light that the home can be occupied. Substantial completion is defined in the client's contract; the CO is the objective anchor.</p>
+      <h4>Site demobilization</h4>
+      <ul>
+        <li>Final clean — interior &amp; exterior, windows, fixtures.</li>
+        <li>Remove temporary power/water, fencing, dumpster, portable toilet and the job sign.</li>
+        <li>Final grade, sod &amp; driveway complete; site left clean.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HANDOVER -->
+  <section id="handover">
+    <div class="sec-head"><div class="kick">The moment</div><h2>Client orientation &amp; walkthrough</h2></div>
+    <div class="panel prose">
+      <p>The goal is a <strong>zero-defect handover</strong>: our own quality walk closes the punch before the client ever sees it, so the orientation is about handing over a finished home — not making a list.</p>
+      <ul>
+        <li><b>Our pre-handover quality walk</b> — finishes against the NAHB guidelines, function-test everything.</li>
+        <li><b>Client orientation walk</b> — how the home works: shutoffs, panels, HVAC, appliances, finishes &amp; maintenance.</li>
+        <li><b>Punch sign-off</b> — any remaining items logged, owned and dated; client signs acceptance.</li>
+        <li><b>Keys &amp; access</b> handed over with the owner package.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PACKAGE -->
+  <section id="package">
+    <div class="sec-head"><div class="kick">What the owner gets</div><h2>Owner handover package</h2></div>
+    <div class="panel prose">
+      <ul>
+        <li><b>Certificate of Occupancy</b> copy</li>
+        <li><b>As-built</b> survey &amp; any as-built plan markups</li>
+        <li><b>Product &amp; appliance manuals + manufacturer warranties</b></li>
+        <li><b>Paint, finish &amp; selections schedule</b> (colors, models, suppliers)</li>
+        <li><b>Subcontractor &amp; supplier list</b> for warranty routing</li>
+        <li><b>Final lien releases</b> &amp; final affidavit</li>
+        <li><b>Maintenance guide</b> + shutoff / emergency reference</li>
+        <li><b>Warranty document</b> with start date &amp; how to file a claim</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINANCIALS -->
+  <section id="financials">
+    <div class="sec-head"><div class="kick">Closing the books</div><h2>Closeout financials</h2></div>
+    <div class="panel prose">
+      <ul>
+        <li><b>Final lender draw</b> submitted with CO &amp; final lien waivers.</li>
+        <li><b>Lien waivers / releases</b> collected from <b>every</b> sub &amp; supplier (conditional → unconditional on final payment).</li>
+        <li><b>Retainage released</b> once punch is cleared and waivers are in.</li>
+        <li><b>Final client invoice</b> issued &amp; paid; deposit reconciled.</li>
+        <li><b>Cost codes closed</b> — final budget vs. actual captured for the next estimate.</li>
+      </ul>
+      <div class="callout c-blue">
+        <div class="ct-h">🔒 No final payment without waivers</div>
+        Final retainage and final sub payments release only against signed lien waivers — that's what protects the client's clear title.
+      </div>
+    </div>
+  </section>
+
+  <!-- WARRANTY -->
+  <section id="warranty">
+    <div class="sec-head"><div class="kick">After we hand over the keys</div><h2>Warranty period &amp; claims</h2></div>
+    <div class="panel prose">
+      <p>The warranty we provide is defined in the client's contract — typically a <strong>workmanship warranty</strong> (commonly one year) covering defects in materials and workmanship, alongside manufacturer warranties on products. The standard for what's a covered defect is the <strong>NAHB performance guidelines</strong>.</p>
+      <div class="callout c-gold">
+        <div class="ct-h">⚖️ Florida timeframes (general — confirm with counsel)</div>
+        Florida construction-defect claims run on a <b>4-year statute of limitations</b> and a <b>10-year statute of repose</b> (§95.11). This is background, not legal advice — warranty terms are set by the contract.
+      </div>
+      <h4>The claim process</h4>
+      <ul>
+        <li>Client submits a claim (form / portal) with description &amp; photos.</li>
+        <li><b>Triage</b> — emergency (life-safety, active water/electrical) gets an immediate response; routine items are scheduled.</li>
+        <li>Assess against the NAHB guidelines; route product issues to the manufacturer, workmanship to the responsible sub.</li>
+        <li>Resolve, verify with the client, and log it for the record.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="checklist">
+    <div class="chk">
+      <h3>Closeout checklist</h3>
+      <div class="sub">All of this is done before we call a project closed.</div>
+      <ul>
+        <li><b>CO</b> obtained</li>
+        <li><b>All finals</b> passed</li>
+        <li><b>Final clean</b> + site demobilized</li>
+        <li><b>Punch</b> closed &amp; signed</li>
+        <li><b>Owner package</b> delivered</li>
+        <li><b>Keys</b> handed over</li>
+        <li><b>Lien waivers</b> collected (all subs)</li>
+        <li><b>Retainage</b> released</li>
+        <li><b>Final invoice</b> paid &amp; reconciled</li>
+        <li><b>Budget vs. actual</b> captured</li>
+        <li><b>Warranty start</b> logged</li>
+        <li><b>Project archived</b> in BuilderK</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="sec-head"><div class="kick">Related</div><h2>Links</h2></div>
+    <div class="linkrow">
+      <a href="/intranet/quality">Quality &amp; inspections <span class="ar">→</span></a>
+      <a href="/intranet/precon">Pre-Construction Checklist <span class="ar">→</span></a>
+      <a href="https://app.builderk.com">Owner / warranty in the app <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Warranty terms are set by the client contract; legal timeframes are general background, not advice. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>

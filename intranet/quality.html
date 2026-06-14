@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Quality &amp; Inspections — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;--red:#b91c1c;--red-bg:#fdecec;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .ctable{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ctable thead th{background:#0A0A0A;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;text-align:left;padding:9px 12px;font-size:12px;letter-spacing:.3px}
+  .ctable td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+  .ctable tbody tr:nth-child(even){background:var(--soft)}
+  .ctable td b{color:var(--ink)}
+  .ctable td.num{width:40px;color:var(--orange-d);font-weight:800;font-family:'Outfit',sans-serif}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-red{background:var(--red-bg);border-color:#f5c2c2}
+  .c-red .ct-h{color:var(--red)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="/intranet/precon">Pre-Construction Checklist →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">How we build · Quality</div>
+  <h1>Quality &amp; inspections</h1>
+  <p>How we hold the quality bar — the AHJ inspection sequence we never skip, the NAHB performance guidelines we measure against, our own self-QC before every inspection, and the punch process that gets us to a clean handover.</p>
+  <div class="meta">
+    <span>Standard <b>NAHB RCPG</b></span>
+    <span><b>Self-QC</b> before every inspection</span>
+    <span>Goal <b>zero-defect handover</b></span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#sequence">Inspection sequence</a>
+  <a href="#rcpg">NAHB guidelines</a>
+  <a href="#selfqc">Self-QC</a>
+  <a href="#punch">Punch list</a>
+  <a href="#special">Special inspections</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <div class="callout c-gold" style="margin-top:26px">
+    <div class="ct-h">🛑 The one rule</div>
+    <b>Never cover work before it passes inspection.</b> Concrete doesn't pour, walls don't close, and insulation doesn't get covered until the gate before it is signed off. A missed inspection means tear-out.
+  </div>
+
+  <!-- SEQUENCE -->
+  <section id="sequence">
+    <div class="sec-head"><div class="kick">The gates</div><h2>AHJ inspection sequence</h2></div>
+    <div class="panel prose">
+      <p>The typical Florida residential inspection order. Exact sequence and naming vary by jurisdiction — confirm with the AHJ at permit issuance and schedule each gate with lead time.</p>
+      <table class="ctable">
+        <thead><tr><th class="num">#</th><th>Inspection</th><th>Before you…</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td><b>Erosion / silt fence</b></td><td>Disturb the site</td></tr>
+          <tr><td class="num">2</td><td><b>Footing / foundation</b> (steel, termite pre-treat, vapor barrier)</td><td>Pour</td></tr>
+          <tr><td class="num">3</td><td><b>Slab</b></td><td>Pour</td></tr>
+          <tr><td class="num">4</td><td><b>Stem wall / tie-beam / filled cells</b> (masonry)</td><td>Pour / cover</td></tr>
+          <tr><td class="num">5</td><td><b>Sheathing &amp; nailing</b> (roof + wall — wind)</td><td>Dry-in</td></tr>
+          <tr><td class="num">6</td><td><b>Roof dry-in</b> (underlayment / secondary water barrier)</td><td>Install roofing</td></tr>
+          <tr><td class="num">7</td><td><b>Framing</b> (after rough-ins set)</td><td>Insulate</td></tr>
+          <tr><td class="num">8</td><td><b>Rough electrical / plumbing / mechanical / gas</b></td><td>Cover</td></tr>
+          <tr><td class="num">9</td><td><b>Window/door &amp; flashing</b> (WRB)</td><td>Stucco / close</td></tr>
+          <tr><td class="num">10</td><td><b>Insulation</b></td><td>Hang drywall</td></tr>
+          <tr><td class="num">11</td><td><b>Finals</b> — electrical, plumbing, mechanical, roofing, gas</td><td>Building final</td></tr>
+          <tr><td class="num">12</td><td><b>Building final → Certificate of Occupancy (CO)</b></td><td>Hand over</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-blue">
+        <div class="ct-h">📋 Track every gate in BuilderK</div>
+        Each inspection is an INSPECTION-type task on the schedule with its date and result. A failed inspection logs the correction and re-inspection so nothing falls through.
+      </div>
+    </div>
+  </section>
+
+  <!-- RCPG -->
+  <section id="rcpg">
+    <div class="sec-head"><div class="kick">The tolerance standard</div><h2>NAHB performance guidelines (RCPG)</h2></div>
+    <div class="panel prose">
+      <p>Passing code is the floor, not the finish. We measure workmanship against the <strong>NAHB Residential Construction Performance Guidelines (RCPG)</strong> — the industry's most-used reference for what's acceptable and what's a defect, with <strong>340+ guidelines across 13 construction categories</strong> (site work, foundations, floors, walls, roofs, drywall, finishes, etc.).</p>
+      <ul>
+        <li><b>Sets expectations</b> — we share the standard with clients up front, so "acceptable" isn't a debate.</li>
+        <li><b>Resolves concerns</b> — a guideline (e.g. allowable concrete crack width, floor flatness, drywall finish) settles most questions objectively.</li>
+        <li><b>Drives our QC</b> — our self-checks are built from these tolerances.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SELF-QC -->
+  <section id="selfqc">
+    <div class="sec-head"><div class="kick">Before we call the inspector</div><h2>Self-QC</h2></div>
+    <div class="panel prose">
+      <p>We inspect our own work first — at every gate and at the key milestones. The superintendent runs the self-check before scheduling the AHJ.</p>
+      <h4>The walks we never skip</h4>
+      <ul>
+        <li><b>Pre-pour walk</b> — steel, embeds, plumbing sleeves, vapor barrier, dimensions.</li>
+        <li><b>Pre-dry-in walk</b> — nailing pattern, flashing, window/door install &amp; WRB.</li>
+        <li><b>Pre-drywall walk</b> — rough-ins complete, blocking, fire/penetration sealing, photos for the record.</li>
+        <li><b>Pre-CO / quality walk</b> — finishes against the RCPG, function test everything.</li>
+        <li><b>Client orientation walk</b> — before handover.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PUNCH -->
+  <section id="punch">
+    <div class="sec-head"><div class="kick">To a clean handover</div><h2>Punch list</h2></div>
+    <div class="panel prose narrow">
+      <p>The goal is a <strong>zero-defect handover</strong> — the client's walkthrough should find nothing we didn't already catch.</p>
+      <ul>
+        <li>Punch items logged in BuilderK with trade, location and photo.</li>
+        <li>Assigned to the responsible sub with a due date; <b>retainage holds</b> until cleared.</li>
+        <li>Re-walk to verify before sign-off.</li>
+        <li>Defect rate is a tracked KPI — target <b>under 2%</b> of inspected items.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SPECIAL -->
+  <section id="special">
+    <div class="sec-head"><div class="kick">Beyond the standard set</div><h2>Special inspections</h2></div>
+    <div class="panel prose">
+      <ul>
+        <li><b>Threshold buildings</b> — a special inspector per the engineer of record's plan.</li>
+        <li><b>HVHZ</b> (Miami-Dade / Broward) — added inspections plus verification that installed products match their <b>Miami-Dade NOAs</b>.</li>
+        <li><b>Pilings &amp; engineered foundations</b> — installation / load verification.</li>
+        <li><b>Trusses &amp; engineered systems</b> — inspected to the sealed shop drawings.</li>
+        <li><b>Private provider</b> inspections where used — coordinate with the AHJ.</li>
+      </ul>
+      <div class="callout c-red">
+        <div class="ct-h">🌀 Coastal &amp; high-wind</div>
+        On HVHZ and coastal jobs, product approval verification and special inspections are not optional — see <a href="/intranet/codes#wind">Standards &amp; codes → Wind &amp; hurricane</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="sec-head"><div class="kick">Related</div><h2>Links</h2></div>
+    <div class="linkrow">
+      <a href="/intranet/precon">Pre-Construction Checklist <span class="ar">→</span></a>
+      <a href="/intranet/codes">Standards &amp; codes <span class="ar">→</span></a>
+      <a href="/intranet/safety">Safety &amp; OSHA <span class="ar">→</span></a>
+      <a href="https://www.builderbooks.com/residential-construction-performance-guidelines-products-9780867186925.php">NAHB RCPG <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Inspection order varies by AHJ — always confirm at permit issuance. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>

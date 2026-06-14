@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Building Codes &amp; Florida Hurricane / Coastal Standards — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;--red:#b91c1c;--red-bg:#fdecec;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .ctable{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .ctable thead th{background:#0A0A0A;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;text-align:left;padding:9px 12px;font-size:12px;letter-spacing:.3px}
+  .ctable td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+  .ctable tbody tr:nth-child(even){background:var(--soft)}
+  .ctable td b{color:var(--ink)}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-red{background:var(--red-bg);border-color:#f5c2c2}
+  .c-red .ct-h{color:var(--red)}
+  .c-blue{background:var(--blue-bg);border-color:#bcd4f5}
+  .c-blue .ct-h{color:var(--blue)}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.twocol{grid-template-columns:1fr}}
+
+  .chk{background:#0A0A0A;color:#fff;border-radius:16px;padding:24px 26px}
+  .chk h3{color:#fff;font-size:19px;font-weight:800;margin-bottom:4px}
+  .chk .sub{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:14px}
+  .chk ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+  @media(max-width:720px){.chk ul{grid-template-columns:1fr}}
+  .chk li{position:relative;padding-left:26px;font-size:13.5px;color:#e7e9ee;line-height:1.5}
+  .chk li:before{content:'✓';position:absolute;left:0;top:0;color:var(--orange);font-weight:900}
+  .chk li b{color:#fff;font-weight:600}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://www.floridabuilding.org">floridabuilding.org →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">Standards &amp; codes</div>
+  <h1>Building codes &amp; Florida hurricane / coastal standards</h1>
+  <p>The codes every BuilderK project is built to — the US model codes, the Florida Building Code, and the wind, flood and waterfront rules that make building in Florida different from anywhere else.</p>
+  <div class="meta">
+    <span>FBC <b>8th Edition (2023)</b></span>
+    <span>Wind <b>ASCE 7-22</b></span>
+    <span>HVHZ <b>Miami-Dade &amp; Broward</b></span>
+    <span>Flood <b>NFIP / ASCE 24</b></span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#us-codes">US codes</a>
+  <a href="#fbc">Florida Building Code</a>
+  <a href="#wind">Wind &amp; hurricane</a>
+  <a href="#flood">Flood &amp; coastal</a>
+  <a href="#waterfront">Waterfront</a>
+  <a href="#energy">Energy</a>
+  <a href="#quickref">Per-project checklist</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <div class="callout c-gold" style="margin-top:26px">
+    <div class="ct-h">⚠️ Read first — this is a working reference, not the authority</div>
+    Editions, wind speeds and flood data below are current as of 2026 and stated generally. <b>Always confirm the adopted code edition, the site-specific design wind speed and exposure, the flood zone &amp; Base Flood Elevation, and any local amendments with the Authority Having Jurisdiction (AHJ)</b> before design and permitting.
+  </div>
+
+  <!-- US CODES -->
+  <section id="us-codes">
+    <div class="sec-head"><div class="kick">The foundation</div><h2>US model codes (the I-Codes)</h2></div>
+    <div class="panel prose narrow">
+      <p>Almost every US jurisdiction builds on the <strong>International Code Council (ICC)</strong> family of model codes, updated on a 3-year cycle. States and cities then adopt and amend them. Florida adopts them statewide as the Florida Building Code.</p>
+      <ul>
+        <li><b>IRC</b> — International Residential Code (1- &amp; 2-family dwellings, townhouses)</li>
+        <li><b>IBC</b> — International Building Code (everything else, incl. multifamily 3+ stories)</li>
+        <li><b>IECC</b> — International Energy Conservation Code</li>
+        <li><b>IPC / IMC / IFGC</b> — Plumbing, Mechanical, Fuel Gas</li>
+        <li><b>IEBC</b> — Existing Building Code (remodels, additions, change of use)</li>
+        <li><b>NFPA 70 (NEC)</b> — National Electrical Code</li>
+        <li><b>ASCE 7</b> — Minimum Design Loads (wind, flood, seismic) — referenced by the IBC/IRC</li>
+      </ul>
+      <p>The current FBC is built on the <strong>2021 I-Codes</strong> with <strong>ASCE 7-22</strong> loads, plus Florida-specific amendments.</p>
+    </div>
+  </section>
+
+  <!-- FBC -->
+  <section id="fbc">
+    <div class="sec-head"><div class="kick">Statewide</div><h2>Florida Building Code (FBC)</h2></div>
+    <div class="panel prose">
+      <p>Florida has a single statewide code — the <strong>Florida Building Code, 8th Edition (2023)</strong>, effective <strong>December 31, 2023</strong> — based on the 2021 I-Codes and ASCE 7-22, with mandatory state amendments (especially for high wind and flood). Local jurisdictions may add their own amendments, so always check with the AHJ.</p>
+      <h4>The volumes</h4>
+      <ul>
+        <li><b>FBC — Building</b> · <b>FBC — Residential</b> · <b>FBC — Existing Building</b></li>
+        <li><b>FBC — Plumbing</b> · <b>FBC — Mechanical</b> · <b>FBC — Fuel Gas</b></li>
+        <li><b>FBC — Energy Conservation</b> · <b>FBC — Accessibility</b></li>
+        <li><b>Florida Fire Prevention Code</b> (NFPA-based, administered separately by the State Fire Marshal)</li>
+      </ul>
+      <p>Products installed in Florida generally need a <strong>Florida Product Approval (FL #)</strong> or a <strong>Miami-Dade NOA</strong> — see Wind &amp; hurricane below.</p>
+    </div>
+  </section>
+
+  <!-- WIND & HURRICANE -->
+  <section id="wind">
+    <div class="sec-head"><div class="kick">What makes Florida different — part 1</div><h2>Wind &amp; hurricane</h2></div>
+    <div class="panel prose">
+      <p>Florida structures are designed to <strong>ASCE 7-22</strong> wind loads. Pull the <strong>site-specific ultimate design wind speed (V<sub>ult</sub>)</strong> and <strong>exposure category</strong> for every project — don't assume.</p>
+      <ul>
+        <li><b>Risk Category</b> — most homes are Category II.</li>
+        <li><b>Design wind speed (V<sub>ult</sub>)</b> — roughly 140–170 mph across the peninsula, higher toward the SE coast / Keys. Get the exact value from the ASCE Hazard Tool or the AHJ.</li>
+        <li><b>Exposure</b> — B (suburban), C (open), <b>D</b> (near open water / coastal) — D drives higher pressures on waterfront lots.</li>
+        <li><b>Components &amp; cladding</b> — windows, doors, roofing and soffits are designed to their zone pressures.</li>
+      </ul>
+
+      <h4>Wind-Borne Debris Region (WBDR)</h4>
+      <p>Where V<sub>ult</sub> ≥ <strong>140 mph</strong> (and within 1 mile of the coast where ≥ 130 mph), openings must be protected against flying debris — <strong>impact-rated glazing or tested shutters</strong> — or the building must be designed for the higher internal pressures of a breached envelope. Most of coastal Florida is in the WBDR.</p>
+
+      <h4>High-Velocity Hurricane Zone (HVHZ)</h4>
+      <p>HVHZ = <strong>Miami-Dade and Broward counties</strong>. The strictest regime in the country:</p>
+      <ul>
+        <li>Products must carry a <b>Miami-Dade NOA (Notice of Acceptance)</b> and meet the <b>TAS protocols</b>.</li>
+        <li>Impact testing — <b>large &amp; small missile (TAS 201 / 202 / 203)</b> for all openings.</li>
+        <li>Mandatory impact protection on every opening; specific roofing, fastening and inspection rules.</li>
+      </ul>
+
+      <div class="callout c-red">
+        <div class="ct-h">🌀 Openings rule of thumb</div>
+        In the WBDR, every opening is <b>impact-rated or shuttered</b>. In the HVHZ (Miami-Dade / Broward), products must additionally carry a <b>Miami-Dade NOA</b> — a statewide FL # alone is not enough.
+      </div>
+
+      <h4>Product approval</h4>
+      <table class="ctable">
+        <thead><tr><th>System</th><th>Covers</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td><b>Florida Product Approval (FL #)</b></td><td>Windows, doors, garage doors, roofing, shutters, soffits</td><td>Statewide (outside HVHZ)</td></tr>
+          <tr><td><b>Miami-Dade NOA</b></td><td>Same — with TAS impact testing</td><td>HVHZ; accepted statewide</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FLOOD & COASTAL -->
+  <section id="flood">
+    <div class="sec-head"><div class="kick">What makes Florida different — part 2</div><h2>Flood &amp; coastal construction</h2></div>
+    <div class="panel prose">
+      <p>Buildings in a flood hazard area are designed under <strong>ASCE 24</strong> (adopted by the FBC) and the local floodplain ordinance. Start with the <strong>FEMA flood zone and Base Flood Elevation (BFE)</strong> from the Flood Insurance Rate Map (FIRM).</p>
+      <table class="ctable">
+        <thead><tr><th>Zone</th><th>Meaning</th><th>Build implication</th></tr></thead>
+        <tbody>
+          <tr><td><b>X</b></td><td>Minimal flood hazard</td><td>No NFIP elevation requirement</td></tr>
+          <tr><td><b>AE / A</b></td><td>1%-annual-chance flood; BFE assigned (AE)</td><td>Lowest floor ≥ DFE; flood openings &amp; flood-resistant materials below</td></tr>
+          <tr><td><b>Coastal A / LiMWA</b></td><td>Moderate wave action (1.5–3 ft)</td><td>Treated like V-zone per ASCE 24</td></tr>
+          <tr><td><b>VE / V</b></td><td>Coastal high hazard; waves ≥ 3 ft</td><td>Open pile/column foundation, breakaway walls, engineer certification</td></tr>
+        </tbody>
+      </table>
+      <div class="twocol">
+        <div>
+          <h4>A / AE zone</h4>
+          <ul>
+            <li>Lowest floor at or above the <b>Design Flood Elevation (DFE = BFE + freeboard)</b>.</li>
+            <li>Enclosures below DFE need <b>flood openings / vents</b> (≈ 1 in² per ft² of enclosed area).</li>
+            <li><b>Flood-damage-resistant materials</b> below DFE; no living space below.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>V / VE zone (&amp; Coastal A)</h4>
+          <ul>
+            <li><b>Open foundation</b> — pilings or columns; no solid perimeter walls.</li>
+            <li>Bottom of the lowest horizontal structural member <b>≥ DFE</b>.</li>
+            <li><b>Breakaway walls</b> only below; no fill for structural support; <b>V-zone certification</b> by the engineer of record.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout c-blue">
+        <div class="ct-h">📐 Always on file</div>
+        A FEMA <b>Elevation Certificate</b> documents the as-built lowest-floor elevation for the permit and for flood insurance. On remodels, the <b>50% / substantial-improvement rule</b> can trigger full flood compliance — check before scoping.
+      </div>
+    </div>
+  </section>
+
+  <!-- WATERFRONT -->
+  <section id="waterfront">
+    <div class="sec-head"><div class="kick">Special conditions</div><h2>Waterfront &amp; coastal-specific work</h2></div>
+    <div class="panel prose">
+      <h4>Coastal Construction Control Line (CCCL)</h4>
+      <p>Construction <strong>seaward of the CCCL</strong> needs a permit from the <strong>Florida DEP</strong> in addition to the local permit, and meets stricter standards — foundations (pilings) designed for storm scour and a 100-year storm event, and siting outside the 30-year erosion projection. Confirm the CCCL early; it can reshape the whole foundation design.</p>
+      <h4>Permits beyond the building department</h4>
+      <ul>
+        <li><b>Seawalls, docks, piers, boat lifts</b> — Florida DEP, the U.S. Army Corps of Engineers, and the regional Water Management District.</li>
+        <li><b>Wetlands / mangroves</b> — protected; trimming and impacts are regulated.</li>
+        <li><b>Erosion &amp; sediment control</b> — NPDES stormwater permit + silt fence on disturbed sites.</li>
+      </ul>
+      <h4>Build details that change on the water</h4>
+      <ul>
+        <li><b>Sea-turtle lighting</b> — coastal ordinances require shielded, long-wavelength (amber) exterior lighting in nesting season.</li>
+        <li><b>Corrosion</b> — salt air demands stainless or hot-dip-galvanized connectors, fasteners and hardware.</li>
+        <li><b>Exposure D</b> wind pressures and open-foundation flood design usually apply together on the coast.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ENERGY -->
+  <section id="energy">
+    <div class="sec-head"><div class="kick">Performance</div><h2>Energy</h2></div>
+    <div class="panel prose narrow">
+      <p>Homes comply under the <strong>FBC — Energy Conservation</strong> (IECC-based). Our standard path is the <strong>Florida R-405 performance method</strong> (EnergyGauge), submitted with the permit set.</p>
+      <ul>
+        <li><b>R-405 energy calc</b> sealed and in the permit package.</li>
+        <li><b>Blower-door</b> (envelope) and <b>duct-leakage</b> testing at completion.</li>
+        <li><b>HVAC sized to Manual J / S / D</b>, not rules of thumb.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="quickref">
+    <div class="chk">
+      <h3>Per-project code check</h3>
+      <div class="sub">Confirm these before design is final and before we file for permit.</div>
+      <ul>
+        <li><b>Adopted edition</b> + any local amendments (AHJ)</li>
+        <li><b>Design wind speed (V<sub>ult</sub>)</b> + exposure category</li>
+        <li><b>WBDR?</b> → opening protection plan</li>
+        <li><b>HVHZ?</b> → Miami-Dade NOAs on every product</li>
+        <li><b>Product approvals</b> (FL # / NOA) for windows, doors, roof, shutters</li>
+        <li><b>Flood zone + BFE</b> from the FIRM</li>
+        <li><b>DFE (BFE + freeboard)</b> + Elevation Certificate</li>
+        <li><b>V-zone / Coastal A?</b> → open foundation + cert</li>
+        <li><b>Seaward of the CCCL?</b> → DEP permit</li>
+        <li><b>Waterfront permits</b> (DEP / USACE / WMD) if seawall/dock</li>
+        <li><b>R-405</b> energy calc + testing plan</li>
+        <li><b>Turtle lighting / NPDES</b> if coastal site</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="sec-head"><div class="kick">Go to source</div><h2>Official references</h2></div>
+    <div class="linkrow">
+      <a href="https://www.floridabuilding.org">Florida Building Code <span class="ar">→</span></a>
+      <a href="https://www.floridabuilding.org/pr/pr_default.aspx">FL Product Approval <span class="ar">→</span></a>
+      <a href="https://www.miamidade.gov/building/pc-search_app.asp">Miami-Dade NOA search <span class="ar">→</span></a>
+      <a href="https://ascehazardtool.org">ASCE 7 Hazard Tool <span class="ar">→</span></a>
+      <a href="https://msc.fema.gov/portal/home">FEMA Flood Maps <span class="ar">→</span></a>
+      <a href="https://floridadep.gov/water/coastal-construction-control-line">FL DEP — CCCL <span class="ar">→</span></a>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Reference only — verify the adopted edition, site wind &amp; flood data, and local amendments with the AHJ. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Growth — Sales, Design &amp; Brand — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#15803d;--green-bg:#e7f6ec;--blue:#1d4ed8;--blue-bg:#e8f0fe;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;background:var(--soft2);color:var(--body);line-height:1.65;font-size:15px;padding-bottom:60px}
+  h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar a{color:#cdd2da;font-size:12.5px;font-weight:600}
+  .topbar a:hover{color:var(--orange);text-decoration:none}
+  .topbar .home{color:var(--orange);font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:860px}
+
+  .hero{background:linear-gradient(120deg,#0A0A0A,#161c26 58%,#241a0b);color:#fff;padding:46px 0 40px;border-bottom:4px solid var(--orange)}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+  .hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.05;letter-spacing:-.8px}
+  .hero p{color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-size:clamp(14px,1.6vw,16px)}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .meta span{font-size:11.5px;font-weight:600;color:#dfe3ea;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:20px}
+  .meta span b{color:var(--orange);font-weight:700}
+
+  .secnav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .secnav .row{display:flex;gap:6px;overflow-x:auto;padding:11px 0}
+  .secnav a{white-space:nowrap;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:var(--steel);padding:7px 13px;border-radius:8px;border:1px solid var(--line)}
+  .secnav a:hover{color:var(--ink);border-color:#cfd5de;background:#fff;text-decoration:none}
+
+  section{padding:40px 0 4px}
+  .sec-head{margin-bottom:16px}
+  .sec-head .kick{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-d)}
+  .sec-head h2{font-size:clamp(21px,2.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:6px}
+
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 2px 10px rgba(16,18,22,.04)}
+  .prose p{margin-bottom:12px;color:var(--body)}
+  .prose strong{color:var(--ink);font-weight:600}
+  .prose h4{font-size:15px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .prose ul{list-style:none;margin:6px 0 12px}
+  .prose li{position:relative;padding-left:18px;margin-bottom:6px;font-size:14px}
+  .prose li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--orange)}
+  .prose li b{color:var(--ink);font-weight:600}
+
+  .flow{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin:6px 0 4px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;position:relative;overflow:hidden}
+  .step:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange)}
+  .step .sn{font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:800;color:var(--orange);letter-spacing:1px}
+  .step h4{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-top:3px}
+  .step p{font-size:11.5px;color:var(--steel);margin-top:4px;line-height:1.4}
+
+  .swatch{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px}
+  .sw{border:1px solid var(--line);border-radius:10px;overflow:hidden;width:128px}
+  .sw .col{height:46px}
+  .sw .lab{padding:7px 9px;font-size:11px}
+  .sw .lab b{display:block;color:var(--ink);font-family:'Outfit',sans-serif}
+  .sw .lab span{color:var(--steel)}
+
+  .callout{border-radius:12px;padding:15px 17px;margin:14px 0;font-size:13.5px;border:1px solid}
+  .callout .ct-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .c-gold{background:var(--gold-bg);border-color:#f3dca6}
+  .c-gold .ct-h{color:var(--orange-d)}
+  .c-green{background:var(--green-bg);border-color:#bfe3c9}
+  .c-green .ct-h{color:var(--green)}
+
+  .linkrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;margin-top:8px}
+  .linkrow a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-weight:600;font-size:13.5px}
+  .linkrow a:hover{border-color:var(--orange);text-decoration:none}
+  .linkrow a .ar{margin-left:auto;color:var(--orange-d)}
+
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.8}
+  .foot a{font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><div class="row">
+  <a class="home" href="/intranet">← BuilderK Intranet</a>
+  <a href="https://www.builderk.com/intranet/camp">Marketing campaign →</a>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+  <div class="kick">Growth &amp; marketing</div>
+  <h1>Fill the pipeline, win the work</h1>
+  <p>How a lead becomes a signed home — the sales playbook, the design library we sell from, and the brand &amp; content studio behind it. The live marketing campaign runs on its own pages.</p>
+  <div class="meta">
+    <span><b>Sales</b> playbook</span>
+    <span><b>Design</b> library</span>
+    <span><b>Brand</b> kit</span>
+    <span>Campaign <b>live</b></span>
+  </div>
+</div></header>
+
+<nav class="secnav"><div class="wrap"><div class="row">
+  <a href="#sales">Sales playbook</a>
+  <a href="#design">Design library</a>
+  <a href="#brand">Brand &amp; content</a>
+  <a href="#campaign">Marketing campaign</a>
+</div></div></nav>
+
+<div class="wrap">
+
+  <!-- SALES -->
+  <section id="sales">
+    <div class="sec-head"><div class="kick">Lead → contract</div><h2>Sales playbook</h2></div>
+    <div class="panel prose">
+      <p>How a prospect becomes a signed custom home — a consistent path so nothing leaks out of the funnel.</p>
+      <div class="flow">
+        <div class="step"><div class="sn">01</div><h4>Lead</h4><p>Inbound from the campaign, referral or web.</p></div>
+        <div class="step"><div class="sn">02</div><h4>Discovery</h4><p>Qualify lot, budget, timeline &amp; scope.</p></div>
+        <div class="step"><div class="sn">03</div><h4>Proposal</h4><p>Scope, allowances, price &amp; schedule.</p></div>
+        <div class="step"><div class="sn">04</div><h4>Contract</h4><p>Signed agreement → deposit → pre-construction.</p></div>
+      </div>
+      <ul>
+        <li><b>Discovery</b> — confirm the lot, a realistic budget, the timeline and the scope (custom vs. plan, coastal, etc.).</li>
+        <li><b>Proposal</b> — clear scope, allowances and a price tied to the estimate; set expectations with the NAHB quality standard.</li>
+        <li><b>Follow-up cadence</b> — every lead worked on a defined rhythm; nothing goes cold.</li>
+        <li><b>Pipeline stages</b> — tracked in the CRM so we know conversion and where deals stall.</li>
+        <li><b>Handoff</b> — a signed contract kicks off the <a href="/intranet/precon">Pre-Construction Checklist</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DESIGN -->
+  <section id="design">
+    <div class="sec-head"><div class="kick">What we sell</div><h2>Design library</h2></div>
+    <div class="panel prose">
+      <p>The designs, finishes and systems we offer — the catalog the sales team sells from and the team builds to.</p>
+      <ul>
+        <li><b>Model line &amp; floor plans</b> — the BuilderK plan portfolio.</li>
+        <li><b>Interiors &amp; finish packages</b> — curated looks and options.</li>
+        <li><b>Selections catalog</b> — options &amp; allowances by category (drives the spec in the <a href="/intranet/precon#design">checklist</a>).</li>
+        <li><b>CORE building system</b> — the cast-in-place concrete + glass system.</li>
+      </ul>
+      <div class="linkrow">
+        <a href="https://www.builderk.com/floor-plans">Floor plans (public) <span class="ar">→</span></a>
+        <a href="https://www.builderk.com/core">CORE system <span class="ar">→</span></a>
+        <a href="https://www.builderk.com/interiors">Interiors <span class="ar">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND -->
+  <section id="brand">
+    <div class="sec-head"><div class="kick">How we show up</div><h2>Brand &amp; content studio</h2></div>
+    <div class="panel prose">
+      <p>The brand kit keeps everything we publish consistent. Use it — don't improvise colors or logos.</p>
+      <div class="swatch">
+        <div class="sw"><div class="col" style="background:#F77F00"></div><div class="lab"><b>BuilderK Orange</b><span>#F77F00</span></div></div>
+        <div class="sw"><div class="col" style="background:#0A0A0A"></div><div class="lab"><b>BuilderK Black</b><span>#0A0A0A</span></div></div>
+        <div class="sw"><div class="col" style="background:#FAFAF8;border-bottom:1px solid var(--line)"></div><div class="lab"><b>Warm Light</b><span>#FAFAF8</span></div></div>
+      </div>
+      <h4>Typography</h4>
+      <ul>
+        <li><b>Outfit</b> — display &amp; headings</li>
+        <li><b>DM Sans</b> — body text</li>
+      </ul>
+      <h4>Usage</h4>
+      <ul>
+        <li><b>Logo</b> — full wordmark for headers/footers; K-icon for favicons &amp; small avatars.</li>
+        <li><b>Orange is an accent</b> — never recolor the wordmark; keep it on the K + accents.</li>
+        <li><b>Templates &amp; content library</b> — proposals, social, email headers all pull from the kit.</li>
+      </ul>
+      <div class="callout c-gold"><div class="ct-h">🎨 Source of truth</div>Pull logos, tokens and templates from the BuilderK Brand Kit — don't hand-pick hex values or recreate logos.</div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN -->
+  <section id="campaign">
+    <div class="sec-head"><div class="kick">Running now</div><h2>Marketing campaign</h2></div>
+    <div class="panel prose">
+      <p>The active demand engine — the campaign execution plan and the live team checklist.</p>
+      <div class="linkrow">
+        <a href="https://www.builderk.com/intranet/camp">Campaign plan <span class="ar">→</span></a>
+        <a href="https://www.builderk.com/intranet/calendar">30-day checklist (live) <span class="ar">→</span></a>
+        <a href="https://www.builderk.com/intranet/camp-calendar">Campaign calendar <span class="ar">→</span></a>
+      </div>
+      <div class="callout c-green"><div class="ct-h">✅ Already live</div>The marketing campaign pages are built and running — the checklist updates in real time with a weekly progress report.</div>
+    </div>
+  </section>
+
+  <div class="foot">
+    BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">Back to the intranet</a><br>
+    Sales pipeline lives in the CRM; brand assets in the BuilderK Brand Kit. License CGC #1537163.
+  </div>
+</div>
+
+</body>
+</html>
