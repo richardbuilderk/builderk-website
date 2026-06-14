@@ -43,7 +43,7 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
 .nav-logo .builder{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.6rem;color:#fff;letter-spacing:1px}
 .nav-logo .k{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.6rem;color:var(--orange)}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{color:#ccc;text-decoration:none;font-size:0.92rem;font-weight:500;transition:color 0.2s}
+.nav-links a{color:#ccc;text-decoration:none;font-size:0.92rem;font-weight:500;white-space:nowrap;transition:color 0.2s}
 .nav-links a:hover{color:var(--orange)}
 .nav-cta{background:var(--orange)!important;color:#fff!important;padding:10px 22px;border-radius:8px;font-weight:600!important}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1000;position:relative}
@@ -89,7 +89,7 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
 .footer-col a:hover{color:var(--orange)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);color:#555;font-size:0.82rem;flex-wrap:wrap;gap:8px}
 
-@media(max-width:900px){
+@media(max-width:1024px){
   .navbar{padding:14px 20px!important}.nav-links{display:none}.nav-hamburger{display:flex!important}
   .page-hero{padding:120px 24px 30px}.page-hero h1{font-size:2.2rem}
   .blog-grid{padding:24px 20px 50px;grid-template-columns:1fr}
@@ -101,7 +101,7 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
 <body>
 
 <nav class="navbar" id="navbar">
-  <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
+  <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k">K</span></a>
   <ul class="nav-links" id="nav-links">
     <li><a href="/process">How It Works</a></li>
     <li><a href="/floor-plans">Floor Plans</a></li>
@@ -151,7 +151,7 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k" style="margin-left:-3px;">K</span></a>
+        <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k">K</span></a>
         <p>Custom home builders in Florida. You bring the lot — we build your dream home from the ground up.</p>
         <p style="margin-top:8px;font-size:0.8rem;color:#666;">Licensed Florida GC, CGC #1537163</p>
       </div>
