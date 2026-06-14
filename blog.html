@@ -33,75 +33,80 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#F77F00;--orange-hover:#FF9A2E;--dark:#0A0A0A;--dark-card:#111111;--dark-border:#1E1E1E}
+:root{--orange:#F77F00;--orange-hover:#FF9A2E;--ink:#111111;--bg:#FAFAF8;--card:#FFFFFF;--border:#ECEAE4;--muted:#6B6B6B}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;color:#fff;background:var(--dark);-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Outfit',sans-serif}
-.navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);transition:all 0.3s}
-.navbar.scrolled{padding:14px 48px;background:rgba(10,10,10,0.97)}
-.nav-logo{text-decoration:none;display:flex;align-items:baseline}
-.nav-logo .builder{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.6rem;color:#fff;letter-spacing:1px}
-.nav-logo .k{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.6rem;color:var(--orange)}
+
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(250,250,248,0.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:padding 0.3s}
+.navbar.scrolled{padding:11px 48px}
+.nav-logo{display:flex;align-items:center}
+.nav-logo img{height:26px;display:block}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{color:#ccc;text-decoration:none;font-size:0.92rem;font-weight:500;white-space:nowrap;transition:color 0.2s}
+.nav-links a{color:#3a3a3a;text-decoration:none;font-size:0.92rem;font-weight:500;white-space:nowrap;transition:color 0.2s}
 .nav-links a:hover{color:var(--orange)}
-.nav-cta{background:var(--orange)!important;color:#fff!important;padding:10px 22px;border-radius:8px;font-weight:600!important}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1000;position:relative}
-.nav-hamburger span{width:26px;height:2px;background:#fff;border-radius:2px;transition:transform 0.3s,opacity 0.3s}
+.nav-cta{background:var(--orange)!important;color:#fff!important;padding:10px 22px;border-radius:50px;font-weight:600!important}
+.nav-cta:hover{background:var(--orange-hover)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1000}
+.nav-hamburger span{width:26px;height:2px;background:#111;border-radius:2px;transition:transform 0.3s,opacity 0.3s}
 .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .nav-hamburger.active span:nth-child(2){opacity:0}
 .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.98);z-index:999;justify-content:flex-start;align-items:center;gap:24px;padding:80px 24px}
-.nav-links.open li{list-style:none}
-.nav-links.open li a{font-size:1.4rem;padding:12px 0;color:#fff}
 
-.page-hero{padding:150px 48px 40px;text-align:center}
-.page-hero h1{font-size:3rem;font-weight:800;line-height:1.1;margin-bottom:14px}
+.page-hero{padding:140px 48px 28px;text-align:center;max-width:760px;margin:0 auto}
+.page-hero .eyebrow{font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.page-hero h1{font-size:3rem;font-weight:800;line-height:1.1;margin-bottom:16px;color:var(--ink)}
 .page-hero h1 span{color:var(--orange)}
-.page-hero p{font-size:1.1rem;color:#aaa;max-width:620px;margin:0 auto;line-height:1.6}
+.page-hero p{font-size:1.1rem;color:var(--muted);line-height:1.6}
 
-.blog-grid{max-width:1100px;margin:0 auto;padding:40px 48px 70px;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px}
-.post-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:16px;padding:30px 28px;text-decoration:none;color:inherit;transition:all 0.25s;display:flex;flex-direction:column}
-.post-card:hover{border-color:var(--orange);transform:translateY(-4px)}
-.post-card .chip{display:inline-block;align-self:flex-start;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange);background:rgba(247,127,0,0.12);padding:4px 10px;border-radius:6px;margin-bottom:16px}
-.post-card h2{font-size:1.3rem;font-weight:700;line-height:1.3;margin-bottom:10px;color:#fff}
-.post-card p{font-size:0.92rem;color:#999;line-height:1.6;margin-bottom:18px;flex-grow:1}
-.post-card .meta{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--dark-border)}
-.post-card .date{font-size:0.78rem;color:#666}
+.blog-grid{max-width:1140px;margin:0 auto;padding:36px 48px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:26px}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:30px 28px;text-decoration:none;color:inherit;transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(17,17,17,0.04)}
+.post-card:hover{border-color:rgba(247,127,0,0.5);transform:translateY(-5px);box-shadow:0 16px 34px rgba(17,17,17,0.09)}
+.post-card .chip{display:inline-block;align-self:flex-start;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange);background:rgba(247,127,0,0.1);padding:5px 11px;border-radius:6px;margin-bottom:16px}
+.post-card h2{font-size:1.3rem;font-weight:700;line-height:1.3;margin-bottom:10px;color:var(--ink)}
+.post-card p{font-size:0.93rem;color:var(--muted);line-height:1.6;margin-bottom:18px;flex-grow:1}
+.post-card .meta{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--border)}
+.post-card .date{font-size:0.78rem;color:#9a9a9a}
 .post-card .read{font-family:'Outfit',sans-serif;font-weight:700;font-size:0.9rem;color:var(--orange)}
 
-.cta-section{padding:80px 48px;background:var(--dark);text-align:center;position:relative}
-.cta-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:2px;background:linear-gradient(90deg,transparent,#F77F00,transparent)}
-.cta-section h2{font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:14px}
+.cta-section{margin:0 48px 70px;padding:56px 40px;text-align:center;background:linear-gradient(135deg,#FFF3E6 0%,#FFE9D2 100%);border:1px solid #F6DEBE;border-radius:24px}
+.cta-section h2{font-size:2.1rem;font-weight:800;color:var(--ink);margin-bottom:12px}
 .cta-section h2 span{color:var(--orange)}
-.cta-section p{font-size:1.05rem;color:#aaa;max-width:520px;margin:0 auto 28px;line-height:1.6}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;background:var(--orange);color:#fff;text-decoration:none;border-radius:12px;font-weight:600;font-size:1.05rem;transition:background 0.2s}
-.btn-primary:hover{background:var(--orange-hover)}
+.cta-section p{font-size:1.05rem;color:#7a5a36;max-width:520px;margin:0 auto 26px;line-height:1.6}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;background:var(--orange);color:#fff;text-decoration:none;border-radius:50px;font-weight:700;font-size:1.05rem;transition:all 0.2s}
+.btn-primary:hover{background:var(--orange-hover);transform:translateY(-2px)}
 
-.footer{background:var(--dark);padding:60px 48px 30px;border-top:1px solid rgba(255,255,255,0.06)}
+.footer{background:#fff;padding:54px 48px 28px;border-top:1px solid var(--border)}
 .footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:flex;justify-content:space-between;gap:48px;margin-bottom:40px;flex-wrap:wrap}
+.footer-top{display:flex;justify-content:space-between;gap:48px;margin-bottom:36px;flex-wrap:wrap}
 .footer-brand{max-width:280px}
-.footer-brand p{color:#888;font-size:0.9rem;margin-top:12px;line-height:1.5}
+.footer-brand img{height:26px;display:block;margin-bottom:12px}
+.footer-brand p{color:var(--muted);font-size:0.9rem;line-height:1.5}
 .footer-col{display:flex;flex-direction:column;gap:10px}
-.footer-col h4{color:#fff;font-family:'Outfit',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:4px}
-.footer-col a{color:#888;text-decoration:none;font-size:0.88rem;transition:color 0.2s}
+.footer-col h4{color:var(--ink);font-family:'Outfit',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:4px}
+.footer-col a{color:var(--muted);text-decoration:none;font-size:0.88rem;transition:color 0.2s}
 .footer-col a:hover{color:var(--orange)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);color:#555;font-size:0.82rem;flex-wrap:wrap;gap:8px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid var(--border);color:#9a9a9a;font-size:0.82rem;flex-wrap:wrap;gap:8px}
+.footer-bottom a{color:#9a9a9a;text-decoration:none}
+.footer-bottom a:hover{color:var(--orange)}
 
 @media(max-width:1024px){
-  .navbar{padding:14px 20px!important}.nav-links{display:none}.nav-hamburger{display:flex!important}
-  .page-hero{padding:120px 24px 30px}.page-hero h1{font-size:2.2rem}
-  .blog-grid{padding:24px 20px 50px;grid-template-columns:1fr}
-  .cta-section{padding:60px 24px}.cta-section h2{font-size:1.8rem}
-  .footer{padding:40px 20px 24px}.footer-top{flex-direction:column;gap:32px}
+  .navbar{padding:13px 20px!important}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(250,250,248,0.98);z-index:999;justify-content:center;align-items:center;gap:26px;padding:80px 24px}
+  .nav-links.open{display:flex}
+  .nav-links.open a{font-size:1.3rem}
+  .nav-hamburger{display:flex}
+  .page-hero{padding:116px 24px 20px}.page-hero h1{font-size:2.2rem}
+  .blog-grid{padding:24px 20px 56px;grid-template-columns:1fr;gap:20px}
+  .cta-section{margin:0 20px 56px;padding:44px 24px}.cta-section h2{font-size:1.7rem}
+  .footer{padding:44px 22px 24px}.footer-top{flex-direction:column;gap:30px}
 }
 </style>
 </head>
 <body>
 
 <nav class="navbar" id="navbar">
-  <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k">K</span></a>
+  <a href="/" class="nav-logo"><img src="/images/builderk-wordmark.svg" alt="BuilderK" width="163" height="26"></a>
   <ul class="nav-links" id="nav-links">
     <li><a href="/process">How It Works</a></li>
     <li><a href="/floor-plans">Floor Plans</a></li>
@@ -114,8 +119,9 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
 </nav>
 
 <section class="page-hero">
-  <h1>The BuilderK <span>Blog</span></h1>
-  <p>Straight answers on building a custom home on your lot in Florida: costs, financing, permitting, hurricane code, and the build process, from a licensed Florida GC.</p>
+  <div class="eyebrow">BuilderK Journal</div>
+  <h1>Building Smart in <span>Florida</span></h1>
+  <p>Straight answers on building a custom home on your lot: costs, financing, permitting, hurricane code, and the build process, from a licensed Florida GC.</p>
 </section>
 
 <div class="blog-grid">
@@ -151,9 +157,9 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="nav-logo"><span class="builder">BUILDER</span><span class="k">K</span></a>
-        <p>Custom home builders in Florida. You bring the lot — we build your dream home from the ground up.</p>
-        <p style="margin-top:8px;font-size:0.8rem;color:#666;">Licensed Florida GC, CGC #1537163</p>
+        <a href="/"><img src="/images/builderk-wordmark.svg" alt="BuilderK" width="163" height="26"></a>
+        <p>Custom home builders in Florida. You bring the lot, we build your dream home from the ground up.</p>
+        <p style="margin-top:8px;font-size:0.8rem;color:#9a9a9a;">Licensed Florida GC, CGC #1537163</p>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -170,14 +176,14 @@ h1,h2,h3,h4{font-family:'Outfit',sans-serif}
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Builders Knowledge Development Inc. All rights reserved.</span>
-      <span><a href="/privacy" style="color:#888;text-decoration:none;">Privacy Policy</a> &middot; <a href="/terms" style="color:#888;text-decoration:none;">Terms &amp; Conditions</a></span>
+      <span><a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms &amp; Conditions</a></span>
     </div>
   </div>
 </footer>
 
 <script>
 var navbar=document.getElementById('navbar');if(navbar){window.addEventListener('scroll',function(){navbar.classList.toggle('scrolled',window.pageYOffset>60);});}
-var hamburger=document.getElementById('hamburger');var navLinks=document.querySelector('.nav-links');
+var hamburger=document.getElementById('hamburger');var navLinks=document.getElementById('nav-links');
 if(hamburger&&navLinks){
   hamburger.addEventListener('click',function(){
     var isOpen=navLinks.classList.toggle('open');
@@ -193,7 +199,7 @@ if(hamburger&&navLinks){
       document.body.style.overflow='';
     }
   });
-  navLinks.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){navLinks.classList.remove('open');hamburger.classList.remove('active');});});
+  navLinks.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){navLinks.classList.remove('open');hamburger.classList.remove('active');document.body.style.overflow='';});});
 }
 </script>
 </body>
