@@ -1,0 +1,1256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Foundation &amp; Superstructure Playbook — BuilderK Intranet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    --orange:#F77F00;--orange-d:#c4640a;
+    --ink:#0A0A0A;--ink2:#1d2127;--body:#2b303a;--steel:#5b6573;--muted:#8a93a1;
+    --line:#e6e9ee;--soft:#f6f7f9;--soft2:#eef1f5;--gold-bg:#fff7e8;
+    --green:#16a34a;--red:#dc2626;--blue:#2563eb;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,Arial,sans-serif;color:var(--body);background:#fff;line-height:1.6;font-size:15px}
+  h1,h2,h3,h4,.f-head{font-family:'Outfit',system-ui,sans-serif}
+  a{color:var(--orange-d)}
+  img{display:block;max-width:100%}
+
+  /* ===== Top bar ===== */
+  .topbar{background:#0A0A0A;color:#fff;padding:11px 0}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .eyebrow{font-family:'Outfit',sans-serif;color:var(--orange);font-size:11.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+  .backlink{color:#fff;text-decoration:none;font-size:13px;font-weight:600;opacity:.85}
+  .backlink:hover{opacity:1;color:var(--orange)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:920px;margin:0 auto}
+  .mid{max-width:1060px;margin:0 auto}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;color:#fff;overflow:hidden;background:#101620}
+  .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.30}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(120deg,rgba(10,10,10,.90),rgba(20,28,40,.82) 55%,rgba(10,10,10,.92))}
+  .hero .inner{position:relative;z-index:2;padding:70px 22px 64px;text-align:center}
+  .hero .kick{color:var(--orange);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px}
+  .hero h1{font-size:clamp(38px,7vw,72px);font-weight:900;line-height:1.02;letter-spacing:-1px;margin-bottom:18px}
+  .hero h1 .g{color:var(--orange)}
+  .hero .rule{width:78px;height:3px;background:var(--orange);margin:0 auto 24px}
+  .hero p{color:rgba(255,255,255,.85);font-weight:400;max-width:760px;margin:0 auto 30px;font-size:clamp(15px,1.7vw,18px);line-height:1.7}
+  .hero p .g{color:var(--orange);font-weight:600}
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:13px 22px;border-radius:9px;text-decoration:none;transition:.15s}
+  .btn-pri{background:var(--orange);color:#0A0A0A}
+  .btn-pri:hover{background:#ff8f1a}
+  .btn-ghost{border:1px solid rgba(255,255,255,.32);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+  /* ===== Stats banner ===== */
+  .statband{background:#0A0A0A;color:#fff;border-top:4px solid var(--orange);padding:40px 0}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center}
+  .stat .n{font-family:'Outfit',sans-serif;font-size:clamp(26px,3vw,36px);font-weight:900;color:var(--orange);line-height:1;margin-bottom:6px}
+  .stat .l{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+  .stat .s{font-size:11.5px;color:rgba(255,255,255,.6)}
+
+  /* ===== Section scaffolding ===== */
+  section{padding:62px 0}
+  .sec-light{background:#fff}
+  .sec-soft{background:var(--soft)}
+  .sec-gold{background:var(--gold-bg)}
+  .sec-dark{background:linear-gradient(120deg,#0A0A0A,#161c26 55%,#0A0A0A);color:#fff}
+  .sec-orange-top{border-top:4px solid var(--orange)}
+  .sec-head{text-align:center;margin-bottom:44px}
+  .sec-head .kick{font-size:11.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .sec-dark .sec-head .kick{color:var(--orange)}
+  .sec-head h2{font-size:clamp(26px,4vw,44px);font-weight:900;letter-spacing:-.5px;color:var(--ink);margin-bottom:14px;line-height:1.08}
+  .sec-dark .sec-head h2{color:#fff}
+  .sec-head h2 .g{color:var(--orange)}
+  .sec-head .rule{width:60px;height:2px;background:var(--orange);margin:0 auto 16px}
+  .sec-head p{color:var(--steel);max-width:760px;margin:0 auto;font-size:15px}
+  .sec-dark .sec-head p{color:rgba(255,255,255,.72)}
+  .sub-h{font-family:'Outfit',sans-serif;font-size:clamp(19px,2.4vw,26px);font-weight:700;color:var(--ink);margin-bottom:6px}
+  .sub-p{color:var(--steel);font-size:14px;margin-bottom:24px}
+
+  /* ===== Sudhagar lesson ===== */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+  .goldcard{background:var(--gold-bg);border-left:4px solid var(--orange);padding:26px;border-radius:8px}
+  .goldcard .big{font-family:'Outfit',sans-serif;font-size:clamp(34px,5vw,52px);font-weight:900;color:var(--ink);line-height:1;margin-bottom:8px}
+  .goldcard .lab{color:var(--ink2);font-weight:700;margin-bottom:4px}
+  .goldcard .sm{font-size:13px;color:var(--steel)}
+  .prose p{margin-bottom:16px;color:var(--body)}
+  .prose strong{color:var(--ink)}
+
+  /* ===== Card grids ===== */
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+  /* Foundation card */
+  .fcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(16,18,22,.05);display:flex;flex-direction:column;transition:.15s}
+  .fcard:hover{box-shadow:0 10px 26px rgba(16,18,22,.12)}
+  .fcard .imgwrap{position:relative;border-bottom:1px solid var(--line)}
+  .fcard .imgwrap img{width:100%;height:200px;object-fit:cover}
+  .fcard .id-tag{position:absolute;top:12px;left:12px;background:var(--orange);color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:900;font-size:13px;padding:4px 11px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+  .badge-tag{position:absolute;top:12px;right:12px;color:#fff;font-weight:800;font-size:10px;letter-spacing:.6px;padding:5px 9px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.18);text-transform:uppercase}
+  .b-default{background:var(--green)}.b-legacy{background:var(--muted)}.b-spec{background:var(--blue)}.b-mf{background:var(--red)}
+  .fcard .titlebar{background:#0A0A0A;color:#fff;padding:13px 16px}
+  .fcard .titlebar .kicker{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.65);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+  .fcard .titlebar .gly{color:var(--orange);font-size:14px}
+  .fcard .titlebar h3{font-size:18px;font-weight:700;line-height:1.2}
+  .fcard .body{padding:18px;flex:1}
+  .fcard .desc{font-size:13.5px;color:var(--body);margin-bottom:16px}
+  .specgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .spec{background:var(--soft);border-radius:8px;padding:11px}
+  .spec.full{grid-column:1 / -1}
+  .spec .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--steel);margin-bottom:3px}
+  .spec .v{font-weight:700;color:var(--ink);font-size:13px}
+  .stars{display:flex;gap:1px;font-size:18px;line-height:1}
+  .star-on{color:var(--orange)}.star-off{color:#dfe3ea}
+  .plist{font-size:12.5px;margin-bottom:12px}
+  .plist .h{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+  .plist .h.pro{color:var(--green)}.plist .h.con{color:var(--red)}
+  .plist ul{list-style:none}
+  .plist li{display:flex;gap:7px;margin-bottom:4px;color:var(--body)}
+  .plist .mk-pro{color:var(--green);font-weight:700}
+  .plist .mk-con{color:var(--red);font-weight:700}
+  .codevend{font-size:12px;color:var(--steel);border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
+  .codevend strong{color:var(--ink)}
+  .codevend div{margin-bottom:3px}
+  .bestfor{background:var(--gold-bg);border-radius:8px;padding:11px;margin-bottom:14px;font-size:12.5px}
+  .bestfor .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--steel);font-weight:700;margin-bottom:3px}
+
+  /* Superstructure card */
+  .scard .imgwrap img{height:150px}
+
+  /* ===== Tables ===== */
+  .tablecard{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(16,18,22,.08);overflow:hidden}
+  .scroll{overflow-x:auto}
+  table.bk{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+  table.bk thead th{background:#0A0A0A;color:#fff;text-align:left;padding:12px 14px;font-family:'Outfit',sans-serif;font-weight:600;font-size:12.5px}
+  table.bk td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.bk tbody tr:nth-child(even){background:var(--soft)}
+  table.bk tr.hl{background:var(--gold-bg) !important}
+  .pill-id{display:inline-block;background:#0A0A0A;color:var(--orange);font-family:'Outfit',sans-serif;font-weight:900;font-size:11.5px;padding:2px 8px;border-radius:5px;margin-bottom:4px}
+  .pill-proj{display:inline-block;background:var(--orange);color:#0A0A0A;font-weight:800;font-size:10px;padding:2px 8px;border-radius:5px;margin-top:5px}
+  .t-strong{font-weight:700;color:var(--ink)}
+  .t-sub{font-size:12px;color:var(--steel)}
+  .cap{text-align:center;font-size:12px;color:var(--steel);margin-top:14px}
+
+  /* Dark table (value engineering) */
+  table.dk{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+  table.dk thead th{text-align:left;padding:12px 13px;color:var(--orange);font-size:11.5px;text-transform:uppercase;letter-spacing:.8px;font-weight:700;border-bottom:1px solid rgba(255,255,255,.2);font-family:'Outfit',sans-serif}
+  table.dk td{padding:12px 13px;border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.82)}
+  table.dk td.lead{font-weight:700;color:#fff}
+  table.dk td.hi{font-weight:800;color:var(--orange)}
+  .glassbox{background:rgba(255,255,255,.05);border-radius:14px;padding:24px;backdrop-filter:blur(4px)}
+
+  /* MF construction type cards */
+  .tcard{color:#fff;border-radius:14px;padding:22px;box-shadow:0 6px 18px rgba(16,18,22,.12)}
+  .tcard .gly{font-size:26px;opacity:.85;margin-bottom:10px}
+  .tcard h4{font-size:18px;font-weight:700;margin-bottom:4px}
+  .tcard .sd{font-size:12px;opacity:.82;margin-bottom:14px}
+  .tcard .kv{font-size:12.5px;margin-bottom:9px}
+  .tcard .kv .lab{font-size:10px;text-transform:uppercase;letter-spacing:.6px;opacity:.72}
+  .tcard .kv b{display:block}
+  .g-green{background:linear-gradient(135deg,#16a34a,#0e7c34)}
+  .g-blue{background:linear-gradient(135deg,#2563eb,#1d4ed8)}
+  .g-amber{background:linear-gradient(135deg,#d97706,#b45309)}
+  .g-brown{background:linear-gradient(135deg,#7c2d12,#5a1d0e)}
+
+  /* Scale economics cards */
+  .ecard{color:#fff;border-radius:14px;padding:26px;box-shadow:0 8px 22px rgba(16,18,22,.14)}
+  .ecard .sz{font-size:11.5px;text-transform:uppercase;letter-spacing:3px;opacity:.8;margin-bottom:8px}
+  .ecard .pv{font-family:'Outfit',sans-serif;font-size:30px;font-weight:900;margin-bottom:16px;line-height:1}
+  .ecard .mini-l{font-size:11.5px;opacity:.7;margin-bottom:2px}
+  .ecard .mini-v{font-weight:700;margin-bottom:12px}
+  .ecard .savebox{background:rgba(255,255,255,.15);border-radius:10px;padding:14px;text-align:center}
+  .ecard .savebox .st{color:var(--orange);font-size:11px;text-transform:uppercase;letter-spacing:.8px;font-weight:800;margin-bottom:4px}
+  .ecard .savebox .sv{font-family:'Outfit',sans-serif;font-size:24px;font-weight:900}
+  .ecard .savebox .sp{font-size:11.5px;opacity:.82;margin-top:3px}
+  .e-green{background:var(--green)}.e-blue{background:var(--blue)}.e-ink{background:#0A0A0A}
+
+  /* MF vendor cards */
+  .vcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(16,18,22,.05)}
+  .vcard .vh{color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px;font-weight:700;font-family:'Outfit',sans-serif}
+  .vcard .vh .gly{font-size:18px}
+  .vcard .vbody{padding:16px}
+  .vrow{border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:9px;font-size:13.5px}
+  .vrow:last-child{border:0;margin:0;padding:0}
+  .vrow .nm{font-weight:700;color:var(--ink)}
+  .vrow .lc{font-size:12px;color:var(--steel)}
+  .v-green{background:#16a34a}.v-blue{background:#2563eb}.v-amber{background:#d97706}.v-brown{background:#7c2d12}.v-cyan{background:#0891b2}.v-ink{background:#0A0A0A}
+
+  /* MF play box */
+  .playbox{background:linear-gradient(120deg,#0A0A0A,#161c26 55%,#0A0A0A);color:#fff;border-radius:18px;padding:34px;box-shadow:0 10px 30px rgba(16,18,22,.2)}
+  .playbox .pkick{text-align:center;color:var(--orange);font-size:11.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+  .playbox h3{text-align:center;font-size:clamp(20px,3vw,28px);font-weight:900;margin-bottom:24px}
+  .playstat{background:rgba(255,255,255,.1);border-radius:12px;padding:20px;text-align:center}
+  .playstat .n{font-family:'Outfit',sans-serif;font-size:32px;font-weight:900;color:var(--orange);margin-bottom:6px}
+  .playstat .l{font-weight:600;font-size:13px;margin-bottom:3px}
+  .playstat .s{font-size:11.5px;opacity:.7}
+  .playnote{margin-top:24px;text-align:center;font-size:14px;color:rgba(255,255,255,.82);max-width:760px;margin-left:auto;margin-right:auto}
+  .playnote .g{color:var(--orange)}
+
+  /* 80/20 stacks */
+  .stackcard{border-radius:18px;padding:28px;box-shadow:0 10px 26px rgba(16,18,22,.14)}
+  .stackcard .rk{font-size:42px;margin-bottom:10px}
+  .stackcard .cd{font-size:11.5px;text-transform:uppercase;letter-spacing:3px;opacity:.72;margin-bottom:8px}
+  .stackcard h3{font-size:24px;font-weight:900;margin-bottom:4px}
+  .stackcard .fm{font-family:'Outfit',monospace,sans-serif;font-size:14px;opacity:.82;margin-bottom:16px;letter-spacing:1px}
+  .stackcard .uc{font-size:14px;margin-bottom:16px;opacity:.92}
+  .stackcard .sh{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;font-weight:800;opacity:.82;border-top:1px solid rgba(0,0,0,.14);padding-top:13px}
+  .st-orange{background:linear-gradient(135deg,#F77F00,#c4640a);color:#0A0A0A}
+  .st-orange .sh{border-top-color:rgba(0,0,0,.2)}
+  .st-steel{background:linear-gradient(135deg,#94a3b8,#6b7891);color:#fff}
+  .st-steel .sh{border-top-color:rgba(255,255,255,.2)}
+  .st-ink{background:linear-gradient(135deg,#1d2734,#0A0A0A);color:#fff}
+  .st-ink .sh{border-top-color:rgba(255,255,255,.2)}
+
+  /* Decision flow */
+  .step{display:flex;gap:20px;background:var(--soft);border-left:4px solid var(--orange);border-radius:12px;padding:22px;margin-bottom:16px}
+  .step .num{flex:none;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px}
+  .n-amber{background:var(--orange)}.n-blue{background:var(--blue)}.n-green{background:var(--green)}.n-ink{background:#162133}.n-red{background:var(--red)}
+  .step .sl{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--steel);font-weight:700;margin-bottom:3px}
+  .step h3{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:3px}
+  .step p{font-size:13.5px;color:var(--body)}
+
+  /* Geotech policy */
+  .policy{background:#fff;border:2px solid var(--orange);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(16,18,22,.1)}
+  .policy .ph{background:#0A0A0A;color:#fff;padding:24px}
+  .policy .ph h2{font-size:clamp(20px,3vw,28px);font-weight:900;display:flex;align-items:center;gap:12px}
+  .policy .ph .gly{color:var(--orange);font-size:24px}
+  .policy .ph p{color:rgba(255,255,255,.78);font-size:13px;margin-top:6px}
+  .policy .pbody{padding:28px}
+  .checklist{list-style:none}
+  .checklist li{display:flex;gap:9px;margin-bottom:9px;font-size:13.5px;color:var(--body)}
+  .checklist .ck{color:var(--green);font-weight:800;flex:none}
+  .checklist .tg{color:var(--orange);font-weight:800;flex:none}
+  .infobox{background:var(--soft);border-radius:10px;padding:16px;margin-bottom:14px;font-size:13.5px}
+  .infobox h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+  .darknote{background:#0A0A0A;color:#fff;border-radius:10px;padding:16px;font-size:13.5px}
+  .darknote .g{color:var(--orange);font-weight:700}
+
+  /* Project cards */
+  .pjcard{background:#fff;border-radius:14px;box-shadow:0 6px 18px rgba(16,18,22,.1);border-left:4px solid var(--orange);padding:24px}
+  .pjcard.red{border-left-color:var(--red)}
+  .pjcard h3{font-size:24px;font-weight:900;color:var(--ink);margin-bottom:3px}
+  .pjcard .addr{font-size:12px;color:var(--steel);margin-bottom:14px}
+  .pjcard .ln{font-size:13.5px;margin-bottom:9px}
+  .pjcard .ln .k{font-size:11px;text-transform:uppercase;font-weight:700;color:var(--steel)}
+  .pjcard .rec{background:var(--gold-bg);border-radius:8px;padding:12px;margin:10px 0}
+  .pjcard .rec .k{font-size:10.5px;text-transform:uppercase;font-weight:700;color:var(--steel);margin-bottom:3px}
+  .pjcard .imp{background:#0A0A0A;color:#fff;border-radius:8px;padding:12px}
+  .pjcard .imp .k{font-size:10.5px;text-transform:uppercase;font-weight:700;color:var(--orange);margin-bottom:3px}
+  .pjcard .stat{font-size:12px;color:var(--steel);font-style:italic;margin-top:10px}
+
+  /* Soil cards */
+  .soilcard{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(16,18,22,.05);transition:.15s}
+  .soilcard:hover{box-shadow:0 10px 24px rgba(16,18,22,.12)}
+  .soilcard .ic{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;color:#fff}
+  .soilcard h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px}
+  .soilcard p{font-size:12.5px;color:var(--steel);margin-bottom:6px}
+  .soilcard p strong{color:var(--ink)}
+  .c-red{background:#dc2626}.c-blue{background:#2563eb}.c-green{background:#16a34a}.c-purple{background:#8b5cf6}.c-cyan{background:#0891b2}.c-orange{background:#ea580c}.c-sky{background:#0284c7}.c-amber{background:#d97706}
+
+  /* Off-site premise */
+  .layercard{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:22px}
+  .layercard .gly{font-size:30px;color:var(--orange);margin-bottom:12px}
+  .layercard h4{font-size:18px;font-weight:700;margin-bottom:12px}
+  .layercard .ll{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--orange);font-weight:800;margin-bottom:3px}
+  .layercard p{font-size:13px;color:rgba(255,255,255,.9);margin-bottom:12px}
+  .premise-line{text-align:center;margin-top:36px;max-width:760px;margin-left:auto;margin-right:auto}
+  .premise-line .big{font-size:clamp(18px,2.6vw,24px);font-weight:800;color:var(--orange)}
+  .premise-line .sm{color:rgba(255,255,255,.7);margin-top:8px;font-size:13.5px}
+  .premise-line .sm strong{color:#fff}
+
+  /* Team cards */
+  .teamcard{background:var(--soft);border-radius:14px;padding:24px;border-top:4px solid var(--orange)}
+  .teamcard .gly{font-size:30px;margin-bottom:12px}
+  .teamcard h4{font-size:19px;font-weight:700;color:var(--ink);margin-bottom:8px}
+  .teamcard p{font-size:13.5px;color:var(--body)}
+
+  /* Final CTA + footer */
+  .finalcta{text-align:center}
+  .finalcta h2{font-size:clamp(26px,4vw,44px);font-weight:900;margin-bottom:14px}
+  .finalcta h2 .g{color:var(--orange)}
+  .finalcta p{color:rgba(255,255,255,.82);font-size:16px;max-width:680px;margin:0 auto 28px}
+  .finalcta .meta{color:rgba(255,255,255,.4);font-size:12px;margin-top:30px;max-width:560px;margin-left:auto;margin-right:auto}
+  .sitefoot{background:#0A0A0A;color:#9aa3af;text-align:center;padding:26px 22px;font-size:12px}
+  .sitefoot a{color:var(--orange);text-decoration:none;font-weight:700}
+
+  /* ===== Responsive ===== */
+  @media(max-width:980px){
+    .grid4{grid-template-columns:repeat(2,1fr)}
+    .grid3{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:760px){
+    section{padding:46px 0}
+    .stat-grid{grid-template-columns:repeat(2,1fr);gap:22px}
+    .two-col{grid-template-columns:1fr;gap:22px}
+    .grid2,.grid3,.grid4{grid-template-columns:1fr}
+    .step{flex-direction:row}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar"><div class="wrap"><div class="row">
+  <span class="eyebrow">BuilderK · Internal · Confidential</span>
+  <a class="backlink" href="/intranet">← BuilderK Intranet</a>
+</div></div></div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="bg" style="background-image:url('/images/foundation/hero-songdo-apts.jpg')"></div>
+  <div class="scrim"></div>
+  <div class="inner">
+    <div class="kick">BuilderK · Engineering Reference</div>
+    <h1>The Foundation <span class="g">Playbook</span></h1>
+    <div class="rule"></div>
+    <p>
+      The complete reference for matching foundation systems to soil, site, and product type — covering both
+      <span class="g">single-family custom homes</span> and <span class="g">multifamily / apartment complexes</span>.
+      Built for sales, pre-construction, design, and engineering. Every recommendation tied to real value engineering:
+      <span class="g">save 4.5–8% of project cost</span> and <span class="g">5–7 weeks of schedule</span> per home —
+      <span class="g">$500K – $2M per apartment complex.</span>
+    </p>
+    <div class="btnrow">
+      <a href="#matrix" class="btn btn-pri">Jump to Decision Matrix →</a>
+      <a href="#foundations" class="btn btn-ghost">Browse Foundation Types</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== KEY STATS BANNER ===== -->
+<div class="statband"><div class="wrap"><div class="stat-grid">
+  <div class="stat"><div class="n">$45K–$80K</div><div class="l">Saved per home</div><div class="s">4.5–8% of project cost</div></div>
+  <div class="stat"><div class="n">5–7 wks</div><div class="l">Schedule pulled</div><div class="s">vs. legacy CMU + stick</div></div>
+  <div class="stat"><div class="n">9</div><div class="l">Foundation systems</div><div class="s">matched to FL conditions</div></div>
+  <div class="stat"><div class="n">3</div><div class="l">Stacks covering 80%</div><div class="s">of all our projects</div></div>
+</div></div></div>
+
+<!-- ===== WHY THIS EXISTS ===== -->
+<section class="sec-light"><div class="wrap"><div class="narrow">
+  <div class="sec-head">
+    <div class="kick">Why this playbook exists</div>
+    <h2>The Sudhagar Lesson</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="two-col">
+    <div class="goldcard">
+      <div class="big">~$80,000</div>
+      <div class="lab">Left on the table at Sudhagar</div>
+      <div class="sm">6.7% of total project cost — recoverable on every future home</div>
+    </div>
+    <div class="prose">
+      <p>The Sudhagar project (14070 Kendale Lakes, Miami) was built on a <strong>2,000 psf bearing assumption</strong> from a visual subgrade inspection — not a real geotechnical report. The actual limestone bearing was almost certainly <strong>3,000–3,500 psf</strong>.</p>
+      <p>Result: <strong>48" × 18" footings with #6 @ 6" o.c.</strong> — roughly 40% oversized. Combined with legacy CMU + LGS walls (not panelized) and no foundation-system evaluation, we left tens of thousands per home on the table.</p>
+      <p>This playbook fixes that. Three big levers: <strong>real geotech</strong>, <strong>matched foundation system</strong>, and <strong>panelized superstructure</strong> — applied per home type, per soil, per site.</p>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- ===== THE 9 FOUNDATION TYPES ===== -->
+<section id="foundations" class="sec-soft"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">Part 1 — Foundation Systems</div>
+    <h2>The 9 Foundation Types</h2>
+    <div class="rule"></div>
+    <p>Each system, when it wins, and what it costs in dollars + days.</p>
+  </div>
+  <div class="grid2 mid">
+
+    <!-- F1 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/f1-mono-slab.jpg" alt="Mono-Slab + Thickened Edge foundation"><span class="id-tag">F1</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">▤</span> Mono-Slab</div><h3>Mono-Slab + Thickened Edge</h3></div>
+      <div class="body">
+        <p class="desc">Single monolithic concrete pour combining slab + perimeter thickened-edge footing. Simplest fast-pour solution for inland sites with good bearing soil and no flood elevation requirement.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$6 – $10 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">5–7 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Inland uniform sand / limestone</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>Single pour day — no separate footing cycle</li>
+          <li><span class="mk-pro">✓</span>Lowest hard cost when soil + site allow</li>
+          <li><span class="mk-pro">✓</span>Familiar to every FL concrete crew</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Requires good bearing soil (≥2,000 psf)</li>
+          <li><span class="mk-con">✗</span>No raised floor — limited for FEMA / drainage zones</li>
+          <li><span class="mk-con">✗</span>Still site-poured (lower mechanistic score)</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> FBC residential, ACI 318</div><div><strong>Vendors:</strong> Any FL concrete contractor</div></div>
+      </div>
+    </div>
+
+    <!-- F2 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/f2-cmu-block-construction.jpg" alt="CMU Stem Wall + Strip Footing construction"><span class="id-tag">F2</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">⚒</span> Traditional CMU</div><h3>CMU Stem Wall + Strip Footing</h3></div>
+      <div class="body">
+        <p class="desc">Florida's legacy default. Poured concrete strip footing + multi-course CMU stem wall + slab. High labor, multiple pour days, multiple inspections. Sudhagar was built this way.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$12 – $18 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">12–17 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Anywhere — but slow</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>Familiar to every FL plan reviewer + inspector</li>
+          <li><span class="mk-pro">✓</span>Works on any soil</li>
+          <li><span class="mk-pro">✓</span>Lender / appraiser comfort</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>12–17 day install (the slowest of all options)</li>
+          <li><span class="mk-con">✗</span>3–4 separate inspections required</li>
+          <li><span class="mk-con">✗</span>Scarce block mason labor</li>
+          <li><span class="mk-con">✗</span>No insulation (R-2 only)</li>
+          <li><span class="mk-con">✗</span>Termite-prone interface</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> FBC residential, TMS 402/602</div><div><strong>Vendors:</strong> Legacy — avoid going forward</div></div>
+      </div>
+    </div>
+
+    <!-- F3 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/f3-icf-wall.jpg" alt="ICF Stem Wall + Mono-Slab foundation"><span class="id-tag">F3</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">▦</span> ICF Stem</div><h3>ICF Stem Wall + Mono-Slab</h3></div>
+      <div class="body">
+        <p class="desc">Insulated concrete forms (Fox Blocks, Nudura, BuildBlock) stacked for the stem wall, then poured monolithically with the slab. Hurricane-rated, insulated, and avoids the slow CMU labor problem.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$10 – $14 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">7–10 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Inland good bearing + hurricane priority</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>200+ mph hurricane wind rating</li>
+          <li><span class="mk-pro">✓</span>R-22 insulation built in (vs R-2 for CMU)</li>
+          <li><span class="mk-pro">✓</span>Faster than CMU (7–10 vs 12–17 days)</li>
+          <li><span class="mk-pro">✓</span>Mexico Beach 'Miracle House' survived Hurricane Michael Cat-5</li>
+          <li><span class="mk-pro">✓</span>Growing FL adoption with established trades</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Higher material cost than CMU upfront</li>
+          <li><span class="mk-con">✗</span>Requires ICF-trained installer (smaller pool)</li>
+          <li><span class="mk-con">✗</span>Single concrete pour day is critical — no second chance</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> FBC residential, ICC-ES</div><div><strong>Vendors:</strong> ICF ICF LLC (Tampa/Orlando), Coastal ICF (Tampa Bay), Florida ICF Systems (Palm City), McDaniel Construction (Ft Myers)</div></div>
+      </div>
+    </div>
+
+    <!-- F4 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/s6-modular-shipping.jpg" alt="Precast Stem Wall panels shipped to site"><span class="id-tag">F4</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">▥</span> Precast Stem</div><h3>Precast Stem Wall (Superior Walls type)</h3></div>
+      <div class="body">
+        <p class="desc">Factory-cast concrete wall panels with integral footer beam, dropped onto a compacted crushed-stone bed. No site-poured footing. Walls + structural footer arrive on a truck and are crane-set in hours.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$11 – $16 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">1–2 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Inland good bearing</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>Entire foundation walls installed in 1 day</li>
+          <li><span class="mk-pro">✓</span>5,000 PSI fiber-reinforced concrete (vs 2,500–3,000 PSI field pour)</li>
+          <li><span class="mk-pro">✓</span>Insulation + waterproofing integrated</li>
+          <li><span class="mk-pro">✓</span>No concrete cure window — frame the next day</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Limited FL adoption — most dealers are northeast-based</li>
+          <li><span class="mk-con">✗</span>Designed for basements; FL stem-wall use is a partial fit</li>
+          <li><span class="mk-con">✗</span>Freight cost from out-of-state plants</li>
+          <li><span class="mk-con">✗</span>FL plan reviewers less familiar — adds permit review time</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> ICC-ES, IRC, FBC residential</div><div><strong>Vendors:</strong> Superior Walls / Weaver Precast (verify FL dealer status), Coreslab Structures (FL)</div></div>
+      </div>
+    </div>
+
+    <!-- F5 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/s6-modular-home-set.jpg" alt="Precast concrete pier foundation for a modular home set"><span class="id-tag">F5</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">⚓</span> Precast Piers</div><h3>Precast Concrete Pier Foundation</h3></div>
+      <div class="body">
+        <p class="desc">Discrete cylindrical concrete piers with steel anchor plates on top, set in a compacted gravel pad. The home (modular box or panelized walls) bolts directly to the pier anchors. Industry standard for modular / manufactured / elevated structures.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$4 – $8 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">1–2 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Modular / ADU / elevated only</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>Cheapest 'real' foundation ($4–8 / sqft)</li>
+          <li><span class="mk-pro">✓</span>Installs in 1–2 days</li>
+          <li><span class="mk-pro">✓</span>Lifts home above FEMA Base Flood Elevation cleanly</li>
+          <li><span class="mk-pro">✓</span>Allows airflow under home (hurricane debris washes through)</li>
+          <li><span class="mk-pro">✓</span>Standard for the modular / HUD-code industry</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Not suitable for site-built custom 2-story homes (lender / appraiser pushback)</li>
+          <li><span class="mk-con">✗</span>Open underside = more termite + moisture attention</li>
+          <li><span class="mk-con">✗</span>Perceived as 'manufactured-grade' in high-end market</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> FBC residential, HUD code (manufactured)</div><div><strong>Vendors:</strong> Local precast or sonotube drilled-pier contractors statewide</div></div>
+      </div>
+    </div>
+
+    <!-- F6 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/f6-helical-piles-stack.jpg" alt="Stack of helical piles for a screw-pile foundation"><span class="id-tag">F6</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">⌁</span> Helical Piles</div><h3>Helical Pile + Precast Grade Beam</h3></div>
+      <div class="body">
+        <p class="desc">Steel piles screwed (not driven) into the ground by a hydraulic torque head. Bearing plates on top connect a precast or cast-in-place grade beam. Torque-controlled, instrumented install gives real-time capacity reading per pile.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$8 – $14 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">1 day</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Universal — variable, fill, sloped, lake-adjacent, karst</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>🏆 The most universal mechanistic foundation</li>
+          <li><span class="mk-pro">✓</span>1 day install for typical home (16–24 piles)</li>
+          <li><span class="mk-pro">✓</span>Zero concrete cure for load-bearing element</li>
+          <li><span class="mk-pro">✓</span>Works in variable soils, fill, sloped lots, lake-adjacent, mild karst, organic muck</li>
+          <li><span class="mk-pro">✓</span>Each pile gets a verified capacity reading (torque-to-load correlation)</li>
+          <li><span class="mk-pro">✓</span>Pairs perfectly with panelized superstructure</li>
+          <li><span class="mk-pro">✓</span>$5,000–$12,000 total pile cost for a typical home</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Coastal V-zone requires prestressed concrete piles instead</li>
+          <li><span class="mk-con">✗</span>Heavy karst with large voids may need steel pipe to bedrock</li>
+          <li><span class="mk-con">✗</span>Requires experienced installer + engineer familiar with helical design</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> ICC-ES ESR-3032, FBC, ASCE 7-22</div><div><strong>Vendors:</strong> Magnum Piering, Ram Jack Florida, ATLAS Resistance Piers</div></div>
+      </div>
+    </div>
+
+    <!-- F7 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/f7-pile-driving.jpg" alt="Prestressed concrete pile driving on a coastal site"><span class="id-tag">F7</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">≈</span> Prestressed Piles</div><h3>Prestressed Concrete Pile + Precast Cap</h3></div>
+      <div class="body">
+        <p class="desc">Factory-cast prestressed concrete piles driven on site by an impact hammer, capped with precast or cast-in-place pile caps. Mandatory for coastal V-zones and the standard for FL coastal high-hazard construction.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$20 – $35 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">5–7 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Coastal V-zone, marine, deep poor soils</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>Code-required for V-zones and coastal high-hazard</li>
+          <li><span class="mk-pro">✓</span>Handles marine bearing and deep poor soils</li>
+          <li><span class="mk-pro">✓</span>Highest capacity per pile (50–100+ tons)</li>
+          <li><span class="mk-pro">✓</span>FL vendors well-established with HVHZ approval</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Most expensive foundation option ($20–$35/sqft)</li>
+          <li><span class="mk-con">✗</span>Requires pile-driving rig (noise, vibration, access constraints)</li>
+          <li><span class="mk-con">✗</span>5–7 day install (driving + capping)</li>
+          <li><span class="mk-con">✗</span>Heavy logistics (cranes, trucks)</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> FBC, ACI 318, ASCE 7-22, Miami-Dade NOA for HVHZ</div><div><strong>Vendors:</strong> Paradise Precast (SW FL), DLS Prestressed (S FL), Florida Concrete Products (Miami)</div></div>
+      </div>
+    </div>
+
+    <!-- F8 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/f8-drilling-rig.jpg" alt="Auger-cast pile drilling rig"><span class="id-tag">F8</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">⛏</span> Auger-Cast</div><h3>Auger-Cast Piles + Grade Beam</h3></div>
+      <div class="body">
+        <p class="desc">Continuous flight auger drills into the ground; concrete pumped under pressure through the hollow stem as the auger is withdrawn. Steel cage inserted before concrete sets. Quieter and lower-vibration than driven piles.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$15 – $25 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">5–7 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Restricted access, sensitive sites, high water table</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>Low noise + low vibration (sensitive neighborhoods)</li>
+          <li><span class="mk-pro">✓</span>Works in restricted-access sites</li>
+          <li><span class="mk-pro">✓</span>Effective in high water table conditions</li>
+          <li><span class="mk-pro">✓</span>No spoil concerns — soil is displaced laterally</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Specialized equipment + crew (small FL supply)</li>
+          <li><span class="mk-con">✗</span>Less mechanistic — still site-poured concrete</li>
+          <li><span class="mk-con">✗</span>Requires real-time monitoring during install</li>
+          <li><span class="mk-con">✗</span>Quality control tied to operator skill</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> FBC, ACI 318</div><div><strong>Vendors:</strong> Specialty geotechnical contractors — case-by-case</div></div>
+      </div>
+    </div>
+
+    <!-- F9 -->
+    <div class="fcard">
+      <div class="imgwrap"><img src="/images/foundation/f9-steel-pipe-piles.jpg" alt="Steel pipe piles driven to bedrock"><span class="id-tag">F9</span></div>
+      <div class="titlebar"><div class="kicker"><span class="gly">⛰</span> Steel Piles</div><h3>Steel Pipe Pile + Cap</h3></div>
+      <div class="body">
+        <p class="desc">Steel pipe or H-pile sections driven to refusal in bedrock. Cap is bolted to pile top, eliminating the cure window for the structural element. Ideal for karst-prone South Florida limestone with cavities or voids.</p>
+        <div class="specgrid">
+          <div class="spec"><div class="k">Cost</div><div class="v">$18 – $30 / sqft</div></div>
+          <div class="spec"><div class="k">Install Time</div><div class="v">3–5 days</div></div>
+          <div class="spec full"><div class="k">Best Soil / Site</div><div class="v">Karst with voids, deep limestone</div></div>
+          <div class="spec full"><div class="k">Mechanistic Score</div><div class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span></div></div>
+        </div>
+        <div class="plist"><div class="h pro">✔ Pros</div><ul>
+          <li><span class="mk-pro">✓</span>Goes through voids/cavities to reach competent bedrock</li>
+          <li><span class="mk-pro">✓</span>Bolt-on cap = no concrete cure for structural piece</li>
+          <li><span class="mk-pro">✓</span>Highest 'mechanistic' rating among pile options</li>
+          <li><span class="mk-pro">✓</span>Predictable capacity (driven to refusal)</li>
+        </ul></div>
+        <div class="plist"><div class="h con">⚠ Cons</div><ul>
+          <li><span class="mk-con">✗</span>Steel cost volatility</li>
+          <li><span class="mk-con">✗</span>Requires impact hammer / hydraulic driver</li>
+          <li><span class="mk-con">✗</span>Corrosion protection needed in some soils</li>
+          <li><span class="mk-con">✗</span>Higher cost than helical or concrete piles</li>
+        </ul></div>
+        <div class="codevend"><div><strong>Code:</strong> FBC, ASCE 7-22</div><div><strong>Vendors:</strong> Specialty pile contractors — coordinate with EOR</div></div>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- ===== SUPERSTRUCTURE SYSTEMS ===== -->
+<section class="sec-light"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">Part 2 — Superstructure</div>
+    <h2>The 6 Wall + Roof Systems</h2>
+    <div class="rule"></div>
+    <p>What lands on top of the foundation. Panelized is our default.</p>
+  </div>
+  <div class="grid3 mid">
+
+    <!-- S1 -->
+    <div class="fcard scard">
+      <div class="imgwrap"><img src="/images/foundation/s1-stick-framing.jpg" alt="Stick-built wood frame construction"><span class="id-tag">S1</span><span class="badge-tag b-legacy">Legacy — Avoid</span></div>
+      <div class="titlebar"><div class="kicker" style="margin:0"><span class="gly">⚒</span><h3 style="font-size:16px">Stick-Built</h3></div></div>
+      <div class="body">
+        <p class="desc">Traditional field framing. Slow, labor-heavy, framer-scarce. Avoid going forward.</p>
+        <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$25 – $35 / sqft (shell)</div></div><div class="spec"><div class="k">Time</div><div class="v">3–4 weeks</div></div></div>
+        <div class="stars">[ <span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span> <span style="font-size:11px;color:var(--steel);margin-left:6px;align-self:center">mechanistic</span> ]</div>
+      </div>
+    </div>
+
+    <!-- S2 -->
+    <div class="fcard scard">
+      <div class="imgwrap"><img src="/images/foundation/s2-lgs-framing.jpg" alt="Light gauge steel framing over CMU"><span class="id-tag">S2</span><span class="badge-tag b-legacy">Legacy — Avoid</span></div>
+      <div class="titlebar"><div class="kicker" style="margin:0"><span class="gly">▤</span><h3 style="font-size:16px">CMU+LGS (Sudhagar)</h3></div></div>
+      <div class="body">
+        <p class="desc">Sudhagar-style. CMU ground floor + light gauge steel above. Hybrid coordination + scarce mason labor = slow.</p>
+        <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$35 – $50 / sqft (shell)</div></div><div class="spec"><div class="k">Time</div><div class="v">4–6 weeks</div></div></div>
+        <div class="stars">[ <span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span> <span style="font-size:11px;color:var(--steel);margin-left:6px;align-self:center">mechanistic</span> ]</div>
+      </div>
+    </div>
+
+    <!-- S3 -->
+    <div class="fcard scard">
+      <div class="imgwrap"><img src="/images/foundation/s3-prefab-construction.gif" alt="Panelized wood frame prefab construction"><span class="id-tag">S3</span><span class="badge-tag b-default">Default</span></div>
+      <div class="titlebar"><div class="kicker" style="margin:0"><span class="gly">▦</span><h3 style="font-size:16px">Panelized (Default)</h3></div></div>
+      <div class="body">
+        <p class="desc">BuilderK default. Factory-built wall + floor + roof panels. Crane-set on site in days. Two-story home assembled in 3 days (proven).</p>
+        <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$30 – $45 / sqft (shell)</div></div><div class="spec"><div class="k">Time</div><div class="v">3–5 days</div></div></div>
+        <div class="stars">[ <span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span> <span style="font-size:11px;color:var(--steel);margin-left:6px;align-self:center">mechanistic</span> ]</div>
+      </div>
+    </div>
+
+    <!-- S4 -->
+    <div class="fcard scard">
+      <div class="imgwrap"><img src="/images/foundation/s4-icf-ascent.jpg" alt="ICF whole-structure mid-rise construction"><span class="id-tag">S4</span><span class="badge-tag b-spec">Specialty</span></div>
+      <div class="titlebar"><div class="kicker" style="margin:0"><span class="gly">🛡</span><h3 style="font-size:16px">ICF Whole Structure</h3></div></div>
+      <div class="body">
+        <p class="desc">Hurricane-priority and energy-priority projects. Walls continuous from foundation up. 200+ mph wind rating. Mexico Beach Miracle House.</p>
+        <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$40 – $55 / sqft (shell)</div></div><div class="spec"><div class="k">Time</div><div class="v">2–3 weeks</div></div></div>
+        <div class="stars">[ <span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span> <span style="font-size:11px;color:var(--steel);margin-left:6px;align-self:center">mechanistic</span> ]</div>
+      </div>
+    </div>
+
+    <!-- S5 -->
+    <div class="fcard scard">
+      <div class="imgwrap"><img src="/images/foundation/s5-clt-multistory.jpg" alt="Panelized multistory structure with factory pods"><span class="id-tag">S5</span><span class="badge-tag b-spec">Multifamily</span></div>
+      <div class="titlebar"><div class="kicker" style="margin:0"><span class="gly">▥</span><h3 style="font-size:16px">Panelized + Pods</h3></div></div>
+      <div class="body">
+        <p class="desc">Multifamily play. Panelized walls + factory-built bathroom and kitchen pods. 65–80% of build value factory-captured.</p>
+        <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$45 – $60 / sqft (shell)</div></div><div class="spec"><div class="k">Time</div><div class="v">4–6 days</div></div></div>
+        <div class="stars">[ <span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span> <span style="font-size:11px;color:var(--steel);margin-left:6px;align-self:center">mechanistic</span> ]</div>
+      </div>
+    </div>
+
+    <!-- S6 -->
+    <div class="fcard scard">
+      <div class="imgwrap"><img src="/images/foundation/s6-modular-home-img.jpg" alt="Volumetric modular home boxes"><span class="id-tag">S6</span><span class="badge-tag b-spec">Modular</span></div>
+      <div class="titlebar"><div class="kicker" style="margin:0"><span class="gly">⌂</span><h3 style="font-size:16px">Modular Volumetric</h3></div></div>
+      <div class="body">
+        <p class="desc">Whole-home boxes craned in place. Best for ADUs, workforce housing, hotels. 250-mile transport limit. Resia model in FL.</p>
+        <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$50 – $70 / sqft (shell)</div></div><div class="spec"><div class="k">Time</div><div class="v">1–2 days</div></div></div>
+        <div class="stars">[ <span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span> <span style="font-size:11px;color:var(--steel);margin-left:6px;align-self:center">mechanistic</span> ]</div>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- ===== MASTER MATRIX ===== -->
+<section id="matrix" class="sec-soft"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">Decision Matrix</div>
+    <h2>Home Type × Recommended Stack</h2>
+    <div class="rule"></div>
+    <p>Pick the home type → get the recommended foundation + superstructure + days-to-dried-in.</p>
+  </div>
+  <div class="tablecard mid">
+    <div class="scroll">
+      <table class="bk">
+        <thead><tr>
+          <th>Home Type</th><th>Foundation</th><th>Superstructure</th><th>Days to Dried-In</th><th>$/sqft (total)</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="t-strong">1-Story Custom · Inland</div><div class="t-sub">2,000 sqft typical</div></td>
+            <td><span class="pill-id">F6</span><div class="t-sub">Helical + precast grade beam</div></td>
+            <td><span class="pill-id">S3</span><div class="t-sub">Panelized</div></td>
+            <td class="t-strong">4–5 days</td><td class="t-strong">$90 – $130</td>
+          </tr>
+          <tr class="hl">
+            <td><div class="t-strong">2-Story Custom · Inland</div><div class="t-sub">3,000+ sqft</div><div class="pill-proj">★ Guerrero</div></td>
+            <td><span class="pill-id">F6</span><div class="t-sub">Helical + precast grade beam</div></td>
+            <td><span class="pill-id">S3</span><div class="t-sub">Panelized</div></td>
+            <td class="t-strong">6–8 days</td><td class="t-strong">$100 – $140</td>
+          </tr>
+          <tr>
+            <td><div class="t-strong">2-Story Custom · Lake/Water Adjacent</div><div class="t-sub">Any</div><div class="pill-proj">★ Sudhagar (should have been)</div></td>
+            <td><span class="pill-id">F6</span><div class="t-sub">Helical (longer piles) + precast cap</div></td>
+            <td><span class="pill-id">S3</span><div class="t-sub">Panelized</div></td>
+            <td class="t-strong">7–9 days</td><td class="t-strong">$110 – $150</td>
+          </tr>
+          <tr class="hl">
+            <td><div class="t-strong">2-Story Coastal V-zone / HVHZ</div><div class="t-sub">Any</div><div class="pill-proj">★ Castillo</div></td>
+            <td><span class="pill-id">F7</span><div class="t-sub">Prestressed pile + precast cap</div></td>
+            <td><span class="pill-id">S3</span><div class="t-sub">Panelized or ICF</div></td>
+            <td class="t-strong">10–14 days</td><td class="t-strong">$140 – $190</td>
+          </tr>
+          <tr>
+            <td><div class="t-strong">Hurricane-Premium · A-Zone</div><div class="t-sub">Any</div></td>
+            <td><span class="pill-id">F3</span><div class="t-sub">ICF stem + mono-slab</div></td>
+            <td><span class="pill-id">S4</span><div class="t-sub">ICF entire structure</div></td>
+            <td class="t-strong">3–4 weeks</td><td class="t-strong">$150 – $200</td>
+          </tr>
+          <tr>
+            <td><div class="t-strong">ADU / Backyard Cottage</div><div class="t-sub">400–1,200 sqft</div></td>
+            <td><span class="pill-id">F5</span><div class="t-sub">Precast pier foundation</div></td>
+            <td><span class="pill-id">S3/S6</span><div class="t-sub">Panelized or Modular box</div></td>
+            <td class="t-strong">1–3 days</td><td class="t-strong">$70 – $110</td>
+          </tr>
+          <tr>
+            <td><div class="t-strong">Modular / Workforce / Production</div><div class="t-sub">Any</div></td>
+            <td><span class="pill-id">F5/F1</span><div class="t-sub">Precast pier or Mono-slab</div></td>
+            <td><span class="pill-id">S6</span><div class="t-sub">Volumetric modular</div></td>
+            <td class="t-strong">1–2 days</td><td class="t-strong">$80 – $130</td>
+          </tr>
+          <tr>
+            <td><div class="t-strong">Multifamily 2–6 units, 2–3 story</div><div class="t-sub">Any</div></td>
+            <td><span class="pill-id">F6</span><div class="t-sub">Helical pile field + grade beam</div></td>
+            <td><span class="pill-id">S5</span><div class="t-sub">Panelized + pods</div></td>
+            <td class="t-strong">10–14 days</td><td class="t-strong">$130 – $170</td>
+          </tr>
+          <tr>
+            <td><div class="t-strong">Elevated Coastal Cabin / Stilt</div><div class="t-sub">Any</div></td>
+            <td><span class="pill-id">F5/F7</span><div class="t-sub">Precast pier or Pile</div></td>
+            <td><span class="pill-id">S3</span><div class="t-sub">Panelized</div></td>
+            <td class="t-strong">3–5 days</td><td class="t-strong">$90 – $140</td>
+          </tr>
+          <tr>
+            <td><div class="t-strong">Karst / Sinkhole-Prone</div><div class="t-sub">Any</div></td>
+            <td><span class="pill-id">F9</span><div class="t-sub">Steel pipe pile through to bedrock</div></td>
+            <td><span class="pill-id">S3</span><div class="t-sub">Panelized</div></td>
+            <td class="t-strong">5–7 days</td><td class="t-strong">$110 – $150</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="cap">★ Highlighted rows = active BuilderK projects</p>
+</div></section>
+
+<!-- ===== MULTIFAMILY ===== -->
+<section class="sec-light sec-orange-top"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick" style="color:var(--orange-d)">Part 3 — Multifamily Playbook</div>
+    <h2>Apartment Complexes — Different Scale, Different Math</h2>
+    <div class="rule"></div>
+    <p>Multifamily / apartment construction has its own foundation playbook — heavier loads, denser column grids, taller structures, and scale economics that turn small per-unit savings into seven-figure project deltas.</p>
+  </div>
+
+  <!-- 3 MF Foundations -->
+  <div class="mid" style="margin-bottom:54px">
+    <h3 class="sub-h">3 Additional Foundation Types for Multifamily</h3>
+    <p class="sub-p">These complement the 9 home foundations above and are specific to MF building loads.</p>
+    <div class="grid3">
+
+      <!-- F10 -->
+      <div class="fcard">
+        <div class="imgwrap"><img src="/images/foundation/f10-mat-slab.jpg" alt="Mat slab / raft foundation"><span class="id-tag">F10</span><span class="badge-tag b-mf">Multifamily</span></div>
+        <div class="titlebar"><h3>Mat Slab / Raft Foundation</h3></div>
+        <div class="body">
+          <p class="desc">Single thick reinforced concrete slab spanning the entire footprint. Distributes load across weak or variable soils. Standard for 4–8 story podium MF and structures on poor bearing.</p>
+          <div class="bestfor"><div class="k">Best for</div><div>4–8 story MF on weak/variable soils, podium buildings, where pile counts would be uneconomical</div></div>
+          <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$15 – $25 / sqft of footprint</div></div><div class="spec"><div class="k">Time</div><div class="v">10–15 days (single huge pour day)</div></div></div>
+          <div class="plist"><div class="h pro">Pros</div><ul><li><span class="mk-pro">✓</span>Distributes load uniformly</li><li><span class="mk-pro">✓</span>Eliminates differential settlement</li><li><span class="mk-pro">✓</span>Works on bad soils</li><li><span class="mk-pro">✓</span>Code-familiar to MF reviewers</li></ul></div>
+          <div class="plist"><div class="h con">Cons</div><ul><li><span class="mk-con">✗</span>High concrete volume = high cost</li><li><span class="mk-con">✗</span>Long pour day (massive concrete order)</li><li><span class="mk-con">✗</span>Curing time before vertical work</li><li><span class="mk-con">✗</span>Site-poured (low mechanistic score)</li></ul></div>
+        </div>
+      </div>
+
+      <!-- F11 -->
+      <div class="fcard">
+        <div class="imgwrap"><img src="/images/foundation/f11-pile-driving-2.jpg" alt="Pile group and pile cap grid for multifamily"><span class="id-tag">F11</span><span class="badge-tag b-mf">Multifamily</span></div>
+        <div class="titlebar"><h3>Pile Group + Pile Cap Grid</h3></div>
+        <div class="body">
+          <p class="desc">Clusters of 2–6 piles per column location, capped by precast or cast-in-place pile caps, tied together by grade beams. The standard for 5-over-1 podium MF in soft soils or coastal zones.</p>
+          <div class="bestfor"><div class="k">Best for</div><div>5-over-1 podium MF, coastal MF, MF on organic/muck, taller buildings (6+ stories)</div></div>
+          <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$22 – $40 / sqft of footprint</div></div><div class="spec"><div class="k">Time</div><div class="v">10–18 days (drive piles + cap + grade beams)</div></div></div>
+          <div class="plist"><div class="h pro">Pros</div><ul><li><span class="mk-pro">✓</span>Handles heaviest MF loads</li><li><span class="mk-pro">✓</span>Mandatory for coastal V-zone MF</li><li><span class="mk-pro">✓</span>Predictable per-pile capacity</li><li><span class="mk-pro">✓</span>Standard MF design pattern</li></ul></div>
+          <div class="plist"><div class="h con">Cons</div><ul><li><span class="mk-con">✗</span>Most expensive foundation option</li><li><span class="mk-con">✗</span>Pile driving = noise + vibration</li><li><span class="mk-con">✗</span>Crane-heavy logistics</li><li><span class="mk-con">✗</span>Permits + neighbor coordination</li></ul></div>
+        </div>
+      </div>
+
+      <!-- F12 -->
+      <div class="fcard">
+        <div class="imgwrap"><img src="/images/foundation/f8-drilling-rig.jpg" alt="Drilled caisson / shaft rig for high-rise multifamily"><span class="id-tag">F12</span><span class="badge-tag b-mf">Multifamily</span></div>
+        <div class="titlebar"><h3>Drilled Caissons / Shafts</h3></div>
+        <div class="body">
+          <p class="desc">Large-diameter (24"–60") drilled shafts with reinforced concrete, bearing on competent stratum or rock. Used for taller MF (7+ stories) and where pile driving isn't feasible (urban infill, sensitive sites).</p>
+          <div class="bestfor"><div class="k">Best for</div><div>Mid-rise to high-rise MF (7–15 stories), urban infill, sensitive surroundings, when bedrock is deep</div></div>
+          <div class="specgrid"><div class="spec"><div class="k">Cost</div><div class="v">$25 – $50 / sqft of footprint</div></div><div class="spec"><div class="k">Time</div><div class="v">12–20 days</div></div></div>
+          <div class="plist"><div class="h pro">Pros</div><ul><li><span class="mk-pro">✓</span>Highest capacity per element (100+ tons)</li><li><span class="mk-pro">✓</span>Quiet vs. driven piles</li><li><span class="mk-pro">✓</span>Works for urban infill MF</li><li><span class="mk-pro">✓</span>Reaches deep bearing strata</li></ul></div>
+          <div class="plist"><div class="h con">Cons</div><ul><li><span class="mk-con">✗</span>Specialty equipment + crew</li><li><span class="mk-con">✗</span>High cost</li><li><span class="mk-con">✗</span>Slow individual install</li><li><span class="mk-con">✗</span>Real-time inspection required</li></ul></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MF Construction Types -->
+  <div class="mid" style="margin-bottom:54px">
+    <h3 class="sub-h">Multifamily Construction Types — How They Stack</h3>
+    <p class="sub-p">Understanding podium / Type III / mass timber — what each is, when to use it.</p>
+    <div class="grid4">
+      <div class="tcard g-green">
+        <div class="gly">⌂</div><h4>Garden 2–3 Story</h4><div class="sd">Wood-frame walk-up, small footprint</div>
+        <div class="kv"><span class="lab">Units</span><b>2–24 units typical</b></div>
+        <div class="kv"><span class="lab">Foundation</span><b>Helical pile + grade beam OR Mono-slab</b></div>
+        <div class="kv"><span class="lab">Walls</span><b>Panelized wood (S3)</b></div>
+        <div class="kv"><span class="lab">Dried-in</span><b>8–12 days dried-in</b></div>
+        <div class="kv"><span class="lab">Cost</span><b>$130 – $170 / sqft</b></div>
+      </div>
+      <div class="tcard g-blue">
+        <div class="gly">▣</div><h4>5-over-1 Podium</h4><div class="sd">Concrete podium + 5 floors wood-frame above</div>
+        <div class="kv"><span class="lab">Units</span><b>60–300 units</b></div>
+        <div class="kv"><span class="lab">Foundation</span><b>F11 Pile + cap OR F10 Mat slab</b></div>
+        <div class="kv"><span class="lab">Walls</span><b>Concrete podium L1 + Panelized + Pods (S5) above</b></div>
+        <div class="kv"><span class="lab">Dried-in</span><b>5–8 months to dried-in</b></div>
+        <div class="kv"><span class="lab">Cost</span><b>$180 – $240 / sqft</b></div>
+      </div>
+      <div class="tcard g-amber">
+        <div class="gly">▤</div><h4>Type IIIA Wood Frame</h4><div class="sd">Up to 5–6 stories all wood-frame (FL allows w/ sprinklers)</div>
+        <div class="kv"><span class="lab">Units</span><b>40–150 units</b></div>
+        <div class="kv"><span class="lab">Foundation</span><b>F6 Helical OR F11 Pile + cap</b></div>
+        <div class="kv"><span class="lab">Walls</span><b>Panelized wood (S3) + Pods (S5)</b></div>
+        <div class="kv"><span class="lab">Dried-in</span><b>3–5 months to dried-in</b></div>
+        <div class="kv"><span class="lab">Cost</span><b>$150 – $200 / sqft</b></div>
+      </div>
+      <div class="tcard g-brown">
+        <div class="gly">⛰</div><h4>Mass Timber / CLT MF</h4><div class="sd">6–18 story CLT structural, ESG-driven</div>
+        <div class="kv"><span class="lab">Units</span><b>50–200 units</b></div>
+        <div class="kv"><span class="lab">Foundation</span><b>F11 Pile + cap (typical)</b></div>
+        <div class="kv"><span class="lab">Walls</span><b>CLT panels + Pods (S5)</b></div>
+        <div class="kv"><span class="lab">Dried-in</span><b>4–6 months to dried-in</b></div>
+        <div class="kv"><span class="lab">Cost</span><b>$220 – $300 / sqft</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MF Decision Matrix -->
+  <div class="mid" style="margin-bottom:54px">
+    <h3 class="sub-h">Multifamily Decision Matrix</h3>
+    <p class="sub-p">Apartment complex type → recommended foundation + superstructure stack.</p>
+    <div class="tablecard">
+      <div class="scroll">
+        <table class="bk">
+          <thead><tr>
+            <th>MF Type</th><th>Stories</th><th>Foundation</th><th>Superstructure</th><th>$/sqft</th><th>Months to dried-in</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="t-strong">Garden Apartment (Inland)</td><td>2–3</td><td class="t-sub">F6 Helical + grade beam</td><td class="t-sub">S3 Panelized</td><td class="t-strong">$130–$170</td><td class="t-strong">0.5–1 mo</td></tr>
+            <tr><td class="t-strong">Townhouse Row (2–8 units)</td><td>2–3</td><td class="t-sub">F6 Helical OR F1 Mono-slab</td><td class="t-sub">S3 Panelized</td><td class="t-strong">$140–$180</td><td class="t-strong">0.5–1 mo</td></tr>
+            <tr><td class="t-strong">4-Plex / 6-Plex (Workforce)</td><td>2–3</td><td class="t-sub">F5 Pier OR F1 Mono-slab</td><td class="t-sub">S6 Modular OR S3 Panelized + Pods</td><td class="t-strong">$120–$160</td><td class="t-strong">0.5–1 mo</td></tr>
+            <tr><td class="t-strong">Mid-Rise Walk-up (Type IIIA, FL)</td><td>4–5</td><td class="t-sub">F6 Helical OR F11 Pile + cap</td><td class="t-sub">S5 Panelized + Pods</td><td class="t-strong">$150–$200</td><td class="t-strong">3–5 mo</td></tr>
+            <tr><td class="t-strong">5-over-1 Podium (Inland)</td><td>5–6</td><td class="t-sub">F11 Pile group + cap grid</td><td class="t-sub">Concrete L1 + S5 Panelized + Pods L2–6</td><td class="t-strong">$180–$240</td><td class="t-strong">5–8 mo</td></tr>
+            <tr><td class="t-strong">5-over-1 Podium (Coastal A-zone)</td><td>5–6</td><td class="t-sub">F11 Prestressed pile + cap</td><td class="t-sub">Concrete L1 + S5 Panelized + Pods</td><td class="t-strong">$210–$280</td><td class="t-strong">5–9 mo</td></tr>
+            <tr><td class="t-strong">Mass Timber MF</td><td>6–12</td><td class="t-sub">F11 Pile + cap OR F12 Caisson</td><td class="t-sub">CLT structure + S5 Pods</td><td class="t-strong">$220–$300</td><td class="t-strong">4–6 mo</td></tr>
+            <tr><td class="t-strong">High-Rise MF (FL urban)</td><td>12–18</td><td class="t-sub">F12 Drilled caissons</td><td class="t-sub">Cast-in-place concrete + S5 Pods</td><td class="t-strong">$280–$400</td><td class="t-strong">12–18 mo</td></tr>
+            <tr><td class="t-strong">Coastal V-Zone MF</td><td>Any</td><td class="t-sub">F7 Prestressed pile (mandatory)</td><td class="t-sub">S4 ICF OR S5 Panelized + Pods</td><td class="t-strong">$240–$340</td><td class="t-strong">6–12 mo</td></tr>
+            <tr><td class="t-strong">Hotel / Hospitality / Workforce MF</td><td>3–8</td><td class="t-sub">F11 Pile + cap OR F1 Mono-slab</td><td class="t-sub">S6 Volumetric Modular (Marriott model)</td><td class="t-strong">$160–$220</td><td class="t-strong">2–4 mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MF Scale Economics -->
+  <div class="mid" style="margin-bottom:54px">
+    <h3 class="sub-h">Scale Economics — Why MF Pays More</h3>
+    <p class="sub-p">Per-unit savings compound across an apartment complex into seven-figure project deltas.</p>
+    <div class="grid3">
+      <div class="ecard e-green">
+        <div class="sz">Small MF (24 units)</div><div class="pv">$5M – $7M</div>
+        <div class="mini-l">Legacy approach</div><div class="mini-v">$200/sqft, 16 mo</div>
+        <div class="mini-l">BuilderK approach</div><div class="mini-v">$160/sqft, 8 mo</div>
+        <div class="savebox"><div class="st">Saved per project</div><div class="sv">$800K – $1.2M</div><div class="sp">12–17% of project value</div></div>
+      </div>
+      <div class="ecard e-blue">
+        <div class="sz">Mid MF (80 units)</div><div class="pv">$18M – $25M</div>
+        <div class="mini-l">Legacy approach</div><div class="mini-v">$220/sqft, 22 mo</div>
+        <div class="mini-l">BuilderK approach</div><div class="mini-v">$185/sqft, 12 mo</div>
+        <div class="savebox"><div class="st">Saved per project</div><div class="sv">$2.5M – $4M</div><div class="sp">14–18% of project value</div></div>
+      </div>
+      <div class="ecard e-ink">
+        <div class="sz">Large MF (200 units)</div><div class="pv">$50M – $80M</div>
+        <div class="mini-l">Legacy approach</div><div class="mini-v">$240/sqft, 30 mo</div>
+        <div class="mini-l">BuilderK approach</div><div class="mini-v">$200/sqft, 16 mo</div>
+        <div class="savebox"><div class="st">Saved per project</div><div class="sv">$8M – $14M</div><div class="sp">15–20% of project value</div></div>
+      </div>
+    </div>
+    <p class="cap" style="max-width:760px;margin:24px auto 0;font-size:14px"><strong style="color:var(--ink)">MF savings outpace single-family</strong> because every per-unit optimization multiplies across hundreds of identical units, and schedule pull compounds across stacked floors.</p>
+  </div>
+
+  <!-- MF Vendors -->
+  <div class="mid">
+    <h3 class="sub-h">Multifamily Vendors — By Category</h3>
+    <p class="sub-p">Who to call when you have an MF project ready to scope.</p>
+    <div class="grid2">
+
+      <div class="vcard">
+        <div class="vh v-green"><span class="gly">▦</span>Panelized Wood — MF specialist</div>
+        <div class="vbody">
+          <div class="vrow"><div class="nm">JDM Wall Panels</div><div class="lc">Millersburg, OH (East coast MF leader)</div></div>
+          <div class="vrow"><div class="nm">Builders FirstSource — Multifamily Division</div><div class="lc">8850 Trussway Blvd, Orlando, FL</div></div>
+          <div class="vrow"><div class="nm">Shelter Products</div><div class="lc">National — apt + hotel + student housing</div></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vh v-blue"><span class="gly">▣</span>Bathroom + Kitchen Pods</div>
+        <div class="vbody">
+          <div class="vrow"><div class="nm">Resia</div><div class="lc">Miami, FL — 40 pods/week (Golden Glades plant)</div></div>
+          <div class="vrow"><div class="nm">Eggrock Pods</div><div class="lc">Maine — US bath pod leader</div></div>
+          <div class="vrow"><div class="nm">Offsite Solutions</div><div class="lc">Imports + US licensing</div></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vh v-amber"><span class="gly">⌂</span>Volumetric Modular (Hotel + Workforce MF)</div>
+        <div class="vbody">
+          <div class="vrow"><div class="nm">Affinity Building Systems</div><div class="lc">Lakeland, GA (serves FL)</div></div>
+          <div class="vrow"><div class="nm">Volumetric Building Companies (VBC)</div><div class="lc">PA — national MF + hotel modular</div></div>
+          <div class="vrow"><div class="nm">Polcom Modular (Poland → US)</div><div class="lc">Marriott AC modular hotels</div></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vh v-brown"><span class="gly">⚓</span>Foundation — MF pile + cap</div>
+        <div class="vbody">
+          <div class="vrow"><div class="nm">Magnum Piering</div><div class="lc">Helical piles statewide FL</div></div>
+          <div class="vrow"><div class="nm">Paradise Precast / DLS Prestressed</div><div class="lc">Coastal MF prestressed piles</div></div>
+          <div class="vrow"><div class="nm">Coreslab Structures</div><div class="lc">Orlando/Miami/Tampa — precast MF caps &amp; beams</div></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vh v-cyan"><span class="gly">⛰</span>Mass Timber / CLT</div>
+        <div class="vbody">
+          <div class="vrow"><div class="nm">SmartLam North America</div><div class="lc">Dothan, AL (closest to FL)</div></div>
+          <div class="vrow"><div class="nm">Sterling Structural</div><div class="lc">Lufkin, TX (largest US CLT)</div></div>
+          <div class="vrow"><div class="nm">Mercer Mass Timber</div><div class="lc">3 N.A. plants</div></div>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vh v-ink"><span class="gly">🛡</span>MF Engineering / EOR</div>
+        <div class="vbody">
+          <div class="vrow"><div class="nm">Specialty MF structural firms</div><div class="lc">Engage early — MF loads differ materially from SF</div></div>
+          <div class="vrow"><div class="nm">Geotech: same vendor list as SF</div><div class="lc">Task Labs · UES · Terracon · Nutting · GFA</div></div>
+          <div class="vrow"><div class="nm">Andrés Shoijet (internal)</div><div class="lc">Site supervision + footing peer review</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- The MF Play -->
+  <div class="narrow" style="margin-top:54px">
+    <div class="playbox">
+      <div class="pkick">The BuilderK MF Play</div>
+      <h3>Hybrid Panelized + Pods is the MF Killer Combo</h3>
+      <div class="grid3">
+        <div class="playstat"><div class="n">65–80%</div><div class="l">of build value captured in factory</div><div class="s">Panels + pods together</div></div>
+        <div class="playstat"><div class="n">5–10%</div><div class="l">cheaper than volumetric modular</div><div class="s">Plus 4× catchment radius</div></div>
+        <div class="playstat"><div class="n">30–50%</div><div class="l">faster than stick-built MF</div><div class="s">Compounds over 100+ units</div></div>
+      </div>
+      <div class="playnote"><strong class="g">Recommendation:</strong> For all BuilderK multifamily projects, default to <strong>helical pile field + precast grade beam</strong> below and <strong>panelized walls + bathroom/kitchen pods</strong> above. Volumetric modular only for hotel/workforce when 200+ identical units within 250 mi of a factory.</div>
+    </div>
+  </div>
+
+</div></section>
+
+<!-- ===== 80/20 TOP 3 STACKS ===== -->
+<section class="sec-light"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">The 80/20 Rule</div>
+    <h2>3 Stacks Cover 80% of Projects</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid3 mid">
+    <div class="stackcard st-orange">
+      <div class="rk">🥇</div><div class="cd">Stack A</div><h3>Helical + Panelized</h3>
+      <div class="fm">F6 + S3</div>
+      <p class="uc">All inland custom homes (1 or 2 story), lake-adjacent, fill sites, sloped, variable soils, karst</p>
+      <div class="sh">~60% of projects</div>
+    </div>
+    <div class="stackcard st-steel">
+      <div class="rk">🥈</div><div class="cd">Stack B</div><h3>Prestressed Pile + Panelized</h3>
+      <div class="fm">F7 + S3</div>
+      <p class="uc">Coastal V-zone, A-zone, HVHZ, marine bearing — Castillo type</p>
+      <div class="sh">~20% of projects</div>
+    </div>
+    <div class="stackcard st-ink">
+      <div class="rk">🥉</div><div class="cd">Stack C</div><h3>Pier + Modular/Panelized</h3>
+      <div class="fm">F5 + S6 or S3</div>
+      <p class="uc">ADU, backyard cottage, modular line, elevated cabin, workforce housing</p>
+      <div class="sh">~15% of projects</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== VALUE ENGINEERING — DAYS × DOLLARS ===== -->
+<section class="sec-dark"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">Value Engineering</div>
+    <h2>Days × Dollars — Stack Comparison</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="narrow glassbox scroll">
+    <table class="dk">
+      <thead><tr>
+        <th>Stack</th><th>Foundation</th><th>Walls</th><th>Roof</th><th>Total dried-in</th><th>vs Legacy</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="lead">❌ Legacy (CMU + stick)</td><td>12–17 days</td><td>14–21 days</td><td>5–7 days</td><td class="hi">31–45 days</td><td class="lead">100% (baseline)</td></tr>
+        <tr><td class="lead">⚠️ Sudhagar (CMU + LGS)</td><td>12–17 days</td><td>12–18 days</td><td>4–6 days</td><td class="hi">28–41 days</td><td class="lead">95%</td></tr>
+        <tr><td class="lead">✅ 🥇 Stack A Helical + Panelized</td><td>1 day</td><td>2–3 days</td><td>1 day</td><td class="hi">4–5 days</td><td class="lead">80–85% — save 15–20%</td></tr>
+        <tr><td class="lead">✅ 🥈 Stack B Pile + Panelized</td><td>5–7 days</td><td>2–3 days</td><td>1 day</td><td class="hi">8–11 days</td><td class="lead">95–105%</td></tr>
+        <tr><td class="lead">✅ 🥉 Stack C Pier + Modular</td><td>1–2 days</td><td>&lt;1 day</td><td>included</td><td class="hi">1–3 days</td><td class="lead">65–75%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="text-align:center;color:rgba(255,255,255,.72);margin-top:24px;max-width:760px;margin-left:auto;margin-right:auto">
+    <strong style="color:var(--orange)">Schedule pull on Stack A vs Legacy = ~30 days saved per home.</strong> At $400/day carry cost = <strong style="color:var(--orange)">$12,000+ in soft cost saved per home</strong>, before counting hard-cost reductions.
+  </p>
+</div></section>
+
+<!-- ===== DECISION FLOW ===== -->
+<section class="sec-light"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">Decision Flow</div>
+    <h2>How to Pick — Step by Step</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="narrow">
+    <div class="step">
+      <div class="num n-amber">⛏</div>
+      <div><div class="sl">Step 1</div><h3>Order the geotech FIRST</h3><p>No foundation design starts without a sealed geotechnical report for any project hitting trigger criteria (see Geotech Policy below). Cost: $2K–$3.5K. ROI: 4–6×.</p></div>
+    </div>
+    <div class="step">
+      <div class="num n-blue">⚲</div>
+      <div><div class="sl">Step 2</div><h3>Identify the SITE condition</h3><p>Coastal V-zone? → Stack B. Lake/wetland adjacent or variable soils? → Stack A. Karst? → F9. ADU/cottage? → Stack C.</p></div>
+    </div>
+    <div class="step">
+      <div class="num n-green">⌂</div>
+      <div><div class="sl">Step 3</div><h3>Identify the PRODUCT type</h3><p>Custom 2-story home? Stack A or B. ADU or modular? Stack C. Multifamily? Helical field + panelized + pods.</p></div>
+    </div>
+    <div class="step">
+      <div class="num n-ink">🛡</div>
+      <div><div class="sl">Step 4</div><h3>Confirm with the EOR + Andrés peer review</h3><p>Footing schedule reviewed before permit submission. No exceptions on major homes.</p></div>
+    </div>
+    <div class="step">
+      <div class="num n-red">⚡</div>
+      <div><div class="sl">Step 5</div><h3>Order foundation + panels in parallel</h3><p>Foundation arrives day 1. Panels arrive day 2. Crane set both. Dried-in in days, not weeks.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== GEOTECH POLICY ===== -->
+<section class="sec-gold"><div class="wrap"><div class="narrow">
+  <div class="policy">
+    <div class="ph">
+      <h2><span class="gly">⚠</span> Geotech Policy — Mandatory Before Foundation Design</h2>
+      <p>Effective immediately for any project hitting any one trigger.</p>
+    </div>
+    <div class="pbody">
+      <div class="grid2" style="margin-bottom:24px">
+        <div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:12px">When a full geotech is required (any one trigger):</h4>
+          <ul class="checklist">
+            <li><span class="ck">✓</span>Two-story or taller</li>
+            <li><span class="ck">✓</span>A/C area &gt; 2,500 SF</li>
+            <li><span class="ck">✓</span>Within 200 ft of lake / canal / wetland</li>
+            <li><span class="ck">✓</span>HVHZ (Miami-Dade / Broward)</li>
+            <li><span class="ck">✓</span>Coastal V / A / Coastal A zone</li>
+            <li><span class="ck">✓</span>Variable soils (fill, karst, organic)</li>
+            <li><span class="ck">✓</span>Pile / deep foundation considered</li>
+            <li><span class="ck">✓</span>Project hard cost &gt; $400K</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:12px">Minimum geotech scope:</h4>
+          <ul class="checklist">
+            <li><span class="tg">◎</span>2–4 SPT borings to 30–40 ft</li>
+            <li><span class="tg">◎</span>Blow counts every 5 ft</li>
+            <li><span class="tg">◎</span>Lab tests (Atterberg, moisture, gradation)</li>
+            <li><span class="tg">◎</span>Seasonal high water table measured</li>
+            <li><span class="tg">◎</span>Bearing capacity + safety factor</li>
+            <li><span class="tg">◎</span>Settlement analysis</li>
+            <li><span class="tg">◎</span>Shallow-vs-pile recommendation</li>
+            <li><span class="tg">◎</span>Sealed by FL-licensed Geotech PE</li>
+          </ul>
+        </div>
+      </div>
+      <div class="infobox">
+        <h4>Approved vendors:</h4>
+        <p><strong>Task Laboratories</strong> (Miami, 305-235-5355) · <strong>Universal Engineering Sciences</strong> (statewide) · <strong>Terracon</strong> (statewide) · <strong>Nutting Engineers</strong> (Miami-Dade) · <strong>GFA International</strong> (multi-FL)</p>
+      </div>
+      <div class="darknote">
+        <strong class="g">Cost:</strong> $2,000–$3,500 per site &nbsp;·&nbsp; <strong class="g">ROI:</strong> 4–6× minimum &nbsp;·&nbsp; <strong class="g">Saves:</strong> $8K–$15K in over-designed concrete + rebar per home
+      </div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- ===== ACTIVE BUILDERK PROJECTS ===== -->
+<section class="sec-light"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">Applied to Real Projects</div>
+    <h2>Active BuilderK Projects</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid3 mid">
+    <div class="pjcard red">
+      <h3>Sudhagar</h3>
+      <div class="addr">14070 Kendale Lakes Blvd, Miami, FL 33183</div>
+      <div class="ln"><span class="k">Project value:</span> <span class="t-strong">$1.2M</span></div>
+      <div class="ln"><span class="k">What was/is happening:</span> CMU + LGS hybrid · CMU stem wall · Visual soil inspection only</div>
+      <div class="rec"><div class="k">Playbook recommends:</div><div class="t-strong">F6 Helical + S3 Panelized</div></div>
+      <div class="imp"><div class="k">Impact:</div><div>$80,000 left on the table (6.7% of project)</div></div>
+      <div class="stat">Already built — lessons captured</div>
+    </div>
+    <div class="pjcard">
+      <h3>Guerrero</h3>
+      <div class="addr">63140 Darcy Rd, Lady Lake, FL 32159</div>
+      <div class="ln"><span class="k">Project value:</span> <span class="t-strong">$700K – $900K</span></div>
+      <div class="ln"><span class="k">What was/is happening:</span> Pre-design — opportunity to apply new playbook</div>
+      <div class="rec"><div class="k">Playbook recommends:</div><div class="t-strong">F6 Helical + S3 Panelized</div></div>
+      <div class="imp"><div class="k">Impact:</div><div>$40K – $55K potential capture (~6%)</div></div>
+      <div class="stat">Order geotech this week</div>
+    </div>
+    <div class="pjcard">
+      <h3>Castillo</h3>
+      <div class="addr">5615 Lewis St, Fort Myers Beach, FL</div>
+      <div class="ln"><span class="k">Project value:</span> <span class="t-strong">$1.5M – $2.0M</span></div>
+      <div class="ln"><span class="k">What was/is happening:</span> Pre-design — coastal V-zone, piling specialist engaged</div>
+      <div class="rec"><div class="k">Playbook recommends:</div><div class="t-strong">F7 Prestressed pile + S3 Panelized</div></div>
+      <div class="imp"><div class="k">Impact:</div><div>$70K – $105K potential capture (~4–5%)</div></div>
+      <div class="stat">Order geotech before piling design</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== FLORIDA SOIL & SITE ===== -->
+<section class="sec-soft"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">Florida Reality</div>
+    <h2>Soil &amp; Site Conditions Across FL</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid4 mid">
+    <div class="soilcard"><div class="ic c-red">▣</div><h4>South FL (Miami-Dade, Broward)</h4><p><strong>Soil:</strong> Limestone bearing + karst risk</p><p><strong>Recommended:</strong> F6 Helical OR F9 Steel pile (if karst severe)</p></div>
+    <div class="soilcard"><div class="ic c-blue">≈</div><h4>Coastal V-Zones (Keys, FMB, Panhandle beaches)</h4><p><strong>Soil:</strong> Sandy + marine bearing</p><p><strong>Recommended:</strong> F7 Prestressed pile + cap (mandatory)</p></div>
+    <div class="soilcard"><div class="ic c-green">⛰</div><h4>Central FL (Orlando, Lakeland, Lake County)</h4><p><strong>Soil:</strong> Inland sandy + some limestone</p><p><strong>Recommended:</strong> F6 Helical or F3 ICF stem</p></div>
+    <div class="soilcard"><div class="ic c-purple">≋</div><h4>Everglades fringe / Wetlands (W Miami-Dade, Collier)</h4><p><strong>Soil:</strong> Organic muck + high water</p><p><strong>Recommended:</strong> F6 Helical to refusal</p></div>
+    <div class="soilcard"><div class="ic c-cyan">≈</div><h4>Lake/Canal-adjacent (statewide)</h4><p><strong>Soil:</strong> High water table + variable</p><p><strong>Recommended:</strong> F6 Helical + raised structure</p></div>
+    <div class="soilcard"><div class="ic c-orange">⛰</div><h4>Panhandle / NW Florida</h4><p><strong>Soil:</strong> Sandy + some clay + sloped lots</p><p><strong>Recommended:</strong> F6 Helical with stepped grade beam</p></div>
+    <div class="soilcard"><div class="ic c-sky">≈</div><h4>Treasure Coast / Atlantic</h4><p><strong>Soil:</strong> Sandy coastal + A-zone</p><p><strong>Recommended:</strong> F7 Pile or F3 ICF stem (depending on zone)</p></div>
+    <div class="soilcard"><div class="ic c-amber">⌂</div><h4>Workforce / Production lots</h4><p><strong>Soil:</strong> Varies — usually inland sandy</p><p><strong>Recommended:</strong> F5 Pier + S6 Modular</p></div>
+  </div>
+</div></section>
+
+<!-- ===== OFF-SITE PREMISE ===== -->
+<section class="sec-dark"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">The BuilderK Premise</div>
+    <h2>Majority Built Off-Site, Assembled On-Site</h2>
+    <div class="rule"></div>
+    <p>Every layer of every BuilderK home gets factory-built where possible, crane-set on site, assembled in days not weeks.</p>
+  </div>
+  <div class="grid4 mid">
+    <div class="layercard"><div class="gly">⚓</div><h4>Foundation</h4><div class="ll">Off-Site</div><p>Helical piles + precast caps OR prestressed piles</p><div class="ll">On-Site</div><p style="margin-bottom:0">Screw or drive into ground (1 day)</p></div>
+    <div class="layercard"><div class="gly">▦</div><h4>Walls</h4><div class="ll">Off-Site</div><p>Panelized (factory)</p><div class="ll">On-Site</div><p style="margin-bottom:0">Crane set + anchor (1 day)</p></div>
+    <div class="layercard"><div class="gly">⌂</div><h4>Roof</h4><div class="ll">Off-Site</div><p>Panelized cassette / truss (factory)</p><div class="ll">On-Site</div><p style="margin-bottom:0">Crane set + tie down (1 day)</p></div>
+    <div class="layercard"><div class="gly">▣</div><h4>Pods (future)</h4><div class="ll">Off-Site</div><p>Bath + MEP pods (factory)</p><div class="ll">On-Site</div><p style="margin-bottom:0">Drop in + connect (½ day)</p></div>
+  </div>
+  <div class="premise-line">
+    <div class="big">Foundation in 1 day + walls in 1 day + roof in 1 day = dried-in in 3–5 days.</div>
+    <div class="sm">vs. legacy CMU + stick framing: 31–45 days. <strong>That's the BuilderK premise, fully realized.</strong></div>
+  </div>
+</div></section>
+
+<!-- ===== HOW EACH TEAM USES THIS ===== -->
+<section class="sec-light"><div class="wrap">
+  <div class="sec-head">
+    <div class="kick">For Every Team</div>
+    <h2>How Each Team Uses This Playbook</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="grid4 mid">
+    <div class="teamcard"><div class="gly">＄</div><h4>Sales</h4><p>Cite the days-to-dried-in and the $/sqft delta when pitching speed + value to homebuyers and clients.</p></div>
+    <div class="teamcard"><div class="gly">📐</div><h4>Pre-Construction</h4><p>Use the Decision Matrix to scope every new project before estimation. Order geotech first.</p></div>
+    <div class="teamcard"><div class="gly">▣</div><h4>Design / Architecture</h4><p>Match foundation system to soil + site BEFORE drawing the structural set. Ahmed leads with his structural engineer.</p></div>
+    <div class="teamcard"><div class="gly">🛡</div><h4>Engineering / EOR</h4><p>Design to actual bearing capacity (from geotech), not to conservative 2,000 psf defaults. Andrés peer-reviews footing schedules.</p></div>
+  </div>
+</div></section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="sec-dark"><div class="wrap"><div class="finalcta narrow">
+  <h2>Build it <span class="g">smarter</span>, build it <span class="g">faster</span>.</h2>
+  <p>Every BuilderK home from this point forward follows this playbook. Use the Decision Matrix on every new project. Order the geotech first. Pick the stack. Build it in days.</p>
+  <div class="btnrow">
+    <a href="#matrix" class="btn btn-pri">Open the Decision Matrix →</a>
+    <a href="mailto:richard@builderk.com" class="btn btn-ghost">Questions? Email Richard</a>
+  </div>
+  <p class="meta">Playbook compiled by Richard Gallopp · BuilderK · Living document — feedback welcomed.</p>
+</div></div></section>
+
+<!-- ===== FOOTER ===== -->
+<div class="sitefoot">
+  BuilderK — Builders Knowledge Development Inc. · Internal &amp; Confidential · <a href="/intranet">← Back to BuilderK Intranet</a>
+</div>
+
+</body>
+</html>
